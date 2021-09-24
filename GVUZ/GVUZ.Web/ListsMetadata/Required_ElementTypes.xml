@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0">
+    <Entities>
+        <Entity id="ElementTypes" groupId="Common">
+            <CommonSettings allowEdit="true" allowCreate="false" allowDelete="false" newIdMode="UserInput"  />
+            <DataSettings   baseTableName="ElementTypes" />
+            <ListSettings pageSize="20" headerText="Типы элементов" />
+            <FormSettings />
+            <Fields>
+                <Field>
+                    <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <View visibility="Visible" order="1" caption="Идентификатор" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Идентификатор" editMode="ReadOnlyText" input="Text" isRequired="true" size="Normal" order="1" visible="true">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Code" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <View visibility="Visible" formatSchema="" order="10" caption="Код" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Код" input="Text" isRequired="true" size="Normal" order="10" visible="true">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Name" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Наименование" order="10" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="20" caption="Наименование" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Наименование" input="Text" isRequired="true" size="Long" order="20" visible="true">
+                    </FormSettings>
+                </Field>
+            </Fields>
+        </Entity>
+    </Entities>
+</Metadata>

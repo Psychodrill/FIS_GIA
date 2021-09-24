@@ -1,0 +1,75 @@
+﻿@model List<Admin.Models.CompositionFileViewModel>
+
+<form asp-action="SaveFile" asp-controller="CompositionThemes" data-ajax="true" data-ajax-success="onSuccess" method="post" data-ajax-confirm="Сохранить?">
+    
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-hover" id="CampaignList">
+            <thead>
+                <tr>
+                    <th>
+                        <label>Год Проведения</label>
+                    </th>
+                    <th>
+                        <label>Код Темы</label>
+                    </th>
+                    <th>
+                        <label>Тема</label>
+                    </th>
+                    <th>
+                        <input type="submit" id="btnsubmit" class="btn btn-outline-success" value="Сохранить" />
+                    </th>
+                    
+                </tr>
+            </thead>
+
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+
+                <tbody>
+
+                    <tr>
+                        <td>
+                            @Html.EditorFor(m => m[i].Year)
+                           
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m[i].Code)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m[i].Name)
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            }
+        </table>
+    }
+</form>
+
+<script type="text/javascript">
+@*$(function () {
+        $("#btnsubmit").click(function () {
+            event.preventDefault();
+            if (confirm("Сохранить?")) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("SaveFile", "CompositionThemes")',
+                    data: $("form").serialize(),
+                    success: function (data) {
+                        alert(data.message);
+                    }
+                });
+            };
+        });
+    });*@
+    function onSuccess() {
+        alert("Успешно");
+        $('#CampaignList').remove();
+    }
+
+</script>

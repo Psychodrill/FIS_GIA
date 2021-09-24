@@ -1,0 +1,31 @@
+@import "../Mixins/spinner.less";
+
+@blue: #0071bb;
+
+.tabs{
+	margin: 20px 0;
+	border-bottom: 1px solid @blue;
+}
+
+.tab {
+	display: inline-block;
+	padding: 10px 20px;
+	cursor: pointer;
+
+	&.current {
+		cursor: default;
+		background: @blue;
+		color: #fff;
+	}
+}
+
+.tab-content.loading {
+	min-height: 100px;
+
+	&::before {
+		content: '';
+		.spinner;
+		display: block;
+		margin: 50px auto;
+	}
+}

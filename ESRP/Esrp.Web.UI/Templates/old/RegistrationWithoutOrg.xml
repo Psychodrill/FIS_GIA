@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template>
+  <subject><![CDATA[##ESRPNAME##: Регистрация нового пользователя]]></subject>
+  <from><![CDATA[fbs@fbsege.ru]]></from>
+  <content-type><![CDATA[html]]></content-type>
+  <encoding><![CDATA[koi8-r]]></encoding>
+  <body>
+    <![CDATA[
+     <p>Здравствуйте, ##FULLNAME##.</p>
+     <p>Вы были упешно зарегистрированы в системе.<BR/>
+      </p>
+     <table>
+      <tr>
+        <td>Ваш логин:</td> 
+        <td>##LOGIN##</td>
+      </tr>
+      <tr>
+        <td>Ваш пароль:</td>
+        <td>##PASSWORD##</td>
+      </tr>
+    </table>
+    <p>Администрация ##ESRPNAME##.</p>
+    <p>Убедительная просьба не отвечать на данное письмо. Письмо отправлено автоматически.</p>
+    ]]>
+  </body>
+</template>

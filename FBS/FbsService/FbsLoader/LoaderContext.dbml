@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="fbs_loader_db" Class="LoaderContext" AccessModifier="Internal" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FENIX\FENIX2005;Initial Catalog=fbs_loader_db;User ID=work" SettingsObjectName="FbsService.Properties.Settings" SettingsPropertyName="FbsLoaderConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CommonNationalExamCertificateDenyLoadingTask" Member="CNEDenyLoadingTasks" AccessModifier="Internal">
+    <Type Name="CNEDenyLoadingTask" Id="ID2" AccessModifier="Internal">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SourceBatchUrl" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsProcess" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsCorrect" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsLoaded" Type="System.Boolean" DbType="Bit not null" CanBeNull="false" />
+      <Column Name="EditorAccountId" Type="System.Int64" DbType="bigint" CanBeNull="false" />
+      <Column Name="EditorIp" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="UpdateId" Type="System.Guid" DbType="uniqueidentifier" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CommonNationalExamCertificateLoadingTask" Member="CNELoadingTasks" AccessModifier="Internal">
+    <Type Name="CNELoadingTask" Id="ID1" AccessModifier="Internal">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SourceBatchUrl" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsProcess" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsCorrect" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsLoaded" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EditorAccountId" Type="System.Int64" DbType="bigint" CanBeNull="false" />
+      <Column Name="EditorIp" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="UpdateId" Type="System.Guid" DbType="uniqueidentifier" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ExecuteCommonNationalExamCertificateDenyLoading" Method="ExecuteCommonNationalExamCertificateDenyLoading">
+    <Parameter Name="taskId" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ExecuteCommonNationalExamCertificateLoading" Method="ExecuteCommonNationalExamCertificateLoading">
+    <Parameter Name="taskId" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PrepareCommonNationalExamCertificateLoading" Method="PrepareCommonNationalExamCertificateLoading">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PrepareCommonNationalExamCertificateDenyLoading" Method="PrepareCommonNationalExamCertificateDenyLoading">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.StopCommonNationalExamCertificateDenyLoadingTask" Method="StopCommonNationalExamCertificateDenyLoadingTask">
+    <Parameter Name="taskId" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.StopCommonNationalExamCertificateLoadingTask" Method="StopCommonNationalExamCertificateLoadingTask">
+    <Parameter Name="taskId" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ActivateCommonNationalExamDenyLoadingTask" Method="ActivateCommonNationalExamDenyLoadingTask">
+    <Parameter Name="editorAccountId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ActivateCommonNationalExamLoadingTask" Method="ActivateCommonNationalExamLoadingTask">
+    <Parameter Name="editorAccountId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateCommonNationalExamCertificateLoadingTaskError" Method="UpdateCommonNationalExamCertificateLoadingTaskError">
+    <Parameter Name="taskId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="rowIndex" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="error" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateCommonNationalExamCertificateDenyLoadingTaskError" Method="UpdateCommonNationalExamCertificateDenyLoadingTaskError">
+    <Parameter Name="taskId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="rowIndex" Type="System.Int32" DbType="Int" />
+    <Parameter Name="error" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetProcessCommonNationalExamCertificateLoadingTask" Method="GetProcessCommonNationalExamCertificateLoadingTask">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.GetProcessCommonNationalExamCertificateDenyLoadingTask" Method="GetProcessCommonNationalExamCertificateDenyLoadingTask">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.UpdateLoadingCommonNationalExamCertificate" Method="UpdateLoadingCommonNationalExamCertificate">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="number" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="educationInstitutionCode" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="patronymicName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="sex" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="class" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="passportSeria" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="passportNumber" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="entrantNumber" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="regionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="updateId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="editorAccountid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+	<Parameter Name="typographicNumber" Type="System.String" DbType="NVarChar(255)" />  
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateLoadingCommonNationalExamCertificateSubject" Method="UpdateLoadingCommonNationalExamCertificateSubject">
+    <Parameter Name="certificateId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="regionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="subjectId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mark" Type="float" DbType="Float" />
+    <Parameter Name="hasAppeal" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ImportCommonNationalExamDenyCertificates" Method="ImportCommonNationalExamDenyCertificates">
+    <Parameter Name="denyCertificatesImportFile" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ImportCommonNationalExamCertificates" Method="ImportCommonNationalExamCertificates">
+    <Parameter Name="certificatesImportFile" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ImportCommonNationalExamCertificateSubjects" Method="ImportCommonNationalExamCertificateSubjects">
+    <Parameter Name="subjectImportFile" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateLoadingCommonNationalExamCertificateDeny" Method="UpdateLoadingCommonNationalExamCertificateDeny">
+    <Parameter Name="certificateNumber" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="comment" Type="System.String" DbType="NText" />
+    <Parameter Name="newCertificateNumber" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="updateId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="editorAccountid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

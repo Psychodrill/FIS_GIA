@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0">
+    <Entities>
+        <Entity id="MenuElements" groupId="Navigation">
+            <CommonSettings allowEdit="true" allowCreate="true" allowDelete="true" newIdMode="UserInput" />
+            <DataSettings   baseTableName="MenuElements" />
+            <ListSettings pageSize="20" headerText="Элементы" />
+            <FormSettings />
+            <Fields>
+                <Field>
+                    <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <Filter caption="Идентификатор" order="1" lineBreakAfterInput="true" input="Text" size="Short" visible="true"></Filter>
+                        <View visibility="Visible" order="1" caption="Идентификатор" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Идентификатор" editMode="ReadOnlyText" input="Text" isRequired="true" size="Normal" order="1" visible="true">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Code" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Код" order="10" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="10" caption="Код" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Код" input="Text" isRequired="true" size="Normal" order="10" visible="true">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Text" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Надпись" order="20" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="20" caption="Надпись" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Надпись" input="LongText" isRequired="true" size="Long" order="20" visible="true">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Description" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Описание" order="30" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Hidden" formatSchema="" order="30" caption="Описание" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Описание" input="LongText" isRequired="false" size="Long" order="30" visible="true">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="ContentCode" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Код содержимого" order="40" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="40" caption="Код содержимого" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Код содержимого" input="LongText" isRequired="true" size="Long" order="40" visible="true">
+                    </FormSettings>
+                </Field>
+				<!--Раздел второго уровня-->
+                <Field>
+                    <DataSettings fieldName="MenuItemId" fieldType="Integer" filterMode="Equals">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Раздел" order="50" lineBreakAfterInput="true" input="Picker" size="NormalLong" visible="true">
+                            <Picker entityId="MenuItems" />
+                        </Filter>
+                        <View visibility="Never" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings isExternal="true" lineBreakAfterInput="true" caption="Раздел" input="Picker" isRequired="true" size="NormalLong" order="50" visible="true">
+                        <Picker entityId="MenuItems" />
+                    </FormSettings>
+                </Field>
+				
+                <Field>
+                    <DataSettings fieldName="ElementTypeId" fieldType="Integer" filterMode="Equals">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Тип элемента" order="60" lineBreakAfterInput="true" input="DropDown" size="Normal" visible="true">
+                            <DropDown tableName="ElementTypes" captionFieldName="Name" keyFieldName="Id" orderFieldName="Name"></DropDown>
+                        </Filter>
+                        <View visibility="Never" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Тип элемента" input="DropDown" isRequired="true" size="Normal" order="60" visible="true">
+                        <DropDown tableName="ElementTypes" captionFieldName="Name" keyFieldName="Id" orderFieldName="Name"></DropDown>
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="ActionId" fieldType="Guid" filterMode="Equals">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Действие" order="70" lineBreakAfterInput="true" input="DropDown" size="Normal" visible="true">
+                            <DropDown tableName="Actions" captionFieldName="Name" keyFieldName="Id" orderFieldName="Name"></DropDown>
+                        </Filter>
+                        <View visibility="Never" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Действие" input="DropDown" isRequired="false" size="Normal" order="70" visible="true">
+                        <DropDown tableName="Actions" captionFieldName="Name" keyFieldName="Id" orderFieldName="Name"></DropDown>
+                    </FormSettings>
+                </Field>
+              <Field>
+                <DataSettings fieldName="Published" fieldType="Boolean" filterMode="Equals"></DataSettings>
+                <ListSettings>
+                  <Filter caption="Опубликован" order="80" lineBreakAfterInput="true" input="Boolean" size="Short" visible="true"></Filter>
+                  <View visibility="Visible" order="80" caption="Опубликован" >
+                  </View>
+                </ListSettings>
+                <FormSettings lineBreakAfterInput="true" caption="Опубликован" editMode="Control" input="Boolean" isRequired="true" size="Normal" order="80" visible="true">
+                </FormSettings>
+              </Field>
+			  <!--Раздел второго уровня-->
+              <Relation baseTableField="MenuItemId" relatedTableName="MenuItems" mustExist="true">
+                    <Field>
+                        <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer"></DataSettings>
+                    </Field>
+                    <Field>
+                        <DataSettings fieldName="Text" fieldType="String"></DataSettings>
+                        <ListSettings>
+                            <View visibility="Visible" order="50" caption="Раздел" />
+                        </ListSettings>
+                    </Field>
+                </Relation>
+				
+                <Relation baseTableField="ElementTypeId" relatedTableName="ElementTypes" mustExist="true">
+                    <Field>
+                        <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer"></DataSettings>
+                    </Field>
+                    <Field>
+                        <DataSettings fieldName="Name" fieldType="String"></DataSettings>
+                        <ListSettings>
+                            <View visibility="Visible" order="60" caption="Тип элемента" />
+                        </ListSettings>
+                    </Field>
+                </Relation>
+                <Relation baseTableField="ActionId" relatedTableName="Actions" mustExist="false">
+                    <Field>
+                        <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Guid"></DataSettings>
+                    </Field>
+                    <Field>
+                        <DataSettings fieldName="Name" fieldType="String"></DataSettings>
+                        <ListSettings>
+                            <View visibility="Visible" order="70" caption="Действие" />
+                        </ListSettings>
+                    </Field>
+                </Relation>
+            </Fields>
+        </Entity>
+    </Entities>
+</Metadata>

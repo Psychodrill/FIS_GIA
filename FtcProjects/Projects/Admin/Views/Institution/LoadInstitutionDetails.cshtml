@@ -1,0 +1,155 @@
+﻿@* @model Admin.Models.InstitutionViewModel *@
+@model Admin.Models.DBContext.Institution
+
+@if (Model.InstitutionId == 0)
+{
+    <br /><span class="product_title">Не выбрана образовательная организация</span>
+    <br />
+}
+else
+{
+    var InstitutionId = Model.InstitutionId;
+    var name = "";
+    @if(Model.BriefName != null)
+    {
+        name = Model.BriefName;
+    }
+    else
+    {        
+        name = Model.FullName;
+    }
+
+    <br />
+    <b>@name</b>
+    <br />
+
+    <div class="container">
+
+    <div class="row align-items-start ">
+        <div class="col-sm-auto my-3">
+            <label class="control-label" for="LicenseNumber">Лицензия № :</label>
+            <input class="form-control input-sm" id="LicenseNumber" name="LicenseNumber" type="text" 
+            value="@ViewBag.License?.LicenseNumber">
+            <label class="control-label" for="LicenseDate">от :</label>
+            <input class="form-control input-sm" id="LicenseDate" name="LicenseDate" type="text"
+             value="@ViewBag.License?.LicenseDate">
+        
+            @if (ViewBag.License?.InstitutionAttachment != null)
+            {
+                <span style="color:green;">Файл лицензии загружен:</span>
+                <br />
+                <b>@ViewBag.License.InstitutionAttachment.Name</b>
+                <br />
+                @* <div class="col-4 my-3">
+                    <button type="button" class="btn btn-danger" id="del" name="del">Удалить</button>
+                </div> *@
+            }
+            else
+            {
+                <span style="color:red;">Файл лицензии не загружен</span>
+                @if (ViewBag.License?.LicenseNumber != null) {
+                    <div class="form-group">
+                        @using (Html.BeginForm("UploadLicense", "Institution", FormMethod.Post, new { enctype = "multipart/form-data"  }))
+                        {
+                            <input type="file" name="upload" />
+                            <input type="hidden" name="InstitutionId" value="@Model.InstitutionId" />
+                            <input type="submit" class="btn btn-success" style="padding-left:20px;" value="Загрузить" />
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+        <div class="row align-items-start">
+            <div class="col-sm-auto my-3">
+                <label class="control-label" for="Accreditation">Аккредитация №:</label>
+                <input class="form-control input-sm" id="AccreditationNumber" name="AccreditationNumber" type="text" 
+                value="@ViewBag.Accreditation?.Accreditation">
+
+                @if (ViewBag.Accreditation?.InstitutionAttachment != null)
+                {
+                    <span style="color:green;">Файл аккредитации загружен:</span>
+                    <br />
+                    <b>@ViewBag.Accreditation.InstitutionAttachment.Name</b>
+                    <br />
+                    @* <div class="col-4 my-3">
+                        <button type="button" class="btn btn-danger" id="del" name="del">Удалить</button>
+                    </div> *@
+                }
+                else
+                {
+                    <span style="color:red;">Файл аккредитации не загружен</span>
+                     @if (ViewBag.Accreditation?.Accreditation != null) {
+                        <div class="form-group">
+                            @using (Html.BeginForm("UploadAccreditation", "Institution", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <input type="file" name="upload" />
+                                <input type="submit" class="btn btn-success" style="padding-left:20px;" value="Загрузить" />
+                            }
+                        </div>
+                     }
+                }
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-4 my-3">
+                <button type="button" class="btn btn-primary" id="save" name="save">Сохранить</button>
+            </div>
+            <div class="col-4 my-3">
+                <button type="button" class="btn btn-primary" id="cancel" name="cancel">Отмена</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+}
+
+<script>
+                $(document).ready(function () {
+                    $('#save').click(function (e) {
+                        var data = {
+                            InstitutionId: @Model.InstitutionId,
+                            LicenseNumber: $('#LicenseNumber').val(),
+                            LicenseDate: $('#LicenseDate').val(),
+                            Accreditation: $('#AccreditationNumber').val()
+                        }
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("SaveInstitutionDetails", "Institution")',
+                            data: data,
+                            success: function (msg) {
+                                $('#details').empty().html(msg);
+                            }
+                        });
+                    });
+
+                    $('#cancel').click(function (e) {
+                        var data = {
+                            InstitutionId: @Model.InstitutionId
+                        }
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("LoadInstitutionDetails", "Institution")',
+                            data: data,
+                            success: function (msg) {
+                                $('#details').empty().html(msg);
+                            }
+                        });
+                    });
+
+
+
+
+                });
+
+
+
+</script>
+

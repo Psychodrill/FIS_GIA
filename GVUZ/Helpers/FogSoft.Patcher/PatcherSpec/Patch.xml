@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<patches>
+  <namespace prefix="todel" uri="http://4g-soft.com/XmlPatcherTest" />
+  <delete xpath="bookstore/book[@category='CHILDREN']/todel:year" />
+  <remove xpath="bookstore/book[price=30]/title[@lang]" name="lang" />
+  <append xpath="bookstore/book[@category='CHILDREN']" name="todel:newYear" value="2005" />
+  <append xpath="bookstore/book[@category='WEB']" name="isWeb" value="True" />
+  <append xpath="bookstore/book[@category='WEB']" name="category" value="WEB" />
+  <replace oldValue="\r\n\t\t\r\n\t\t" newValue="\r\n\t\t" />
+</patches>

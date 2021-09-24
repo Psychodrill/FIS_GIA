@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<DTSConfiguration>
+  <DTSConfigurationHeading>
+    <DTSConfigurationFileInfo GeneratedBy="HQ\ikulikov" GeneratedFromPackageName="WriteToService" GeneratedFromPackageID="{DCC502EA-B24C-4370-9AC9-DF828955C19C}" GeneratedDate="23.03.2015 4:21:26"/>
+  </DTSConfigurationHeading>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SqlCon].Properties[InitialCatalog]" ValueType="String">
+    <ConfiguredValue>ERBD_EGE_MAIN_15</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SqlCon].Properties[Password]" ValueType="String">
+    <ConfiguredValue>2222</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SqlCon].Properties[ServerName]" ValueType="String">
+    <ConfiguredValue>zubrus.rbc.ru\r2</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SqlCon].Properties[UserName]" ValueType="String">
+    <ConfiguredValue>sa</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::ServiceUrl].Properties[Value]" ValueType="String">
+    <ConfiguredValue>http://localhost:8787/Ege.Check.Logic.Services.EgeDataService.svc</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::UseProxy].Properties[Value]" ValueType="Int32">
+    <ConfiguredValue>1</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package\Синхронизация участников.Variables[User::ParticipantListERBD].Properties[Value]" ValueType="String">
+    <ConfiguredValue>
+      SELECT p.[ParticipantID]
+      ,pp.PValue as [ParticipantCode]
+      , p.ParticipantCode AS ParticipantCode2
+      ,[Surname]
+      ,[Name]
+      ,[SecondName]
+      ,p.[Region]
+      FROM [rbd_Participants] p
+      JOIN rbd_ParticipantProperties pp ON pp.ParticipantId = p.ParticipantID AND pp.Property = 3
+      WHERE DeleteType = 0
+    </ConfiguredValue>
+  </Configuration>
+</DTSConfiguration>

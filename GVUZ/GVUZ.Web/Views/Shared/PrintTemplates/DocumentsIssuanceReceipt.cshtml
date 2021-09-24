@@ -1,0 +1,37 @@
+﻿@inherits WebViewPage<GVUZ.Web.ViewModels.PrintTemplateInfoViewModel>
+			  
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Расписка в выдаче документов</title>
+        <style type="text/css">
+            @@media print {
+                .dontprint { display: none; }
+            }
+
+            h4 { font-weight: normal; }
+        </style>
+    </head>
+    <body>
+        <a class="dontprint" href="#" onclick=" window.print() ">Печать</a>
+        <div>	
+            <center>
+                <h4>РАСПИСКА В ВЫДАЧЕ ДОКУМЕНТОВ</h4>
+                № заявления: @Model.ApplicationNumber<br/>
+                Я, @Model.EntrantLastName @Model.EntrantFistName @Model.EntrantMiddleName, документы получил полностью.<br/>
+                Число: @DateTime.Now.ToString("dd.MM.yyyyг.") Подпись: _____________________ /@Model.EntrantLastName @Model.NameInitials/<br/>
+
+                <hr/>
+                <h4>ОТРЫВНОЙ ТАЛОН</h4>
+                <h4>ВЫДАТЬ ДОКУМЕНТЫ</h4>
+                Ф.И.О.: @Model.EntrantLastName @Model.EntrantFistName @Model.EntrantMiddleName <br/>
+                № заявления: @Model.ApplicationNumber<br/>
+            </center>
+        </div>
+    </body>
+</html>

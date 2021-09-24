@@ -1,0 +1,84 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/cancelled.css")"/>
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/cancelled.js")"> </script>
+}
+
+@{
+    ViewBag.Title = "Отмененные результаты";
+}
+
+@Html.Partial("Menu")
+
+<input type="hidden" value="@User.IsInRole("fct").ToString()" id="is-fct" />
+
+<div class="account-block">
+    <a href="#" id="logout">Выход</a>
+</div>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="add-to-table-form">
+    <form>
+        <div class="field hidden" id="region-block">
+        </div>
+        <div class="field">
+            <div class="label">
+                Код регистрации участника
+            </div>
+            <div>
+                <input type="text" name="Code">	
+            </div>
+        </div>
+        <div class="field">
+            <div class="label">
+                Дата экзамена
+            </div>
+            <div>
+                <select class="date-sel" id="date">
+                </select>
+            </div>
+        </div>
+        <div class="field">
+            <div class="label">
+                Предмет
+            </div>
+            <div>
+                <select id="exam" name="ExamGlobalId">
+                </select>
+            </div>
+        </div>
+        <button class="btn-m">
+            <span>Добавить</span>
+            @RawHtml("~/Content/Pages/Partials/loader.html")
+        </button>
+    </form>
+</div>
+
+<div id="table-container" class="table-container">
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>Регион</th>
+                <th>Код регистрации</th>
+                <th>Дата экзамена</th>
+                <th>Предмет</th>
+                <th class="width-80"></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/html" id="region-tmpl">
+    <div class="label">
+        Регион
+    </div>
+    <div>
+        <select name="RegionId" id="region">
+            {{#regions}}
+            <option value="{{REGION}}">{{RegionName}}</option>
+            {{/regions}}
+        </select>
+    </div>
+</script>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:ersp:v1" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:ersp:v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:ersp:v1">
+      <s:element name="ApplyBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batch">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApplyBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplyBatchResult" type="tns:ArrayOfLong" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLong">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="long" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SyncWithFis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maxRowCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncWithFisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SyncWithFisResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ApplyBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:ApplyBatch" />
+  </wsdl:message>
+  <wsdl:message name="ApplyBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:ApplyBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncWithFisSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncWithFis" />
+  </wsdl:message>
+  <wsdl:message name="SyncWithFisSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncWithFisResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SetDataSoap">
+    <wsdl:operation name="ApplyBatch">
+      <wsdl:input message="tns:ApplyBatchSoapIn" />
+      <wsdl:output message="tns:ApplyBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncWithFis">
+      <wsdl:input message="tns:SyncWithFisSoapIn" />
+      <wsdl:output message="tns:SyncWithFisSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SetDataHttpGet" />
+  <wsdl:portType name="SetDataHttpPost" />
+  <wsdl:binding name="SetDataSoap" type="tns:SetDataSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ApplyBatch">
+      <soap:operation soapAction="urn:ersp:v1/ApplyBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncWithFis">
+      <soap:operation soapAction="urn:ersp:v1/SyncWithFis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SetDataSoap12" type="tns:SetDataSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ApplyBatch">
+      <soap12:operation soapAction="urn:ersp:v1/ApplyBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncWithFis">
+      <soap12:operation soapAction="urn:ersp:v1/SyncWithFis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SetDataHttpGet" type="tns:SetDataHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="SetDataHttpPost" type="tns:SetDataHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="SetData">
+    <wsdl:port name="SetDataSoap" binding="tns:SetDataSoap">
+      <soap:address location="http://localhost:333/auth/setdata.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SetDataSoap12" binding="tns:SetDataSoap12">
+      <soap12:address location="http://localhost:333/auth/setdata.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SetDataHttpGet" binding="tns:SetDataHttpGet">
+      <http:address location="http://localhost:333/auth/setdata.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SetDataHttpPost" binding="tns:SetDataHttpPost">
+      <http:address location="http://localhost:333/auth/setdata.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

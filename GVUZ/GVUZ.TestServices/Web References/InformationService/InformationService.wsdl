@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:fbd:v1"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:fbd:v1"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:fbd:v1">
+      <s:element name="GetEgeInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppXml" type="tns:EgeParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EgeParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatronymicName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassportSeria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassportNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertificateNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEgeInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEgeInformationResult" type="tns:EgeResultAndStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EgeResultAndStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StatusCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultXml" type="tns:EgeResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EgeResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="certificate" type="tns:EgeCertificate" />
+          <s:element minOccurs="1" maxOccurs="1" name="errors" nillable="true" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EgeCertificate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="marks" type="tns:ArrayOfMark" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMark">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="mark" nillable="true" type="tns:Mark" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Mark">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="subjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="subjectMark" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="error" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetEgeInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEgeInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetEgeInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEgeInformationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InformationServiceSoap">
+    <wsdl:operation name="GetEgeInformation">
+      <wsdl:input message="tns:GetEgeInformationSoapIn" />
+      <wsdl:output message="tns:GetEgeInformationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InformationServiceSoap" type="tns:InformationServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetEgeInformation">
+      <soap:operation soapAction="urn:fbd:v1/GetEgeInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InformationServiceSoap12" type="tns:InformationServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetEgeInformation">
+      <soap12:operation soapAction="urn:fbd:v1/GetEgeInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InformationService">
+    <wsdl:port name="InformationServiceSoap" binding="tns:InformationServiceSoap">
+      <soap:address location="http://gvuz-prod.fogsoft.ru/InformationService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InformationServiceSoap12" binding="tns:InformationServiceSoap12">
+      <soap12:address location="http://gvuz-prod.fogsoft.ru/InformationService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

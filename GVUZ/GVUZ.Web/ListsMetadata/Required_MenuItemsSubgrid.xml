@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0">
+    <Entities>
+        <Entity id="MenuItemsSubgrid">
+            <CommonSettings allowEdit="true" allowCreate="true" allowDelete="true" newIdMode="UserInput" />
+            <DataSettings   baseTableName="MenuItems" >
+                <WhereExpression>MENUITEMS.PARENTMENUITEMID is not NULL</WhereExpression>
+            </DataSettings>
+            <ListSettings allowExport="true" addItemUrl="~/Administration/Catalogs/Add.aspx?EntityId=MenuItems&amp;{0}={1}" editItemUrl="~/Administration/Catalogs/Edit.aspx?EntityId=MenuItems&amp;Id={0}">
+                <PagerSettings Mode="None"/>
+            </ListSettings>
+            <FormSettings />
+            <Fields>
+                <Field>
+                    <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <Filter caption="Идентификатор" order="1" lineBreakAfterInput="true" input="Text" size="Short" visible="true"></Filter>
+                        <View visibility="Visible" order="1" caption="Идентификатор" >
+                        </View>
+                    </ListSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Code" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Код" order="10" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="10" caption="Код" >
+                        </View>
+                    </ListSettings>
+                </Field>
+                <Field>
+                    <CommonSettings isNameField="true" />
+                    <DataSettings fieldName="Text" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Надпись" order="20" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="20" caption="Надпись" >
+                        </View>
+                    </ListSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="PARENTMENUITEMID" fieldType="Integer" filterMode="Equals">
+                    </DataSettings>
+                    <ListSettings>
+                        <View visibility="Never" >
+                        </View>
+                    </ListSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Published" fieldType="Boolean" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <Filter caption="Опубликован" order="40" lineBreakAfterInput="true" input="Boolean" size="Short" visible="true"></Filter>
+                        <View visibility="Visible" order="40" caption="Опубликован" >
+                        </View>
+                    </ListSettings>
+                </Field>
+            </Fields>
+        </Entity>
+    </Entities>
+</Metadata>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<browsers>
+    <browser refID="Default">
+        <controlAdapters>
+            <adapter controlType="System.Web.UI.DataBoundLiteralControl"
+                     adapterType="Esrp.Web.ControlAdapters.HtmlAnchorControlAdapter" />
+            <adapter controlType="System.Web.UI.LiteralControl"
+                     adapterType="Esrp.Web.ControlAdapters.HtmlAnchorControlAdapter" />
+            <adapter controlType="System.Web.UI.WebControls.Literal"
+            adapterType="Esrp.Web.ControlAdapters.HtmlAnchorControlAdapter" />
+            <adapter controlType="System.Web.UI.HtmlControls.HtmlAnchor"
+            adapterType="Esrp.Web.ControlAdapters.HtmlAnchorControlAdapter" />
+            <adapter controlType="System.Web.UI.DesignerDataBoundLiteralControl"
+             adapterType="Esrp.Web.ControlAdapters.HtmlAnchorControlAdapter" />
+            <adapter controlType="System.Web.UI.HtmlControls.HtmlForm"
+                 adapterType="Esrp.Web.ControlAdapters.HtmlAnchorControlAdapter" />
+        </controlAdapters>
+    </browser>
+</browsers>

@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:IntegrationServices" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:IntegrationServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:IntegrationServices">
+      <s:element name="GetSessionId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackageMeta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packageId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackageMetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackageMetaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreatePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="historyCreate" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="documentInclude" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreatePackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreatePackageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packageId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="part" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetOk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packageId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetOkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetOkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpdates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packageId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="part" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpdatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUpdatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetObjectMeta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetObjectMetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetObjectMetaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetObjectList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fieldsInclude" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetObjectListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetObjectListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetObjectHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="primaryKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fieldName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beginDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDateTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetObjectHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetObjectHistoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentMeta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="primaryKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentMetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentMetaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="primaryKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="documentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentDataResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUpdates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packageId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="part" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUpdatesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPackages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packageId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="begin" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackageMD5">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packageId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackageMD5Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackageMD5Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSessionIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionId" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageMetaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackageMeta" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageMetaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackageMetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreatePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:CreatePackage" />
+  </wsdl:message>
+  <wsdl:message name="CreatePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:CreatePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackage" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetOkSoapIn">
+    <wsdl:part name="parameters" element="tns:SetOk" />
+  </wsdl:message>
+  <wsdl:message name="SetOkSoapOut">
+    <wsdl:part name="parameters" element="tns:SetOkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUpdates" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUpdatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectMetaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetObjectMeta" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectMetaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetObjectMetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetObjectList" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetObjectListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetObjectHistory" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetObjectHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentMetaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocumentMeta" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentMetaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocumentMetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocumentData" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocumentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetUpdatesSoapIn">
+    <wsdl:part name="parameters" element="tns:SetUpdates" />
+  </wsdl:message>
+  <wsdl:message name="SetUpdatesSoapOut">
+    <wsdl:part name="parameters" element="tns:SetUpdatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackages" />
+  </wsdl:message>
+  <wsdl:message name="GetPackagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageMD5SoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackageMD5" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageMD5SoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackageMD5Response" />
+  </wsdl:message>
+  <wsdl:portType name="BaseServiceSoap">
+    <wsdl:operation name="GetSessionId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Авторизация</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionIdSoapIn" />
+      <wsdl:output message="tns:GetSessionIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageMeta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение информации по пакету сведений</wsdl:documentation>
+      <wsdl:input message="tns:GetPackageMetaSoapIn" />
+      <wsdl:output message="tns:GetPackageMetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Генерация пакета сведений</wsdl:documentation>
+      <wsdl:input message="tns:CreatePackageSoapIn" />
+      <wsdl:output message="tns:CreatePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение пакета сведений</wsdl:documentation>
+      <wsdl:input message="tns:GetPackageSoapIn" />
+      <wsdl:output message="tns:GetPackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetOk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Подтверждение успешности передачи данных</wsdl:documentation>
+      <wsdl:input message="tns:SetOkSoapIn" />
+      <wsdl:output message="tns:SetOkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Сбор сведений (обновлений)</wsdl:documentation>
+      <wsdl:input message="tns:GetUpdatesSoapIn" />
+      <wsdl:output message="tns:GetUpdatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectMeta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Структура объекта</wsdl:documentation>
+      <wsdl:input message="tns:GetObjectMetaSoapIn" />
+      <wsdl:output message="tns:GetObjectMetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список доступных объектов</wsdl:documentation>
+      <wsdl:input message="tns:GetObjectListSoapIn" />
+      <wsdl:output message="tns:GetObjectListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">История объекта</wsdl:documentation>
+      <wsdl:input message="tns:GetObjectHistorySoapIn" />
+      <wsdl:output message="tns:GetObjectHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentMeta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение информации о документах</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentMetaSoapIn" />
+      <wsdl:output message="tns:GetDocumentMetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение документов</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentDataSoapIn" />
+      <wsdl:output message="tns:GetDocumentDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUpdates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Уведомление о наличии сведений (уведомление о готовности к поставке)</wsdl:documentation>
+      <wsdl:input message="tns:SetUpdatesSoapIn" />
+      <wsdl:output message="tns:SetUpdatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение пакета сведений</wsdl:documentation>
+      <wsdl:input message="tns:GetPackagesSoapIn" />
+      <wsdl:output message="tns:GetPackagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageMD5">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Проверка целостности данных</wsdl:documentation>
+      <wsdl:input message="tns:GetPackageMD5SoapIn" />
+      <wsdl:output message="tns:GetPackageMD5SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BaseServiceSoap" type="tns:BaseServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSessionId">
+      <soap:operation soapAction="urn:IntegrationServices/GetSessionId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageMeta">
+      <soap:operation soapAction="urn:IntegrationServices/GetPackageMeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePackage">
+      <soap:operation soapAction="urn:IntegrationServices/CreatePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackage">
+      <soap:operation soapAction="urn:IntegrationServices/GetPackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOk">
+      <soap:operation soapAction="urn:IntegrationServices/SetOk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdates">
+      <soap:operation soapAction="urn:IntegrationServices/GetUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectMeta">
+      <soap:operation soapAction="urn:IntegrationServices/GetObjectMeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectList">
+      <soap:operation soapAction="urn:IntegrationServices/GetObjectList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectHistory">
+      <soap:operation soapAction="urn:IntegrationServices/GetObjectHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentMeta">
+      <soap:operation soapAction="urn:IntegrationServices/GetDocumentMeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentData">
+      <soap:operation soapAction="urn:IntegrationServices/GetDocumentData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUpdates">
+      <soap:operation soapAction="urn:IntegrationServices/SetUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackages">
+      <soap:operation soapAction="urn:IntegrationServices/GetPackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageMD5">
+      <soap:operation soapAction="urn:IntegrationServices/GetPackageMD5" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BaseServiceSoap12" type="tns:BaseServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSessionId">
+      <soap12:operation soapAction="urn:IntegrationServices/GetSessionId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageMeta">
+      <soap12:operation soapAction="urn:IntegrationServices/GetPackageMeta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePackage">
+      <soap12:operation soapAction="urn:IntegrationServices/CreatePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackage">
+      <soap12:operation soapAction="urn:IntegrationServices/GetPackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOk">
+      <soap12:operation soapAction="urn:IntegrationServices/SetOk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdates">
+      <soap12:operation soapAction="urn:IntegrationServices/GetUpdates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectMeta">
+      <soap12:operation soapAction="urn:IntegrationServices/GetObjectMeta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectList">
+      <soap12:operation soapAction="urn:IntegrationServices/GetObjectList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectHistory">
+      <soap12:operation soapAction="urn:IntegrationServices/GetObjectHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentMeta">
+      <soap12:operation soapAction="urn:IntegrationServices/GetDocumentMeta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentData">
+      <soap12:operation soapAction="urn:IntegrationServices/GetDocumentData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUpdates">
+      <soap12:operation soapAction="urn:IntegrationServices/SetUpdates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackages">
+      <soap12:operation soapAction="urn:IntegrationServices/GetPackages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageMD5">
+      <soap12:operation soapAction="urn:IntegrationServices/GetPackageMD5" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BaseService">
+    <wsdl:port name="BaseServiceSoap" binding="tns:BaseServiceSoap">
+      <soap:address location="http://eiis-production.srvdev.ru/integrationservice/baseservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BaseServiceSoap12" binding="tns:BaseServiceSoap12">
+      <soap12:address location="http://eiis-production.srvdev.ru/integrationservice/baseservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

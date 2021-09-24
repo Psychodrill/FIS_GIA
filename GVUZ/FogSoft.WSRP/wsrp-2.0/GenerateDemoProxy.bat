@@ -1,0 +1,1 @@
+"c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\NETFX 4.0 Tools\wsdl.exe" /out:DemoWsrpProxy.cs /namespace:GVUZ.Spec.Portlets  http://gvuz-demo.fogsoft.ru/PortletService.asmx?WSDL

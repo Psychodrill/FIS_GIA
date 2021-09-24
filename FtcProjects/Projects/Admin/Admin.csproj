@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>92a831f1-7200-41eb-a2d6-070eb211e9f6</UserSecretsId>
+    <OutputPath>..\..\binaries\$(Configuration)\$(Platform)\$(SolutionName)</OutputPath>
+    <BaseIntermediateOutputPath>..\..\objects\$(Configuration)\$(Platform)\$(SolutionName)</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DBContext_old\**" />
+    <Compile Remove="Models\DBContext_old\**" />
+    <Content Remove="DBContext_old\**" />
+    <Content Remove="Models\DBContext_old\**" />
+    <EmbeddedResource Remove="DBContext_old\**" />
+    <EmbeddedResource Remove="Models\DBContext_old\**" />
+    <None Remove="DBContext_old\**" />
+    <None Remove="Models\DBContext_old\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\InstitutionController - Копировать.cs" />
+    <Compile Remove="DBContext\ApplicationContext_old.cs" />
+    <Compile Remove="DBContext\gvuz_start_2016_jun20Context - Копировать.cs" />
+    <Compile Remove="DBContext\gvuz_start_2016_jun20Context.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Campaign\Index - Копировать.cshtml" />
+    <Content Remove="Views\Institution\Index - Копировать.cshtml" />
+    <Content Remove="Views\Institution\LoadInstitutionDetails - Копировать.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\MasterPage.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.4" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.3.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
+    <PackageReference Include="Yarn.MSBuild" Version="1.22.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+    <Folder Include="wwwroot\dist\" />
+    <Folder Include="wwwroot\Files\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  <Import Project="Webpack.targets" />
+
+
+</Project>

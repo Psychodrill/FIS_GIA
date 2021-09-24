@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:ersp:v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="urn:ersp:v1/AbstractTypes" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:ersp:v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:ersp:v1">
+      <s:element name="GetActualizationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userLogin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastChangeUser" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastChangeOrganization" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActualizationDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActualizationDataResult" type="tns:ActualizationData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActualizationData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ShouldRenewUser" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShouldRenewOrganization" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetActualizationDataExtended">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userLogin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastChangeUser" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastChangeOrganization" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfOrganizations" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastChangeFounder" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastChangeMainOrg" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActualizationDataExtendedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActualizationDataExtendedResult" type="tns:ActualizationDataExtended" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActualizationDataExtended">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ActualizationData">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ShouldRenewOrganizations" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="ShouldRenewFounder" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="ShouldRenewMainOrg" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetOrganizationDataExtended">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orgId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganizationDataExtendedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganizationDataExtendedResult" type="tns:ArrayOfOrganizationData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrganizationData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrganizationData" nillable="true" type="tns:OrganizationData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrganizationData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShortName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="KindId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="INN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OGRN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnerDepartment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrivate" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Isfilial" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DirectorPosition" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DirectorFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAccredited" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccreditationCertificate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LawAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FactAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneCityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MainID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartmentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="tns:RegionData" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="tns:OrganizationType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RegionData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrganizationType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrganizationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userLogins" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrganizationDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganizationDataResult" type="tns:ArrayOfOrganizationDataExtended" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrganizationDataExtended">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrganizationDataExtended" nillable="true" type="tns:OrganizationDataExtended" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrganizationDataExtended">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:OrganizationData">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RequestedLogin" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetUserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userLogin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="systemID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDetailsResult" type="tns:UserDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Groups" type="tns:ArrayOfUserGroup" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganizationID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatronymicName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUserGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserGroup" nillable="true" type="tns:UserGroup" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateUserStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userLogin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newStatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizationData" nillable="true" type="tns:ActualizationData" />
+      <s:element name="ActualizationDataExtended" nillable="true" type="tns:ActualizationDataExtended" />
+      <s:element name="ArrayOfOrganizationData" nillable="true" type="tns:ArrayOfOrganizationData" />
+      <s:element name="ArrayOfOrganizationDataExtended" nillable="true" type="tns:ArrayOfOrganizationDataExtended" />
+      <s:element name="UserDetails" nillable="true" type="tns:UserDetails" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema targetNamespace="urn:ersp:v1/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetActualizationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActualizationData" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActualizationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataExtendedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActualizationDataExtended" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataExtendedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActualizationDataExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataExtendedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganizationDataExtended" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataExtendedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganizationDataExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganizationData" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganizationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataHttpGetIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="lastChangeUser" type="s:string" />
+    <wsdl:part name="lastChangeOrganization" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ActualizationData" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataExtendedHttpGetIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="lastChangeUser" type="s:string" />
+    <wsdl:part name="lastChangeOrganization" type="s:string" />
+    <wsdl:part name="numberOfOrganizations" type="s:string" />
+    <wsdl:part name="lastChangeFounder" type="s:string" />
+    <wsdl:part name="lastChangeMainOrg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataExtendedHttpGetOut">
+    <wsdl:part name="Body" element="tns:ActualizationDataExtended" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataExtendedHttpGetIn">
+    <wsdl:part name="orgId" type="s:string" />
+    <wsdl:part name="updateType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataExtendedHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrganizationData" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataHttpGetIn">
+    <wsdl:part name="userLogins" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrganizationDataExtended" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsHttpGetIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="systemID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusHttpGetIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="newStatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataHttpPostIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="lastChangeUser" type="s:string" />
+    <wsdl:part name="lastChangeOrganization" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ActualizationData" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataExtendedHttpPostIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="lastChangeUser" type="s:string" />
+    <wsdl:part name="lastChangeOrganization" type="s:string" />
+    <wsdl:part name="numberOfOrganizations" type="s:string" />
+    <wsdl:part name="lastChangeFounder" type="s:string" />
+    <wsdl:part name="lastChangeMainOrg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetActualizationDataExtendedHttpPostOut">
+    <wsdl:part name="Body" element="tns:ActualizationDataExtended" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataExtendedHttpPostIn">
+    <wsdl:part name="orgId" type="s:string" />
+    <wsdl:part name="updateType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataExtendedHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrganizationData" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataHttpPostIn">
+    <wsdl:part name="userLogins" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrganizationDataExtended" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsHttpPostIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="systemID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusHttpPostIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="newStatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="GetDataSoap">
+    <wsdl:operation name="GetActualizationData">
+      <wsdl:input message="tns:GetActualizationDataSoapIn" />
+      <wsdl:output message="tns:GetActualizationDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActualizationData">
+      <wsdl:input name="GetActualizationDataExtended" message="tns:GetActualizationDataExtendedSoapIn" />
+      <wsdl:output name="GetActualizationDataExtended" message="tns:GetActualizationDataExtendedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <wsdl:input name="GetOrganizationDataExtended" message="tns:GetOrganizationDataExtendedSoapIn" />
+      <wsdl:output name="GetOrganizationDataExtended" message="tns:GetOrganizationDataExtendedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <wsdl:input message="tns:GetOrganizationDataSoapIn" />
+      <wsdl:output message="tns:GetOrganizationDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input message="tns:GetUserDetailsSoapIn" />
+      <wsdl:output message="tns:GetUserDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <wsdl:input message="tns:UpdateUserStatusSoapIn" />
+      <wsdl:output message="tns:UpdateUserStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GetDataHttpGet">
+    <wsdl:operation name="GetActualizationData">
+      <wsdl:input message="tns:GetActualizationDataHttpGetIn" />
+      <wsdl:output message="tns:GetActualizationDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActualizationData">
+      <wsdl:input name="GetActualizationDataExtended" message="tns:GetActualizationDataExtendedHttpGetIn" />
+      <wsdl:output name="GetActualizationDataExtended" message="tns:GetActualizationDataExtendedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <wsdl:input name="GetOrganizationDataExtended" message="tns:GetOrganizationDataExtendedHttpGetIn" />
+      <wsdl:output name="GetOrganizationDataExtended" message="tns:GetOrganizationDataExtendedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <wsdl:input message="tns:GetOrganizationDataHttpGetIn" />
+      <wsdl:output message="tns:GetOrganizationDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input message="tns:GetUserDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetUserDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <wsdl:input message="tns:UpdateUserStatusHttpGetIn" />
+      <wsdl:output message="tns:UpdateUserStatusHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GetDataHttpPost">
+    <wsdl:operation name="GetActualizationData">
+      <wsdl:input message="tns:GetActualizationDataHttpPostIn" />
+      <wsdl:output message="tns:GetActualizationDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActualizationData">
+      <wsdl:input name="GetActualizationDataExtended" message="tns:GetActualizationDataExtendedHttpPostIn" />
+      <wsdl:output name="GetActualizationDataExtended" message="tns:GetActualizationDataExtendedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <wsdl:input name="GetOrganizationDataExtended" message="tns:GetOrganizationDataExtendedHttpPostIn" />
+      <wsdl:output name="GetOrganizationDataExtended" message="tns:GetOrganizationDataExtendedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <wsdl:input message="tns:GetOrganizationDataHttpPostIn" />
+      <wsdl:output message="tns:GetOrganizationDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input message="tns:GetUserDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetUserDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <wsdl:input message="tns:UpdateUserStatusHttpPostIn" />
+      <wsdl:output message="tns:UpdateUserStatusHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetDataSoap" type="tns:GetDataSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetActualizationData">
+      <soap:operation soapAction="urn:ersp:v1/GetActualizationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActualizationData">
+      <soap:operation soapAction="urn:ersp:v1/GetActualizationDataExtended" style="document" />
+      <wsdl:input name="GetActualizationDataExtended">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetActualizationDataExtended">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <soap:operation soapAction="urn:ersp:v1/GetOrganizationDataExtended" style="document" />
+      <wsdl:input name="GetOrganizationDataExtended">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetOrganizationDataExtended">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <soap:operation soapAction="urn:ersp:v1/GetOrganizationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="urn:ersp:v1/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <soap:operation soapAction="urn:ersp:v1/UpdateUserStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetDataSoap12" type="tns:GetDataSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetActualizationData">
+      <soap12:operation soapAction="urn:ersp:v1/GetActualizationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActualizationData">
+      <soap12:operation soapAction="urn:ersp:v1/GetActualizationDataExtended" style="document" />
+      <wsdl:input name="GetActualizationDataExtended">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetActualizationDataExtended">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <soap12:operation soapAction="urn:ersp:v1/GetOrganizationDataExtended" style="document" />
+      <wsdl:input name="GetOrganizationDataExtended">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetOrganizationDataExtended">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <soap12:operation soapAction="urn:ersp:v1/GetOrganizationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap12:operation soapAction="urn:ersp:v1/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <soap12:operation soapAction="urn:ersp:v1/UpdateUserStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetDataHttpGet" type="tns:GetDataHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetActualizationData">
+      <http:operation location="/GetActualizationData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActualizationData">
+      <http:operation location="/GetActualizationDataExtended" />
+      <wsdl:input name="GetActualizationDataExtended">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="GetActualizationDataExtended">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <http:operation location="/GetOrganizationDataExtended" />
+      <wsdl:input name="GetOrganizationDataExtended">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="GetOrganizationDataExtended">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <http:operation location="/GetOrganizationData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <http:operation location="/GetUserDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <http:operation location="/UpdateUserStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetDataHttpPost" type="tns:GetDataHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetActualizationData">
+      <http:operation location="/GetActualizationData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActualizationData">
+      <http:operation location="/GetActualizationDataExtended" />
+      <wsdl:input name="GetActualizationDataExtended">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="GetActualizationDataExtended">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <http:operation location="/GetOrganizationDataExtended" />
+      <wsdl:input name="GetOrganizationDataExtended">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="GetOrganizationDataExtended">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationData">
+      <http:operation location="/GetOrganizationData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <http:operation location="/GetUserDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <http:operation location="/UpdateUserStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetData">
+    <wsdl:port name="GetDataSoap" binding="tns:GetDataSoap">
+      <soap:address location="http://vm-fbs:333/auth/GetData.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetDataSoap12" binding="tns:GetDataSoap12">
+      <soap12:address location="http://vm-fbs:333/auth/GetData.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetDataHttpGet" binding="tns:GetDataHttpGet">
+      <http:address location="http://vm-fbs:333/auth/GetData.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetDataHttpPost" binding="tns:GetDataHttpPost">
+      <http:address location="http://vm-fbs:333/auth/GetData.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Common/Templates/CertificateResultHistoryDetails.Master" AutoEventWireup="true" CodeBehind="BatchRequestByPassportResultObsoleteDetails.aspx.cs" Inherits="Fbs.Web.Certificates.CommonNationalCertificates.BatchRequestByPassportResultObsoleteDetails" %>

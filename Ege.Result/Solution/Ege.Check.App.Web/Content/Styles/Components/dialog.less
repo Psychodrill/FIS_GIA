@@ -1,0 +1,104 @@
+@import "../Variables/typography-variables.less";
+@import "../Mixins/spinner.less";
+
+.overlay {
+    background: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &.loading::before {
+    	.spinner;
+    	content: '';
+    	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	display: block;
+    	margin-top: -20px;
+    	margin-left: -20px;
+    }
+}
+
+.dialog {
+    position: fixed;
+    width: 600px;
+    top: 200px;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .3);
+    line-height: 1.4;
+}
+
+.dialog-head {
+    background: #fafafa;
+    padding: 25px 20px;
+    color: #4F4F4F;
+    font-size: 18px;
+    font-family: @font-family-secondary;
+    font-weight: bold;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.dialog-body {
+	padding: 20px;
+	min-height: 100px;
+
+	.row {
+		.clearfix;
+		margin-bottom: 8px;
+		min-height: 28px;
+		box-sizing: border-box;
+	}
+
+	.text-row {
+		padding-top: .3em;
+	}
+
+	.label {
+		float: left;
+		font-size: 14px;
+		padding-top: .3em;
+	}
+
+	.input {
+		float: left;
+
+		input[type="text"] {
+			width: 100%;
+			font-size: 16px;
+
+			&.width-100 {
+				width: 100px;
+			}
+		}
+	}
+}
+
+.dialog-footer {
+	text-align: right;
+	padding: 20px;
+
+	button {
+		margin-left: 5px;
+	}
+}
+
+.dialog-close {
+	width: 24px;
+	height: 24px;
+	background: url('../../Images/cross.png') no-repeat;
+	float: right;
+	margin-top: 2px;
+	cursor: pointer;
+	opacity: .7;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0">
+    <Entities>
+        <Entity id="GVUZ_AutoApplicationStatusType"> <!--придумать или взять из названия таблицы-->
+            <CommonSettings allowEdit="true" allowCreate="true" allowDelete="true" newIdMode="UserInput" />
+            <DataSettings  connectionStringName="GVUZ" baseTableName="AutoApplicationStatusType" >
+             </DataSettings>
+            <ListSettings pageSize="20" headerText="Приемная кампания"/>
+            <FormSettings>
+                <FieldGroups>
+                    <FieldGroup caption="Раздел" id="1" order="1" />
+                    <FieldGroup caption="Подразделы" id="2" order="2" />
+                </FieldGroups>
+            </FormSettings>
+            
+            <Fields>  
+                <Field>
+                    <DataSettings fieldName="ID" isPrimaryKey="true" fieldType="Integer" filterMode="Equals"></DataSettings> <!--Указать поля первичный ключ-->
+                    <ListSettings>
+                        <Filter caption="Идентификатор" order="1" lineBreakAfterInput="true" input="Text" size="Short" visible="true"></Filter>
+                        <View visibility="Visible" order="1" caption="Идентификатор" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Идентификатор" editMode="ReadOnlyText" input="Text" isRequired="true" size="Normal" order="1" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>	
+				<Field>
+                    <CommonSettings isNameField="true" />
+                    <DataSettings fieldName="Status" fieldType="String" filterMode="Substring"> <!--Название поля, значения котрого отображаются в выпадающем списке пользователю-->
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Надпись" order="20" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="20" caption="Надпись" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Надпись" input="LongText" isRequired="true" size="Long" order="20" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>				
+            </Fields>
+        </Entity>
+    </Entities>
+</Metadata>

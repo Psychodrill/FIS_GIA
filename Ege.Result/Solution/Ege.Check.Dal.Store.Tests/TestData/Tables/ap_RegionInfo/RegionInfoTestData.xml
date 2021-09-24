@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" standalone="yes"?>
+
+<TestDataSet xmlns="http://tempuri.org/TestDataSet.xsd">
+  <ap_RegionInfo>
+    <Id>56</Id>
+    <Fio>Охтов Тембот Алиевич</Fio>
+    <Phone>8(8772)57-19-10</Phone>
+    <Email>gas01@yandex.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>1</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>57</Id>
+    <Fio>Дяковецкий Артем Маркович</Fio>
+    <Phone>(843)223-09-17</Phone>
+    <Email>egerbd@gmail.com</Email>
+    <BlanksServer>http://85.233.72.28:825</BlanksServer>
+    <Description />
+    <RegionId>16</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>58</Id>
+    <Fio>Матвеев Сергей Станиславович</Fio>
+    <Phone>(4832)63-85-10 </Phone>
+    <Email>ege32@ege.debryansk.ru</Email>
+    <BlanksServer>http://37.112.63.61:8080/blanks</BlanksServer>
+    <Description />
+    <RegionId>32</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>59</Id>
+    <Fio>Соколов Николай Юрьевич</Fio>
+    <Phone>252-29-11</Phone>
+    <Email>rcoi47@lokos.net</Email>
+    <BlanksServer>http://85.142.97.38/47_2014</BlanksServer>
+    <Description />
+    <RegionId>47</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>60</Id>
+    <Fio>Коржавина Анастасия Сергеевна</Fio>
+    <Phone>8(8332) 71-44-56</Phone>
+    <Email>pto_coko@e-kirov.ru</Email>
+    <BlanksServer>http://reports.43edu.ru/_blanks_</BlanksServer>
+    <Description />
+    <RegionId>43</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>61</Id>
+    <Fio>Федотов Д.А.</Fio>
+    <Phone>(8152) 400755</Phone>
+    <Email>fedotov_da@polarnet.ru</Email>
+    <BlanksServer />
+    <Description>Сервис работает в тестовом режиме</Description>
+    <RegionId>51</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>62</Id>
+    <Fio>Джаныбаев Марат Павлович</Fio>
+    <Phone>(4212)56-11-11</Phone>
+    <Email>gia.rcoko@gmail.com</Email>
+    <BlanksServer>http://62.76.207.40/</BlanksServer>
+    <Description />
+    <RegionId>27</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>63</Id>
+    <Fio>Толстов Максим Сергеевич</Fio>
+    <Phone>+7(8412)348607</Phone>
+    <Email>coko@sura.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>58</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>64</Id>
+    <Fio>Шумилов Максим Сергеевич</Fio>
+    <Phone>(831) 417-03-51</Phone>
+    <Email>petrova@niro.nnov.ru</Email>
+    <BlanksServer>http://92.246.139.52:96/blanks</BlanksServer>
+    <Description />
+    <RegionId>52</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>65</Id>
+    <Fio>Астахов Александр Дмитриевич</Fio>
+    <Phone>8-(4862)-43-09-70</Phone>
+    <Email>orel@orcoko.ru</Email>
+    <BlanksServer>http://orcoko.ru/blanks</BlanksServer>
+    <Description />
+    <RegionId>57</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>66</Id>
+    <Fio>Богданов Валерий Александрович</Fio>
+    <Phone>8(863)2910047</Phone>
+    <Email>ege@rcoi61.org.ru</Email>
+    <BlanksServer>http://blanks.rcoi61.org.ru</BlanksServer>
+    <Description>Внимание! Бланк ответов №2 может не показываться участнику, если он отправлялся на проверку в другой регион (часть "С" проверялась экспертами предметных коммиссий не из Ростовской области).</Description>
+    <RegionId>61</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>67</Id>
+    <Fio>Новиков Сергей Михайлович</Fio>
+    <Phone>(4712)510433</Phone>
+    <Email>rcoi46@mail.ru</Email>
+    <BlanksServer />
+    <Description>Информация для участников ЕГЭ: Результаты по экзаменам доступны после утверждения ГЭК. Информация публикуется РЦОИ после получения протокола. До этого момента доступа к информации о результатах нет.</Description>
+    <RegionId>46</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>68</Id>
+    <Fio>Андреев А.К.</Fio>
+    <Phone>473 2222 107</Phone>
+    <Email>itek36@gmail.com</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>36</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>69</Id>
+    <Fio>Курносов Андрей Викторович</Fio>
+    <Phone>8(818-2)62-57-39</Phone>
+    <Email>coko29.info@gmail.ru</Email>
+    <BlanksServer>http://coko29.info/images/blanks2014/</BlanksServer>
+    <Description />
+    <RegionId>29</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>70</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer>http://85.143.100.33/export2014</BlanksServer>
+    <Description />
+    <RegionId>90</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>71</Id>
+    <Fio />
+    <Phone>(8422) 277-803</Phone>
+    <Email>admin@uledu.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>73</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>72</Id>
+    <Fio>Ильин Иван Александрович</Fio>
+    <Phone>(499) 369-29-61</Phone>
+    <Email>rcoi77@mcko.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>77</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>73</Id>
+    <Fio>Жвакин Константин Владимирович</Fio>
+    <Phone>+79049444559;+79049444554</Phone>
+    <Email>rcoi@rkc-74.ru</Email>
+    <BlanksServer>http://87.249.208.169/blanks</BlanksServer>
+    <Description>
+      Уважаемые участники ЕГЭ!
+      Результаты экзамена по русскому языку, информатике и ИКТ, химии дополнительного периода (от 07 июля 2014 года) доступны для просмотра.
+      Прием заявлений на апелляцию - 16 и 17 июля 2014 года, заседания конфликтной комиссии - 18 июля 2014 года.
+      Результаты экзамена по математике, географии, английскому и немецкому языку дополнительного периода (от 09 июля 2014 года) доступны для просмотра.
+      Прием заявлений на апелляцию - 17 и 18 июля 2014 года, заседания конфликтной комиссии - 21 июля 2014 года.
+      Результаты экзамена по физике, обществознанию и литературе дополнительного периода (от 11 июля 2014 года) доступны для просмотра.
+      Прием заявлений на апелляцию - 21 и 22 июля 2014 года, заседания конфликтной комиссии - 23 июля 2014 года.
+      Результаты экзамена по биологии и истории дополнительного периода (от 14 июля 2014 года) доступны для просмотра.
+      Прием заявлений на апелляцию - 22 и 23 июля 2014 года, заседания конфликтной комиссии - 24 июля 2014 года.
+    </Description>
+    <RegionId>74</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>74</Id>
+    <Fio>Белков Алексей Вячеславович</Fio>
+    <Phone>+78172714556</Phone>
+    <Email>ege@edu35.ru</Email>
+    <BlanksServer>http://ege35.edu35.ru/results/</BlanksServer>
+    <Description />
+    <RegionId>35</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>75</Id>
+    <Fio>Алексеева Раиса Николаевна</Fio>
+    <Phone>8(4112)445063</Phone>
+    <Email>ppoi2011@mail.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>14</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>76</Id>
+    <Fio>Алдаров Александр Сергеевич</Fio>
+    <Phone>8 3012 454157</Phone>
+    <Email>rbrcoi@gmail.com</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>3</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>77</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer>http://80.78.194.242:83/blanks/</BlanksServer>
+    <Description />
+    <RegionId>71</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>78</Id>
+    <Fio />
+    <Phone>(4812) 611201</Phone>
+    <Email>rcoi_67@inbox.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>67</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>79</Id>
+    <Fio>Кузнецов Антон Константинович</Fio>
+    <Phone>8(8352)57-21-60</Phone>
+    <Email>ege21@mail.ru</Email>
+    <BlanksServer>http://37.232.164.14/blanki</BlanksServer>
+    <Description />
+    <RegionId>21</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>80</Id>
+    <Fio>Омиров Р.Н.</Fio>
+    <Phone>8-4852-26-21-60</Phone>
+    <Email>rcoi@coikko.ru</Email>
+    <BlanksServer>95.175.246.106</BlanksServer>
+    <Description>
+      Внимание!
+      Над кнопкой "ВОЙТИ" есть "бегунок" со стрелкой, указывающий в сторону "замка".
+      Для входа в сервис вам необходимо переместить бегунок к замку. А затем нажать кнопку "ВОЙТИ".
+      Удачи вам! ;)
+    </Description>
+    <RegionId>76</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>81</Id>
+    <Fio>Урванцев Василий Васильевич</Fio>
+    <Phone>8(42722)62598</Phone>
+    <Email>rcoi87@bk.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>87</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>82</Id>
+    <Fio>Филатов Андрей Александрович</Fio>
+    <Phone>4152420636</Phone>
+    <Email>rcoi@kamipkpk.ru</Email>
+    <BlanksServer>http://blanks.kamipkpk.ru/blanks</BlanksServer>
+    <Description />
+    <RegionId>41</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>83</Id>
+    <Fio>Джуджиев Анатолий Олегович</Fio>
+    <Phone>8(847-22)6-62-98</Phone>
+    <Email>coko08@mail.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>8</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>84</Id>
+    <Fio />
+    <Phone>+7(3412)797756</Phone>
+    <Email>rcoi@yandex.ru</Email>
+    <BlanksServer>http://blanks.obr18.ru/</BlanksServer>
+    <Description />
+    <RegionId>18</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>85</Id>
+    <Fio>Доркин Денис Владимирович</Fio>
+    <Phone>(3952) 53-40-84</Phone>
+    <Email>ege@iro38.ru</Email>
+    <BlanksServer>http://egesvc.iro38.ru/blanks</BlanksServer>
+    <Description />
+    <RegionId>38</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>86</Id>
+    <Fio>Тульцев Евгений Львович</Fio>
+    <Phone>8 (8162)731860</Phone>
+    <Email>Evgeny.Tultsev@novsu.ru</Email>
+    <BlanksServer />
+    <Description>В 2014 году организовано информирование о результатах ЕГЭ на портале ege.edu.ru.</Description>
+    <RegionId>53</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>87</Id>
+    <Fio>Борщев Сергей Леонидович</Fio>
+    <Phone>+7 3522 254612</Phone>
+    <Email>rcoi@hde.kurganobl.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>45</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>88</Id>
+    <Fio>Тумасов Алексей Викторович</Fio>
+    <Phone>8 (8652) 269666</Phone>
+    <Email>stavrcoi@mail.ru</Email>
+    <BlanksServer>http://test2.stavrcoi.ru/blanks</BlanksServer>
+    <Description />
+    <RegionId>26</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>89</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer>http://srvweb.edu22.info/blanks</BlanksServer>
+    <Description>В дополнение к данному ресурсу (за корректную работу которого РЦОИ не отвечает) ознакомиться со своими результатами, скан-копиями бланков ответов и результатами их распознавания можно на сайте информационной поддержки государственной итоговой аттестации в Алтайском крае в разделе &lt;a href="https://results.edu22.info/results/"&gt;Просмотр индивидуальных результатов&lt;/a&gt;</Description>
+    <RegionId>22</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>91</Id>
+    <Fio />
+    <Phone />
+    <Email>rcoi86@mail.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>86</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>92</Id>
+    <Fio>Сурменко Сергей Леонидович</Fio>
+    <Phone>8(42622)20794</Phone>
+    <Email>coko_eao@mail.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>79</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>93</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer>http://85.95.168.15:11880/blanks</BlanksServer>
+    <Description />
+    <RegionId>13</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>94</Id>
+    <Fio>Никитин Сергей Васильевич</Fio>
+    <Phone>(343) 369-29-86 (доб. 108)</Phone>
+    <Email>kopylova@irro.ru</Email>
+    <BlanksServer>http://ege-blanks.irro.ru/blnks2014/</BlanksServer>
+    <Description />
+    <RegionId>66</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>95</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer />
+    <Description />
+    <RegionId>23</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>96</Id>
+    <Fio>Алешин Константин Владимирович</Fio>
+    <Phone>(499) 940-10-24</Phone>
+    <Email>office@rcoi.net</Email>
+    <BlanksServer>http://77.108.122.98</BlanksServer>
+    <Description />
+    <RegionId>50</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>97</Id>
+    <Fio>Валеева Т.А.</Fio>
+    <Phone>8(383)347-80-56</Phone>
+    <Email />
+    <BlanksServer>http://nscm.ru/blanks/</BlanksServer>
+    <Description />
+    <RegionId>54</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>98</Id>
+    <Fio>Капустин Павел Евгеньевич</Fio>
+    <Phone>(3812)37-13-80</Phone>
+    <Email>riac@obr55.ru</Email>
+    <BlanksServer>http://blanks.ege55.ru/blanks/</BlanksServer>
+    <Description />
+    <RegionId>55</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>99</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer>http://87.255.230.240</BlanksServer>
+    <Description />
+    <RegionId>37</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>100</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer>http://217.65.208.166/_ege_blanks</BlanksServer>
+    <Description />
+    <RegionId>64</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>101</Id>
+    <Fio />
+    <Phone />
+    <Email>ege@petrsu.ru</Email>
+    <BlanksServer>http://ege.karelia.ru/ab</BlanksServer>
+    <Description />
+    <RegionId>10</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>102</Id>
+    <Fio>Куулар Сайдам Валерьевна</Fio>
+    <Phone>8(39422)5-61-26</Phone>
+    <Email>rcoi17@mail.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>17</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>103</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer>http://ege.kaluga.ru/images/blanks</BlanksServer>
+    <Description />
+    <RegionId>40</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>104</Id>
+    <Fio>Крюков Александр Константинович</Fio>
+    <Phone>(84752)71-27-99</Phone>
+    <Email>post@rcoi68.ru</Email>
+    <BlanksServer>http://37.235.166.86/Results_EGE</BlanksServer>
+    <Description />
+    <RegionId>68</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>105</Id>
+    <Fio>Алиев Гамзат Ахмедович</Fio>
+    <Phone>8(8722) 51 56 33</Phone>
+    <Email>rcoi05@mail.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>5</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>106</Id>
+    <Fio />
+    <Phone>+7 (8362) 21-01-22</Phone>
+    <Email>attestatrme@yandex.ru</Email>
+    <BlanksServer>http://citoko.ru/blanks/</BlanksServer>
+    <Description />
+    <RegionId>12</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>107</Id>
+    <Fio>Евсюнина О.В.</Fio>
+    <Phone>(4912)44-18-21</Phone>
+    <Email>rcoi62ryazan@mail.ru</Email>
+    <BlanksServer />
+    <Description>
+      Уважаемые участники!
+
+      Дни подачи апелляций:
+      15 июля 2014 года – с 13.00 до 17.00,
+      16 июля 2014 года – с 10.00 до 13.00.
+
+      Дни рассмотрения апелляций:
+      17 июля 2014 года – с 10.00 до 12.00 (русский язык),
+      с 12.00 до 13.00 (химия, информатика и ИКТ).
+    </Description>
+    <RegionId>62</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>108</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer />
+    <Description />
+    <RegionId>59</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>109</Id>
+    <Fio>Виноградов Е.В.</Fio>
+    <Phone>(4942)31-65-41</Phone>
+    <Email>info@ege-kostroma.ru</Email>
+    <BlanksServer>http://ege.smartcore.ru</BlanksServer>
+    <Description />
+    <RegionId>44</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>110</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer>http://www.hcio.ru/blanks/</BlanksServer>
+    <Description />
+    <RegionId>19</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>111</Id>
+    <Fio>Наумов Олег Николаевич</Fio>
+    <Phone>(4722)35-76-30</Phone>
+    <Email>rcoi31@mail.ru</Email>
+    <BlanksServer>http://www.beluno.ru/public_blanks/</BlanksServer>
+    <Description />
+    <RegionId>31</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>112</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer>http://blanks.moumuk.ru</BlanksServer>
+    <Description />
+    <RegionId>34</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>113</Id>
+    <Fio>Попов Олег Васильевич</Fio>
+    <Phone>8-8212-32-23-03</Phone>
+    <Email>ricoko@ricoko.ru</Email>
+    <BlanksServer>http://ivtara78.no-ip.org:8080/</BlanksServer>
+    <Description />
+    <RegionId>11</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>114</Id>
+    <Fio>Яготина Ольга Васильевна</Fio>
+    <Phone>8(34922)3-32-39</Phone>
+    <Email>rcoi-89@mail.ru</Email>
+    <BlanksServer>http://194.247.184.11:11173</BlanksServer>
+    <Description />
+    <RegionId>89</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>115</Id>
+    <Fio />
+    <Phone>+7 (4012) 656350</Phone>
+    <Email />
+    <BlanksServer>http://blanks.baltinform.ru/</BlanksServer>
+    <Description />
+    <RegionId>39</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>116</Id>
+    <Fio>Габдрахманов Михаил Галеевич</Fio>
+    <Phone>+7(3022)35-83-14</Phone>
+    <Email>mail@egechita.ru</Email>
+    <BlanksServer>http://egechita.ru/blanks</BlanksServer>
+    <Description />
+    <RegionId>75</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>117</Id>
+    <Fio />
+    <Phone>8(4242)721941</Phone>
+    <Email />
+    <BlanksServer />
+    <Description />
+    <RegionId>65</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>118</Id>
+    <Fio />
+    <Phone />
+    <Email />
+    <BlanksServer />
+    <Description />
+    <RegionId>4</RegionId>
+  </ap_RegionInfo>
+  <ap_RegionInfo>
+    <Id>119</Id>
+    <Fio />
+    <Phone>(8512) 633581</Phone>
+    <Email>rcoi@mail.astrakhan.ru</Email>
+    <BlanksServer />
+    <Description />
+    <RegionId>30</RegionId>
+  </ap_RegionInfo>
+</TestDataSet>

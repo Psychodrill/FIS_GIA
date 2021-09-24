@@ -1,0 +1,73 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/tasksettings.css")"/>
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/tasksettings.js")"> </script>
+}
+
+@{
+    ViewBag.Title = "Настройки ответов на задания";
+}
+
+@Html.Partial("Menu")
+
+<div class="account-block">
+    <a href="#" id="logout">Выход</a>
+</div>
+
+<h2>@ViewBag.Title</h2>
+
+<select class="mb-20" id="subjects">
+    <option disabled selected>Выберите предмет</option>
+</select>
+
+<div id="table-container" class="container"></div>
+
+<script type="text/html" id="subj-tmpl">
+    {{#subjects}}
+    <option value="{{SubjectCode}}">{{SubjectName}}</option>
+    {{/subjects}}
+</script>
+
+<script type="text/html" id="table-buttons-tmpl">
+    <div class="mb-20">
+        <button class="btn-light btn-m c-add-row">Добавить строку</button>
+        <button class="btn-light btn-m c-remove-row">Удалить строку</button>	
+    </div>
+</script>
+
+<script type="text/html" id="save-tmpl">
+    <button id="save">
+        <span>Сохранить</span>
+        @RawHtml("~/Content/Pages/Partials/loader.html")
+    </button>
+</script>
+
+<script type="text/html" id="dlg-tmpl">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="width-60">№</th>
+                <th>Название</th>
+                <th class="width-110">Максимальный балл</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#Criteria}}
+            <tr>
+                <td class="c-number">{{#Number}}{{Number}}{{/Number}}</td>
+                <td class="input-cell"><input type="text" class="c-name" value="{{Name}}"></td>
+                <td class="input-cell"><input type="text" class="c-maxvalue" value="{{MaxValue}}"></td>
+            </tr>
+            {{/Criteria}}
+        </tbody>
+    </table>
+</script>
+
+<script type="text/html" id="dlg-row-tmpl">
+    <tr>
+        <td>{{number}}</td>
+        <td class="input-cell"><input type="text" class="c-name"></td>
+        <td class="input-cell"><input type="text" class="c-maxvalue"></td>
+    </tr>
+</script>

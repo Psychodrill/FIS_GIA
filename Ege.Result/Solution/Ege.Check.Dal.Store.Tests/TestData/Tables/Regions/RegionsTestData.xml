@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestDataSet xmlns="http://tempuri.org/TestDataSet.xsd">
+  <rbdc_Regions>
+    <REGION>1</REGION>
+    <RegionName>Республика Адыгея</RegionName>
+    <Enable>1</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>2</REGION>
+    <RegionName>Республика Башкортостан</RegionName>
+    <Enable>1</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>3</REGION>
+    <RegionName>Республика Бурятия</RegionName>
+    <Enable>1</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>4</REGION>
+    <RegionName>Республика Алтай</RegionName>
+    <Enable>0</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>5</REGION>
+    <RegionName>Республика Дагестан</RegionName>
+    <Enable>1</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>6</REGION>
+    <RegionName>Республика Ингушетия</RegionName>
+    <Enable>0</Enable>
+  </rbdc_Regions>
+</TestDataSet>

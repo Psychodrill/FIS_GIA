@@ -1,0 +1,101 @@
+﻿@model List<Admin.Models.EntranceTestItemsViewModel>;
+
+@if (Model == null)
+{
+    <span style="color:red;">Данные по вступительным испытаниям отсутсвуют</span>
+}
+else
+{
+<form  asp-action="EditEntranceTestItems" asp-controller="EntranceTestItem" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> Вступительные испытания</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table" id="tableEntr">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Минимальный балл</th>
+                            <th>Приоритет</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @for (int i = 0; i < Model.Count(); i++)
+                        {
+                            <tr>
+                                <td>
+                                    <input type="hidden" asp-for="@Model[i].EntranceTestItemId" />
+                                    @Html.DisplayFor(m => m[i].Name)
+                                </td>
+                                <td>
+
+                                    @Html.EditorFor(m => m[i].MinScore)
+                                </td>
+                                <td>
+
+                                    @Html.DisplayFor(m => m[i].EntranceTestPriority)
+                                </td>
+
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+                <div>
+                    <span id="msg"></span>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button id="saveBtn" type="submit" class="btn btn-primary">Сохранить изменения</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+}
+
+
+<script>
+    $(function () {
+        $("#saveBtn").click(function () {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "EntranceTestItem/EditEntranceTestItems",
+                data: $("form").serialize(),
+                success: function (data) {
+                    console.log(data);
+
+                    var $item = $("#msg");
+
+                    if (data.notChangedMessage) {
+
+                        //$item.addClass("badge badge-pill badge-info").html(data.notChangedMessage).show().slideUp(5000);
+
+                    } else {
+                        $item.removeClass("badge badge-pill badge-info").addClass("badge badge-success").html(data.message).show().slideDown(5000);
+
+                    }
+                }
+
+            });
+           
+                
+           
+
+           
+        });
+
+
+    });
+
+</script>

@@ -1,0 +1,106 @@
+.ui-datepicker {
+    display: none;
+    background: #fff;
+    font-size: .95em;
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+
+    .ui-datepicker-calendar {
+        border-collapse: separate;
+
+        td {
+            text-align: right;
+
+            a {
+                display: inline-block;
+                padding: 4px 3px;
+                min-width: 20px;
+                color: #545454;
+                border: 1px solid transparent;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: none;
+                    background: #f7f7f7;
+                    border-color: #f7f7f7;
+                }
+            }
+        }
+
+        th {
+            text-align: right;
+            padding: 4px;
+        }
+
+        .ui-datepicker-today a {
+            border: 1px solid #ccc;
+
+            &:hover {
+                border-color: #ccc;
+            }
+        }
+
+        .ui-datepicker-current-day a {
+            background: #D9ECF9;
+
+            &:hover {
+                background: #C9E0EF;
+                border-color: #C9E0EF;
+            }
+        }
+    }
+
+    .ui-datepicker-header {
+        text-align: center;
+        background: #4F9CD2;
+        color: #fff;
+        position: relative;
+
+        .ui-datepicker-title {
+            font-weight: bold;
+            padding: 10px 0;
+        }
+
+        .ui-datepicker-prev,
+        .ui-datepicker-next {
+            position: absolute;
+            color: #fff;
+            border: 6px solid transparent;
+            border-top-width: 5px;
+            border-bottom-width: 5px;
+            top: 50%;
+            margin-top: -5px;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+                opacity: .7;
+            }
+        }
+
+        .ui-datepicker-prev {
+            left: 0;
+            border-right-color: #fff;
+        }
+
+        .ui-datepicker-next {
+            right: 0;
+            border-left-color: #fff;
+        }
+
+        .ui-icon {
+            display: none;
+        }
+
+        select {
+            margin: 0 1px;
+            border: none;
+            padding: 3px 8px;
+            height: auto;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+    }
+}

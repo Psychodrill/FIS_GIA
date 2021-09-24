@@ -1,0 +1,480 @@
+-- =========================================================================
+-- Запись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (6, '006__2011_07_05__ReportRegistrations')
+-- =========================================================================
+GO
+
+if exists (select 1
+          from sysobjects
+          where  id = object_id('ReportUserStatusAccredTVF')
+          and type in ('TF'))
+   drop function ReportUserStatusAccredTVF
+go
+
+CREATE function dbo.ReportUserStatusAccredTVF(@periodBegin datetime,@periodEnd datetime)
+RETURNS @report TABLE 
+(
+	[ ] nvarchar(500) null, 
+	[Правовая форма] nvarchar(50) null, 
+	[Всего] int null,
+	[из них на регистрации] int null, 
+	[из них на согласовании] int null,
+	[из них на доработке] int null, 
+	[из них действующие] int null,
+	[из них отключенные] int null
+)
+AS
+BEGIN
+	
+DECLARE @Statuses TABLE
+(
+	[Name] NVARCHAR (50),
+	Code NVARCHAR (50),
+	[Order] INT
+)
+INSERT INTO @Statuses ([Name],Code,[Order])
+SELECT 'На доработке','revision',3
+UNION
+SELECT 'На регистрации','registration',1
+UNION
+SELECT 'Отключен','deactivated',5
+UNION
+SELECT 'Активирован','activated',4
+UNION
+SELECT 'На согласовании','consideration',2
+UNION
+SELECT 'Всего','total',10
+
+DECLARE @OPF TABLE
+(
+	[Name] NVARCHAR (50),
+	Code BIT,
+	[Order] INT
+)
+INSERT INTO @OPF ([Name],Code,[Order])
+SELECT 'Негосударственный',1,1
+UNION
+SELECT 'Государственный',0,0
+
+DECLARE @Combinations TABLE
+(
+	OrgTypeName NVARCHAR (50),
+	OrgTypeCode INT,
+	IsPrivateName NVARCHAR (50),
+	IsPrivateCode INT,
+	IsPrivateOrder INT,
+	StatusName NVARCHAR(50),
+	StatusCode NVARCHAR(50),
+	StatusOrder INT
+)
+
+INSERT INTO @Combinations(OrgTypeName,OrgTypeCode,IsPrivateName,IsPrivateCode,IsPrivateOrder,StatusName,StatusCode,StatusOrder)
+SELECT
+	OrgType.[Name],
+	OrgType.Id, 
+	OPFTable.[Name],
+	OPFTable.Code,
+	OPFTable.[Order], 
+	StatTable.[Name],
+	StatTable.Code,
+	StatTable.[Order]
+FROM 
+	(
+	select 
+		distinct O.OrgType Id,
+		O.OrgTypeName Name
+	from 
+		Organizations O
+	) OrgType,
+	@OPF AS OPFTable,
+	@Statuses AS StatTable
+WHERE 
+	OrgType.Id < 3
+UNION
+SELECT 'ВУЗ',1,'Всего',NULL,3, StatTable.[Name],StatTable.Code,StatTable.[Order] FROM @Statuses AS StatTable
+UNION
+SELECT 'ССУЗ',2,'Всего',NULL,3, StatTable.[Name],StatTable.Code,StatTable.[Order] FROM @Statuses AS StatTable
+UNION
+SELECT 'Всего',0,'-',NULL,3, StatTable.[Name],StatTable.Code,StatTable.[Order] FROM @Statuses AS StatTable
+
+DELETE FROM @Combinations WHERE OrgTypeCode IN(3,4) AND IsPrivateCode=1
+
+DECLARE @Users TABLE
+(
+	OrgTypeName NVARCHAR (50),
+	OrgTypeCode NVARCHAR (50),
+	IsPrivateName NVARCHAR (50),
+	IsPrivateOrder NVARCHAR (50),
+	StatusName NVARCHAR(50),
+	UsersCount INT
+)
+
+INSERT INTO @Users(OrgTypeName,OrgTypeCode,IsPrivateName,IsPrivateOrder,StatusName,UsersCount)
+select
+	A.OrgTypeName,
+	A.OrgTypeCode,
+	A.IsPrivateName,
+	A.IsPrivateOrder,
+	A.StatusName,
+	isnull(B.CountAcc, 0)
+from 
+(select
+	Comb.OrgTypeName,
+	Comb.OrgTypeCode,
+	Comb.IsPrivateName,
+	Comb.IsPrivateOrder,
+	Comb.StatusName
+from
+	@Combinations Comb
+)  A
+left join
+(
+SELECT
+	Comb.OrgTypeName,
+	Comb.OrgTypeCode,
+	Comb.IsPrivateName,
+	Comb.IsPrivateOrder,
+	Comb.StatusName,
+	COUNT(RD.AccountId) CountAcc
+FROM 
+	(
+	SELECT 
+		max([UpdateDate]) UpdateDate
+		,[AccountId]
+	FROM
+		RegistrationLog RL
+	WHERE
+		RL.UpdateDate between @periodBegin and @periodEnd
+	GROUP BY
+		AccountId
+	) RD
+	inner join RegistrationLog RL on RL.AccountId = RD.AccountId 
+		and RL.UpdateDate = RD.UpdateDate
+	inner join Organizations O on O.OrgId = RL.OrgId and (O.IsAccredited = 1 OR (
+			O.AccreditationSertificate != '' 
+			AND O.AccreditationSertificate IS NOT NULL
+			)
+		)
+	RIGHT JOIN @Combinations Comb 
+	ON (RL.AccountStatus=Comb.StatusCode 
+		AND (
+			O.OrgType=Comb.OrgTypeCode 
+			AND (
+				(O.IsPrivate=Comb.IsPrivateCode AND Comb.IsPrivateCode IS NOT NULL)
+				OR
+				(Comb.IsPrivateCode IS NULL)
+			)
+			AND Comb.OrgTypeCode!=0
+		))
+	OR (
+		(RL.AccountStatus=Comb.StatusCode)
+		AND (
+			Comb.OrgTypeCode=0
+		)
+		AND (
+			O.OrgType IS NOT NULL
+		)
+	)
+	OR (
+		Comb.StatusCode='total'
+		AND ((
+			O.OrgType=Comb.OrgTypeCode 
+			AND (
+				(O.IsPrivate=Comb.IsPrivateCode AND Comb.IsPrivateCode IS NOT NULL)
+				OR
+				(Comb.IsPrivateCode IS NULL)
+			)
+			AND Comb.OrgTypeCode!=0
+		)
+		OR
+		((Comb.OrgTypeCode=0)AND(O.OrgType IS NOT NULL)))
+	)
+WHERE RD.UpdateDate between @periodBegin and @periodEnd
+GROUP BY Comb.OrgTypeName,Comb.OrgTypeCode,IsPrivateName,IsPrivateOrder,StatusName
+) as B on A.OrgTypeName=B.OrgTypeName and A.OrgTypeCode = B.OrgTypeCode and 
+	A.IsPrivateName = B.IsPrivateName and A.IsPrivateOrder=B.IsPrivateOrder and A.StatusName = B.StatusName
+
+DECLARE  @PreResult TABLE
+(	
+	MainOrder INT,
+	OrgTypeName NVARCHAR (50),
+	IsPrivateName NVARCHAR (50),
+	[Всего] INT,
+	[Активирован] INT,
+	[На регистрации] INT,
+	[На доработке] INT,
+	[На согласовании] INT,
+	[Отключен] INT
+)
+DECLARE @days INT
+SET @days=  DATEDIFF(DAY,@periodBegin,@periodEnd)
+
+INSERT INTO @PreResult
+SELECT OrgTypeCode*100+IsPrivateOrder AS MainOrder,
+OrgTypeName AS [Вид],
+IsPrivateName AS [Правовая форма],
+ISNULL([Всего],0) AS [Всего] ,
+ISNULL([Активирован],0) AS [Активирован], 
+ISNULL([На регистрации],0) AS [На регистрации], 
+ISNULL([На доработке],0) AS [На доработке], 
+ISNULL([На согласовании],0) AS [На согласовании], 
+ISNULL([Отключен],0) AS [Отключен]
+FROM @Users PIVOT
+(
+  SUM(UsersCount)
+  FOR [StatusName] IN ([Активирован],[На регистрации],[На доработке],[На согласовании],[Отключен],[Всего]) 
+) AS P
+
+INSERT INTO @report
+SELECT OrgTypeName,IsPrivateName,[Всего],[На регистрации],[На согласовании],[На доработке],[Активирован],[Отключен]
+FROM @PreResult
+
+return
+END
+GO
+
+if exists (select 1
+          from sysobjects
+          where  id = object_id('ReportUserStatusWithAccredTVF')
+          and type in ('TF'))
+   drop function ReportUserStatusWithAccredTVF
+go
+
+CREATE function [dbo].[ReportUserStatusWithAccredTVF](@periodBegin datetime,@periodEnd datetime)
+RETURNS @report TABLE 
+(
+	[ ] nvarchar(500) null, 
+	[Правовая форма] nvarchar(50) null, 
+	[Всего] int null,
+	[из них на регистрации] int null, 
+	[из них на согласовании] int null,
+	[из них на доработке] int null, 
+	[из них действующие] int null,
+	[из них отключенные] int null
+)
+AS
+BEGIN
+	
+DECLARE @Statuses TABLE
+(
+	[Name] NVARCHAR (50),
+	Code NVARCHAR (50),
+	[Order] INT
+)
+
+INSERT INTO @Statuses ([Name],Code,[Order])
+SELECT 'На доработке','revision',3
+	UNION
+SELECT 'На регистрации','registration',1
+	UNION
+SELECT 'Отключен','deactivated',5
+	UNION
+SELECT 'Активирован','activated',4
+	UNION
+SELECT 'На согласовании','consideration',2
+	UNION
+SELECT 'Всего','total',10
+
+DECLARE @OPF TABLE
+(
+	[Name] NVARCHAR (50),
+	Code BIT,
+	[Order] INT
+)
+INSERT INTO @OPF ([Name],Code,[Order])
+SELECT 'Негосударственный',1,1
+UNION
+SELECT 'Государственный',0,0
+
+DECLARE @days INT
+SET @days=  DATEDIFF(DAY,@periodBegin,@periodEnd)
+
+DECLARE @Combinations TABLE
+(
+	OrgTypeName NVARCHAR (50),
+	OrgTypeCode INT,
+	IsPrivateName NVARCHAR (50),
+	IsPrivateCode INT,
+	IsPrivateOrder INT,
+	StatusName NVARCHAR(50),
+	StatusCode NVARCHAR(50),
+	StatusOrder INT
+)
+
+INSERT INTO @Combinations(OrgTypeName,OrgTypeCode,IsPrivateName,IsPrivateCode,IsPrivateOrder,StatusName,StatusCode,StatusOrder)
+SELECT 
+	OrgType.[Name],
+	OrgType.Id,
+	OPFTable.[Name],
+	OPFTable.Code,
+	OPFTable.[Order],
+	StatTable.[Name],
+	StatTable.Code,
+	StatTable.[Order]
+FROM
+	(
+	select 
+		distinct O.OrgType Id,
+		O.OrgTypeName Name
+	from 
+		Organizations O
+	) OrgType,
+	@OPF AS OPFTable,
+	@Statuses AS StatTable
+UNION
+SELECT 'На '+convert(varchar(16),@periodEnd, 120)+' за ' + case @days when 1 then '24 часа' else cast(@days as varchar(10)) + ' дней' end + ', в т.ч.:',
+0,'-',NULL,3, StatTable.[Name],StatTable.Code,StatTable.[Order] FROM @Statuses AS StatTable
+UNION
+SELECT 'ВУЗ',1,'Всего',NULL,-3, StatTable.[Name],StatTable.Code,StatTable.[Order] FROM @Statuses AS StatTable
+UNION
+SELECT 'ССУЗ',2,'Всего',NULL,-3, StatTable.[Name],StatTable.Code,StatTable.[Order] FROM @Statuses AS StatTable
+
+
+DELETE FROM @Combinations WHERE OrgTypeCode IN(3,4) AND IsPrivateCode = 1
+
+DECLARE @Users TABLE
+(
+	OrgTypeName NVARCHAR (50),
+	OrgTypeCode NVARCHAR (50),
+	IsPrivateName NVARCHAR (50),
+	IsPrivateOrder NVARCHAR (50),
+	StatusName NVARCHAR(50),
+	UsersCount INT
+)
+
+INSERT INTO @Users(OrgTypeName,OrgTypeCode,IsPrivateName,IsPrivateOrder,StatusName,UsersCount)
+select
+	A.OrgTypeName,
+	A.OrgTypeCode,
+	A.IsPrivateName,
+	A.IsPrivateOrder,
+	A.StatusName,
+	isnull(B.CountAcc, 0)
+from 
+(select
+	Comb.OrgTypeName,
+	Comb.OrgTypeCode,
+	Comb.IsPrivateName,
+	Comb.IsPrivateOrder,
+	Comb.StatusName
+from
+	@Combinations Comb
+)  A
+left join
+(
+SELECT 
+	Comb.OrgTypeName,
+	Comb.OrgTypeCode,
+	Comb.IsPrivateName,
+	Comb.IsPrivateOrder,
+	Comb.StatusName,
+	COUNT(RD.AccountId) CountAcc
+FROM
+	(
+	SELECT 
+		max([UpdateDate]) UpdateDate
+		,[AccountId]
+	FROM
+		RegistrationLog RL
+	WHERE
+		RL.UpdateDate between @periodBegin and @periodEnd
+	GROUP BY
+		AccountId
+	) RD
+	inner join RegistrationLog RL on RL.AccountId = RD.AccountId 
+		and RL.UpdateDate = RD.UpdateDate
+	inner join Organizations O on O.OrgId = RL.OrgId
+	RIGHT JOIN @Combinations Comb 
+	ON (RL.AccountStatus=Comb.StatusCode 
+		AND (
+			O.OrgType=Comb.OrgTypeCode 
+			AND (
+				(O.IsPrivate=Comb.IsPrivateCode AND Comb.IsPrivateCode IS NOT NULL)
+				OR
+				(Comb.IsPrivateCode IS NULL)
+			)
+			AND Comb.OrgTypeCode!=0
+		))
+	OR (
+		(RL.AccountStatus=Comb.StatusCode)
+		AND (
+			Comb.OrgTypeCode=0
+		)
+		AND (
+			O.OrgType IS NOT NULL
+		)
+	)
+	OR (
+		Comb.StatusCode='total'
+		AND ((
+			O.OrgType=Comb.OrgTypeCode 
+			AND (
+				(O.IsPrivate=Comb.IsPrivateCode AND Comb.IsPrivateCode IS NOT NULL)
+				OR
+				(Comb.IsPrivateCode IS NULL)
+			)
+			AND Comb.OrgTypeCode!=0
+		)
+		OR
+		((Comb.OrgTypeCode=0)AND(O.OrgType IS NOT NULL)))
+	)
+where RD.UpdateDate between @periodBegin and @periodEnd
+GROUP BY Comb.OrgTypeName,Comb.OrgTypeCode,IsPrivateName,IsPrivateOrder,StatusName
+) as B on A.OrgTypeName=B.OrgTypeName and A.OrgTypeCode = B.OrgTypeCode and 
+	A.IsPrivateName = B.IsPrivateName and A.IsPrivateOrder=B.IsPrivateOrder and A.StatusName = B.StatusName
+
+DECLARE  @PreResult TABLE
+(	
+	OrgTypeCode int,
+	MainOrder INT,
+	OrgTypeName NVARCHAR (50),
+	IsPrivateName NVARCHAR (50),
+	[Всего] INT,
+	[Активирован] INT,
+	[На регистрации] INT,
+	[На доработке] INT,
+	[На согласовании] INT,
+	[Отключен] INT
+)
+
+INSERT INTO @PreResult
+SELECT
+	OrgTypeCode,
+	OrgTypeCode * 100 + IsPrivateOrder AS MainOrder,
+	OrgTypeName,
+	IsPrivateName,
+	ISNULL([Всего],0) AS [Всего] ,
+	ISNULL([Активирован],0) AS [Активирован], 
+	ISNULL([На регистрации],0) AS [На регистрации], 
+	ISNULL([На доработке],0) AS [На доработке], 
+	ISNULL([На согласовании],0) AS [На согласовании], 
+	ISNULL([Отключен],0) AS [Отключен]
+FROM @Users PIVOT
+	(
+	  SUM(UsersCount)
+	  FOR [StatusName] IN ([Активирован],[На регистрации],[На доработке],[На согласовании],[Отключен],[Всего])
+	) AS P
+order by MainOrder asc
+
+INSERT INTO @report
+SELECT OrgTypeName,IsPrivateName,[Всего],[На регистрации],[На согласовании],[На доработке],[Активирован],[Отключен]
+FROM @PreResult
+where OrgTypecode not in (3,4,5,6)
+UNION ALL
+SELECT 
+'Из них аккредитованных',NULL,NULL,NULL,NULL,NULL,NULL,NULL
+UNION ALL
+SELECT * FROM
+	dbo.ReportUserStatusAccredTVF (@periodBegin ,@periodEnd)
+
+UNION ALL
+SELECT 
+'Прочие организации',NULL,NULL,NULL,NULL,NULL,NULL,NULL
+UNION ALL
+SELECT OrgTypeName,IsPrivateName,[Всего],[На регистрации],[На согласовании],[На доработке],[Активирован],[Отключен]
+FROM @PreResult
+where OrgTypecode in (3,4,5,6)
+
+return
+END
+GO

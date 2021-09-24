@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CommonNationalCertificateContext">
+  <DataContextMoniker Name="/CommonNationalCertificateContext" />
+  <nestedChildShapes>
+    <classShape Id="10ebde1c-d6c1-45c5-8d55-bb6b4b5c5859" absoluteBounds="6.5, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/CommonNationalCertificateContext/Subject" />
+      <nestedChildShapes>
+        <elementListCompartment Id="29651948-499f-47e8-9b51-f551ccaebffb" absoluteBounds="6.5150000000000006, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c0bf59c8-ce9d-44a2-b9ef-ae5f098987dc" absoluteBounds="4.25, 0.5, 2, 5.6169254557291657">
+      <DataClassMoniker Name="/CommonNationalCertificateContext/CheckCommonNationalExamCertificateByNumberResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="76e4200b-d8be-462c-a2fa-9de5d965973a" absoluteBounds="4.2650000000000006, 0.96, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

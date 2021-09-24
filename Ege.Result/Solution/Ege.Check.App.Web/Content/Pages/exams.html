@@ -1,0 +1,48 @@
+﻿<!-- @@master = Partials/master.html -->
+
+<!-- @@block = content-->
+
+<!--uncache-->
+<link rel="stylesheet" href="/Content/Build/css/exams.css">
+<!--enduncache-->
+
+<div class="page">
+    <!-- @@include = Partials/header.html -->
+    <div class="content">
+        <div id="rcoi-msg"></div>
+        <div class="account-block">
+            <span id="username"></span>
+            <a href="#" id="logout">Выход</a>
+        </div>
+        <h3>Ваши результаты ЕГЭ</h3>
+        <!--
+        <div class="mb-10">
+            <a href="http://ege.edu.ru/ru/universities-colleges/faq/" target="_blank">Вопросы и ответы по сервису «Результаты ЕГЭ»</a>
+        </div>-->
+        <div class="mb-20">
+            <a href="http://ege.edu.ru/ru/classes-11/res/" target="_blank">График публикации результатов экзаменов</a>
+        </div>
+        <div id="table-container" class="table-container">
+            <!-- @@include = Partials/loader.html -->
+        </div>
+        <p class="red">
+            Внимание!
+        </p>
+        <p class="mb-15">
+            В случае если:<br />
+            &mdash; напротив предмета установлен статус &laquo;Результат скрыт&raquo;<br />
+            &mdash; напротив предмета установлен статус &laquo;Экзамен обработан&raquo; и при этом значение тестового балла пустое <br>
+            Вам необходимо обратиться в РЦОИ Вашего региона для получения результатов.
+        </p>
+        <p class="red">
+            Обращаем Ваше внимание, что результаты ЕГЭ могут быть изменены в&nbsp;связи с&nbsp;проведением процедур апелляции и/или&nbsp;перепроверок результатов на&nbsp;региональном и&nbsp;федеральном уровнях. Рекомендуем осуществлять периодические повторные проверки Ваших результатов ЕГЭ.
+        </p>
+    </div>
+    <!-- @@include = Partials/footer.html -->
+</div>
+
+<!--uncache-->
+<script src="/Content/Build/js/exams.js"> </script>
+<!--enduncache-->
+
+<!-- @@close-->

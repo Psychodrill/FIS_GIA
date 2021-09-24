@@ -1,0 +1,143 @@
+﻿@model Ege.Check.App.Web.Blanks.ViewModels.Hsc.IndexPageViewModel
+@using Ege.Check.App.Web.Common.Auth
+@{
+    if (Model == null)
+    {
+        throw new NullReferenceException("Model");
+    }
+    if (Url == null)
+    {
+        throw new NullReferenceException("Url");
+    }
+    if (ViewBag == null)
+    {
+        throw new NullReferenceException("ViewBag");
+    }
+}
+@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/index.css")" />
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/start.js?1")"></script>
+}
+@{
+    ViewBag.Title = "Выгрузка бланков участников ЕГЭ";
+}
+
+<div class="panels">
+    @if (!(User is IStaffPrincipal) && DateTime.Now.Date < Model.OpenDate.Date)
+    {
+        <div class="notice">
+            Уважаемые коллеги. Копии изображений бланков участников итогового сочинения будут доступны с @Model.OpenDate.Date.ToString("d MMMM yyyy г.")
+        </div>
+    }
+    else
+    {
+        if (Model.CsvUploadAllowed)
+        {
+            <div class="mb-15">
+                <a href="@Url.RouteUrl("Downloads")">Все выгрузки</a>
+            </div>        
+        }
+        <div class="panel left">
+            @if (Model.CsvUploadAllowed)
+            {
+                <h3>Индивидуальная выгрузка</h3>
+            }
+            else
+            {
+                <h3>@ViewBag.Title</h3>
+            }
+            <form class="form" id="single-download">
+                <div class="c-notice"></div>
+                <div class="form_label">
+                    Фамилия
+                </div>
+                <div class="form_input">
+                    <input type="text" name="Surname" value='@Request.Params["Surname"]'>
+                </div>
+                <div class="form_label">
+                    Имя
+                </div>
+                <div class="form_input">
+                    <input type="text" name="FirstName" value='@Request.Params["FirstName"]'>
+                </div>
+                <div class="form_label">
+                    Отчество
+                </div>
+                <div class="form_input">
+                    <input type="text" name="Patronymic" value='@Request.Params["Patronymic"]'>
+                </div>
+                <div class="form_label">
+                    Номер документа
+                </div>
+                <div class="form_input">
+                    <input type="text" name="Document" value='@Request.Params["Document"]'>
+                </div>
+                <button>
+                    <span>Выгрузить бланки</span>
+                    @Html.Partial("Loader")
+                </button>
+            </form>
+        </div>
+        if (Model.CsvUploadAllowed)
+        {
+            <div class="panel right" id="multi-form">
+                <h3>Массовая выгрузка</h3>
+                <div class="form">
+                    <div class="form_label form_label__type-file">
+                        Прикрепите CSV-файлы
+                    </div>
+                    <div id="files-list" class="mb-20"></div>
+                    <div class="form_input">
+                        <div class="btn-upload">
+                            <button class="btn-light">
+                                Добавить файлы
+                            </button>
+                            <input type="file" multiple id="file-input">
+                        </div>
+                    </div>
+                    <div class="form_label">
+                        Комментарий
+                    </div>
+                    <div class="form_input">
+                        <textarea id="comment"></textarea>
+                    </div>
+                    <div class="c-notice"></div>
+                    <div class="form_footer">
+                        <button id="multi-download">
+                            <span>Выгрузить бланки</span>
+                            @Html.Partial("Loader")
+                        </button>    
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    
+</div>
+
+<script type="text/html" id="notice-tmpl">
+    <div class="notice mb-20">
+        Пожалуйста, заполните все поля
+    </div>
+</script>
+
+<script type="text/html" id="error-tmpl">
+    <div class="notice mb-20">
+        Ошибка сервера
+    </div>
+</script>
+
+<script type="text/html" id="multi-download-notice">
+    <div class="notice mb-20 info">
+        Выгрузка поставлена в очередь.<br />
+        Чтобы скачать архив, перейдите по <a href="/downloads">ссылке</a>
+    </div>
+</script>
+
+<script type="text/html" id="file-tmpl">
+    <div class="file-name">
+        {{name}}
+    </div>
+</script>

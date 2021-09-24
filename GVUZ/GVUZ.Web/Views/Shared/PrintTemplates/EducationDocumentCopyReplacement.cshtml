@@ -1,0 +1,43 @@
+﻿@inherits WebViewPage<GVUZ.Web.ViewModels.PrintTemplateInfoViewModel>
+			  
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Замена копии документа об образовании на подлинник</title>
+        <style type="text/css">
+            @@media print {
+                .dontprint { display: none; }
+            }
+
+            h4 { font-weight: normal; }
+        </style>
+    </head>
+    <body>
+        <a class="dontprint" href="#" onclick=" window.print() ">Печать</a>
+
+        <div class="print">
+            <center>
+                <h4>ЗАМЕНА КОПИИ ДОКУМЕНТА</h4>
+                <h4>О ПОЛНОМ СРЕДНЕМ ОБРАЗОВАНИИ НА ПОДЛИННИК</h4>
+                № заявления: @Model.ApplicationNumber<br/>
+                Серия и номер документа о полном среднем общем образовании:<br/>
+                @Model.SchoolCertificateDocument.Series № @Model.SchoolCertificateDocument.Number<br/>
+                Я, @Model.EntrantLastName @Model.EntrantFistName @Model.EntrantMiddleName, прошу заменить копию документа о полном среднем образовании на подлинник.<br/>
+                Число: @DateTime.Now.ToString("dd.MM.yyyyг.") Подпись: _____________________	/@Model.EntrantLastName @Model.NameInitials/
+                <hr/>		
+                <h4>ОТРЫВНОЙ ТАЛОН</h4>
+                <h4>ЗАМЕНИТЬ КОПИЮ  НА ПОДЛИННИК</h4>
+                Ф.И.О.: @Model.EntrantLastName @Model.EntrantFistName @Model.EntrantMiddleName<br/>
+                Номер заявления: @Model.ApplicationNumber<br/>
+                Серия и номер документа о полном среднем общем образовании:<br/>
+                @Model.SchoolCertificateDocument.Series № @Model.SchoolCertificateDocument.Number<br/>
+            </center>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<TestDataSet xmlns="http://tempuri.org/TestDataSet.xsd">
+  <rbdc_Regions>
+    <REGION>1</REGION>
+    <RegionName>Республика Адыгея</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>2</REGION>
+    <RegionName>Республика Башкортостан</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>3</REGION>
+    <RegionName>Республика Бурятия</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>4</REGION>
+    <RegionName>Республика Алтай</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>5</REGION>
+    <RegionName>Республика Дагестан</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>6</REGION>
+    <RegionName>Республика Ингушетия</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>7</REGION>
+    <RegionName>Кабардино-Балкарская Республика</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>8</REGION>
+    <RegionName>Республика Калмыкия</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>9</REGION>
+    <RegionName>Карачаево-Черкесская Республика</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>10</REGION>
+    <RegionName>Республика Карелия</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>11</REGION>
+    <RegionName>Республика Коми</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>12</REGION>
+    <RegionName>Республика Марий Эл</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>13</REGION>
+    <RegionName>Республика Мордовия</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>14</REGION>
+    <RegionName>Республика Саха (Якутия)</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>15</REGION>
+    <RegionName>Республика Северная Осетия</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>16</REGION>
+    <RegionName>Республика Татарстан</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>17</REGION>
+    <RegionName>Республика Тыва</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>18</REGION>
+    <RegionName>Удмуртская Республика</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>19</REGION>
+    <RegionName>Республика Хакасия</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>20</REGION>
+    <RegionName>Чеченская Республика</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>21</REGION>
+    <RegionName>Чувашская Республика</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>22</REGION>
+    <RegionName>Алтайский край</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>23</REGION>
+    <RegionName>Краснодарский край</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>24</REGION>
+    <RegionName>Красноярский край</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>25</REGION>
+    <RegionName>Приморский край</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>26</REGION>
+    <RegionName>Ставропольский край</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>27</REGION>
+    <RegionName>Хабаровский край</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>28</REGION>
+    <RegionName>Амурская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>29</REGION>
+    <RegionName>Архангельская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>30</REGION>
+    <RegionName>Астраханская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>31</REGION>
+    <RegionName>Белгородская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>32</REGION>
+    <RegionName>Брянская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>33</REGION>
+    <RegionName>Владимирская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>34</REGION>
+    <RegionName>Волгоградская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>35</REGION>
+    <RegionName>Вологодская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>36</REGION>
+    <RegionName>Воронежская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>37</REGION>
+    <RegionName>Ивановская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>38</REGION>
+    <RegionName>Иркутская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>39</REGION>
+    <RegionName>Калининградская область</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>40</REGION>
+    <RegionName>Калужская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>41</REGION>
+    <RegionName>Камчатский край</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>42</REGION>
+    <RegionName>Кемеровская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>43</REGION>
+    <RegionName>Кировская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>44</REGION>
+    <RegionName>Костромская область</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>45</REGION>
+    <RegionName>Курганская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>46</REGION>
+    <RegionName>Курская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>47</REGION>
+    <RegionName>Ленинградская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>48</REGION>
+    <RegionName>Липецкая область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>49</REGION>
+    <RegionName>Магаданская область</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>50</REGION>
+    <RegionName>Московская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>51</REGION>
+    <RegionName>Мурманская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>52</REGION>
+    <RegionName>Нижегородская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>53</REGION>
+    <RegionName>Новгородская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>54</REGION>
+    <RegionName>Новосибирская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>55</REGION>
+    <RegionName>Омская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>56</REGION>
+    <RegionName>Оренбургская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>57</REGION>
+    <RegionName>Орловская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>58</REGION>
+    <RegionName>Пензенская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>59</REGION>
+    <RegionName>Пермский край</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>60</REGION>
+    <RegionName>Псковская область</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>61</REGION>
+    <RegionName>Ростовская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>62</REGION>
+    <RegionName>Рязанская область</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>63</REGION>
+    <RegionName>Самарская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>64</REGION>
+    <RegionName>Саратовская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>65</REGION>
+    <RegionName>Сахалинская область</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>66</REGION>
+    <RegionName>Свердловская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>67</REGION>
+    <RegionName>Смоленская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>68</REGION>
+    <RegionName>Тамбовская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>69</REGION>
+    <RegionName>Тверская область</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>70</REGION>
+    <RegionName>Томская область</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>71</REGION>
+    <RegionName>Тульская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>72</REGION>
+    <RegionName>Тюменская область</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>73</REGION>
+    <RegionName>Ульяновская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>74</REGION>
+    <RegionName>Челябинская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>75</REGION>
+    <RegionName>Забайкальский край</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>76</REGION>
+    <RegionName>Ярославская область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>77</REGION>
+    <RegionName>г. Москва</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>78</REGION>
+    <RegionName>г. Санкт-Петербург</RegionName>
+    <Enable>false</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>79</REGION>
+    <RegionName>Еврейская автономная область</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>83</REGION>
+    <RegionName>Ненецкий автономный округ</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>86</REGION>
+    <RegionName>Ханты-Мансийский автономный округ</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>87</REGION>
+    <RegionName>Чукотский автономный округ</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>89</REGION>
+    <RegionName>Ямало-Ненецкий автономный округ</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+  <rbdc_Regions>
+    <REGION>90</REGION>
+    <RegionName>ОУ, находящиеся за пределами РФ</RegionName>
+    <Enable>true</Enable>
+  </rbdc_Regions>
+</TestDataSet>

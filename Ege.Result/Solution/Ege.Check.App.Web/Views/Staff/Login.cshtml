@@ -1,0 +1,32 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/start.css")" />
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/staff-start.js")"></script>
+}
+@{
+    ViewBag.Title = "Вход для сотрудников";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="entry-form" id="entry-form">
+    <div id="notice-container"></div>
+    <div class="entry-form_label">
+        Логин
+    </div>
+    <div class="entry-form_input">
+        <input type="text" id="login">
+    </div>
+    <div class="entry-form_label">
+        Пароль
+    </div>
+    <div class="entry-form_input">
+        <input type="password" id="password">
+    </div>
+    
+    <button class="btn-submit" id="submit">
+        <span>Войти</span>
+        @RawHtml("~/Content/Pages/Partials/loader.html")
+    </button>
+</div>

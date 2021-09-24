@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BF47ACA9-1DC7-4A28-BAE8-378421D198B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GVUZ.Model</RootNamespace>
+    <AssemblyName>GVUZ.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.6\lib\net45\CommonServiceLocator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=704200c094cfd4f3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administration\AdministrationEntities.cs" />
+    <Compile Include="Administration\Administration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Administration.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\PersonalDataAccessLog.cs" />
+    <Compile Include="AdmissionItemTypes.cs" />
+    <Compile Include="ApplicationPriorities\ApplicationPriorities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationPriorities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\ApplicationCountValidator.cs" />
+    <Compile Include="Applications\ApplicationEgeInfoProvider.cs" />
+    <Compile Include="Applications\ApplicationEgeValidator.cs" />
+    <Compile Include="Applications\ApplicationEgeValidatorMessages.cs" />
+    <Compile Include="Applications\ApplicationPassportValidator.cs" />
+    <Compile Include="Applications\ApplicationRatingCalculator.cs" />
+    <Compile Include="Applications\ApplicationEgeContext.cs" />
+    <Compile Include="Applications\ApplicationValidationErrorInfo.cs" />
+    <Compile Include="Applications\ApplicationValidator.cs" />
+    <Compile Include="Applications\EgePacketHelper.cs" />
+    <Compile Include="Benefits\Benefits.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Benefits.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Cache\EntrantCacheManager.cs" />
+    <Compile Include="Cache\WebCacheManager.cs" />
+    <Compile Include="Courses\Courses.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Courses.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DictionaryCache.cs" />
+    <Compile Include="DictionaryCacheFillActions.cs" />
+    <Compile Include="DictionaryItem.cs" />
+    <Compile Include="EntitiesHelper.cs" />
+    <Compile Include="Entrants\ApplicationReferenced.cs" />
+    <Compile Include="Entrants\ApplicationStatusType.cs" />
+    <Compile Include="Entrants\CampaignStatusType.cs" />
+    <Compile Include="Entrants\CompetitiveGroup.cs" />
+    <Compile Include="Entrants\ContextExtensions\ApplicationOrderHelperExtensions.cs" />
+    <Compile Include="Entrants\ContextExtensions\EntrantDocumentExtensions.cs" />
+    <Compile Include="Entrants\Documents\BaseDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\BasicDiplomaDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\CustomDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\DiplomaDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\DisabilityDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\DocumentShortInfoViewModel.cs" />
+    <Compile Include="Entrants\Documents\EduCustomDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\EduDocumentHelper.cs" />
+    <Compile Include="Entrants\Documents\EGEDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\EntrantDocumentCheckOnExistsViewModel.cs" />
+    <Compile Include="Entrants\Documents\EntrantDocumentListViewModel.cs" />
+    <Compile Include="Entrants\Documents\EntrantDocumentType.cs" />
+    <Compile Include="Entrants\Documents\GiaDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\IdentityDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\MilitaryCardDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\OlympicDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\OlympicTotalDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\PsychoDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\SchoolCertificateDocumentViewModel.cs" />
+    <Compile Include="Entrants\Documents\StudentDocument.cs" />
+    <Compile Include="Entrants\EntranceTestItemC.cs" />
+    <Compile Include="Entrants\EntranceTestType.cs" />
+    <Compile Include="Entrants\EntrantDocument.cs" />
+    <Compile Include="Entrants\Entrants.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entrants.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entrants\Institution.cs" />
+    <Compile Include="Entrants\PersonalDataAccessLog.cs" />
+    <Compile Include="Entrants\UniDocuments\EntrantDocumentViewModel.cs" />
+    <Compile Include="Entrants\EntitySimpleCache.cs" />
+    <Compile Include="Entrants\EntranceTestSource.cs" />
+    <Compile Include="Entrants\EntranceTestResultSourceEnum.cs" />
+    <Compile Include="Entrants\EntrantKey.cs" />
+    <Compile Include="Entrants\EntrantsEntities.cs" />
+    <Compile Include="Entrants\ListMethods.cs" />
+    <Compile Include="Entrants\GenderType.cs" />
+    <Compile Include="FileStorage\FileDescription.cs" />
+    <Compile Include="FileStorage\FileStorage.cs" />
+    <Compile Include="FileStorage\IFileStorage.cs" />
+    <Compile Include="Helpers\InstitutionLogger.cs" />
+    <Compile Include="Helpers\IPersonalDataAccessLog.cs" />
+    <Compile Include="Helpers\PersonalDataAccessLogger.cs" />
+    <Compile Include="Helpers\UserInfo.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
+    <Compile Include="IApplicationReferenced.cs" />
+    <Compile Include="Institutions\AdmissionItemLevel.cs" />
+    <Compile Include="Institutions\AdmissionItemType.cs" />
+    <Compile Include="IAttachment.cs" />
+    <Compile Include="Institutions\EntranceTestType.cs" />
+    <Compile Include="Institutions\Institution.cs" />
+    <Compile Include="Institutions\Institution.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Institution.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Institutions\InstitutionItem.cs" />
+    <Compile Include="Institutions\InstitutionItemType.cs" />
+    <Compile Include="Institutions\InstitutionItemTypeNames.cs" />
+    <Compile Include="Institutions\InstitutionSearchResult.cs" />
+    <Compile Include="Institutions\InstitutionSearchParameters.cs" />
+    <Compile Include="Institutions\InstitutionsEntities.cs" />
+    <Compile Include="Institutions\InstitutionStructureHelper.cs" />
+    <Compile Include="Institutions\InstitutionType.cs" />
+    <Compile Include="Institutions\ListMethods.cs" />
+    <Compile Include="Institutions\SearchParameters.cs" />
+    <Compile Include="Institutions\SearchResultHelper.cs" />
+    <Compile Include="IObjectWithUID.cs" />
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelExtensions.cs" />
+    <Compile Include="NormativeDictionaries\NormativeDictionaries.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NormativeDictionaries.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NormativeDictionaries\NormativeDictionaryEntities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecommendedLists\RecommendedLists.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecommendedLists.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Institutions\Institution.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Institution.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Administration\Administration.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Administration.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Courses\Courses.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Courses.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Benefits\Benefits.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Benefits.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="NormativeDictionaries\NormativeDictionaries.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NormativeDictionaries.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="ApplicationPriorities\ApplicationPriorities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ApplicationPriorities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Entrants\Entrants.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Entrants.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entrants\Entrants.edmx.diagram">
+      <DependentUpon>Entrants.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\GVUZ.Model.Administration.AdministrationEntities.datasource" />
+    <None Include="Properties\DataSources\GVUZ.Model.Benefits.BenefitsEntities.datasource" />
+    <None Include="Properties\DataSources\GVUZ.Model.Courses.CoursesEntities.datasource" />
+    <None Include="Properties\DataSources\GVUZ.Model.Entrants.EntrantsEntities.datasource" />
+    <None Include="Properties\DataSources\GVUZ.Model.Institutions.InstitutionsEntities.datasource" />
+    <None Include="Properties\DataSources\GVUZ.Model.NormativeDictionaries.NormativeDictionaryEntities.datasource" />
+    <EntityDeploy Include="RecommendedLists\RecommendedLists.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RecommendedLists.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GVUZ.DAL\GVUZ.DAL.csproj">
+      <Project>{461DD23C-AA0B-44BE-BB7B-1E949F24CD57}</Project>
+      <Name>GVUZ.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.Helper\GVUZ.Helper.csproj">
+      <Project>{2821A68D-1955-426C-81F5-73951804FA8A}</Project>
+      <Name>GVUZ.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\FogSoft.Helpers\FogSoft.Helpers.csproj">
+      <Project>{173475E2-84C2-46BE-BDFF-167D46632792}</Project>
+      <Name>FogSoft.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\FogSoft.Web\FogSoft.Web.csproj">
+      <Project>{E8A0701F-4B7B-4158-9C18-10FB5ED9DCB2}</Project>
+      <Name>FogSoft.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rdms\Communication\Rdms.Communication.csproj">
+      <Project>{3733A805-9DD7-4E8C-B72A-8A419E94A7B8}</Project>
+      <Name>Rdms.Communication</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelPatch.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Class Diagrams\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

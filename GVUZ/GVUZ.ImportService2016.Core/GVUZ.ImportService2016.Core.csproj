@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A80735FC-92A4-4390-A524-FE90F5A9D1A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GVUZ.ImportService2016.Core</RootNamespace>
+    <AssemblyName>GVUZ.ImportService2016.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+    <PropertyGroup>
+  <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Core">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Data">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Xml">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkCompetitiveGroupProgramReader.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkDistributedPlanAdmissionVolumeReader.cs" />
+    <Compile Include="Dto\DataReaders\Applications\BulkApplicationShortUpdateReader.cs" />
+    <Compile Include="Dto\DataReaders\Applications\BulkEntrantCitizenshipReader.cs" />
+    <Compile Include="Dto\DataReaders\OrderOfAdmission\BulkApplicationInOrderReader.cs" />
+    <Compile Include="Dto\DataReaders\OrderOfAdmission\BulkOrderOfAdmissionReader.cs" />
+    <Compile Include="Dto\DataReaders\OrderOfAdmission\BulkOrderOfExceptionReader.cs" />
+    <Compile Include="Dto\DataReaders\InstitutionPrograms\BulkInstitutionProgramReader.cs" />
+    <Compile Include="Dto\DataReaders\TargetOrganizations\BulkTargetOrganizationReader.cs" />
+    <Compile Include="Main\Check\ApplicationChecker.cs" />
+    <Compile Include="Main\Check\CheckManager.cs" />
+    <Compile Include="Main\Conflicts\ConflictsResultDto.cs" />
+    <Compile Include="Main\Conflicts\ConflictStorage.cs" />
+    <Compile Include="Main\Conflicts\DeleteConflictStorage.cs" />
+    <Compile Include="Main\Delete\ApplicationCommonBenefitsDeleter.cs" />
+    <Compile Include="Main\Delete\ApplicationsDeleter.cs" />
+    <Compile Include="Main\Delete\BaseDeleter.cs" />
+    <Compile Include="Main\Delete\CampaignsDeleter.cs" />
+    <Compile Include="Main\Delete\CompetitiveGroupsDeleter.cs" />
+    <Compile Include="Main\Delete\DeleteManager.cs" />
+    <Compile Include="Main\Delete\EntranceTestResultsDeleter.cs" />
+    <Compile Include="Main\Delete\InstitutionAchievementsDeleter.cs" />
+    <Compile Include="Main\Delete\OrderOfAdmissionDeleter.cs" />
+    <Compile Include="Main\Delete\TargetOrganizationsDeleter.cs" />
+    <Compile Include="Main\Dictionaries\AdmissionItemTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\AdmissionVolume\AdmissionVolumeVoc.cs" />
+    <Compile Include="Main\Dictionaries\AdmissionVolume\DistributedAdmissionVolumeVoc.cs" />
+    <Compile Include="Main\Dictionaries\AdmissionVolume\DistributedPlanAdmissionVolumeVoc.cs" />
+    <Compile Include="Main\Dictionaries\AdmissionVolume\PlanAdmissionVolumeVoc.cs" />
+    <Compile Include="Main\Dictionaries\AllowedDirectionsVoc.cs" />
+    <Compile Include="Main\Dictionaries\Application\ApplicationCompetitiveGroupItemVoc.cs" />
+    <Compile Include="Main\Dictionaries\Application\ApplicationEntranceTestDocumentVoc.cs" />
+    <Compile Include="Main\Dictionaries\Application\ApplicationEntrantDocumentVoc.cs" />
+    <Compile Include="Main\Dictionaries\Application\ApplicationSelectedCompetitiveGroupVoc.cs" />
+    <Compile Include="Main\Dictionaries\Application\ApplicationStatusTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\Application\ApplicationVoc.cs" />
+    <Compile Include="Main\Dictionaries\Application\IndividualAchivementVoc.cs" />
+    <Compile Include="Main\Dictionaries\BenefitItemCVoc.cs" />
+    <Compile Include="Main\Dictionaries\BenefitVoc.cs" />
+    <Compile Include="Main\Dictionaries\Campaign\CampaignDateVoc.cs" />
+    <Compile Include="Main\Dictionaries\Campaign\CampaignEducationLevelVoc.cs" />
+    <Compile Include="Main\Dictionaries\Campaign\CampaignStatusVoc.cs" />
+    <Compile Include="Main\Dictionaries\Campaign\CampaignTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\Campaign\CampaignVoc.cs" />
+    <Compile Include="Main\Dictionaries\Campaign\EduLevelsToCampaignTypesVoc.cs" />
+    <Compile Include="Main\Dictionaries\CompatriotCategoryVoc.cs" />
+    <Compile Include="Main\Dictionaries\CompetitiveGroup\CompetitiveGroupItemVoc.cs" />
+    <Compile Include="Main\Dictionaries\CompetitiveGroup\CompetitiveGroupProgramVoc.cs" />
+    <Compile Include="Main\Dictionaries\CompetitiveGroup\InstitutionProgramVoc.cs" />
+    <Compile Include="Main\Dictionaries\CompetitiveGroup\CompetitiveGroupTargetItemVoc.cs" />
+    <Compile Include="Main\Dictionaries\CompetitiveGroup\CompetitiveGroupTargetVoc.cs" />
+    <Compile Include="Main\Dictionaries\CompetitiveGroup\CompetitiveGroupVoc.cs" />
+    <Compile Include="Main\Dictionaries\Direction\DirectionSubjectLinkDirectionVoc.cs" />
+    <Compile Include="Main\Dictionaries\Direction\DirectionSubjectLinkSubjectVoc.cs" />
+    <Compile Include="Main\Dictionaries\Direction\DirectionSubjectLinkVoc.cs" />
+    <Compile Include="Main\Dictionaries\Direction\DirectionVoc.cs" />
+    <Compile Include="Main\Dictionaries\DisabilityTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\DocumentTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\EduLevelDocumentTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\EntranceTest\EntranceTestCreativeDirectionVoc.cs" />
+    <Compile Include="Main\Dictionaries\EntranceTest\EntranceTestItemCVoc.cs" />
+    <Compile Include="Main\Dictionaries\EntranceTest\EntranceTestProfileDirectionVoc.cs" />
+    <Compile Include="Main\Dictionaries\EntranceTest\EntranceTestResultSourceVoc.cs" />
+    <Compile Include="Main\Dictionaries\EntranceTest\EntranceTestTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\EntrantDocumentVoc.cs" />
+    <Compile Include="Main\Dictionaries\EntrantVoc.cs" />
+    <Compile Include="Main\Dictionaries\GlobalMinEgeVoc.cs" />
+    <Compile Include="Main\Dictionaries\IdentityDocumentTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\IndividualAchievementsCategoryVoc.cs" />
+    <Compile Include="Main\Dictionaries\InstitutionAchievementsVoc.cs" />
+    <Compile Include="Main\Dictionaries\InstitutionDocumentTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\LevelBudgetVoc.cs" />
+    <Compile Include="Main\Dictionaries\CountryTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\Olympic\OlympicDiplomTypeVoc.cs" />
+    <None Include="Main\Dictionaries\Olympic\OlympicLevelVoc.cs" />
+    <Compile Include="Main\Dictionaries\Olympic\OlympicProfileVoc.cs" />
+    <None Include="Main\Dictionaries\_Obsolete\OlympicTypeSubjectLinkVoc.cs" />
+    <Compile Include="Main\Dictionaries\Olympic\OlympicSubjectVoc.cs" />
+    <Compile Include="Main\Dictionaries\Olympic\OlympicTypeProfileVoc.cs" />
+    <Compile Include="Main\Dictionaries\Olympic\OlympicTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\OrderOfAdmissionVoc.cs" />
+    <Compile Include="Main\Dictionaries\OrphanCategoryVoc.cs" />
+    <Compile Include="Main\Dictionaries\ReturnDocumentsTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\RecomendedListsVoc.cs" />
+    <Compile Include="Main\Dictionaries\RegionTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\SubjectEgeMinValueVoc.cs" />
+    <Compile Include="Main\Dictionaries\SubjectVoc.cs" />
+    <Compile Include="Main\Dictionaries\TownTypeVoc.cs" />
+    <Compile Include="Main\Dictionaries\StateEmployeeCategoryVoc.cs" />
+    <Compile Include="Main\Dictionaries\RadiationWorkVoc.cs" />
+    <Compile Include="Main\Dictionaries\ParentsLostCategoryVoc.cs" />
+    <Compile Include="Main\Dictionaries\VeteranCategoryVoc.cs" />
+    <Compile Include="Main\Dictionaries\VocabularyBase.cs" />
+    <Compile Include="Main\Dictionaries\VocabularyStatic.cs" />
+    <Compile Include="Main\Dictionaries\VocabularyStorage.cs" />
+    <Compile Include="Main\Extensions\ParseHelper.cs" />
+    <Compile Include="Main\Extensions\TypeExtention.cs" />
+    <Compile Include="Main\Import\AdmissionInfoImporter.cs" />
+    <Compile Include="Main\Import\ApplicationImporter.cs" />
+    <Compile Include="Main\Import\BaseImporter.cs" />
+    <Compile Include="Main\Import\CampaignInfoImporter.cs" />
+    <Compile Include="Main\Import\ImportManager.cs" />
+    <None Include="Main\Import\ImportValidator.cs" />
+    <Compile Include="Main\Import\InstitutionAchievementsImporter.cs" />
+    <Compile Include="Main\Import\OrderOfAdmissionImporter.cs" />
+    <Compile Include="Main\Import\InstitutionProgramsImporter.cs" />
+    <Compile Include="Main\Import\TargetOrganizationImporter.cs" />
+    <Compile Include="Main\Log\LogHelper.cs" />
+    <Compile Include="Main\PackageManager.cs" />
+    <Compile Include="Main\ProcessingManager.cs" />
+    <Compile Include="Main\Repositories\ADOApplicationChecksRepository.cs" />
+    <Compile Include="Main\Repositories\ADOBaseRepository.cs" />
+    <Compile Include="Main\Repositories\ADOCompetitiveGroupDependency.cs" />
+    <Compile Include="Main\Repositories\ADODependencyRepository.cs" />
+    <None Include="Main\Repositories\ADOOrderOfAdmissionRepository.cs" />
+    <Compile Include="Main\Repositories\ADOPackageRepository.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkAdmissionVolumeReader.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkBenefitItemDataReader.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkBenefitItemReader.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkCompetitiveGroupItemReader.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkCompetitiveGroupReader.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkCompetitiveGroupTargetItemReader.cs" />
+    <None Include="Dto\DataReaders\AdmissionInfo\BulkCompetitiveGroupTargetReader.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkDistributedAdmissionVolumeReader.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkEntranceTestBenefitReader.cs" />
+    <Compile Include="Dto\DataReaders\AdmissionInfo\BulkEntranceTestItemReader.cs" />
+    <Compile Include="Dto\DataReaders\Applications\BulkApplicationCompetitiveGroupItemReader.cs" />
+    <Compile Include="Dto\DataReaders\Applications\BulkApplicationEntranceTestDocumentReader.cs" />
+    <Compile Include="Dto\DataReaders\Applications\BulkApplicationIndividualAchievementsReader.cs" />
+    <Compile Include="Dto\DataReaders\Applications\BulkApplicationReader.cs" />
+    <None Include="Dto\DataReaders\Applications\BulkApplicationSelectedCompetitiveGroupItemReader.cs" />
+    <None Include="Dto\DataReaders\Applications\BulkApplicationSelectedCompetitiveGroupReader.cs" />
+    <None Include="Dto\DataReaders\Applications\BulkApplicationSelectedCompetitiveGroupTargetReader.cs" />
+    <Compile Include="Dto\DataReaders\Applications\BulkEntrantDocumentReader.cs" />
+    <Compile Include="Dto\DataReaders\Applications\BulkEntrantDocumentSubjectReader.cs" />
+    <Compile Include="Dto\DataReaders\Applications\BulkEntrantReader.cs" />
+    <Compile Include="Dto\DataReaders\BulkDeleteReader.cs" />
+    <Compile Include="Dto\DataReaders\BulkReaderBase.cs" />
+    <Compile Include="Dto\DataReaders\CampaignInfo\BulkCampaignDateReader.cs" />
+    <Compile Include="Dto\DataReaders\CampaignInfo\BulkCampaignReader.cs" />
+    <Compile Include="Dto\DataReaders\InstitutionArchievements\BulkInstitutionAchievementsReader.cs" />
+    <Compile Include="Dto\delete.cs" />
+    <Compile Include="Dto\DeleteManager\AdmissionVolumeDeleteManager.cs" />
+    <Compile Include="Dto\DeleteManager\BaseDeleteManager.cs" />
+    <Compile Include="Dto\DeleteManager\BenefitItemDeleteManager.cs" />
+    <Compile Include="Dto\DeleteManager\CompetitiveGroupDeleteManager.cs" />
+    <None Include="Dto\DeleteManager\CompetitiveGroupItemDeleteManager.cs" />
+    <Compile Include="Dto\DeleteManager\CompetitiveGroupTargetDeleteManager.cs" />
+    <Compile Include="Dto\DeleteManager\CompetitiveGroupTargetItemDeleteManager.cs" />
+    <Compile Include="Dto\DeleteManager\EntranceTestItemDeleteManager.cs" />
+    <Compile Include="Dto\import.cs" />
+    <Compile Include="Dto\import1app.cs" />
+    <Compile Include="Dto\Partial\delete.cs" />
+    <Compile Include="Dto\Partial\Import.cs" />
+    <Compile Include="Dto\Partial\ImportPackage.cs" />
+    <Compile Include="Dto\Partial\IPackageDataImport.cs" />
+    <Compile Include="Main\Repositories\ADOApplicationRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Main\Import\Result\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GVUZ.DAL\GVUZ.DAL.csproj">
+      <Project>{461dd23c-aa0b-44be-bb7b-1e949f24cd57}</Project>
+      <Name>GVUZ.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.Model\GVUZ.Model.csproj">
+      <Project>{BF47ACA9-1DC7-4A28-BAE8-378421D198B3}</Project>
+      <Name>GVUZ.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.ServiceModel\GVUZ.ServiceModel.csproj">
+      <Project>{0B539F23-B7BD-4080-BFC2-FC3ABAC6DA5D}</Project>
+      <Name>GVUZ.ServiceModel</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="Windows-1251" ?>
+<!-- Установки процесса сборки-->
+<project name="Fbs 1.0" basedir="." xmlns="http://nant.sf.net/release/0.85/nant.xsd">
+
+    <!-- Публикация rdl-отчетов  -->
+    <target name="build-rdl">
+        <copy todir="${dir.build.rdl}" overwrite="true">
+            <fileset>
+                <include name="${dir.src}\FbsReport\FbsReport\*.rdl" />
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- Публикация rdl-отчетов  -->
+    <target name="deploy-rdl" depends="build-rdl">
+        <exec program="RS">
+            <arg value="-i" />
+            <arg value="${rs.public}"/>
+            <arg value="-s" />
+            <arg value="${rs.path}" />
+            <arg value="-v" />
+            <arg value='DataSourcePath="${rs.ds.path}"' />
+            <arg value="-v" />
+            <arg value='DataSourceName="${rs.ds.name}"' />
+            <arg value="-v" />
+            <arg value='DataSourceConnection="${rs.ds.connection}"' />
+            <arg value="-v" />
+            <arg value='ReportPath="${rs.report.path}"' />
+            <arg value="-v" />
+            <arg value='ReportFolder="${dir.build.rdl}"' />
+        </exec>
+    </target>
+
+</project>

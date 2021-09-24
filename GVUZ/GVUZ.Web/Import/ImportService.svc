@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="GVUZ.Web.Import.ImportService" CodeBehind="ImportService.svc.cs" %>

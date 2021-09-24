@@ -1,0 +1,217 @@
+-- =========================================================================
+-- Запись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (8, '008__2011_07_05__AddIndexes')
+-- =========================================================================
+GO
+
+
+
+
+
+---------------------------------------
+-- Добавляем индексы в таблицу CheckLog
+---------------------------------------
+
+-- Первичный ключ по полю LogId 
+
+if exists (select 1
+	from sysobjects
+	where xtype = 'PK' and [name] = 'PK_CHECKLOG'
+	and parent_obj = (object_id('CheckLog')))
+
+    ALTER TABLE CheckLog
+	drop CONSTRAINT PK_CHECKLOG
+go
+
+ALTER TABLE CheckLog
+ADD CONSTRAINT PK_CHECKLOG PRIMARY KEY (LogId)
+go
+
+-- Индекс по полям LogDate, CertId 
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('CheckLog')
+            and   name  = 'CL_CertId_LogDate'
+            and   indid > 0
+            and   indid < 255)
+   drop index CheckLog.CL_CertId_LogDate
+go
+
+create index CL_CertId_LogDate on CheckLog (
+LogDate ASC,
+CertId ASC
+)
+go
+
+-- Индекс по полям LogDate, OrgId 
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('CheckLog')
+            and   name  = 'CL_OrgId_LogDate'
+            and   indid > 0
+            and   indid < 255)
+   drop index CheckLog.CL_OrgId_LogDate
+go
+
+create index CL_OrgId_LogDate on CheckLog (
+LogDate ASC,
+OrgId ASC
+)
+go
+
+-----------------------------------------------------
+-- Добавляем индексы в таблицу ByPeriodCertAggregates
+-----------------------------------------------------
+
+-- Первичный ключ по полям FactDate, CertId 
+
+if exists (select 1
+	from sysobjects
+	where xtype = 'PK' and [name] = 'PK_BYPERIODCERTAGGREGATES'
+	and parent_obj = (object_id('ByPeriodCertAggregates')))
+
+    ALTER TABLE ByPeriodCertAggregates
+	drop CONSTRAINT PK_BYPERIODCERTAGGREGATES
+go
+
+ALTER TABLE ByPeriodCertAggregates alter column FactDate date not null
+go
+
+ALTER TABLE ByPeriodCertAggregates
+ADD CONSTRAINT PK_BYPERIODCERTAGGREGATES PRIMARY KEY (FactDate, CertId)
+go
+
+
+
+-----------------------------------------------------
+-- Добавляем индексы в таблицу ByDayCertAggregates
+-----------------------------------------------------
+
+-- Первичный ключ по полям FactDate, CertId 
+
+if exists (select 1
+	from sysobjects
+	where xtype = 'PK' and [name] = 'PK_BYDAYCERTAGGREGATES'
+	and parent_obj = (object_id('ByDayCertAggregates')))
+
+    ALTER TABLE ByDayCertAggregates
+	drop CONSTRAINT PK_BYDAYCERTAGGREGATES
+go
+
+ALTER TABLE ByDayCertAggregates
+ADD CONSTRAINT PK_BYDAYCERTAGGREGATES PRIMARY KEY (FactDate, CertId)
+go
+
+
+
+
+
+
+
+----------------------------------------------
+-- Добавляем индексы в таблицу RegistrationLog
+----------------------------------------------
+
+-- Первичный ключ по полю LogId 
+
+if exists (select 1
+	from sysobjects
+	where xtype = 'PK' and [name] = 'PK_REGISTRATIONLOG'
+	and parent_obj = (object_id('RegistrationLog')))
+
+    ALTER TABLE RegistrationLog
+	drop CONSTRAINT PK_REGISTRATIONLOG
+go
+
+ALTER TABLE RegistrationLog
+ADD CONSTRAINT PK_REGISTRATIONLOG PRIMARY KEY (RegistrationLogId)
+go
+
+-- Индекс по полям LogDate, CertId 
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('RegistrationLog')
+            and   name  = 'RL_OrgId_LogDate'
+            and   indid > 0
+            and   indid < 255)
+   drop index RegistrationLog.RL_OrgId_LogDate
+go
+
+create index RL_OrgId_LogDate on RegistrationLog (
+LogDate ASC,
+OrgId ASC
+)
+go
+
+
+
+
+
+
+
+
+----------------------------------------------------
+-- Добавляем индексы в таблицу ByPeriodOrgAggregates
+----------------------------------------------------
+
+-- Удаляем индекс по полям OrgId_FactDate
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('ByPeriodOrgAggregates')
+            and   name  = 'OrgId_FactDate'
+            and   indid > 0
+            and   indid < 255)
+   drop index ByPeriodOrgAggregates.OrgId_FactDate
+go
+
+
+-- Первичный ключ по полям FactDate, OrgId
+
+if exists (select 1
+	from sysobjects
+	where xtype = 'PK' and [name] = 'PK_BYPERIODORGAGGREGATES'
+	and parent_obj = (object_id('ByPeriodOrgAggregates')))
+
+    ALTER TABLE ByPeriodOrgAggregates
+	drop CONSTRAINT PK_BYPERIODORGAGGREGATES
+go
+
+ALTER TABLE ByPeriodOrgAggregates
+ADD CONSTRAINT PK_BYPERIODORGAGGREGATES PRIMARY KEY (FactDate, OrgId)
+go
+
+
+----------------------------------------------------
+-- Добавляем индексы в таблицу ByDayOrgAggregates
+----------------------------------------------------
+
+-- Удаляем индекс по полям OrgId_FactDate
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('ByDayOrgAggregates')
+            and   name  = 'OrgId_FactDate'
+            and   indid > 0
+            and   indid < 255)
+   drop index ByDayOrgAggregates.OrgId_FactDate
+go
+
+
+-- Первичный ключ по полям FactDate, OrgId
+
+if exists (select 1
+	from sysobjects
+	where xtype = 'PK' and [name] = 'PK_BYDAYORGAGGREGATES'
+	and parent_obj = (object_id('ByDayOrgAggregates')))
+
+    ALTER TABLE ByDayOrgAggregates
+	drop CONSTRAINT PK_BYDAYORGAGGREGATES
+go
+
+ALTER TABLE ByDayOrgAggregates
+ADD CONSTRAINT PK_BYDAYORGAGGREGATES PRIMARY KEY (FactDate, OrgId)
+go

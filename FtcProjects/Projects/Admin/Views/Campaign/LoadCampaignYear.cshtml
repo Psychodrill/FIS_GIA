@@ -1,0 +1,56 @@
+﻿
+@if (ViewBag.Years.Count == 0)
+{
+    <span style="color:red;">Отсутствует год ПК</span>
+}
+else
+{
+
+    <div class="row align-items-start ">
+        <div class="col-4 my-3">
+            <label class="control-label" for="Years">Год ПК:</label>
+            <select class="form-control input-sm" id="Years" name="Years">
+                <option value="0"></option>
+                @{
+                    foreach (var item in ViewBag.Years)
+                    {
+                        <option value="@item.ToString()">@item.ToString()</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row align-items-start ">
+        <div id="CampaignList" />
+    </div>
+
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#Years").change(function () {
+            var Search = {
+                Id: @ViewBag.Id,
+                Year: $('#Years :selected').val()
+            }
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("LoadCampaignList", "Campaign")',
+                data: Search,
+                success: function (msg) {
+                    $('#CampaignList').empty().html(msg);
+                }
+            });
+
+        });
+
+
+    });
+
+
+
+
+</script>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<project name="Fbs 1.0" basedir="." xmlns="http://nant.sf.net/release/0.85/nant.xsd">
+
+
+    <!-- Прогон тестов веб-сервиса -->
+    <target name="test" description="Прогон тестов веб-сервиса">
+
+        <call target="build"/>
+        <call target="startwslocal"/>
+        <call target="runtests" />
+        <call target="stopwslocal"/>
+
+    </target>
+
+    <target name="runtests">
+        <!-- Копирование тестовых данных -->
+        <mkdir dir="${dir.src}\FbsTest\bin\Debug\Data" />
+        <copy todir="${dir.src}\FbsTest\bin\Debug\Data" overwrite="true">
+            <fileset>
+                <include name="${dir.src}\FbsTest\Tests\Data\*" />
+            </fileset>
+        </copy>
+
+        <!-- target="clear-testdb" -->
+        <!-- target="fill-testdb" -->
+
+        <exec program="${dir.src}\FbsTest\bin\Debug\FbsTest.exe"
+              workingdir="${dir.src}\FbsTest\bin\Debug"
+              commandline="" failonerror="false" />
+    </target>
+
+</project>

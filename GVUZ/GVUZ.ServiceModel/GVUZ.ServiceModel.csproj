@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B539F23-B7BD-4080-BFC2-FC3ABAC6DA5D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GVUZ.ServiceModel</RootNamespace>
+    <AssemblyName>GVUZ.ServiceModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching">
+      <HintPath>..\packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Export\InstitutionDetailsDto.cs" />
+    <Compile Include="Export\InstitutionExportDto.cs" />
+    <Compile Include="Export\InstitutionExporter.cs" />
+    <Compile Include="Export\InstitutionStructureDto.cs" />
+    <Compile Include="Export\PreparatoryCourseDto.cs" />
+    <Compile Include="Import\ApplicationStatusType.cs" />
+    <Compile Include="Import\Bulk\Attributes\BulkedProcessQueryAttribute.cs" />
+    <Compile Include="Import\Bulk\Attributes\DestinationTableNameAttribute.cs" />
+    <Compile Include="Import\Bulk\Collectors\AppCompetitiveGroupItemBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\AppEntranceTestDocumentBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\ApplicationBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\AppSelectedCompGroupBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\AppSelectedCompGroupItemBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\AppSelectedCompGroupTargetBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\ConsideredApplicationBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocument\StudentDocumentCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\IndividualAchivementBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\RecommendedApplicationBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocument\BenefitDocumentCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocument\CustomDocumentsCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocument\EduDocumentsCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocument\EgeDocumentsCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocument\EntranceTestResultsCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocument\GiaDocumentsCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocument\IdentityDocumentCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocument\MilitaryCardDocumentCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\RecommendedListBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Extensions\AdoExtensions.cs" />
+    <Compile Include="Import\Bulk\Infrastructure\BulkEntitiesCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\Base\BulkEntityCollectorBase.cs" />
+    <Compile Include="Import\Bulk\Collectors\Base\IBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocumentBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Collectors\EntrantDocumentEgeAndOlympicSubjectBulkEntityCollector.cs" />
+    <Compile Include="Import\Bulk\Extensions\AttributesExtensions.cs" />
+    <Compile Include="Import\Bulk\Extensions\MapperExtensions.cs" />
+    <Compile Include="Import\Bulk\Extensions\MonadicExtensions.cs" />
+    <Compile Include="Import\Bulk\Extensions\ValueTypesExtensions.cs" />
+    <Compile Include="Import\Bulk\Infrastructure\BulkImportConfig.cs" />
+    <Compile Include="Import\Bulk\Infrastructure\EntityDataReader.cs" />
+    <Compile Include="Import\Bulk\Infrastructure\Uploaders\BulkImportDirectionEnum.cs" />
+    <Compile Include="Import\Bulk\Infrastructure\Uploaders\SqlBulkUploader.cs" />
+    <Compile Include="Import\Bulk\Model\AppEntranceTestDocumentBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\ApplicationBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\ApplicationCompetitiveGroupItemBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\AppSelectedCompGroupBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\AppSelectedCompGroupItemBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\AppSelectedCompGroupTargetBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Infrastructure\BulkEntitesMapper.cs" />
+    <Compile Include="Import\Bulk\Model\Base\BulkEntityBase.cs" />
+    <Compile Include="Import\Bulk\Model\ConsideredApplicationBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\IndividualAchivementBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\RecommendedApplicationBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\EntrantBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\EntrantDocumentBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\EntrantDocumentEgeAndOlympicSubjectBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\Base\IBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\RecommendedListBulkEntity.cs" />
+    <Compile Include="Import\Bulk\Model\Results\ApplicationShortRefResult.cs" />
+    <Compile Include="Import\Bulk\Model\Results\ConsideredApplicationsResult.cs" />
+    <Compile Include="Import\Bulk\Model\Results\DeleteApplicationsResult.cs" />
+    <Compile Include="Import\Bulk\Model\Results\ImportResult.cs" />
+    <Compile Include="Import\Bulk\Model\Results\IEmptyResult.cs" />
+    <Compile Include="Import\Bulk\Validators\ApplicationNumberIsNotUniqueValidatorAttribute.cs" />
+    <Compile Include="Import\Bulk\Validators\DtoValidationManager.cs" />
+    <Compile Include="Import\Bulk\Validators\UIDMustBeUniqueForChildrenObjectsValidator.cs" />
+    <Compile Include="Import\Bulk\Validators\DtoValidatorBaseAttribute.cs" />
+    <None Include="Import\Core\Operations\Deleting\CommonBenefitSubjectDeletion.cs" />
+    <None Include="Import\Core\Operations\Importing\Applications\ConsideredApplicationCollectionImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\Applications\RecommendedApplicationCollectionImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\Applications\RecommendedListCollectionImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\Applications\RecommendedListsImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\DistributedAdmissionVolumeImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\InstitutionAchievementImporter.cs" />
+    <Compile Include="Import\Core\Packages\Handlers\DbObjectRepositoryBase.cs" />
+    <Compile Include="Import\Core\Packages\Handlers\DbObjectRepositoryWithCache.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\PauperDocumentDto.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\AppealStatusDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\ApplicationCheckStatusDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\ApplicationStatusDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\BenefitTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\CampaignStatusDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\CampaignTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\CitizenshipDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\CompatriotCategoryDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\CountryDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\Base\DictionaryDataLoaderBase.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\OlympicClassDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\OlympicProfileDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\OrphanCategoryDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\ReturnDocumentsTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\SportCategoryDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\TownTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\StateEmployeeCategoryDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\RadiationWorkCategoryDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\ParentLostCategoryDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\VeteranCategoryDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DictionaryExporterSQL.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\Base\DictionaryItemDtoDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\DirectionCodeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\DirectionDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\DisabilityTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\DocumentCheckStatusDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\DocumentTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\EducationFormDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\EducationLevelDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\EducationSourceDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\EntranceTestTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\ErrorMessagesDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\ForeignLanguagesDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\GenderDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\IdentityDocumentTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\Base\IDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\IndividualAchievementsCategoryDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\InstitutionDocumentTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\LevelBudgetDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\OlympicDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\OlympicDiplomTypeDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\OlympicLevelDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\RegionDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\Base\SqlDictionaryDataLoaderBase.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\SubjectDictionaryDataLoader.cs" />
+    <Compile Include="SQL\Dictionaries\DataLoaders\TestResultSourceDictionaryDataLoader.cs" />
+    <Compile Include="Import\DistributedAdmissionVolume.cs" />
+    <Compile Include="Import\EntranceTestType.cs" />
+    <Compile Include="Import\Helpers\ApplicationImportOrderHelperExtensions.cs" />
+    <Compile Include="Import\Package\CheckApp.cs" />
+    <Compile Include="Import\PDImportLoggerExtension.cs" />
+    <Compile Include="Import\PersonalDataAccessLog.cs" />
+    <Compile Include="Import\Schemas\RootTagNameAttribute.cs" />
+    <Compile Include="Import\ObjectContextWithBulkOperations .cs" />
+    <Compile Include="Import\Schemas\XmlPreparations.cs" />
+    <None Include="Import\WebService\ApplicationImportExtensions.cs" />
+    <Compile Include="Import\WebService\Dto\AllowedDirectionsDto.cs" />
+    <Compile Include="Import\WebService\Dto\ApplicationCommonBenefitDto.cs" />
+    <Compile Include="Import\WebService\Dto\DistributedAdmissionVolumeDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\AcademicDiplomaDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\AllowEducationDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\Base\ApplicationDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\Base\BaseDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\BasicDiplomaDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\Collections\ApplicationCommonBenefitDocumentsDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\Collections\ApplicationDocumentsDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\Collections\BenefitDocumentsDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\Collections\EduDocumentsDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\Collections\EntranceTestResultDocumentsDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\Collections\MedicalDocumentsDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\CustomDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\DisabilityDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\EduCustomDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\EgeDocumentWithSubjectsDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\GiaDocumentWithSubjectsDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\HighEduDiplomaDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\IdentityDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\IncomplHighEduDiplomaDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\MedicalDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\MiddleEduDiplomaDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\MilitaryCardDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\OlympicDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\OlympicTotalDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\PhDDiplomaDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\PostGraduateDiplomaDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\StudentDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\SchoolCertificateBasicDocumentDto.cs" />
+    <Compile Include="Import\WebService\Dto\Documents\SchoolCertificateDocumentDto.cs" />
+    <None Include="Import\WebService\Dto\DtoValidationExtensions.cs" />
+    <Compile Include="Import\WebService\Dto\FinSourceAndEduFormDto.cs" />
+    <Compile Include="Import\WebService\Dto\InstitutionAchievementDto.cs" />
+    <Compile Include="Import\WebService\Dto\RecListApplicationDto.cs" />
+    <Compile Include="Import\WebService\Dto\RecListDto.cs" />
+    <Compile Include="Import\WebService\Dto\RecommendedApplicationDto.cs" />
+    <Compile Include="Import\WebService\Dto\RecommendedListDto.cs" />
+    <Compile Include="Import\WebService\Dto\SubjectBriefDataDto.cs" />
+    <Compile Include="Import\WebService\Dto\SubjectDataDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Import\AppCheckProcessor\ApplicationChecker.cs" />
+    <None Include="Import\AppCheckProcessor\ProcessingManager.cs" />
+    <Compile Include="Import\ArrayExtensions.cs" />
+    <Compile Include="Import\Core\ImportException.cs" />
+    <Compile Include="Import\Core\Operations\Conflicts\ConflictMessages.cs" />
+    <None Include="Import\Core\Operations\DbDataDeleteManager.cs" />
+    <None Include="Import\Core\Operations\DbDataInsertManager.cs" />
+    <None Include="Import\Core\Operations\DbDataUpdateManager.cs" />
+    <None Include="Import\Core\Operations\DbDocumentInsertManager.cs" />
+    <None Include="Import\Core\Operations\Deleting\AdmissionVolumeDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\Applications\ApplicationDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\Applications\EntranceTestDocumentDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\CampaignDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\CompetitiveGroupBenefitItemDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\CompetitiveGroupDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\CompetitiveGroupEntranceTestItemDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\CompetitiveGroupItemDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\CompetitiveGroupTargetDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\CompetitiveGroupTargetItemDeletion.cs" />
+    <None Include="Import\Core\Operations\Deleting\ObjectDeletion.cs" />
+    <None Include="Import\Core\Operations\Importing\AdmissionInfoImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\AdmissionVolumeImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\Applications\ApplicationCollectionImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\Applications\ApplicationImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\CampaignImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\CampaignInfoImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\CommonBenefitImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\CompetitiveGroupEntranceTestBenefitImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\CompetitiveGroupEntranceTestImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\CompetitiveGroupImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\CompetitiveGroupItemImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\CompetitiveGroupTargetImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\CompetitiveGroupTargetItemImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\ObjectImporter.cs" />
+    <None Include="Import\Core\Operations\Importing\Orders\OrderCollectionImporter.cs" />
+    <None Include="Import\Core\Operations\ObjectLinkManager.cs" />
+    <Compile Include="Import\Core\Packages\Handlers\DbObjectRepository.cs" />
+    <Compile Include="Import\Core\Packages\Handlers\DbStableObjectRepository.cs" />
+    <Compile Include="Import\Core\Packages\Handlers\DeletePackageHandler.cs" />
+    <Compile Include="Import\Core\Packages\Handlers\ImportPackageHandler.cs" />
+    <Compile Include="Import\Core\Packages\Handlers\PackageHandler.cs" />
+    <Compile Include="Import\Core\Packages\PackageManager.cs" />
+    <Compile Include="Import\Core\Packages\PackageType.cs" />
+    <Compile Include="Import\Core\Packages\Repositories\DbPackageRepository.cs" />
+    <Compile Include="Import\Core\Packages\Repositories\FilePackageRepository.cs" />
+    <Compile Include="Import\Core\Packages\Repositories\IPackageRepository.cs" />
+    <Compile Include="Import\Core\StorageConsumer.cs" />
+    <Compile Include="Import\Core\Storages\ConflictStorage.cs" />
+    <Compile Include="Import\Core\Storages\DbObjectStorage.cs" />
+    <Compile Include="Import\Core\Storages\DtoObjectStorage.cs" />
+    <Compile Include="Import\Core\Storages\NotImportedHelper.cs" />
+    <Compile Include="Import\Core\Storages\StorageManager.cs" />
+    <None Include="Import\DbDtoComparerExtensions.cs" />
+    <None Include="Import\Dictionaries\DictionaryExporter.cs" />
+    <Compile Include="Import\ImportEntities.cs" />
+    <Compile Include="Import\ImportEntities.Designer.cs">
+      <DependentUpon>ImportEntities.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Import\ImportEntitiesExtensions.cs" />
+    <Compile Include="Import\IObjectWithUID.cs" />
+    <Compile Include="Import\NormativeDictionaries\Country.cs" />
+    <Compile Include="Import\NormativeDictionaries\Direction.cs" />
+    <Compile Include="Import\NormativeDictionaries\FormOfLaw.cs" />
+    <Compile Include="Import\NormativeDictionaries\Okato.cs" />
+    <Compile Include="Import\NormativeDictionaries\Profession.cs" />
+    <None Include="Import\ObjectIntegrityManager.cs" />
+    <Compile Include="Import\Package\PackageData.cs" />
+    <Compile Include="Import\Package\PackageForApplicationCheckResult.cs" />
+    <Compile Include="Import\Package\PackageForDelete.cs" />
+    <Compile Include="Import\Package\PackageHelper.cs" />
+    <Compile Include="Import\Package\PackageInfo.cs" />
+    <Compile Include="Import\Package\ResultPackage.cs" />
+    <Compile Include="Import\Schemas\XsdFileManager.cs" />
+    <Compile Include="Import\WebService\DictionaryDto.cs" />
+    <Compile Include="Import\WebService\Dto\AdmissionVolumeDto.cs" />
+    <Compile Include="Import\WebService\Dto\ApplicationDto.cs" />
+    <Compile Include="Import\WebService\Dto\BaseDto.cs" />
+    <Compile Include="Import\WebService\Dto\CampaignDto.cs" />
+    <Compile Include="Import\WebService\Dto\CompetitiveGroupDto.cs" />
+    <Compile Include="Import\WebService\Dto\OrderOfAdmissionItemDto.cs" />
+    <Compile Include="Import\WebService\Dto\Result\ConflictsResultDto.cs" />
+    <Compile Include="Import\WebService\Dto\Result\ImportedAppCheckResultPackage.cs" />
+    <Compile Include="Import\WebService\Dto\Result\Import\ErrorInfoImportDto.cs" />
+    <Compile Include="Import\WebService\Dto\Result\Import\FailedImportInfoDto.cs" />
+    <Compile Include="Import\WebService\Dto\Result\Import\LogDto.cs" />
+    <Compile Include="SQL\InstitutionExporter.cs" />
+    <Compile Include="SQL\InstitutionExporterException.cs" />
+    <Compile Include="SQL\InstitutionExporter_AdmissionVolume.cs" />
+    <Compile Include="SQL\InstitutionExporter_AllowedDirections.cs" />
+    <Compile Include="SQL\InstitutionExporter_ApplicationDocuments.cs" />
+    <Compile Include="SQL\InstitutionExporter_Applications.cs" />
+    <Compile Include="SQL\InstitutionExporter_Application_EntranceTestResults.cs" />
+    <Compile Include="SQL\InstitutionExporter_Campaigns.cs" />
+    <Compile Include="SQL\InstitutionExporter_CompetitiveGroups.cs" />
+    <Compile Include="SQL\InstitutionExporter_DistributedAdmissionVolume.cs" />
+    <Compile Include="SQL\InstitutionExporter_InstitutionAchievements.cs" />
+    <Compile Include="SQL\InstitutionExporter_InstitutionDetails.cs" />
+    <Compile Include="SQL\InstitutionExporter_OrdersOfAdmission.cs" />
+    <Compile Include="SQL\InstitutionExporter_RecommendedLists.cs" />
+    <Compile Include="SQL\InstitutionExporter_Structure.cs" />
+    <Compile Include="SQL\SQL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GVUZ.DAL\GVUZ.DAL.csproj">
+      <Project>{461dd23c-aa0b-44be-bb7b-1e949f24cd57}</Project>
+      <Name>GVUZ.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.Helper\GVUZ.Helper.csproj">
+      <Project>{2821A68D-1955-426C-81F5-73951804FA8A}</Project>
+      <Name>GVUZ.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.Model\GVUZ.Model.csproj">
+      <Project>{BF47ACA9-1DC7-4A28-BAE8-378421D198B3}</Project>
+      <Name>GVUZ.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\FogSoft.Helpers\FogSoft.Helpers.csproj">
+      <Project>{173475E2-84C2-46BE-BDFF-167D46632792}</Project>
+      <Name>FogSoft.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\FogSoft.Import\FogSoft.Import.csproj">
+      <Project>{9410C848-A627-470A-B373-9C7F038A7765}</Project>
+      <Name>FogSoft.Import</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Import\ImportEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ImportEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Import\WebService\Dto\ConsideredApplicationDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Import\Schemas\запрос-авторизация.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-детали по справочнику.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-импорт 1 заявления.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-импорт.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-получение результата импорта.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-получение результата удаления.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-получение сведений об ОУ.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-проверка 1 заявления.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-проверка заявлений в пакете.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-список справочников.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-удаление.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\запрос-часть сведений по ОУ.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-валидация.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-детали по справочнику олимпиад.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-детали по справочнику специальностей.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-детали по справочнику.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-импорт 1 заявления.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-импорт.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-получение результата импорта 1 заявления.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-получение результата импорта.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-получение результата удаления.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-получение сведений об ОУ.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-получение части сведений об ОУ.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-список справочников.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Schemas\ответ-удаление.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\GVUZ.Model.Import.ImportEntities.datasource" />
+    <None Include="Properties\DataSources\GVUZ.Model.Import.ImportEntities1.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

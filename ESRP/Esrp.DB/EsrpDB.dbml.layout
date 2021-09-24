@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 32, 43.125" name="EsrpDB">
+  <DataContextMoniker Name="/EsrpDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5b4fc0dd-0269-4485-8554-a54530b7fc61" absoluteBounds="18.25, 20.625, 2, 5.4246240234375023">
+      <DataClassMoniker Name="/EsrpDBDataContext/Account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c68daced-2ba3-4fa3-aa39-d066083233c2" absoluteBounds="18.265, 21.085, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="519816af-aec2-4a59-b288-ba6ff4b74edf" absoluteBounds="0.75, 3.375, 2, 1.1939925130208331">
+      <DataClassMoniker Name="/EsrpDBDataContext/VpnIp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47be5a5b-e729-46ed-9a9a-d47b4c919fda" absoluteBounds="0.765, 3.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f19ed18f-293e-49de-8e4b-dd24e577f012" absoluteBounds="9.75, 3.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/EsrpDBDataContext/AccountIp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dd33a8e9-ce7c-48e1-b4c9-07bc698cdc27" absoluteBounds="9.765, 3.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2181cfaa-d211-4387-b386-3cf54931df04" absoluteBounds="9.75, 6.375, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/EsrpDBDataContext/AccountKey" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8c732686-059a-492f-855e-67d72e2494fd" absoluteBounds="9.765, 6.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d2c48c8a-a062-4956-8dca-ad58ad098f7c" absoluteBounds="11.75, 18.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/EsrpDBDataContext/AccountKeyLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ad6a1349-efe4-4c55-80cc-986cae129623" absoluteBounds="11.765, 18.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a572091-6f74-4ae5-a53e-e4d197c9a949" absoluteBounds="14.75, 20.375, 2, 5.8092268880208309">
+      <DataClassMoniker Name="/EsrpDBDataContext/AccountLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30e4497c-d94c-4a29-b3dc-ecd88b286292" absoluteBounds="14.765, 20.835, 1.9700000000000002, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9c842aa8-a5b4-4d18-a886-f9c28fd80e11" absoluteBounds="20.75, 3.375, 2, 1.578595377604167">
+      <DataClassMoniker Name="/EsrpDBDataContext/AccountRoleActivity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27d3f2ad-310b-44a2-8ed1-3bb229c3831e" absoluteBounds="20.765, 3.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b1c752c8-fe4b-440f-9407-ecea56bd913d" absoluteBounds="12.5, 10.125, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/EsrpDBDataContext/AccountStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d4a91040-1793-43e5-958e-6c6aa5d6f3ed" absoluteBounds="12.515, 10.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd98efda-cda2-477c-a1df-25f730cdfc36" absoluteBounds="20.75, 11, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EsrpDBDataContext/AllowedEducationalDirection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88e17e2f-b556-4775-b675-9dbbe36f2fd9" absoluteBounds="20.765, 11.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eabb157d-78f6-4c44-9129-6898d8cd4e06" absoluteBounds="23.5, 11, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EsrpDBDataContext/AllowedEducationalDirectionQualification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b1ac26c-35c2-4281-986f-9ae9186f07eb" absoluteBounds="23.515, 11.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="94576925-2e63-40b3-bef7-d3d885382d6c" absoluteBounds="20.75, 16.375, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/EsrpDBDataContext/AskedQuestion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e3f73982-03dd-49f3-a588-19cc6d1f5e45" absoluteBounds="20.765, 16.835, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="faa0bbf1-0cac-4c72-b419-cd1df49d3792" absoluteBounds="0.75, 25.375, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/EsrpDBDataContext/AskedQuestionContext" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17d1434c-8f90-4831-8d36-69966313e8c4" absoluteBounds="0.765, 25.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="75affd04-4457-4cdd-812d-e80e5db7a5ba" absoluteBounds="23.75, 3.375, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/EsrpDBDataContext/ConnectionScheme" />
+      <nestedChildShapes>
+        <elementListCompartment Id="80ef02a0-26dc-4b8a-96a0-0980bccac8d7" absoluteBounds="23.765, 3.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="570edfc1-4289-4050-8e87-c1817d768e00" absoluteBounds="23.75, 5.375, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/EsrpDBDataContext/ConnectionStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6032b638-a460-4df1-8d9f-cafeb152b3ad" absoluteBounds="23.765, 5.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5e74bc62-19a6-4ea5-89c9-0af8456ba0b1" absoluteBounds="23.75, 7.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/EsrpDBDataContext/Context" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cc6b77fa-b39b-4f6d-a49e-ee6db7d3dc46" absoluteBounds="23.765, 7.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e88a2d1b-f478-4e10-9dff-93f8ca62698e" absoluteBounds="9.5, 23.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EsrpDBDataContext/Delivery" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0744070b-f791-4af0-b44d-fe9b751044c1" absoluteBounds="9.515, 23.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f056cdf-595d-4cdd-80a6-892ee20f37af" absoluteBounds="12.25, 24.625, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/EsrpDBDataContext/DeliveryLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9782c41-32cc-4a04-8cf2-c5a42df335d5" absoluteBounds="12.265, 25.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b12bc53-efe8-49fd-92fd-67c3d3ed3c21" absoluteBounds="12.25, 22.625, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/EsrpDBDataContext/DeliveryRecipient" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6de73f2-bf64-4eb5-bda2-94fc3765cb83" absoluteBounds="12.265, 23.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef33b63a-9567-4c9e-a324-ecbbee1e0761" absoluteBounds="6.75, 23.875, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/EsrpDBDataContext/DeliveryStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="06136afc-2151-40f8-b8d3-8da052fd1ce1" absoluteBounds="6.765, 24.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d2c3becf-502a-445f-8487-b23c6c62af9e" absoluteBounds="23.75, 13.375, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/EsrpDBDataContext/DirectorPosition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5532cd74-52ce-4d3a-814b-e5f7cb43bba8" absoluteBounds="23.765, 13.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c8662c29-e252-4c67-8b50-cc5c52ecc1ac" absoluteBounds="23.75, 16.375, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/EsrpDBDataContext/Document" />
+      <nestedChildShapes>
+        <elementListCompartment Id="251cb601-5c90-42c0-b879-a2a8a48c39e5" absoluteBounds="23.765, 16.835, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e120307-e8a1-4408-95a0-3815ba859915" absoluteBounds="23.75, 21.375, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/EsrpDBDataContext/DocumentContext" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1aad9e4c-6923-41d0-9314-e8bb55f8e95b" absoluteBounds="23.765, 21.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d0e6b295-d083-4896-868d-a1c5f8657ca9" absoluteBounds="18, 5.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/EsrpDBDataContext/EducationalDirection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ca8084a-5326-49b2-a58b-0ef764f6cf8f" absoluteBounds="18.015, 5.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ec1fbfd-0091-4dbd-ae7c-68440140611f" absoluteBounds="15.25, 7, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EsrpDBDataContext/EducationalDirectionGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d4cfc31a-a579-489b-8872-9bc20b552eae" absoluteBounds="15.265, 7.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="31171524-8727-488f-b113-c3e3963bea68" absoluteBounds="15.25, 4.5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/EsrpDBDataContext/EducationalDirectionType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90d64c73-bf2a-4861-a53a-6e5bc67c8962" absoluteBounds="15.265, 4.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e6bf6925-2ced-4bfb-8bd3-2bc67da40d7e" absoluteBounds="23.75, 24.375, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/EsrpDBDataContext/EducationalLevelEIISMap" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3bf9688-c9c8-4113-ab71-223aa19950b6" absoluteBounds="23.765, 24.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="261b85c6-cc0a-4ccd-a80c-086b5939b161" absoluteBounds="9.75, 27.375, 2, 2.3478011067708309">
+      <DataClassMoniker Name="/EsrpDBDataContext/EventLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0385b846-698e-40f1-8dbf-ab689381adb1" absoluteBounds="9.765, 27.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb5e7330-727b-402f-b3eb-6df40e7106c1" absoluteBounds="12.75, 27.375, 2, 4.0785139973958309">
+      <DataClassMoniker Name="/EsrpDBDataContext/fbs_user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c8fceb9-df7b-438f-8632-e6cf9550982c" absoluteBounds="12.765, 27.835, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ccf296d-86ce-496d-ab2b-fd3d5ad3e0de" absoluteBounds="1, 22.375, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/EsrpDBDataContext/FederalDistrict" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25ba46f6-5d4d-4747-afc5-99397f77c2c4" absoluteBounds="1.0150000000000001, 22.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc70704f-6357-4eb7-b7ca-90bdc8b4feaf" absoluteBounds="6.5, 0.75, 2, 6.1938297526041666">
+      <DataClassMoniker Name="/EsrpDBDataContext/Founder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98427a66-0e53-42d3-8d70-768ec586c135" absoluteBounds="6.515, 1.21, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="54433e1b-7edf-44bf-b638-ed7c3f08bbd2" absoluteBounds="3.75, 6.375, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/EsrpDBDataContext/FounderType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81341956-ceca-40e1-bead-2f5681513d59" absoluteBounds="3.765, 6.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0a90a4d3-6b37-4147-ac8f-6cd0aacd9adb" absoluteBounds="18.25, 17.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EsrpDBDataContext/Group" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f18360de-466d-4f57-90c0-a8d74a4af516" absoluteBounds="18.265, 18.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dcaa4a89-2645-4ae5-a4b5-9abc13fcf129" absoluteBounds="21, 21.125, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/EsrpDBDataContext/GroupAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d7fe8864-c290-41b3-bae3-91e31d251219" absoluteBounds="21.015, 21.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4cd52364-7fa1-47f3-912f-b1d12b9990f1" absoluteBounds="15.75, 27.375, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/EsrpDBDataContext/GroupRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7984a5bd-3322-4be5-8cf8-3c2ce14824a8" absoluteBounds="15.765, 27.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d73bd58-3d51-4c56-b951-5c8ae06d1128" absoluteBounds="12.25, 12.75, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/EsrpDBDataContext/License" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cce0d9f-e09a-4773-8a57-bec0e4dc4c36" absoluteBounds="12.265, 13.21, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9c1e3e4-e227-4211-a887-75e2638be4c9" absoluteBounds="18.75, 27.375, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/EsrpDBDataContext/License_ISLOD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d0123027-41e4-42c6-aaab-e38840bd3e61" absoluteBounds="18.765, 27.835, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="608bb848-124a-4c85-820e-5d8a61a1922f" absoluteBounds="18, 13, 2, 3.6939111328124969">
+      <DataClassMoniker Name="/EsrpDBDataContext/LicenseSupplement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ac0993b-74d3-48ee-b43c-18b4a3222def" absoluteBounds="18.015, 13.46, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a615e5eb-a5f1-479e-b03b-c6338af45d51" absoluteBounds="21.75, 27.375, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/EsrpDBDataContext/Migration" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f3e8785-b7aa-4ae2-850e-5430db12716d" absoluteBounds="21.765, 27.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="89939422-78bf-4ec0-9495-8678c502999e" absoluteBounds="24.75, 27.375, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/EsrpDBDataContext/New" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56e11d7e-8076-4254-8cd1-cba3fa79a21e" absoluteBounds="24.765, 27.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="50feced2-78da-498e-8ffa-558a67fee157" absoluteBounds="0.75, 28.375, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/EsrpDBDataContext/OperatorLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7cb3a19e-5bd3-4963-9979-b7c9ddba0698" absoluteBounds="0.765, 28.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" absoluteBounds="6.5, 8.25, 2, 13.308982747395833">
+      <DataClassMoniker Name="/EsrpDBDataContext/Organization2010" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac6e2de9-6180-4201-84f3-ec8838af1e2a" absoluteBounds="6.515, 8.71, 1.9700000000000002, 12.748982747395832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0c384c7-e983-4cfd-bb92-7ac53ce2463f" absoluteBounds="9.25, 13, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationFounder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c778195-62c8-4342-803a-556feeeaab30" absoluteBounds="9.265, 13.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1febd8f7-542e-4c4b-96b7-8f39d9d5bd91" absoluteBounds="3.75, 11.375, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cd93d72b-b03c-43e5-b056-08efc8518399" absoluteBounds="3.765, 11.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed3df270-2c74-4ac3-bb48-62c168412fdf" absoluteBounds="0.75, 14.125, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationKind" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78d27cc2-be53-48b1-8c17-f053a1599ed5" absoluteBounds="0.765, 14.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03fd40e7-d771-4883-b365-c7c5dc36233b" absoluteBounds="3.5, 14, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationKindEIISMap" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c791bd6-945a-400a-a105-5deb5eb3eb78" absoluteBounds="3.515, 14.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d93d4e06-46b6-474f-bee3-f08624c41f92" absoluteBounds="9.25, 16.25, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationLimitation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4dcda2d4-c0e8-4f49-b71d-49954cf8e243" absoluteBounds="9.265, 16.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0b405d4-10d9-4999-a2ab-1bbf084c4469" absoluteBounds="26.75, 3.375, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce8f049e-3f94-43ed-ae79-bf3c35bebeb7" absoluteBounds="26.765, 3.835, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f5d1d889-1263-4ed0-9480-9648560a6311" absoluteBounds="3.75, 9.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationOperatingStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fb2717c8-6694-4c61-be79-bb3804b10225" absoluteBounds="3.765, 9.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="617f3327-9a3e-42bf-8c6f-11c920655647" absoluteBounds="15.25, 10.75, 2, 8.3091455078124969">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationRequest2010" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e15102a-5535-4783-9e34-dd1430253dfc" absoluteBounds="15.265, 11.21, 1.9700000000000002, 7.7491455078125009" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5120bf4-9cdc-4efc-aaf0-f49a630c947f" absoluteBounds="21, 14, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationRequestAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83e08357-4abb-4118-9b87-a6b85768a8a2" absoluteBounds="21.015, 14.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="45c2e18f-c3f3-4237-ab22-4592d0d12aa3" absoluteBounds="21, 24.5, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationRequestOperatorLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ad32ea2b-b410-4a45-a5af-cb0cbfd9b8e0" absoluteBounds="21.015, 24.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9aa2af4d-09f8-4111-8db6-f65283a2c900" absoluteBounds="6.5, 41.25, 2, 1.5785953776041595">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationStatusEIISMap" />
+      <nestedChildShapes>
+        <elementListCompartment Id="852c1a18-a4b7-431a-946b-664c4d262f92" absoluteBounds="6.515, 41.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="43c45af1-ca6c-4def-a813-44230497acf1" absoluteBounds="3.75, 17.5, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationType2010" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25fcad8c-b542-4ab9-b012-f162f75b38e5" absoluteBounds="3.765, 17.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e433703a-0e05-43cf-b844-034827002b77" absoluteBounds="6.5, 26.5, 2, 13.693585611979163">
+      <DataClassMoniker Name="/EsrpDBDataContext/OrganizationUpdateHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b740954-4697-4c2e-8ef6-ccfe09dc2d4d" absoluteBounds="6.515, 26.96, 1.9700000000000002, 13.133585611979166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a8f34bd9-63c6-4ce5-810b-05753f511cff" absoluteBounds="20.75, 8, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/EsrpDBDataContext/Qualification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="29795902-04d1-4a3e-89ca-2b57fd6ef557" absoluteBounds="20.765, 8.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="303b8f2a-5a3a-4c5c-b9ec-ba2754b1d90d" absoluteBounds="3.75, 19.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/EsrpDBDataContext/RecruitmentCampaign" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f09a91dc-e362-49c2-babd-a4959421b60a" absoluteBounds="3.765, 20.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0308a3e3-c9bf-4566-ba66-6036c7398fd8" absoluteBounds="3.75, 21.75, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/EsrpDBDataContext/Region" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cd211a16-fc2c-4260-ae6f-4100a54cb338" absoluteBounds="3.765, 22.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="16cf1c89-b918-4809-8268-294b474b2586" absoluteBounds="26.75, 8.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EsrpDBDataContext/ReplicationData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81ae6559-1bd2-4cee-b762-e7051ae650bd" absoluteBounds="26.765, 8.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c93924f8-be12-4244-b446-df8347758f8d" absoluteBounds="26.75, 11.375, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/EsrpDBDataContext/Report" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ee6000f0-db8b-468f-9031-81adcfdfdc37" absoluteBounds="26.765, 11.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c8ad1f59-67a1-409c-b838-0e3430ae3518" absoluteBounds="26.75, 14.375, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/EsrpDBDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea8a9325-04af-408f-a1da-2abce25977a4" absoluteBounds="26.765, 14.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f20bcccd-fe37-497c-99ec-e60023ff143e" absoluteBounds="26.75, 17.375, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/EsrpDBDataContext/rpt_ConnectStat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d032d0e-491d-4ab4-b439-713866cfcf3e" absoluteBounds="26.765, 17.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bad86451-a5e1-40f7-8d22-7d6f1c709e8c" absoluteBounds="26.75, 21.375, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/EsrpDBDataContext/rpt_ConnectStatV2" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b19a20a6-cce2-4b25-8617-fd48ed22620f" absoluteBounds="26.765, 21.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8cd02bad-8b77-4374-9f79-4f31cf070508" absoluteBounds="26.75, 25.375, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/EsrpDBDataContext/Setting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="31a19b41-f1b0-4d58-8c93-2158a02da50e" absoluteBounds="26.765, 25.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="204b9faa-5ace-47c6-8e99-5a587432bca2" absoluteBounds="27.75, 27.375, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/EsrpDBDataContext/TEMP_ISLOD_ESRP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a39cd1d7-c721-4980-ba91-127bfb317c70" absoluteBounds="27.765, 27.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c889f00-267a-4588-9436-634f1154ca9c" absoluteBounds="27.75, 29.375, 2, 9.27065266927083">
+      <DataClassMoniker Name="/EsrpDBDataContext/Temp_ReportOrgsRegistrationBASE_copy_2" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c735521a-ef35-4314-a19d-d89739ca3a40" absoluteBounds="27.765, 29.835, 1.9700000000000002, 8.7106526692708321" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b284f15-e244-42be-aa8a-65a26940a91c" absoluteBounds="0.75, 31.375, 2, 5.2323225911458309">
+      <DataClassMoniker Name="/EsrpDBDataContext/tmpAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df433057-1df7-4dee-9795-b452a182b9cc" absoluteBounds="0.765, 31.835, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4dfb6d6a-7fd7-4972-a14b-e0279e76b967" absoluteBounds="21.75, 31.375, 2, 10.039858398437502">
+      <DataClassMoniker Name="/EsrpDBDataContext/tmpOrganization2010" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d77f5d76-0ecb-4393-b6de-506baa6384f5" absoluteBounds="21.765, 31.835, 1.9700000000000002, 9.4798583984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d163fc05-3efd-4d75-8860-210662ee6c2b" absoluteBounds="29.75, 3.375, 2, 6.7707340494791666">
+      <DataClassMoniker Name="/EsrpDBDataContext/tmpOrganizationRequst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="70cd98be-7554-4a53-be05-036d39655563" absoluteBounds="29.765, 3.835, 1.9700000000000002, 6.2107340494791661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a5477b92-c33b-4662-ae9c-9df60b872972" absoluteBounds="29.75, 11.375, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/EsrpDBDataContext/UserAccountPassword" />
+      <nestedChildShapes>
+        <elementListCompartment Id="860d941e-e02e-4514-8f59-b937022eb4b4" absoluteBounds="29.765, 11.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(22.75 : 11.7892976888021); (23.5 : 11.7892976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/AllowedEducationalDirection/AllowedEducationalDirection_AllowedEducationalDirectionQualification" />
+      <nodes>
+        <classShapeMoniker Id="bd98efda-cda2-477c-a1df-25f730cdfc36" />
+        <classShapeMoniker Id="eabb157d-78f6-4c44-9129-6898d8cd4e06" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 25.0777498372396); (12.25 : 25.0777498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Delivery/Delivery_DeliveryLog" />
+      <nodes>
+        <classShapeMoniker Id="e88a2d1b-f478-4e10-9dff-93f8ca62698e" />
+        <classShapeMoniker Id="2f056cdf-595d-4cdd-80a6-892ee20f37af" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 23.5969962565104); (12.25 : 23.5969962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Delivery/Delivery_DeliveryRecipient" />
+      <nodes>
+        <classShapeMoniker Id="e88a2d1b-f478-4e10-9dff-93f8ca62698e" />
+        <classShapeMoniker Id="9b12bc53-efe8-49fd-92fd-67c3d3ed3c21" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 24.4719962565104); (9.5 : 24.4719962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/DeliveryStatus/DeliveryStatus_Delivery" />
+      <nodes>
+        <classShapeMoniker Id="ef33b63a-9567-4c9e-a324-ecbbee1e0761" />
+        <classShapeMoniker Id="e88a2d1b-f478-4e10-9dff-93f8ca62698e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(19 : 8.23240397135417); (19 : 11.7892976888021); (20.75 : 11.7892976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/EducationalDirection/EducationalDirection_AllowedEducationalDirection" />
+      <nodes>
+        <classShapeMoniker Id="d0e6b295-d083-4896-868d-a1c5f8657ca9" />
+        <classShapeMoniker Id="bd98efda-cda2-477c-a1df-25f730cdfc36" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.25 : 7.61620198567708); (18 : 7.61620198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/EducationalDirectionGroup/EducationalDirectionGroup_EducationalDirection" />
+      <nodes>
+        <classShapeMoniker Id="6ec1fbfd-0091-4dbd-ae7c-68440140611f" />
+        <classShapeMoniker Id="d0e6b295-d083-4896-868d-a1c5f8657ca9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.25 : 5.88544840494792); (18 : 5.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/EducationalDirectionType/EducationalDirectionType_EducationalDirection" />
+      <nodes>
+        <classShapeMoniker Id="31171524-8727-488f-b113-c3e3963bea68" />
+        <classShapeMoniker Id="d0e6b295-d083-4896-868d-a1c5f8657ca9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 6.65941487630208); (6.07291666666667 : 6.65941487630208 : JumpStart); (6.30208333333333 : 6.65941487630208 : JumpEnd); (6.5 : 6.65941487630208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/FounderType/FounderType_Founder" />
+      <nodes>
+        <classShapeMoniker Id="54433e1b-7edf-44bf-b638-ed7c3f08bbd2" />
+        <classShapeMoniker Id="fc70704f-6357-4eb7-b7ca-90bdc8b4feaf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(20.25 : 21.8181469726563); (21 : 21.8181469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Account/Account_GroupAccount" />
+      <nodes>
+        <classShapeMoniker Id="5b4fc0dd-0269-4485-8554-a54530b7fc61" />
+        <classShapeMoniker Id="dcaa4a89-2645-4ae5-a4b5-9abc13fcf129" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(20.25 : 19.7636539713542); (20.4166666666667 : 19.7636539713542 : JumpStart); (20.5833333333333 : 19.7636539713542 : JumpEnd); (22.90625 : 19.7636539713542); (22.90625 : 21.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Group/Group_GroupAccount" />
+      <nodes>
+        <classShapeMoniker Id="0a90a4d3-6b37-4147-ac8f-6cd0aacd9adb" />
+        <classShapeMoniker Id="dcaa4a89-2645-4ae5-a4b5-9abc13fcf129" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.25 : 16.8285139973958); (13.25 : 17.0785139973958); (13.6930769230769 : 17.0785139973958); (13.6930769230769 : 16.8285139973958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EsrpDBDataContext/License/License_License" />
+      <nodes>
+        <classShapeMoniker Id="2d73bd58-3d51-4c56-b951-5c8ae06d1128" />
+        <classShapeMoniker Id="2d73bd58-3d51-4c56-b951-5c8ae06d1128" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(19.5 : 13); (19.5 : 12.2151990332031); (20.75 : 12.2151990332031)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/LicenseSupplement/LicenseSupplement_AllowedEducationalDirection" />
+      <nodes>
+        <classShapeMoniker Id="608bb848-124a-4c85-820e-5d8a61a1922f" />
+        <classShapeMoniker Id="bd98efda-cda2-477c-a1df-25f730cdfc36" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.25 : 12.75); (13.25 : 12.5); (15 : 12.5); (15 : 10.5); (17.625 : 10.5); (17.625 : 14.8469555664062); (18 : 14.8469555664062)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/License/License_LicenseSupplement" />
+      <nodes>
+        <classShapeMoniker Id="2d73bd58-3d51-4c56-b951-5c8ae06d1128" />
+        <classShapeMoniker Id="608bb848-124a-4c85-820e-5d8a61a1922f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(18.7092307692308 : 16.6939111328125); (18.7092307692308 : 16.9439111328125); (19.3046153846154 : 16.9439111328125); (19.3046153846154 : 16.6939111328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EsrpDBDataContext/LicenseSupplement/LicenseSupplement_LicenseSupplement" />
+      <nodes>
+        <classShapeMoniker Id="608bb848-124a-4c85-820e-5d8a61a1922f" />
+        <classShapeMoniker Id="608bb848-124a-4c85-820e-5d8a61a1922f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 15.4142976888021); (12.25 : 15.4142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Organization2010/Organization2010_License" />
+      <nodes>
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+        <classShapeMoniker Id="2d73bd58-3d51-4c56-b951-5c8ae06d1128" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 9.71235270182292); (9.38541666666667 : 9.71235270182292 : JumpStart); (9.55208333333333 : 9.71235270182292 : JumpEnd); (18.5 : 9.71235270182292); (18.5 : 13)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Organization2010/Organization2010_LicenseSupplement" />
+      <nodes>
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+        <classShapeMoniker Id="608bb848-124a-4c85-820e-5d8a61a1922f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.20923076923077 : 21.5589827473958); (7.20923076923077 : 21.8089827473958); (7.80461538461539 : 21.8089827473958); (7.80461538461539 : 21.5589827473958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EsrpDBDataContext/Organization2010/Organization2010_Organization2010" />
+      <nodes>
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.20923076923077 : 8.25); (7.20923076923077 : 8); (7.80461538461539 : 8); (7.80461538461539 : 8.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EsrpDBDataContext/Organization2010/Organization2010_Organization20101" />
+      <nodes>
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.5 : 12.7868864683494); (6.25 : 12.7868864683494); (6.25 : 17.1229346078726); (6.5 : 17.1229346078726)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EsrpDBDataContext/Organization2010/Organization2010_Organization20102" />
+      <nodes>
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 2.03125); (9.46875 : 2.03125); (9.46875 : 13)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Founder/Founder_OrganizationFounder" />
+      <nodes>
+        <classShapeMoniker Id="fc70704f-6357-4eb7-b7ca-90bdc8b4feaf" />
+        <classShapeMoniker Id="e0c384c7-e983-4cfd-bb92-7ac53ce2463f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 13.7892976888021); (9.25 : 13.7892976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Organization2010/Organization2010_OrganizationFounder" />
+      <nodes>
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+        <classShapeMoniker Id="e0c384c7-e983-4cfd-bb92-7ac53ce2463f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 12.0681469726562); (6.04166666666667 : 12.0681469726562 : JumpStart); (6.30208333333333 : 12.0681469726562 : JumpEnd); (6.5 : 12.0681469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationI/OrganizationI_Organization2010" />
+      <nodes>
+        <classShapeMoniker Id="1febd8f7-542e-4c4b-96b7-8f39d9d5bd91" />
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 15.5112939453125); (1.75 : 16.4469132088842); (5.91666666666667 : 16.4469132088842 : JumpStart); (6.33333333333333 : 16.4469132088842 : JumpEnd); (6.5 : 16.4469132088842)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationKind/OrganizationKind_Organization2010" />
+      <nodes>
+        <classShapeMoniker Id="ed3df270-2c74-4ac3-bb48-62c168412fdf" />
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 14.8181469726562); (3.16666666666667 : 14.8181469726562 : JumpStart); (3.33333333333333 : 14.8181469726562 : JumpEnd); (3.5 : 14.8181469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationKind/OrganizationKind_OrganizationKindEIISMap" />
+      <nodes>
+        <classShapeMoniker Id="ed3df270-2c74-4ac3-bb48-62c168412fdf" />
+        <classShapeMoniker Id="03fd40e7-d771-4883-b365-c7c5dc36233b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 17.2315991210938); (9.25 : 17.2315991210938)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Organization2010/Organization2010_OrganizationLimitation" />
+      <nodes>
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+        <classShapeMoniker Id="d93d4e06-46b6-474f-bee3-f08624c41f92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 9.97199625651042); (6.07291666666667 : 9.97199625651042 : JumpStart); (6.30208333333333 : 9.97199625651042 : JumpEnd); (6.5 : 9.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationOperatingStatus/OrganizationOperatingStatus_Organization2010" />
+      <nodes>
+        <classShapeMoniker Id="f5d1d889-1263-4ed0-9480-9648560a6311" />
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 14.125); (1.75 : 13.875); (3.25 : 13.875); (3.25 : 16.0208968098958); (6 : 16.0208968098958); (6 : 22.0589827473958); (6.04166666666667 : 22.0589827473958 : JumpStart); (6.27083333333333 : 22.0589827473958 : JumpEnd); (6.51041666666667 : 22.0589827473958 : JumpStart); (6.67708333333333 : 22.0589827473958 : JumpEnd); (11.9166666666667 : 22.0589827473958 : JumpStart); (12.0833333333333 : 22.0589827473958 : JumpEnd); (14 : 22.0589827473958); (14 : 17.0785139973958); (14.875 : 17.0785139973958); (14.875 : 15.7795722539062); (15.25 : 15.7795722539062)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationKind/OrganizationKind_OrganizationRequest2010" />
+      <nodes>
+        <classShapeMoniker Id="ed3df270-2c74-4ac3-bb48-62c168412fdf" />
+        <classShapeMoniker Id="617f3327-9a3e-42bf-8c6f-11c920655647" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 11.9743969726563); (9.38541666666667 : 11.9743969726563 : JumpStart); (9.55208333333333 : 11.9743969726563 : JumpEnd); (14.9166666666667 : 11.9743969726563 : JumpStart); (15.0833333333333 : 11.9743969726563 : JumpEnd); (15.25 : 11.9743969726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Organization2010/Organization2010_OrganizationRequest2010" />
+      <nodes>
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+        <classShapeMoniker Id="617f3327-9a3e-42bf-8c6f-11c920655647" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.5 : 11.1306469726563); (14.9166666666667 : 11.1306469726563 : JumpStart); (15.0833333333333 : 11.1306469726563 : JumpEnd); (15.25 : 11.1306469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/AccountStatus/AccountStatus_OrganizationRequest2010" />
+      <nodes>
+        <classShapeMoniker Id="b1c752c8-fe4b-440f-9407-ecea56bd913d" />
+        <classShapeMoniker Id="617f3327-9a3e-42bf-8c6f-11c920655647" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(19.25 : 20.625); (19.25 : 20.0304996744792); (20.5 : 20.0304996744792); (20.5 : 14.7892976888021); (21 : 14.7892976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Account/Account_OrganizationRequestAccount" />
+      <nodes>
+        <classShapeMoniker Id="5b4fc0dd-0269-4485-8554-a54530b7fc61" />
+        <classShapeMoniker Id="b5120bf4-9cdc-4efc-aaf0-f49a630c947f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(19.7773071923077 : 17.625); (19.7773071923077 : 16.9439111328125); (20.25 : 16.9439111328125); (20.25 : 15.2151985332031); (20.4166666666667 : 15.2151985332031 : JumpStart); (20.5833333333333 : 15.2151985332031 : JumpEnd); (21 : 15.2151985332031)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Group/Group_OrganizationRequestAccount" />
+      <nodes>
+        <classShapeMoniker Id="0a90a4d3-6b37-4147-ac8f-6cd0aacd9adb" />
+        <classShapeMoniker Id="b5120bf4-9cdc-4efc-aaf0-f49a630c947f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.25 : 12.7892976888021); (17.5416666666667 : 12.7892976888021 : JumpStart); (17.7083333333333 : 12.7892976888021 : JumpEnd); (18.4166666666667 : 12.7892976888021 : JumpStart); (18.5833333333333 : 12.7892976888021 : JumpEnd); (19.4166666666667 : 12.7892976888021 : JumpStart); (19.5833333333333 : 12.7892976888021 : JumpEnd); (22.90625 : 12.7892976888021); (22.90625 : 14)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationRequest2010/OrganizationRequest2010_OrganizationRequestAccount" />
+      <nodes>
+        <classShapeMoniker Id="617f3327-9a3e-42bf-8c6f-11c920655647" />
+        <classShapeMoniker Id="b5120bf4-9cdc-4efc-aaf0-f49a630c947f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(20.25 : 25.2748120117188); (21 : 25.2748120117188)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Account/Account_OrganizationRequestOperatorLog" />
+      <nodes>
+        <classShapeMoniker Id="5b4fc0dd-0269-4485-8554-a54530b7fc61" />
+        <classShapeMoniker Id="45c2e18f-c3f3-4237-ab22-4592d0d12aa3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(21.7055298715445 : 26.2708968098958); (21.7055298715445 : 26.5208968098958); (22.3084925155248 : 26.5208968098958); (22.3084925155248 : 26.2708968098958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationRequestOperatorLog/OrganizationRequestOperatorLog_OrganizationRequestOperatorLog" />
+      <nodes>
+        <classShapeMoniker Id="45c2e18f-c3f3-4237-ab22-4592d0d12aa3" />
+        <classShapeMoniker Id="45c2e18f-c3f3-4237-ab22-4592d0d12aa3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 10.5680730572416); (6.125 : 10.9430730572416); (6.125 : 42.0392976888021); (6.5 : 42.0392976888021)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationOperatingStatus/OrganizationOperatingStatus_OrganizationStatusEIISMap" />
+      <nodes>
+        <classShapeMoniker Id="f5d1d889-1263-4ed0-9480-9648560a6311" />
+        <classShapeMoniker Id="9aa2af4d-09f8-4111-8db6-f65283a2c900" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 18.1931469726563); (5.91666666666667 : 18.1931469726563 : JumpStart); (6.33333333333333 : 18.1931469726563 : JumpEnd); (6.5 : 18.1931469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationType2010/OrganizationType2010_Organization2010" />
+      <nodes>
+        <classShapeMoniker Id="43c45af1-ca6c-4def-a813-44230497acf1" />
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 17.8153214863281); (5.91666666666667 : 17.8153214863281 : JumpStart); (6.23958333333333 : 17.8153214863281 : JumpEnd); (6.25 : 17.8153214863281); (6.25 : 21.9339827473958); (6.51041666666667 : 21.9339827473958 : JumpStart); (6.67708333333333 : 21.9339827473958 : JumpEnd); (11.5 : 21.9339827473958); (11.5 : 18.125); (11.5416666666667 : 18.125 : JumpStart); (11.7083333333333 : 18.125 : JumpEnd); (13.9166666666667 : 18.125 : JumpStart); (14.0833333333333 : 18.125 : JumpEnd); (14.1666666666667 : 18.125 : JumpStart); (14.3333333333333 : 18.125 : JumpEnd); (14.6666666666667 : 18.125 : JumpStart); (14.8333333333333 : 18.125 : JumpEnd); (15 : 18.125); (15 : 19.3091455078125); (15.6354146666667 : 19.3091455078125 : JumpStart); (15.8020813333333 : 19.3091455078125 : JumpEnd); (16.25 : 19.3091455078125); (16.25 : 19.0591455078125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/OrganizationType2010/OrganizationType2010_OrganizationRequest2010" />
+      <nodes>
+        <classShapeMoniker Id="43c45af1-ca6c-4def-a813-44230497acf1" />
+        <classShapeMoniker Id="617f3327-9a3e-42bf-8c6f-11c920655647" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.75 : 9.29734537760417); (23.59375 : 9.29734537760417); (23.59375 : 11)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Qualification/Qualification_AllowedEducationalDirectionQualification" />
+      <nodes>
+        <classShapeMoniker Id="a8f34bd9-63c6-4ce5-810b-05753f511cff" />
+        <classShapeMoniker Id="eabb157d-78f6-4c44-9129-6898d8cd4e06" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 20.3181469726563); (5.91666666666667 : 20.3181469726562 : JumpStart); (6.45833333333333 : 20.3181469726563 : JumpEnd); (6.5 : 20.3181469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/RecruitmentCampaign/RecruitmentCampaign_Organization2010" />
+      <nodes>
+        <classShapeMoniker Id="303b8f2a-5a3a-4c5c-b9ec-ba2754b1d90d" />
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 19.9403214863281); (5.91666666666667 : 19.9403214863281 : JumpStart); (6.33333333333333 : 19.9403214863281 : JumpEnd); (6.375 : 19.9403214863281); (6.375 : 21.6839827473958); (6.51041666666667 : 21.6839827473958 : JumpStart); (6.67708333333333 : 21.6839827473958 : JumpEnd); (7.12589743589744 : 21.6839827473958 : JumpStart); (7.2925641025641 : 21.6839827473958 : JumpEnd); (7.72128205128205 : 21.6839827473958 : JumpStart); (7.88794871794872 : 21.6839827473958 : JumpEnd); (11.4166666666667 : 21.6839827473958 : JumpStart); (11.5833333333333 : 21.6839827473958 : JumpEnd); (11.625 : 21.6839827473958); (11.625 : 17.875); (13.9166666666667 : 17.875 : JumpStart); (14.0833333333333 : 17.875 : JumpEnd); (14.1666666666667 : 17.875 : JumpStart); (14.3333333333333 : 17.875 : JumpEnd); (14.75 : 17.875); (14.75 : 19.5591455078125); (15.718748 : 19.5591455078125); (15.718748 : 19.0591455078125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/RecruitmentCampaign/RecruitmentCampaign_OrganizationRequest2010" />
+      <nodes>
+        <classShapeMoniker Id="303b8f2a-5a3a-4c5c-b9ec-ba2754b1d90d" />
+        <classShapeMoniker Id="617f3327-9a3e-42bf-8c6f-11c920655647" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 20.9494429077524); (5.94107443490112 : 21.1405173426535 : JumpStart); (6.05892556509888 : 21.2583684728513 : JumpEnd); (6.06607443490112 : 21.2655173426535 : JumpStart); (6.18392556509888 : 21.3833684728513 : JumpEnd); (6.1875 : 21.3869429077524); (6.1875 : 33.3467928059896); (6.5 : 33.3467928059896)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/RecruitmentCampaign/RecruitmentCampaign_OrganizationUpdateHistory" />
+      <nodes>
+        <classShapeMoniker Id="303b8f2a-5a3a-4c5c-b9ec-ba2754b1d90d" />
+        <classShapeMoniker Id="e433703a-0e05-43cf-b844-034827002b77" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 21.8453836153846); (5.94107443490112 : 21.6543091804835 : JumpStart); (6.05892556509888 : 21.5364580502857 : JumpEnd); (6.06607443490112 : 21.5293091804835 : JumpStart); (6.18392556509888 : 21.4114580502857 : JumpEnd); (6.21875 : 21.3766336153846); (6.21875 : 3.67345543815104); (6.5 : 3.67345543815104)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Region/Region_Founder" />
+      <nodes>
+        <classShapeMoniker Id="0308a3e3-c9bf-4566-ba66-6036c7398fd8" />
+        <classShapeMoniker Id="fc70704f-6357-4eb7-b7ca-90bdc8b4feaf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.74846153846154 : 21.75); (5.94107443490112 : 21.5573871035604 : JumpStart); (6.05892556509888 : 21.4395359733627 : JumpEnd); (6.15625 : 21.3422115384615); (6.15625 : 3.67345543815104); (6.5 : 3.67345543815104)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Region/Region_Founder1" />
+      <nodes>
+        <classShapeMoniker Id="0308a3e3-c9bf-4566-ba66-6036c7398fd8" />
+        <classShapeMoniker Id="fc70704f-6357-4eb7-b7ca-90bdc8b4feaf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 22.6857413736979); (6.04166666666667 : 22.6857413736979 : JumpStart); (6.27083333333333 : 22.6857413736979 : JumpEnd); (6.51041666666667 : 22.6857413736979 : JumpStart); (6.67708333333333 : 22.6857413736979 : JumpEnd); (12 : 22.6857413736979); (12 : 21.3574039713542); (13.9166666666667 : 21.3574039713542 : JumpStart); (14.0833333333333 : 21.3574039713542 : JumpEnd); (14.25 : 21.3574039713542); (14.25 : 17.4535139973958); (14.0833333333333 : 17.4535139973958 : JumpStart); (13.9166666666667 : 17.4535139973958 : JumpEnd); (13.1250005 : 17.4535139973958); (13.1250005 : 16.8285139973958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Region/Region_License" />
+      <nodes>
+        <classShapeMoniker Id="0308a3e3-c9bf-4566-ba66-6036c7398fd8" />
+        <classShapeMoniker Id="2d73bd58-3d51-4c56-b951-5c8ae06d1128" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 23.280373186849); (6.04166666666667 : 23.280373186849 : JumpStart); (6.27083333333333 : 23.280373186849 : JumpEnd); (6.59375 : 23.280373186849); (6.59375 : 21.5589827473958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Region/Region_Organization2010" />
+      <nodes>
+        <classShapeMoniker Id="0308a3e3-c9bf-4566-ba66-6036c7398fd8" />
+        <classShapeMoniker Id="0898c2ac-6f6a-4b31-9b62-d6b858106f0f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 22.3411095605469); (6.04166666666667 : 22.3411095605469 : JumpStart); (6.27083333333333 : 22.3411095605469 : JumpEnd); (6.51041666666667 : 22.3411095605469 : JumpStart); (6.67708333333333 : 22.3411095605469 : JumpEnd); (11.9166666666667 : 22.3411095605469 : JumpStart); (12.0833333333333 : 22.3411095605469 : JumpEnd); (12.25 : 22.3411095605469); (12.25 : 22.375); (14.5 : 22.375); (14.5 : 20.125); (16.781252 : 20.125); (16.781252 : 19.0591455078125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/Region/Region_OrganizationRequest2010" />
+      <nodes>
+        <classShapeMoniker Id="0308a3e3-c9bf-4566-ba66-6036c7398fd8" />
+        <classShapeMoniker Id="617f3327-9a3e-42bf-8c6f-11c920655647" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 23.0681469726563); (3.75 : 23.0681469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EsrpDBDataContext/FederalDistrict/FederalDistrict_Region" />
+      <nodes>
+        <classShapeMoniker Id="5ccf296d-86ce-496d-ab2b-fd3d5ad3e0de" />
+        <classShapeMoniker Id="0308a3e3-c9bf-4566-ba66-6036c7398fd8" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

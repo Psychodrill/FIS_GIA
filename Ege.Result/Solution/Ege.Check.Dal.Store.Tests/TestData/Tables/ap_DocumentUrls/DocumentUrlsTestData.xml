@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" standalone="yes"?>
+
+<TestDataSet xmlns="http://tempuri.org/TestDataSet.xsd">
+  <ap_DocumentUrls>
+    <Id>36</Id>
+    <Name>Методические рекомендации для сотрудников РЦОИ</Name>
+    <Url>http://85.143.100.30/Docs/Методические рекомендации для сотрудников РЦОИ.docx</Url>
+  </ap_DocumentUrls>
+  <ap_DocumentUrls>
+    <Id>37</Id>
+    <Name>Руководство администратора системы на региональном уровне</Name>
+    <Url>http://85.143.100.30/Docs/Руководство администратора системы на региональном уровне.docx</Url>
+  </ap_DocumentUrls>
+  <ap_DocumentUrls>
+    <Id>38</Id>
+    <Name>Инструкция для участников ЕГЭ</Name>
+    <Url>http://85.143.100.30/Docs/Инструкция для участников ЕГЭ.docx</Url>
+  </ap_DocumentUrls>
+  <ap_DocumentUrls>
+    <Id>39</Id>
+    <Name>Руководство по настройке web-сервера для публикации бланков</Name>
+    <Url>http://85.143.100.30/Docs/Руководство по настройке web-сервера для публикации бланков.docx</Url>
+  </ap_DocumentUrls>
+  <ap_DocumentUrls>
+    <Id>40</Id>
+    <Name>Руководство пользователя по выгрузке изображений для интернет</Name>
+    <Url>http://85.143.100.30/Docs/Руководство пользователя по выгрузке изображений для интернет.pdf</Url>
+  </ap_DocumentUrls>
+  <ap_DocumentUrls>
+    <Id>41</Id>
+    <Name>Дистрибутив модуля выгрузки бланков</Name>
+    <Url>http://85.143.100.30/Docs/TestReader_5_4_BlanksExport.rar</Url>
+  </ap_DocumentUrls>
+</TestDataSet>

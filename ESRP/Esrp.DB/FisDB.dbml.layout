@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.125, 20.125" name="FisDB">
+  <DataContextMoniker Name="/FisDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2a5f51dc-792e-492e-bcd8-47cbecb55322" absoluteBounds="6.25, 3.25, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/FisDBDataContext/AllowedDirection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b97634b0-66f5-4fdc-a5d5-0278d795946d" absoluteBounds="6.265, 3.71, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d08a6c6a-0e9e-4085-b8e2-985fc90914d7" absoluteBounds="3.5, 2.375, 2, 4.8477197265625005">
+      <DataClassMoniker Name="/FisDBDataContext/Direction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c36cf2b-1a28-4b5d-b757-3e51baf889b6" absoluteBounds="3.515, 2.835, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9e6990dd-86b5-4082-8091-d21eca3f1af6" absoluteBounds="0.75, 3.875, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/FisDBDataContext/EDU_PROGRAM_TYPE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a161b44f-78cc-47c0-a804-f38b73cc325e" absoluteBounds="0.765, 4.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4a0aab8-01f9-4510-807b-43ca335e81df" absoluteBounds="3.5, 12.75, 2, 7.1553369140624987">
+      <DataClassMoniker Name="/FisDBDataContext/Institution" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7247f7f5-8758-4e49-8291-0c50eeda6191" absoluteBounds="3.515, 13.21, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3cec5015-a1c1-42c6-a51a-58c4c4924412" absoluteBounds="0.75, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/FisDBDataContext/ParentDirection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b0834b7-7e92-4b44-8406-72ceda01c158" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.80850341796875); (6.25 : 4.80850341796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FisDBDataContext/Direction/Direction_AllowedDirection" />
+      <nodes>
+        <classShapeMoniker Id="d08a6c6a-0e9e-4085-b8e2-985fc90914d7" />
+        <classShapeMoniker Id="2a5f51dc-792e-492e-bcd8-47cbecb55322" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.85659912109375); (2.91666666666667 : 4.85659912109375 : JumpStart); (3.20833333333333 : 4.85659912109375 : JumpEnd); (3.5 : 4.85659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FisDBDataContext/EDU_PROGRAM_TYPE/EDU_PROGRAM_TYPE_Direction" />
+      <nodes>
+        <classShapeMoniker Id="9e6990dd-86b5-4082-8091-d21eca3f1af6" />
+        <classShapeMoniker Id="d08a6c6a-0e9e-4085-b8e2-985fc90914d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 16.3276684570313); (7.25 : 16.3276684570313); (7.25 : 6.3670068359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FisDBDataContext/Institution/Institution_AllowedDirection" />
+      <nodes>
+        <classShapeMoniker Id="d4a0aab8-01f9-4510-807b-43ca335e81df" />
+        <classShapeMoniker Id="2a5f51dc-792e-492e-bcd8-47cbecb55322" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 2.90549967447917); (1.75 : 3.625); (3 : 3.625); (3 : 5.1626606328125); (3.04166666666667 : 5.1626606328125 : JumpStart); (3.20833333333333 : 5.1626606328125 : JumpEnd); (3.5 : 5.1626606328125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FisDBDataContext/ParentDirection/ParentDirection_Direction" />
+      <nodes>
+        <classShapeMoniker Id="3cec5015-a1c1-42c6-a51a-58c4c4924412" />
+        <classShapeMoniker Id="d08a6c6a-0e9e-4085-b8e2-985fc90914d7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b8e3cd05-fdec-42f0-a7bd-9060a930ed54" absoluteBounds="10.875, 9.375, 2, 2.5401025390625">
+      <DataClassMoniker Name="/FisDBDataContext/RegionType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13402c15-fcf9-4b84-b70f-b1e5330ef6d5" absoluteBounds="10.89, 9.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.875 : 11.9151025390625); (11.875 : 14.5075817285156); (7.33333333333333 : 14.5075817285156 : JumpStart); (7.16666666666667 : 14.5075817285156 : JumpEnd); (5.5 : 14.5075817285156)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FisDBDataContext/RegionType/RegionType_Institution" />
+      <nodes>
+        <classShapeMoniker Id="b8e3cd05-fdec-42f0-a7bd-9060a930ed54" />
+        <classShapeMoniker Id="d4a0aab8-01f9-4510-807b-43ca335e81df" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="413a51e8-d2cb-4047-859a-bb91cca15f49" absoluteBounds="3.25, 0.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/FisDBDataContext/InstitutionLicense" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dfbf0dcf-7dd6-42c4-acc6-b6d4a1aa2cc2" absoluteBounds="3.2649999999999997, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 12.75); (4.5 : 7.4727197265625); (3.125 : 7.4727197265625); (3.125 : 1.77005126953125); (3.25 : 1.77005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FisDBDataContext/Institution/Institution_InstitutionLicense" />
+      <nodes>
+        <classShapeMoniker Id="d4a0aab8-01f9-4510-807b-43ca335e81df" />
+        <classShapeMoniker Id="413a51e8-d2cb-4047-859a-bb91cca15f49" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

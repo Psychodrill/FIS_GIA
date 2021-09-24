@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<TestDataSet xmlns="http://tempuri.org/TestDataSet.xsd">
+  <ap_BlankInfo>
+    <Id>1</Id>
+    <ParticipantExamId>2</ParticipantExamId>
+    <BlankType>1</BlankType>
+    <Answer>answer</Answer>
+    <PrimaryMark>0</PrimaryMark>
+    <Barcode>fake_barcode</Barcode>
+    <PageCount>1</PageCount>
+    <CreateDate>2014-01-01T00:00:00</CreateDate>
+    <ProjectBatchId>100</ProjectBatchId>
+    <ProjectName>project</ProjectName>
+  </ap_BlankInfo>
+</TestDataSet>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestDataSet xmlns="http://tempuri.org/TestDataSet.xsd">
+  <ap_Appeals>
+    <Id>1</Id>
+    <ParticipantExamId>2</ParticipantExamId>
+    <Status>1</Status>
+    <CreateDate>2015-03-04T12:00:00.000</CreateDate>
+  </ap_Appeals>
+  <ap_Appeals>
+    <Id>2</Id>
+    <ParticipantExamId>2</ParticipantExamId>
+    <Status>3</Status>
+    <CreateDate>2015-03-05T12:00:00.000</CreateDate>
+  </ap_Appeals>
+</TestDataSet>
+
+

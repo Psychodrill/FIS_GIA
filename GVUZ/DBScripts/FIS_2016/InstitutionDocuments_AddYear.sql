@@ -1,0 +1,1 @@
+ALTER table InstitutionDocuments Add [Year] int not null

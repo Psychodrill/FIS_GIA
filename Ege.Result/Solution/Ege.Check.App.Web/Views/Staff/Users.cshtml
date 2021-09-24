@@ -1,0 +1,120 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/users.css")"/>
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/users.js")"> </script>
+}
+
+@{
+    ViewBag.Title = "Управление пользователями";
+}
+
+@Html.Partial("Menu")
+
+<div class="account-block">
+    <a href="#" id="logout">Выход</a>
+</div>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="add-to-table-form">
+    <form id="filter">
+        <div class="field">
+            <div class="label">
+                Логин
+            </div>
+            <input type="text" name="login">
+        </div>
+        <div class="field">
+            <div class="label">
+                Регион
+            </div>
+            <select name="regionId" id="regions">
+                <option></option>
+            </select>
+        </div>
+        <div class="field">
+            <div class="label">
+                Роль
+            </div>
+            <select name="role">
+                <option value=""></option>
+                <option value="1">Администратор ФЦТ</option>
+                <option value="2">Администратор РЦОИ</option>
+                <option value="3">Оператор ФЦТ</option>
+                <option value="4">Оператор выгрузки бланков</option>
+            </select>
+        </div>
+        <button class="btn-m">Поиск</button>
+        <button class="btn-m btn-light" type="button" id="clear-filter">Очистить</button>
+    </form>
+</div>
+
+<button class="fl-right mb-15" id="add">Новый пользователь</button>
+
+<div id="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Логин</th>
+                <th>Регион</th>
+                <th>Роль</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/html" id="regions-tmpl">
+    {{#regions}}
+    <option value="{{REGION}}">{{RegionName}}</option>
+    {{/regions}}
+</script>
+
+<script type="text/html" id="actions-cell-tmpl">
+    <button class="btn-small btn-light c-edit" title="Редактировать">
+        <div class="icon-pencil"></div>
+    </button>
+    <button class="btn-small btn-light c-remove" title="Удалить">
+        <div class="icon-close"></div>
+    </button>
+</script>
+
+<script type="text/html" id="dlg-tmpl">
+    <form class="form">
+        <div class="row">
+            <div class="label">Логин</div>
+            <div class="input">
+                <input type="text" name="Login" value="{{user.Login}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="label">Пароль</div>
+            <div class="input">
+                <input type="password" id="pass" value="{{user.pass}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="label">Регион</div>
+            <div class="input">
+                <select name="RegionId">
+                    <option></option>
+                    {{#regions}}
+                    <option value="{{REGION}}" {{#selected}}selected{{/selected}}>{{RegionName}}</option>
+                    {{/regions}}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label">Роль</div>
+            <div class="input">
+                <select name="Role">
+                    <option value="1" {{#roles.1}}selected{{/roles.1}}>Администратор ФЦТ</option>
+                    <option value="2" {{#roles.2}}selected{{/roles.2}}>Администратор РЦОИ</option>
+                    <option value="3" {{#roles.3}}selected{{/roles.3}}>Оператор ФЦТ</option>
+                    <option value="4" {{#roles.4}}selected{{/roles.4}}>Оператор выгрузки бланков</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</script>

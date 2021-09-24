@@ -1,0 +1,72 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/documents.css")"/>
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/documents.js")"> </script>
+}
+
+@{
+    ViewBag.Title = "Документы";
+}
+
+@Html.Partial("Menu")
+
+<input type="hidden" value="@User.IsInRole("fct").ToString()" id="is-fct" />
+
+<div class="account-block">
+    <a href="#" id="logout">Выход</a>
+</div>
+
+<h2>@ViewBag.Title</h2>
+
+<div id="docs" class="docs-container mb-20"></div>
+
+<script type="text/html" id="link-tmpl">
+    <div class="mb-20">
+        {{#Documents}}
+        <div class="mb-10">
+            <a href="{{Url}}" target="_blank">{{Name}}</a>
+        </div>
+        {{/Documents}}    
+    </div>
+    @if (@User.IsInRole("fct"))
+    {
+        <button id="edit-btn">Редактировать</button>
+    }
+</script>
+
+<script type="text/html" id="edit-link-tmpl">
+    <table class="mb-20" id="docs-table">
+        <thead>
+            <tr>
+                <td>Название</td>
+                <td>Ссылка</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#Documents}}
+            <tr data-id={{Id}}>
+                <td><input type="text" value="{{Name}}" class="c-name"></td>
+                <td><input type="text" value="{{Url}}" class="c-url"></td>
+                <td><button class="btn-small btn-light c-remove-btn" data-id={{Id}}>Удалить</button></td>
+            </tr>
+            {{/Documents}}
+        </tbody>
+    </table>
+    <button id="save">
+        <span>Сохранить</span>
+        @RawHtml("~/Content/Pages/Partials/loader.html")
+    </button>
+    <button class="btn-light" id="add-row-btn">
+        Добавить документ
+    </button>
+</script>
+
+<script type="text/html" id="row-tmpl">
+    <tr data-id={{Id}}>
+        <td><input type="text" class="c-name"></td>
+        <td><input type="text" class="c-url"></td>
+        <td><button class="btn-small btn-light c-remove-btn" data-id={{Id}}>Удалить</button></td>
+    </tr>
+</script>

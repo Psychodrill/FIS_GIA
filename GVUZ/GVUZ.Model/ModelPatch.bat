@@ -1,0 +1,1 @@
+..\Helpers\FogSoft.Patcher\bin\Debug\FogSoft.Patcher.exe ModelPatch.xml Courses\Courses.edmx Entrants\Entrants.edmx Institutions\Institution.edmx

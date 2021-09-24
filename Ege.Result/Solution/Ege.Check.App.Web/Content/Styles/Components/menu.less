@@ -1,0 +1,40 @@
+@import "../Variables/typography-variables.less";
+
+@blue: #0071bb;
+
+.menu {
+	margin: -21px -32px 20px -32px;
+	background: @blue;
+	box-shadow: 0 3px 5px 0px rgba(0,0,0,.1);
+	
+	.menu-table {
+		display: table;
+		table-layout: fixed;
+		width: 100%;	
+	}
+
+	a {
+		color: rgba(255, 255, 255, .7);
+		display: table-cell;
+		text-align: center;
+		padding: 12px 12px 8px 12px;
+		text-decoration: none;
+		font-size: 15px;
+		font-family: @font-family-secondary;
+		text-transform: uppercase;
+		border-bottom: 4px solid @blue;
+		vertical-align: middle;
+
+		&:hover {
+			background: lighten(@blue, 5%);
+			border-color: lighten(@blue, 5%);
+			color: rgba(255, 255, 255, 1);
+		}
+
+		&.active {
+			color: rgba(255, 255, 255, 1);
+			border-color: #53B0F2;
+		}
+	}
+
+}

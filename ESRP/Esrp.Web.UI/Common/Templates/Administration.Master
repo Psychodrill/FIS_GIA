@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Administration.master.cs" 
+           MasterPageFile="~/Common/Templates/Main.Master"
+           Inherits="Esrp.Web.Common.Templates.Administration" %>
+
+<%@ Register TagPrefix="esrp" Namespace="Esrp.Web.Controls" Assembly="Esrp.Web.UI" %>
+
+
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="cphHead">
+
+    <script type="text/javascript" src="/Common/Scripts/Notice.js"> </script>
+    <script src="/Common/Scripts/Confirmation.js" type="text/javascript"></script>
+  
+    <asp:ContentPlaceHolder ID="cphHead" runat="server" />
+
+    <script src="/Common/Scripts/FixPng.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+    <!--
+        function back() {
+            if (window.history.current != null && window.history.current == window.history.previous) {
+                window.history.go(-2);
+            } else {
+                window.history.back();
+            }
+
+        }
+    -->
+		</script>
+</asp:Content>
+
+<asp:Content ID="Content4" runat="server"  ContentPlaceHolderID="cphContentModalDialog">
+    <asp:ContentPlaceHolder ID="cphContentModalDialog" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="cphSecondLevelMenu">
+    <div class="bottom_line">
+        <div class="max_width">
+            <esrp:TopMenu ID="SecondLevelMenu1" runat="server" RootResourceKey="administration" HeaderTemplate="<ul>" 
+                         FooterTemplate="</ul>"/>
+            <div class="clear"></div>
+        </div>
+    </div><!--bottom_line-->
+</asp:Content>
+
+<asp:Content ID="Content5" runat="server" ContentPlaceHolderID="cphThirdLevelMenu">
+    <asp:ContentPlaceHolder ID="cphThirdLevelMenu" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content3" runat="server" ContentPlaceHolderID="cphContent">
+
+    <asp:ContentPlaceHolder ID="cphLeftMenu" runat="server" />
+
+    <asp:ContentPlaceHolder ID="cphActions" runat="server" />
+
+    <esrp:MessageControl runat="server" ID="messageControl" 
+                        SystemErrorUrl="~/Common/Images/Warning.png" WarningUrl="~/Common/Images/important.gif"   
+                        ErrorUrl="~/Common/Images/Warning.png" MessageUrl="~/Common/Images/important.gif" SystemErrorText="Системная ошибка" />
+
+    <asp:ContentPlaceHolder ID="cphContent" runat="server" />	
+
+</asp:Content>

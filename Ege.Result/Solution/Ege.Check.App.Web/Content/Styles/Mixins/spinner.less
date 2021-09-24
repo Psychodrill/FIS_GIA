@@ -1,0 +1,53 @@
+@import "border-radius.less";
+
+.spinner(@size: 40px) {
+    width: @size;
+    height: @size;
+    .animation(spin 1s linear infinite);
+    .border-radius(100%, 100%, 100%, 100%);
+    border-top: 2px solid #545a6a;
+    border-bottom: 2px solid #d4d4db;
+    border-left: 2px solid #545a6a;
+    border-right: 2px solid #d4d4db;
+    opacity: .7;
+}
+
+.animation (@anim) {
+    -webkit-animation: @anim;
+    -moz-animation: @anim;
+    -ms-animation: @anim;
+    -o-animation: @anim;
+    animation: @anim;
+}
+
+.transform (@transform) {
+   transform: @transform;
+    -webkit-transform: @transform;
+    -moz-transform: @transform;
+    -o-transform: @transform;
+}
+
+.animation-spin {
+    0% {
+        .transform(rotate(0deg));
+    }
+    100% {
+        .transform(rotate(359deg));
+    }
+}
+
+@keyframes spin {
+    .animation-spin;
+}
+
+@-webkit-keyframes spin {
+    .animation-spin;
+}
+
+@-moz-keyframes spin {
+    .animation-spin;
+}
+
+@-o-keyframes spin {
+    .animation-spin;
+}

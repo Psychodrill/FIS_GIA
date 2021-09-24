@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<TestDataSet xmlns="http://tempuri.org/TestDataSet.xsd">
+  <ap_ParticipantExams>
+    <Id>1</Id>
+    <ParticipantId>1</ParticipantId>
+    <ExamGlobalId>6</ExamGlobalId>
+    <PrimaryMark>1</PrimaryMark>
+    <TestMark>2</TestMark>
+    <Mark5>5</Mark5>
+    <ProcessCondition>1</ProcessCondition>
+    <CreateDate>2014-01-01T12:00:00.000</CreateDate>
+    <IsHidden>0</IsHidden>
+  </ap_ParticipantExams>
+  <ap_ParticipantExams>
+    <Id>2</Id>
+    <ParticipantId>1</ParticipantId>
+    <ExamGlobalId>7</ExamGlobalId>
+    <PrimaryMark>1</PrimaryMark>
+    <TestMark>3</TestMark>
+    <Mark5>2</Mark5>
+    <ProcessCondition>2</ProcessCondition>
+    <CreateDate>2014-01-01T12:00:00.000</CreateDate>
+    <IsHidden>1</IsHidden>
+  </ap_ParticipantExams>
+  <ap_ParticipantExams>
+    <Id>3</Id>
+    <ParticipantId>2</ParticipantId>
+    <ExamGlobalId>6</ExamGlobalId>
+    <PrimaryMark>1</PrimaryMark>
+    <TestMark>2</TestMark>
+    <Mark5>2</Mark5>
+    <ProcessCondition>1</ProcessCondition>
+    <CreateDate>2014-01-01T12:00:00.000</CreateDate>
+    <IsHidden>0</IsHidden>
+  </ap_ParticipantExams>
+</TestDataSet>

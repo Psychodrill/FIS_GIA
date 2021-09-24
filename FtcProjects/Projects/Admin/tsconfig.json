@@ -1,0 +1,19 @@
+﻿{
+  "typeAcquisition": {
+    "enable": true
+  },
+  "compileOnSave": true,
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "ES6",
+    "module": "CommonJS",
+    "noImplicitAny": true,
+    "jsx": "react",
+    "outDir": "wwwroot/dist",
+    "moduleResolution": "Node"
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot/"
+  ]
+}

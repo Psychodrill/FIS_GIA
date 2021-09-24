@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="WebContext">
+  <DataContextMoniker Name="/FbsContext" />
+  <nestedChildShapes>
+    <classShape Id="556342eb-463d-47b2-8ed2-1397332e1585" absoluteBounds="0.5, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/FbsContext/EntrantCheckBatch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6e39619c-aff8-41dd-98a1-11ee3bfb987c" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="317a2a75-034e-4959-90dd-337366ca084d" absoluteBounds="2.75, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/FbsContext/SLCertificateCheckBatch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3bd03c2-405a-47ba-bf80-5a2bd73c0465" absoluteBounds="2.765, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d324cb78-5e4c-414d-ad0f-f4fd468d6079" absoluteBounds="2.75, 2, 2, 1.3862939453125">
+      <DataClassMoniker Name="/FbsContext/CompetitionRequestBatch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9395d88-3f12-4d80-821a-b02d406de413" absoluteBounds="2.765, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

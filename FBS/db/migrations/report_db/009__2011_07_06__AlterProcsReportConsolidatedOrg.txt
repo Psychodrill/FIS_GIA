@@ -1,0 +1,913 @@
+-- =========================================================================
+-- Запись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (9, '009__2011_07_06__AlterProcsReportConsolidatedOrg')
+-- =========================================================================
+GO
+
+ALTER procedure [dbo].[ReportConsolidatedOrg]
+	@ReportType int, -- тип отчета (0 - на дату, 1 - нарастающим итогом)
+	@FactDate datetime, -- дата, на которую формируется отчет
+	@FDId int,
+    @RegionId int,
+    @OrgType int,
+    @OrgKind int,
+    @IsPrivate int,
+    @OrgName nvarchar(1000),
+    @IsFilial int,
+    @IsAccredited int,
+    @DepartmentId int,
+    @INN_OGRN nvarchar(13),
+    @IsRegister int, -- подана ли заявка на регистрацию
+    @AccountsCount nvarchar(10), -- количество пользователей
+    @ActivatedAccounts nvarchar(10), -- пользователей активировано
+    @UniqueChecks nvarchar(10), -- уникальных проверок всего
+    @Incorrect nvarchar(10), -- неправильных проверок
+    @GroupField nvarchar(25) --тип группировки
+as
+begin
+
+declare 
+	@sql nvarchar(4000),
+    @daySql nvarchar(4000),
+    @daySqlFilial nvarchar(Max),
+    @periodSql nvarchar(4000),
+    @periodSqlFilial nvarchar(Max)
+
+set @daySql =
+N'
+select
+	O.FDName,
+    O.RegionName,
+    O.OrgTypeName,
+    O.OrgKindName,
+    O.IsPrivate,
+    O.ShortName,
+    O.FullName,
+    O.MainId,
+    O.IsAccredited,
+    O.DepartmentId,
+    (select ORG.ShortName from Organizations ORG where ORG.OrgId = O.DepartmentId) DepartmentName,
+    O.INN,
+    O.OGRN,
+    O.CNFBFullTime,
+    O.CNFBEvening,
+    O.CNFBPostal,
+    O.CNPayFullTime,
+    O.CNPayEvening,
+    O.CNPayPostal,
+    PA.FirstCheck,
+    PA.LastCheck,
+    coalesce(PA.UniqueByCertNumber, 0) UniqueByCertNumber,
+    coalesce(PA.UniqueByPassport, 0) UniqueByPassport,
+    coalesce(PA.UniqueByTypoNumber, 0) UniqueByTypoNumber,
+    coalesce(PA.UniqueInteractive, 0) UniqueInteractive,
+    coalesce(PA.ByCertNumber, 0) ByCertNumber,
+    coalesce(PA.ByPassport, 0) ByPassport,
+    coalesce(PA.ByTypoNumber, 0) ByTypoNumber,
+    coalesce(PA.[Interactive], 0) [Interactive],
+    PA.FirstActivated,
+    PA.LastActivated,
+    PA.FirstRegistered,
+    PA.LastRegistered,
+    coalesce(PA.AccountsInConsideration, 0) AccountsInConsideration,
+    coalesce(PA.DeactivatedAccounts, 0) DeactivatedAccounts,
+    coalesce(PA.AccountsOnRegistration, 0) AccountsOnRegistration,
+    coalesce(PA.AccountsOnRevision, 0) AccountsOnRevision
+from
+	Organizations O
+    left join ByDayOrgAggregates PA on PA.OrgId = O.OrgId and PA.FactDate = @FactDate 
+where
+	1 = 1
+'
+
+
+set @daySqlFilial =
+'
+select
+	O.FDName,
+    O.RegionName,
+    O.OrgTypeName,
+    O.OrgKindName,
+    O.IsPrivate,
+    O.ShortName,
+    O.FullName,
+    O.MainId,
+    O.IsAccredited,
+    O.DepartmentId,
+    (select ORG.ShortName from Organizations ORG where ORG.OrgId = O.DepartmentId) DepartmentName,
+    O.INN,
+    O.OGRN,
+    O.CNFBFullTime + O2.CNFBFullTime CNFBFullTime,
+    O.CNFBEvening + O2.CNFBEvening CNFBEvening,
+    O.CNFBPostal + O2.CNFBPostal CNFBPostal,
+    O.CNPayFullTime + O2.CNPayFullTime CNPayFullTime,
+    O.CNPayEvening + O2.CNPayEvening CNPayEvening,
+    O.CNPayPostal + O2.CNPayPostal CNPayPostal,
+    PA.FirstCheck,
+    PA.LastCheck,
+    coalesce(PA.UniqueByCertNumber, 0) + O2.UniqueByCertNumber UniqueByCertNumber,
+    coalesce(PA.UniqueByPassport, 0) + O2.UniqueByPassport UniqueByPassport,
+    coalesce(PA.UniqueByTypoNumber, 0) + O2.UniqueByTypoNumber UniqueByTypoNumber,
+    coalesce(PA.UniqueInteractive, 0) + O2.UniqueInteractive UniqueInteractive,
+    coalesce(PA.ByCertNumber, 0) + O2.ByCertNumber ByCertNumber,
+    coalesce(PA.ByPassport, 0) + O2.ByPassport ByPassport,
+    coalesce(PA.ByTypoNumber, 0) + O2.ByTypoNumber ByTypoNumber,
+    coalesce(PA.[Interactive], 0) + O2.[Interactive] [Interactive],
+    PA.FirstActivated,
+    PA.LastActivated,
+    PA.FirstRegistered,
+    PA.LastRegistered,
+    coalesce(PA.AccountsInConsideration, 0) +O2.AccountsInConsideration AccountsInConsideration,
+    coalesce(PA.DeactivatedAccounts, 0) + O2.DeactivatedAccounts DeactivatedAccounts,
+    coalesce(PA.AccountsOnRegistration, 0) + O2.AccountsOnRegistration AccountsOnRegistration,
+    coalesce(PA.AccountsOnRevision, 0) + O2.AccountsOnRevision AccountsOnRevision
+from
+	Organizations O
+	left join ByDayOrgAggregates PA on PA.OrgId = O.OrgId and PA.FactDate = @FactDate
+	left join 
+	(
+	select
+		OFil.MainId,
+		sum(OFil.CNFBFullTime) CNFBFullTime,
+		sum(OFil.CNFBEvening) CNFBEvening,
+		sum(OFil.CNFBPostal) CNFBPostal,
+		sum(OFil.CNPayFullTime) CNPayFullTime,
+		sum(OFil.CNPayEvening) CNPayEvening,
+		sum(OFil.CNPayPostal) CNPayPostal,
+		min(PA.FirstCheck) FirstCheck,
+		max(PA.LastCheck) LastCheck,
+		sum(coalesce(PA.UniqueByCertNumber, 0)) UniqueByCertNumber,
+		sum(coalesce(PA.UniqueByPassport, 0)) UniqueByPassport,
+		sum(coalesce(PA.UniqueByTypoNumber, 0)) UniqueByTypoNumber,
+		sum(coalesce(PA.UniqueInteractive, 0)) UniqueInteractive,
+		sum(coalesce(PA.ByCertNumber, 0)) ByCertNumber,
+		sum(coalesce(PA.ByPassport, 0)) ByPassport,
+		sum(coalesce(PA.ByTypoNumber, 0)) ByTypoNumber,
+		sum(coalesce(PA.[Interactive], 0)) [Interactive],
+		min(PA.FirstActivated) FirstActivated,
+		max(PA.LastActivated) LastActivated,
+		min(PA.FirstRegistered) FirstRegistered,
+		max(PA.LastRegistered) LastRegistered,
+		sum(coalesce(PA.AccountsInConsideration, 0)) AccountsInConsideration,
+		sum(coalesce(PA.DeactivatedAccounts, 0)) DeactivatedAccounts,
+		sum(coalesce(PA.AccountsOnRegistration, 0)) AccountsOnRegistration,
+		sum(coalesce(PA.AccountsOnRevision, 0)) AccountsOnRevision
+	from
+		Organizations OFil
+		left join  ByDayOrgAggregates PA on PA.OrgId = OFil.OrgId and PA.FactDate = @FactDate
+	where OFil.MainId is not null
+	group by OFil.MainId
+	) O2 on O2.MainId = O.OrgId
+where
+	O.MainId is null
+'
+
+set @periodSql =
+N'
+select
+	O.FDName,
+    O.RegionName,
+    O.OrgTypeName,
+    O.OrgKindName,
+    O.IsPrivate,
+    O.ShortName,
+    O.FullName,
+    O.MainId,
+    O.IsAccredited,
+    O.DepartmentId,
+    (select ORG.ShortName from Organizations ORG where ORG.OrgId = O.DepartmentId) DepartmentName,
+    O.INN,
+    O.OGRN,
+    O.CNFBFullTime,
+    O.CNFBEvening,
+    O.CNFBPostal,
+    O.CNPayFullTime,
+    O.CNPayEvening,
+    O.CNPayPostal,
+    PA.FirstCheck,
+    PA.LastCheck,
+    coalesce(PA.UniqueByCertNumber, 0) UniqueByCertNumber,
+    coalesce(PA.UniqueByPassport, 0) UniqueByPassport,
+    coalesce(PA.UniqueByTypoNumber, 0) UniqueByTypoNumber,
+    coalesce(PA.UniqueInteractive, 0) UniqueInteractive,
+    coalesce(PA.ByCertNumber, 0) ByCertNumber,
+    coalesce(PA.ByPassport, 0) ByPassport,
+    coalesce(PA.ByTypoNumber, 0) ByTypoNumber,
+    coalesce(PA.[Interactive], 0) [Interactive],
+    PA.FirstActivated,
+    PA.LastActivated,
+    PA.FirstRegistered,
+    PA.LastRegistered,
+    coalesce(PA.AccountsInConsideration, 0) AccountsInConsideration,
+    coalesce(PA.DeactivatedAccounts, 0) DeactivatedAccounts,
+    coalesce(PA.AccountsOnRegistration, 0) AccountsOnRegistration,
+    coalesce(PA.AccountsOnRevision, 0) AccountsOnRevision
+from
+	Organizations O
+    left join 
+    (
+    select 
+    	PA.OrgId,
+        PA.FactDate,
+	    PA.FirstCheck,
+	    PA.LastCheck,
+	    PA.UniqueByCertNumber,
+	    PA.UniqueByPassport,
+	    PA.UniqueByTypoNumber,
+	    PA.UniqueInteractive,
+	    PA.ByCertNumber,
+	    PA.ByPassport,
+	    PA.ByTypoNumber,
+	    PA.[Interactive],
+	    PA.FirstActivated,
+	    PA.LastActivated,
+	    PA.FirstRegistered,
+	    PA.LastRegistered,
+	    PA.AccountsInConsideration,
+	    PA.DeactivatedAccounts,
+	    PA.AccountsOnRegistration,
+	    PA.AccountsOnRevision,
+        PA.AccountsCount,
+        PA.ActivatedAccounts,
+        PA.UniqueChecks,
+        PA.Incorrect
+    from
+	    ByPeriodOrgAggregates PA
+	    inner join 
+	    (
+		select
+			PA.OrgId,
+		    max(PA.FactDate) FactDate
+		from
+			ByPeriodOrgAggregates PA
+		where
+			PA.FactDate <= @FactDate and Year(PA.FactDate) = Year(@FactDate)
+		group by
+			PA.OrgId
+	    ) A on A.OrgId = PA.OrgId and A.FactDate = PA.FactDate
+    ) PA on PA.OrgId = O.OrgId
+where
+	1 = 1
+'
+
+set @periodSqlFilial = 
+N'select
+	O.FDName,
+	O.RegionName,
+	O.OrgTypeName,
+	O.OrgKindName,
+	O.IsPrivate,
+	O.ShortName,
+	O.FullName,
+	O.MainId,
+	O.IsAccredited,
+	O.DepartmentId,
+    (select ORG.ShortName from Organizations ORG where ORG.OrgId = O.DepartmentId) DepartmentName,
+    O.INN,
+    O.OGRN,
+    sum(O.CNFBFullTime) CNFBFullTime,
+	sum(O.CNFBEvening) CNFBEvening,
+	sum(O.CNFBPostal) CNFBPostal,
+	sum(O.CNPayFullTime) CNPayFullTime,
+	sum(O.CNPayEvening) CNPayEvening,
+	sum(O.CNPayPostal) CNPayPostal,
+	min(PA.FirstCheck) FirstCheck,
+	max(PA.LastCheck) LastCheck,
+	sum(coalesce(PA.UniqueByCertNumber, 0)) UniqueByCertNumber,
+	sum(coalesce(PA.UniqueByPassport, 0)) UniqueByPassport,
+	sum(coalesce(PA.UniqueByTypoNumber, 0)) UniqueByTypoNumber,
+	sum(coalesce(PA.UniqueInteractive, 0)) UniqueInteractive,
+	sum(coalesce(PA.ByCertNumber, 0)) ByCertNumber,
+	sum(coalesce(PA.ByPassport, 0)) ByPassport,
+	sum(coalesce(PA.ByTypoNumber, 0)) ByTypoNumber,
+	sum(coalesce(PA.[Interactive], 0)) [Interactive],
+	min(PA.FirstActivated) FirstActivated,
+	max(PA.LastActivated) LastActivated,
+	min(PA.FirstRegistered) FirstRegistered,
+	max(PA.LastRegistered) LastRegistered,
+	sum(coalesce(PA.AccountsInConsideration, 0)) AccountsInConsideration,
+	sum(coalesce(PA.DeactivatedAccounts, 0)) DeactivatedAccounts,
+	sum(coalesce(PA.AccountsOnRegistration, 0)) AccountsOnRegistration,
+	sum(coalesce(PA.AccountsOnRevision, 0)) AccountsOnRevision
+from
+	Organizations O
+	inner join
+	(
+		select 
+			O.OrgId,
+			O.OrgId as MainId
+		from 
+			Organizations O
+		where
+			O.MainId is null
+		union all
+		select 
+			O.OrgId, O.MainId
+		from
+			Organizations O
+		where
+		O.MainId is not null
+	) B on B.MainId = O.OrgId
+    left join 
+    (select 
+    	PA.OrgId,
+        PA.FactDate,
+	    PA.FirstCheck,
+	    PA.LastCheck,
+	    PA.UniqueByCertNumber,
+	    PA.UniqueByPassport,
+	    PA.UniqueByTypoNumber,
+	    PA.UniqueInteractive,
+	    PA.ByCertNumber,
+	    PA.ByPassport,
+	    PA.ByTypoNumber,
+	    PA.[Interactive],
+	    PA.FirstActivated,
+	    PA.LastActivated,
+	    PA.FirstRegistered,
+	    PA.LastRegistered,
+	    PA.AccountsInConsideration,
+	    PA.DeactivatedAccounts,
+	    PA.AccountsOnRegistration,
+	    PA.AccountsOnRevision,
+        PA.AccountsCount,
+        PA.ActivatedAccounts,
+        PA.UniqueChecks,
+        PA.Incorrect
+    from
+	    ByPeriodOrgAggregates PA
+	    inner join 
+	    (select
+			PA.OrgId,
+		    max(PA.FactDate) FactDate
+		from
+			ByPeriodOrgAggregates PA
+		where
+			PA.FactDate <= @FactDate and Year(PA.FactDate) = Year(@FactDate)
+		group by
+			PA.OrgId
+	    ) A on A.OrgId = PA.OrgId and A.FactDate = PA.FactDate
+    ) PA on PA.OrgId = O.OrgId
+where 1 = 1 '
+
+if (@ReportType = 0)
+begin
+	if (@GroupField = 'Filial')
+		set @sql = @daySqlFilial
+	else 
+		set @sql = @daySql
+end
+else begin
+	if (@GroupField = 'Filial')
+		set @sql = @periodSqlFilial
+	else
+		set @sql = @periodSql
+end
+
+--print @sql
+
+-- Федеральный округ
+if (@FDId != -1) 
+begin 
+	set @sql = @sql + ' and O.FDId = @FDId '
+end
+
+-- Субъект РФ
+if (@RegionId != -1) 
+begin 
+	set @sql = @sql + ' and O.RegionId = @RegionId '
+end
+
+-- Тип образовательного учреждения
+if (@OrgType != -1) 
+begin 
+	set @sql = @sql + ' and O.OrgType = @OrgType '
+end
+
+-- Вид образовательного учреждения
+if (@OrgKind != -1) 
+begin 
+	set @sql = @sql + ' and O.OrgKind = @OrgKind '
+end
+
+-- Организационно-правовая форма
+if (@IsPrivate != -1) 
+begin 
+	set @sql = @sql + ' and O.IsPrivate = @IsPrivate '
+end
+
+-- Название организации
+if (@OrgName is not null and LEN(@OrgName) != 0) 
+begin 
+	set @OrgName = '%' + @OrgName + '%'
+	set @sql = @sql + ' and (O.ShortName like @OrgName or O.FullName like @OrgName) '
+end
+
+-- Является ли филиалом
+if (@IsFilial != -1) 
+begin 
+	if (@IsFilial = 1)
+    begin
+		set @sql = @sql + ' and O.MainId is not null '
+    end
+    else begin
+		set @sql = @sql + ' and O.MainId is null '
+    end
+end
+
+-- Признак аккредитации
+if (@IsAccredited != -1) 
+begin 
+	set @sql = @sql + ' and O.IsAccredited = @IsAccredited '
+end
+
+-- Учредитель ОУ
+if (@DepartmentId != -1) 
+begin 
+	set @sql = @sql + ' and O.DepartmentId = @DepartmentId '
+end
+
+-- ИНН/ОГРН
+if (@INN_OGRN is not null and LEN(@INN_OGRN) != 0) 
+begin 
+	set @sql = @sql + ' and (O.INN = @INN_OGRN or O.OGRN = @INN_OGRN) '
+end
+
+-- Подана ли заявка на регистрацию
+if (@IsRegister != -1) 
+begin 
+	if (@IsRegister = 1)
+    begin
+		set @sql = @sql + ' and O.RegisterDate <= @FactDate '
+    end
+    else begin
+		set @sql = @sql + ' and O.RegisterDate is null '
+    end
+end
+
+
+-- Количество пользователей
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@AccountsCount is not null and LEN(@AccountsCount) != 0)
+begin
+	set @sql = @sql + ' and PA.AccountsCount = ' + @AccountsCount + ' '
+end
+
+
+-- Пользователей активировано
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@ActivatedAccounts is not null and LEN(@ActivatedAccounts) != 0)
+begin
+	set @sql = @sql + ' and PA.ActivatedAccounts = ' + @ActivatedAccounts + ' '
+end
+
+-- Уникальных проверок всего
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@UniqueChecks is not null and LEN(@UniqueChecks) != 0)
+begin
+	set @sql = @sql + ' and PA.UniqueChecks = ' + @UniqueChecks + ' '
+end
+
+-- Неправильных проверок
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Incorrect is not null and LEN(@Incorrect) != 0)
+begin
+	set @sql = @sql + ' and PA.Incorrect = ' + @Incorrect + ' '
+end
+
+if @GroupField = 'Filial' and @ReportType <> 0
+	set @sql = @sql +
+	'group by B.MainId,O.OrgId, O.MainId, O.FDName,O.RegionName,O.OrgTypeName,O.OrgKindName,O.IsPrivate,O.ShortName,
+	O.FullName,O.IsAccredited,O.DepartmentId,O.INN,O.OGRN '  
+set @sql = @sql + 
+	' order by	
+	case when O.MainId is null then O.OrgId else O.MainId end, O.MainId, O.FullName'
+
+
+execute sp_executesql 
+	@sql,
+    N'
+    @FactDate datetime,
+    @FDId int,
+    @RegionId int,
+    @OrgType int,
+    @OrgKind int,
+    @IsPrivate int,
+    @OrgName nvarchar(1000),
+    @IsFilial int,
+    @IsAccredited int,
+    @DepartmentId int,
+    @INN_OGRN nvarchar(13)
+    ',
+    @FactDate,
+    @FDId,
+    @RegionId,
+    @OrgType,
+    @OrgKind,
+    @IsPrivate,
+    @OrgName,
+    @IsFilial,
+    @IsAccredited,
+    @DepartmentId,
+    @INN_OGRN
+        
+end
+GO
+
+
+ALTER procedure [dbo].[ReportConsolidatedOrgPeriods]
+	@ReportType int, -- тип отчета (0 - на дату, 1 - нарастающим итогом)
+	@FactDateBegin datetime,
+	@FactDateFinish datetime,
+	@FDId int,
+	@RegionId int,
+	@OrgType int,
+    @OrgKind int,
+    @IsPrivate int,
+    @OrgName nvarchar(1000),
+    @IsFilial int,
+    @IsAccredited int,
+    @DepartmentId int,
+    @INN_OGRN nvarchar(13),
+    @IsRegister int, -- подана ли заявка на регистрацию
+    @AccountsCount nvarchar(10), -- количество пользователей
+    @ActivatedAccounts nvarchar(10), -- пользователей активировано
+    @UniqueChecks nvarchar(10), -- уникальных проверок всего
+    @Incorrect nvarchar(10) -- неправильных проверок
+as
+begin
+declare
+	@sql nvarchar(4000),
+    @daySql nvarchar(4000),
+    @periodSql nvarchar(4000)
+set @daySql = 
+N'
+select
+	O.OrgId,
+	O.RegionId,
+	O.FullName,
+	O.RegionName,
+	coalesce(PA.AccountsCount, 0) AccountsCount,
+	coalesce(PA.ActivatedAccounts, 0) ActivatedAccounts,
+	PA.FirstActivated,
+    PA.LastActivated,
+    PA.FirstRegistered,
+    PA.LastRegistered,
+    coalesce(PA.AccountsInConsideration, 0) AccountsInConsideration,
+    coalesce(PA.DeactivatedAccounts, 0) DeactivatedAccounts,
+    coalesce(PA.AccountsOnRegistration, 0) AccountsOnRegistration,
+    coalesce(PA.AccountsOnRevision, 0) AccountsOnRevision,
+    coalesce(PA.UniqueChecks, 0) UniqueChecks,
+	coalesce(PA.UniqueByCertNumber, 0) UniqueByCertNumber,
+    coalesce(PA.UniqueByPassport, 0) UniqueByPassport,
+    coalesce(PA.UniqueByTypoNumber, 0) UniqueByTypoNumber,
+    coalesce(PA.UniqueInteractive, 0) UniqueInteractive,
+    coalesce(PA.Incorrect, 0) Incorrect,
+    PA.FirstCheck,
+    PA.LastCheck,
+    coalesce(PA.ByCertNumber, 0) ByCertNumber,
+    coalesce(PA.ByPassport, 0) ByPassport,
+    coalesce(PA.ByTypoNumber, 0) ByTypoNumber,
+    coalesce(PA.[Interactive], 0) [Interactive],
+    @FactDate as FactDate
+from
+	Organizations O
+    left join ByDayOrgAggregates PA on PA.OrgId = O.OrgId and PA.FactDate = @FactDate
+    and 
+	PA.FactDate >= 
+		(select
+			P.PeriodDate
+		from dbo.Periods P
+		where
+			P.PeriodYear = YEAR(@FactDate)
+		)
+where 
+	1 = 1'
+    
+set @periodSql =
+N'
+select
+	O.OrgId,
+	O.RegionId,
+    O.FullName,
+    O.RegionName,
+	coalesce(PA.AccountsCount, 0) AccountsCount,
+	coalesce(PA.ActivatedAccounts, 0) ActivatedAccounts,
+	PA.FirstActivated,
+    PA.LastActivated,
+    PA.FirstRegistered,
+    PA.LastRegistered,
+    coalesce(PA.AccountsInConsideration, 0) AccountsInConsideration,
+    coalesce(PA.DeactivatedAccounts, 0) DeactivatedAccounts,
+    coalesce(PA.AccountsOnRegistration, 0) AccountsOnRegistration,
+    coalesce(PA.AccountsOnRevision, 0) AccountsOnRevision,
+    coalesce(PA.UniqueChecks, 0) UniqueChecks,
+	coalesce(PA.UniqueByCertNumber, 0) UniqueByCertNumber,
+    coalesce(PA.UniqueByPassport, 0) UniqueByPassport,
+    coalesce(PA.UniqueByTypoNumber, 0) UniqueByTypoNumber,
+    coalesce(PA.UniqueInteractive, 0) UniqueInteractive,
+    coalesce(PA.Incorrect, 0) Incorrect,
+    PA.FirstCheck,
+    PA.LastCheck,
+    coalesce(PA.ByCertNumber, 0) ByCertNumber,
+    coalesce(PA.ByPassport, 0) ByPassport,
+    coalesce(PA.ByTypoNumber, 0) ByTypoNumber,
+    coalesce(PA.[Interactive], 0) [Interactive], 
+    @FactDate as FactDate
+from
+	Organizations O
+    left join 
+    (
+    select 
+    	PA.OrgId,
+        PA.FactDate,
+	    PA.FirstCheck,
+	    PA.LastCheck,
+	    PA.UniqueByCertNumber,
+	    PA.UniqueByPassport,
+	    PA.UniqueByTypoNumber,
+	    PA.UniqueInteractive,
+	    PA.ByCertNumber,
+	    PA.ByPassport,
+	    PA.ByTypoNumber,
+	    PA.[Interactive],
+	    PA.FirstActivated,
+	    PA.LastActivated,
+	    PA.FirstRegistered,
+	    PA.LastRegistered,
+	    PA.AccountsInConsideration,
+	    PA.DeactivatedAccounts,
+	    PA.AccountsOnRegistration,
+	    PA.AccountsOnRevision,
+        PA.AccountsCount,
+        PA.ActivatedAccounts,
+        PA.UniqueChecks,
+        PA.Incorrect
+    from
+	    ByPeriodOrgAggregates PA
+	    inner join 
+	    (
+		select
+			PA.OrgId,
+		    max(PA.FactDate) FactDate
+		from
+			ByPeriodOrgAggregates PA
+		where
+			PA.FactDate <= @FactDate
+			and 
+			PA.FactDate >= (select
+				P.PeriodDate
+			from dbo.Periods P
+			where
+			P.PeriodYear = YEAR(@FactDate)
+			)
+		group by
+			PA.OrgId
+	    ) A on A.OrgId = PA.OrgId and A.FactDate = PA.FactDate
+    ) PA on PA.OrgId = O.OrgId
+where
+	1 = 1
+'
+	
+if (@ReportType = 0)
+begin
+	set @sql = @daySql
+end
+else begin
+	set @sql = @periodSql
+end
+
+-- Федеральный округ
+if (@FDId != -1) 
+begin 
+	set @sql = @sql + ' and O.FDId = @FDId '
+end
+
+-- Субъект РФ
+if (@RegionId != -1) 
+begin 
+	set @sql = @sql + ' and O.RegionId = @RegionId '
+end
+
+-- Тип образовательного учреждения
+if (@OrgType != -1) 
+begin 
+	set @sql = @sql + ' and O.OrgType = @OrgType '
+end
+
+-- Вид образовательного учреждения
+if (@OrgKind != -1) 
+begin 
+	set @sql = @sql + ' and O.OrgKind = @OrgKind '
+end
+
+-- Организационно-правовая форма
+if (@IsPrivate != -1) 
+begin 
+	set @sql = @sql + ' and O.IsPrivate = @IsPrivate '
+end
+
+if (@OrgName is not null and LEN(@OrgName) != 0) 
+begin 
+	set @OrgName = '%' + @OrgName + '%'
+	set @sql = @sql + ' and O.FullName like @OrgName '
+end
+
+
+-- Является ли филиалом
+if (@IsFilial != -1) 
+begin 
+	if (@IsFilial = 1)
+    begin
+		set @sql = @sql + ' and O.MainId is not null '
+    end
+    else begin
+		set @sql = @sql + ' and O.MainId is null '
+    end
+end
+
+-- Признак аккредитации
+if (@IsAccredited != -1) 
+begin 
+	set @sql = @sql + ' and O.IsAccredited = @IsAccredited '
+end
+
+-- Учредитель ОУ
+if (@DepartmentId != -1) 
+begin 
+	set @sql = @sql + ' and O.DepartmentId = @DepartmentId '
+end
+
+-- ИНН/ОГРН
+if (@INN_OGRN is not null and LEN(@INN_OGRN) != 0) 
+begin 
+	set @sql = @sql + ' and (O.INN = @INN_OGRN or O.OGRN = @INN_OGRN) '
+end
+
+-- Подана ли заявка на регистрацию
+if (@IsRegister != -1) 
+begin 
+	if (@IsRegister = 1)
+    begin
+		set @sql = @sql + ' and O.RegisterDate <= @FactDate '
+    end
+    else begin
+		set @sql = @sql + ' and O.RegisterDate is null '
+    end
+end
+
+-- Количество пользователей
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@AccountsCount is not null and LEN(@AccountsCount) != 0)
+begin
+	set @sql = @sql + ' and PA.AccountsCount = ' + @AccountsCount + ' '
+end
+
+
+-- Пользователей активировано
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@ActivatedAccounts is not null and LEN(@ActivatedAccounts) != 0)
+begin
+	set @sql = @sql + ' and PA.ActivatedAccounts = ' + @ActivatedAccounts + ' '
+end
+
+-- Уникальных проверок всего
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@UniqueChecks is not null and LEN(@UniqueChecks) != 0)
+begin
+	set @sql = @sql + ' and PA.UniqueChecks = ' + @UniqueChecks + ' '
+end
+
+-- Неправильных проверок
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Incorrect is not null and LEN(@Incorrect) != 0)
+begin
+	set @sql = @sql + ' and PA.Incorrect = ' + @Incorrect + ' '
+end
+
+CREATE TABLE 
+	#Table1 (
+	OrgId int,
+	RegionId int,
+    FullName nvarchar(1000),
+    RegionName nvarchar(255),
+	AccountsCount int,
+	ActivatedAccounts int,
+	FirstActivated datetime,
+    LastActivated datetime,
+    FirstRegistered datetime,
+    LastRegistered datetime,
+    AccountsInConsideration int,
+    DeactivatedAccounts int,
+    AccountsOnRegistration int,
+    AccountsOnRevision int,
+    UniqueChecks int,
+	UniqueByCertNumber int,
+    UniqueByPassport int,
+    UniqueByTypoNumber int,
+    UniqueInteractive int,
+    Incorrect int,
+    FirstCheck datetime,
+    LastCheck datetime,
+    ByCertNumber int,
+    ByPassport int,
+    ByTypoNumber int,
+    [Interactive] int, 
+    FactDate datetime,
+    primary key (OrgId, FactDate)
+    )
+	
+	set @sql = 'insert into #Table1 
+	select 
+	OrgId,
+	RegionId,
+    FullName ,
+    RegionName ,
+	AccountsCount ,
+	ActivatedAccounts ,
+	FirstActivated ,
+    LastActivated ,
+    FirstRegistered ,
+    LastRegistered ,
+    AccountsInConsideration ,
+    DeactivatedAccounts ,
+    AccountsOnRegistration ,
+    AccountsOnRevision ,
+    UniqueChecks ,
+	UniqueByCertNumber ,
+    UniqueByPassport ,
+    UniqueByTypoNumber ,
+    UniqueInteractive ,
+    Incorrect ,
+    FirstCheck,
+    LastCheck ,
+    ByCertNumber ,
+    ByPassport ,
+    ByTypoNumber ,
+    [Interactive] , 
+    FactDate 
+	from 
+	( '+@sql+'
+	) T1 '
+	
+	execute sp_executesql 
+	@sql,
+    N'
+    @FactDate datetime,
+    @FDId int,
+    @RegionId int,
+    @OrgType int,
+    @OrgKind int,
+    @IsPrivate int,
+    @OrgName nvarchar(1000),
+    @IsFilial int,
+    @IsAccredited int,
+    @DepartmentId int,
+    @INN_OGRN nvarchar(13)
+    ',
+    @FactDateBegin,
+    @FDId,
+    @RegionId,
+    @OrgType,
+    @OrgKind,
+    @IsPrivate,
+    @OrgName,
+    @IsFilial,
+    @IsAccredited,
+    @DepartmentId,
+    @INN_OGRN
+    
+	if (@FactDateBegin != @FactDateFinish)
+	begin
+		execute sp_executesql 
+		@sql,
+		N'
+		@FactDate datetime,
+		@FDId int,
+		@RegionId int,
+		@OrgType int,
+		@OrgKind int,
+		@IsPrivate int,
+		@OrgName nvarchar(1000),
+		@IsFilial int,
+		@IsAccredited int,
+		@DepartmentId int,
+		@INN_OGRN nvarchar(13)
+		',
+		@FactDateFinish,
+		@FDId,
+		@RegionId,
+		@OrgType,
+		@OrgKind,
+		@IsPrivate,
+		@OrgName,
+		@IsFilial,
+		@IsAccredited,
+		@DepartmentId,
+		@INN_OGRN
+    end
+    
+    select * from #Table1
+    drop table #Table1
+end
+GO

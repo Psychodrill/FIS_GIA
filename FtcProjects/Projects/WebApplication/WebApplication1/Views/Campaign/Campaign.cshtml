@@ -1,0 +1,125 @@
+﻿@model WebApplication1.Models.Campaign
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Campaign";
+}
+
+<h2>Приемные кампании</h2>
+@using (Html.BeginForm())
+{
+
+
+    <p>
+        @Html.DropDownList("dates", ViewBag.dates as SelectList, ViewBag.SelectedYear as string, new { @class = "form-control" })
+    </p>
+
+
+    @Html.TextBox("txtValue", null, new { type = "hidden" })
+
+    <button id="filter" class="btn btn-outline-primary" style="margin-top: 20px">Поиск по году</button>
+
+    <h4 style="margin-top: 20px">
+        @Html.ActionLink("Назад к поиску", "Results", "Search", new { id = Model.InstitutionID }, new { @style = "background-color: white;" })
+    </h4>
+
+    @Html.AntiForgeryToken()
+
+
+        <table class="table table-borderless">
+
+                @foreach (var item in ViewBag.campaigns)
+                {
+                    string color = "#FFFFFF;";
+                    string color1 = "#FFFFFF;";
+                    string color2 = "#FFFFFF;";
+
+                    if (Model.CampaignID == item.CampaignID)
+                    {
+                        if (Model.EducationFormFlag != 0 && item.EducationFormFlag == Model.EducationFormFlag)
+                        {
+                            color = "#66CC99;";
+                        }
+
+                        if (Model.StatusID != 0 && item.StatusID == Model.StatusID)
+                        {
+                            color1 = "#66CC99;";
+                        }
+
+                        if (Model.CampaignTypeID != 0 && item.CampaignTypeID == Model.CampaignTypeID)
+                        {
+                            color2 = "#66CC99;";
+                        }
+                    }
+
+                    <tr>
+                        <th><strong>Название ПК</strong></th>
+                        <td>
+                            @item.Name
+                        </td>
+                    </tr>
+            <tbody >
+
+                <tr >
+                    <th><strong>Дата начала</strong></th>
+                    <td>
+                        <input value=@item.YearStart name="YearStart" class = "form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th><strong>Дата окончания</strong></th>
+                    <td>
+                        <input value=@item.YearEnd name="YearEnd" class = "form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th ><strong>Форма</strong></th>
+                    <td style="background-color: @color">
+                        @Html.DropDownList("EduForm", ViewBag.EduForm as SelectList, @item.EducationFormName as string,
+            new { @class = "form-control", @name = "EducationFormFlag" })
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <th><strong>Тип</strong></th>
+                    <td style="background-color: @color2">
+                        @Html.DropDownList("CmgnTypes", ViewBag.CmgTypeName as SelectList, @item.CampaignTypeName as string,
+            new { @class = "form-control", @name = "CampaignTypeID", @style = "background-color: @color" })
+                    </td>
+                </tr>
+                <tr>
+                 
+                    
+                    <th><strong>Статус</strong></th>
+                    <td style="background-color: @color1">
+                        @Html.DropDownList("StsName", ViewBag.StsName as SelectList, @item.CampaignStatusName as string,
+            new { @class = "form-control", @name = "StatusID" })
+                    </td>
+                </tr>
+                <tr style="margin-top: 20px">
+                    <td >
+                        <input type="hidden" value=@item.CampaignID name="CampaignID" />
+                        <input type="submit" value="Удалить приемную кампанию" name="deleteCmp" class="btn btn-outline-primary">                       
+                    </td>
+                    <td> <input type="submit" value="Сохранить изменения" name="save" class="btn btn-outline-primary"></td>
+                </tr>
+               </tbody>
+
+                }
+
+</table>
+}
+
+@{
+    if (Enumerable.Any(ViewBag.campaigns))
+    {
+        @Html.PagedListPager(ViewBag.campaigns as IPagedList, page => Url.Action("Campaign", "Campaign",
+        new { page, id = Model.InstitutionID, selectDate = ViewBag.SelectedYear}),
+        new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
+    }
+}
+
+    
+

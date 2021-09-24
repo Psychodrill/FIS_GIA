@@ -1,0 +1,1 @@
+ALTER TABLE Institution add [City] varchar(255) null

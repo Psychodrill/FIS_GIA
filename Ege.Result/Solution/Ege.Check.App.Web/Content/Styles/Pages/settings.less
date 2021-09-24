@@ -1,0 +1,32 @@
+@import "../Core/core.less";
+@import "../Components/account.less";
+@import "../Components/menu.less";
+@import "../Components/table.less";
+@import "../Components/table-sorting.less";
+@import "../Components/loader.less";
+@import "../Components/message-popup.less";
+@import "../Components/dialog.less";
+@import "../Components/datepicker.less";
+
+@label-width: 32%;
+.dialog-body {
+	.label {
+		width: @label-width;
+	}
+	.input {
+		width: 100% - @label-width;
+
+		input[type="text"] {
+			font-size: 14px;
+		}
+	}
+}
+
+select {
+	margin-right: 20px;
+	font-size: 16px;
+}
+
+.table td {
+	padding: 6px;
+} 

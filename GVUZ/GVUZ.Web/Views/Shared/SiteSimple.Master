@@ -1,0 +1,58 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<%@ Import Namespace="GVUZ.Web.Auth" %>
+<%@ Import Namespace="GVUZ.Helper" %>
+<%@ Import Namespace="GVUZ.Web.Controllers" %>
+<%@ Register TagPrefix="gv" TagName="ResourcesHolder" Src="~/Views/Shared/Controls/ResourcesHolderControl.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head runat="server">
+    <%--<link rel="shortcut icon" href="<%= Url.Images("faviconnew.ico") %>" />--%>
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <gv:ResourcesHolder ID="ResourcesHolder1" runat="server" />
+</head>
+<body style="background-color: White">
+    <input type="hidden" id="app-version" value="16.1" />
+    <div class="pageBody">
+        <div class="pageHeader">
+            <div class="logotype">
+                <img src="<%= Url.Images("logotype.jpg") %>" border="0">
+            </div>
+            <h1 class="siteTitle">
+            </h1>
+        </div>
+        <div class="pageContent" style="min-height: 190px">
+            <div class="zagolovok">
+                <h2 class="title" id="pageTitleH2">
+                    <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+                    </asp:ContentPlaceHolder>
+                </h2>
+                <h2 class="subtitle" id="pageSubtitleH2">
+                    <asp:ContentPlaceHolder ID="PageSubtitle" runat="server">
+                    </asp:ContentPlaceHolder>
+                </h2>
+            </div>
+            <div class="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <div id="divPager" class="pageBlock" style="display: none">
+            </div>
+        </div>
+        <div class="pageFooter">
+            <div class="pageCopyrights">
+                <b>©
+                    <%=DateTime.Now.Year %>
+                    ФИС ГИА и приема</b><br />
+                Тел. горячей линии: <b>8 (499) 455 16 80</b>Электронная почта: <a href="mailto:priem@rustest.ru">
+                    priemou@obrnadzor.gov.ru</a><br />
+                <br />
+                <img src="<%= EsrpAuthHelperV2.GetRenewLink() %>" width="1" height="1" /></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Common/Templates/Certificates.Master" AutoEventWireup="true" CodeBehind="CertificatesBatchResult.master.cs" Inherits="Fbs.Web.Common.Templates.CertificatesBatchResult" %>
+<%@ Import Namespace="System.Drawing" %>
+<%@ Register TagPrefix="web" Namespace="WebControls" Assembly="WebControls" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphCertificateHead" runat="server">
+    <% if (BatchWait) { %>
+     <meta http-equiv="refresh" content="10" />
+<% } else { %>
+
+     <script type="text/javascript" src="/Common/Scripts/SessVars.js"></script>
+    <script type="text/javascript" src="/Common/Scripts/Notice.js"></script>
+    
+
+<% } %> 
+
+</asp:Content>
+
+<asp:Content runat="server" ContentPlaceHolderID="cphCertificateActions">
+    <asp:Panel runat="server" ID="exportPanel">
+    
+    <div class="h10">
+    </div>
+    <div class="border-block">
+        <div class="tr">
+            <div class="tt">
+                <div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <ul>
+                <li>
+                    <img alt="" src="/Common/Images/csv-icon.gif" />
+                    <a href="/Certificates/CommonNationalCertificates/BatchCheckResultExportCsvCommon.aspx?id=<%= CheckId %>"
+                        title="Экспорт в CSV" class="gray">Экспорт в CSV</a></li>
+                <!-- Функциональность отключена до второго этапа -->
+                <!--<li><a href="/Certificates/CommonNationalCertificates/BatchCheckResultExport.aspx?id=<%= Request.QueryString["id"] %>"
+                    title="Экспорт в XLS">Экспорт в XLS</a></li>-->
+            </ul>
+        </div>
+        <div class="br">
+            <div class="tt">
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </asp:Panel>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="cphCertificateContent" runat="server">
+    <% if (BatchWait) { %>
+<p><i>Идет обработка пакета, пожалуйста подождите...</i></p>
+    
+<% } else { %>
+ <div class="notice">
+        <div class="top">
+            <div class="l">
+            </div>
+            <div class="r">
+            </div>
+            <div class="m">
+            </div>
+        </div>
+        <div class="cont">
+            <div dir="ltr" class="hide" title="Свернуть" onclick="ToggleNoticeState(this);">
+                x<span></span></div>
+            <div class="txt-in">
+                <p>ТН - Типографский номер; Год - Год получения результата; РЯ - русский язык; М - математика; Ф - физика; Х - химия; Б - биология; ИР - история России; Г - география; АЯ - английский язык; НЯ - немецкий язык; ФЯ - французский язык; О - обществознание; Л - литература; ИЯ - испанский язык; И - информатика.
+                <br />
+Если не удается найти результаты участника ЕГЭ или свидетельство аннулировано без объяснения причины, то обращайтесь за информацией в Региональный Центр Обработки Информации, находящийся на территории региона, в котором было выдано данное свидетельство.
+<br />
+Срок действия результатов ЕГЭ определяется в соответствии с действующими нормативными документами.
+<br />
+В 2015 году действительны результаты ЕГЭ 2012, 2013, 2014 и 2015 годов.
+<br />
+Результаты 2011 года действительны только для лиц, проходивших военную службу по призыву и уволенных с военной службы.
+<br />
+Специальным знаком &laquo;!&raquo; перед баллом выделены баллы, которые меньше минимальных установленных Рособрнадзором значений.
+<br />
+Аннулированные и недействительные результаты ЕГЭ отображаются как 0 баллов.
+                    </p>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="l">
+            </div>
+            <div class="r">
+            </div>
+            <div class="m">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        InitNotice();
+    </script>
+
+    <form id="Form1" runat="server">
+        
+        <table class="pager">
+            <tr><td>
+    
+                <web:DataSourcePager runat="server"
+                    id="DataSourcePagerHead" 
+                    DataSourceId="resultCountDataSource"
+	                StartRowIndexParamName="start" 
+	                MaxRowCountParamName="count"
+	                HideDefaultTemplates="true"
+	                AlwaysShow="true"
+	                DefaultMaxRowCount="10"
+	                DefaultMaxRowCountSource="Cookies">
+                    <Header>
+                        Участники #StartRowIndex#-#LastRowIndex# из #TotalCount#.
+                
+                        <web:DataSourceMaxRowCount ID="DataSourceMaxRowCount1" runat="server"
+                            Variants="10,20,50"
+                            DataSourcePagerId="DataSourcePagerHead">
+                        <Header>Участников на странице: </Header>
+                        <Footer>.</Footer>
+                        <Separator>, </Separator>
+                        <ActiveTemplate><span>#count#</span></ActiveTemplate> 
+                        <InactiveTemplate><a href="/SetMaxRowCount.aspx?count=#count#" 
+                        title="Отображать #count# записей на странице">#count#</a></InactiveTemplate> 
+                        </web:DataSourceMaxRowCount>                 
+                    </Header>
+                </web:DataSourcePager>
+        
+            </td>    
+            <td align="right">
+
+                <web:DataSourcePager ID="DataSourcePager1" runat="server"
+                    DataSourceId="DataSourcePagerHead"
+	                StartRowIndexParamName="start"
+	                MaxRowCountParamName="count">
+			        <PrevGroupTemplate></PrevGroupTemplate>
+                    <NextGroupTemplate></NextGroupTemplate>
+                    <FirstPageTemplate><a href="#PageUrl#"><<</a>&nbsp;</FirstPageTemplate>
+                    <LastPageTemplate>&nbsp;<a href="#PageUrl#">>></a></LastPageTemplate>
+                    <ActivePrevPageTemplate><a href="#PageUrl#"><</a>&nbsp;</ActivePrevPageTemplate>
+                    <ActivePageTemplate><span>#PageNo#</span> </ActivePageTemplate>
+                    <ActiveNextPageTemplate>&nbsp;<a href="#PageUrl#">></a></ActiveNextPageTemplate>
+                </web:DataSourcePager>    
+
+            </td></tr>
+            </table>
+
+    <asp:GridView runat="server" ID="dsMaster" AllowPaging="False" EnableViewState="False"
+        AutoGenerateColumns="False" CssClass="table-th" GridLines="None">
+        <HeaderStyle CssClass="th"></HeaderStyle>
+        <Columns>
+            <asp:TemplateField>
+                <HeaderStyle CssClass="left-th"></HeaderStyle>
+                <HeaderTemplate>
+                    <div>Фамилия</div>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# GetDetailsPageUrl(Eval("GroupId")) %>' Text='<%# Eval("Surname") %>'></asp:HyperLink>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Имя">
+                <ItemTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# GetDetailsPageUrl(Eval("GroupId")) %>' Text='<%# Eval("Name") %>'></asp:HyperLink>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Отчество">
+                <ItemTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# GetDetailsPageUrl(Eval("GroupId")) %>' Text='<%# Eval("SecondName") %>'></asp:HyperLink>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Документ">
+                <ItemTemplate>
+                    <%# Eval("DocumentSeries") %>&nbsp;&nbsp;<%# Eval("DocumentNumber") %>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="SubjectName" HeaderText="Предмет" />
+            <asp:TemplateField HeaderText="Балл">
+                <ItemTemplate>
+                    <%# RenderMark(DataBinder.Eval(Container, "DataItem.GlobalStatusID") as int?, DataBinder.Eval(Container, "DataItem.Mark") as int?, DataBinder.Eval(Container, "DataItem.SubjectCode") as int?)%>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="UseYear" HeaderText="Год" />
+            <asp:BoundField DataField="RegionName" HeaderText="Регион" />
+            <asp:BoundField DataField="StatusName" HeaderText="Статус" />
+            <asp:TemplateField HeaderText="Ап/Пер.">
+                <ItemTemplate>
+                    <%# (DataBinder.Eval(Container, "DataItem.HasAppeal", "{0}") == Boolean.TrueString ? "Да" : "Нет")%>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="С-с апелляции">
+                <ItemTemplate>
+                    <asp:Label ID="lAppealStatusName" runat="server" Text='<%# (DataBinder.Eval(Container, "DataItem.AppealStatusName", "{0}") == String.Empty ? "Отсутствует" : DataBinder.Eval(Container, "DataItem.AppealStatusName", "{0}"))%>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="LicenseNumber" HeaderText="Номер свидетельства" />
+            <asp:TemplateField>
+                <HeaderStyle CssClass="right-th"></HeaderStyle>
+                <HeaderTemplate>
+                    <div>ТН</div>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <%# (string.IsNullOrEmpty(DataBinder.Eval(Container, "DataItem.TypographicNumber", "{0}")) ? "&mdash;" : Eval("TypographicNumber").ToString()) %>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+        
+    </asp:GridView>
+    
+    <table class="pager">
+        <tr><td>
+    
+            <web:DataSourcePager ID="DataSourcePager2" runat="server"
+                DataSourceId="DataSourcePagerHead"
+	            StartRowIndexParamName="start" 
+	            MaxRowCountParamName="count"
+	            HideDefaultTemplates="true"
+	            AlwaysShow="true"
+	            DefaultMaxRowCount="10"
+	            DefaultMaxRowCountSource="Cookies">
+                <Header>
+                    Участники #StartRowIndex#-#LastRowIndex# из #TotalCount#.
+                
+                    <web:DataSourceMaxRowCount ID="DataSourceMaxRowCount2" runat="server"
+                        Variants="10,20,50"
+                        DataSourcePagerId="DataSourcePagerHead">
+                    <Header>Участников на странице: </Header>
+                    <Footer>.</Footer>
+                    <Separator>, </Separator>
+                    <ActiveTemplate><span>#count#</span></ActiveTemplate> 
+                    <InactiveTemplate><a href="/SetMaxRowCount.aspx?count=#count#" 
+                        title="Отображать #count# записей на странице">#count#</a></InactiveTemplate> 
+                    </web:DataSourceMaxRowCount>                 
+                </Header>
+            </web:DataSourcePager>
+        
+        </td>    
+        <td align="right">
+
+            <web:DataSourcePager ID="DataSourcePager3" runat="server"
+                DataSourceId="DataSourcePagerHead"
+    	        StartRowIndexParamName="start"
+	            MaxRowCountParamName="count">
+			    <PrevGroupTemplate></PrevGroupTemplate>
+                <NextGroupTemplate></NextGroupTemplate>
+                <FirstPageTemplate><a href="#PageUrl#"><<</a>&nbsp;</FirstPageTemplate>
+                <LastPageTemplate>&nbsp;<a href="#PageUrl#">>></a></LastPageTemplate>
+                <ActivePrevPageTemplate><a href="#PageUrl#"><</a>&nbsp;</ActivePrevPageTemplate>
+                <ActivePageTemplate><span>#PageNo#</span> </ActivePageTemplate>
+                <ActiveNextPageTemplate>&nbsp;<a href="#PageUrl#">></a></ActiveNextPageTemplate>
+            </web:DataSourcePager>    
+
+        </td></tr>
+        </table>
+
+    <web:NoRecordsText runat="server" ControlId="dsMaster">
+        <asp:Panel runat="server">
+            <p align="center">
+                <img src="/Common/Images/spacer.gif" width="32" height="31" style="background-image: url('/Common/Images/important.gif')" />
+                По Вашему запросу ничего не найдено
+             </p>
+           <%--<asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" NavigateUrl='<%# GenerateNotFoundPrintLink() %>' Visible='<%# Convert.ToBoolean(ConfigurationManager.AppSettings["EnableNotFoundNote"])%>' Text="Распечатать" />--%>
+        </asp:Panel>
+    </web:NoRecordsText>
+    
+    <asp:ObjectDataSource runat="server" ID="resultCountDataSource" />
+
+    </form>
+   
+<% } %>
+
+</asp:Content>

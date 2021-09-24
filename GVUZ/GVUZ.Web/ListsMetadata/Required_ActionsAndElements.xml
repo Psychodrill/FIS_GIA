@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0"> 
+    <Entities>
+        <Entity id="ActionsAndElements">
+            <CommonSettings allowEdit="true" allowCreate="false" allowDelete="false" newIdMode="ServerGuid"  />
+            <DataSettings baseTableName="Actions" />
+            <ListSettings pageSize="20" headerText="Права доступа" />
+            <!--FormSettings btnCancel="" btnSave="" /-->
+            <FormSettings>
+                <FieldGroups>
+                    <FieldGroup caption="Действие" id="1" order="1" />
+                    <FieldGroup caption="Элементы" id="2" order="2" />
+                </FieldGroups>
+            </FormSettings>
+            <Fields>
+                <Field>
+                    <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Guid" filterMode="Equals"></DataSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Name" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <View visibility="Visible" formatSchema="" order="10" caption="Код" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Наименование" input="Text" editMode="ReadOnlyText" isRequired="true" size="Normal" order="10" visible="true" groupId="1"> 
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <CommonSettings/>
+                    <DataSettings fieldName="ActionId2" fieldType="Guid" filterMode="None" isPrimaryKey="false">
+                        <SqlExpression>Actions.Id</SqlExpression>
+                    </DataSettings>
+                    <FormSettings addMode="NotVisible" editMode="ReadOnlyText" lineBreakAfterInput="true" caption="Доступные элементы" input="SubGrid" visible="true" order="20" groupId="2">
+                        <SubGrid entityId="MenuElementsSubGridLink" filterFieldName="MenuElements.ActionId" allowUnlink="true" />
+                    </FormSettings>
+                    <ListSettings>
+                    </ListSettings>
+                </Field>
+            </Fields>
+        </Entity>
+    </Entities>
+</Metadata>

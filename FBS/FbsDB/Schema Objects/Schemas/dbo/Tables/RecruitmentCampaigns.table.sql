@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[RecruitmentCampaigns] (
+    [Id]        INT            NOT NULL,
+    [ModelName] NVARCHAR (400) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC) WITH (ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, PAD_INDEX = OFF, IGNORE_DUP_KEY = OFF, STATISTICS_NORECOMPUTE = OFF)
+);
+

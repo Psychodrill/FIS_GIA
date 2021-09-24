@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://nant.sf.net/release/0.90/nant.xsd" name="GVUZ.Util" default="publish">
+	<property name="build-files" value="bin\Release" />
+	<property name="publish-dir" value="C:\develop\Util" />
+  <exec program="taskkill.exe" commandline="/f /im GVUZ.Util.exe" failonerror="false" />
+	<target name="publish">
+		<delete dir="${publish-dir}" />
+		<copy todir="${publish-dir}">
+			<fileset basedir="${build-files}">
+				<include name="**/*" />
+				<exclude name="*.pdb" />
+				<exclude name="*.vshost.*" />
+			</fileset>
+		</copy>
+	</target>
+</project>	

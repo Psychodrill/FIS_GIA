@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="fbs_db" Class="AccountContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="" Member="UserAccounts">
+    <Type Name="UserAccount" Id="ID1">
+      <Column Name="Login" Type="System.String" DbType="NVarChar(255) output" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PasswordHash" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="PatronymicName" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="OrganizationRegionId" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="OrganizationName" Type="System.String" DbType="NVarChar(2000)" CanBeNull="false" />
+      <Column Name="OrganizationFounderName" Type="System.String" DbType="NVarChar(2000)" CanBeNull="false" />
+      <Column Name="OrganizationAddress" Type="System.String" DbType="NVarChar(500)" CanBeNull="false" />
+      <Column Name="OrganizationChiefName" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="OrganizationFax" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="OrganizationPhone" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="IpAddresses" Member="InternalIpAddresses" Storage="_IpAddresses" AccessModifier="Internal" Type="System.String" DbType="NVarChar(4000)" CanBeNull="false" />
+      <Column Name="EditorLogin" AccessModifier="Internal" Type="System.String" DbType="NVarChar(50)" CanBeNull="false" />
+      <Column Name="EditorIp" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="OrganizationRegionName" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="RegistrationDocument" Member="InternalRegistrationDocument" AccessModifier="Internal" Type="System.Data.Linq.Binary" DbType="image" CanBeNull="false" />
+      <Column Name="AdminComment" Member="InternalAdminComment" AccessModifier="Internal" Type="System.String" DbType="ntext" CanBeNull="false" />
+      <Column Name="Status" Member="InternalStatus" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="CanEdit" Storage="_InternalCanEdit" Type="System.Boolean" DbType="bit" IsReadOnly="true" CanBeNull="false" />
+      <Column Name="CanEditRegistrationDocument" Storage="_InternalCanEditRegistrationDocument" Type="System.Boolean" DbType="bit" IsReadOnly="true" CanBeNull="false" />
+      <Column Name="RegistrationDocumentContentType" Member="InternalRegistrationDocumentContentType" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="Password" Member="InternalPassword" Storage="_Password" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="HasFixedIp" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="true" />
+      <Column Name="HasCrocEgeIntegration" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EducationInstitutionTypeId" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="EducationInstitutionTypeName" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="EtalogOrgId" Type="System.Int32" DbType="int" CanBeNull="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId1">
+      <Argument Parameter="login" Member="Login" />
+      <Argument Parameter="passwordHash" Member="PasswordHash" />
+      <Argument Parameter="lastName" Member="LastName" />
+      <Argument Parameter="firstName" Member="FirstName" />
+      <Argument Parameter="patronymicName" Member="PatronymicName" />
+      <Argument Parameter="organizationRegionId" Member="OrganizationRegionId" />
+      <Argument Parameter="organizationName" Member="OrganizationName" />
+      <Argument Parameter="organizationFounderName" Member="OrganizationFounderName" />
+      <Argument Parameter="organizationAddress" Member="OrganizationAddress" />
+      <Argument Parameter="organizationChiefName" Member="OrganizationChiefName" />
+      <Argument Parameter="organizationFax" Member="OrganizationFax" />
+      <Argument Parameter="organizationPhone" Member="OrganizationPhone" />
+      <Argument Parameter="phone" Member="Phone" />
+      <Argument Parameter="email" Member="Email" />
+      <Argument Parameter="ipAddresses" Member="InternalIpAddresses" />
+      <Argument Parameter="status" Member="InternalStatus" />
+      <Argument Parameter="registrationDocument" Member="InternalRegistrationDocument" />
+      <Argument Parameter="registrationDocumentContentType" Member="InternalRegistrationDocumentContentType" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+      <Argument Parameter="password" Member="InternalPassword" />
+      <Argument Parameter="hasFixedIp" Member="HasFixedIp" />
+      <Argument Parameter="hasCrocEgeIntegration" Member="HasCrocEgeIntegration" />
+      <Argument Parameter="educationInstitutionTypeId" Member="EducationInstitutionTypeId" />
+      <Argument Parameter="etalonOrgId" Member="EtalogOrgId" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId1">
+      <Argument Parameter="login" Member="Login" />
+      <Argument Parameter="passwordHash" Member="PasswordHash" />
+      <Argument Parameter="lastName" Member="LastName" />
+      <Argument Parameter="firstName" Member="FirstName" />
+      <Argument Parameter="patronymicName" Member="PatronymicName" />
+      <Argument Parameter="organizationRegionId" Member="OrganizationRegionId" />
+      <Argument Parameter="organizationName" Member="OrganizationName" />
+      <Argument Parameter="organizationFounderName" Member="OrganizationFounderName" />
+      <Argument Parameter="organizationAddress" Member="OrganizationAddress" />
+      <Argument Parameter="organizationChiefName" Member="OrganizationChiefName" />
+      <Argument Parameter="organizationFax" Member="OrganizationFax" />
+      <Argument Parameter="organizationPhone" Member="OrganizationPhone" />
+      <Argument Parameter="phone" Member="Phone" />
+      <Argument Parameter="email" Member="Email" />
+      <Argument Parameter="ipAddresses" Member="InternalIpAddresses" />
+      <Argument Parameter="status" Member="InternalStatus" />
+      <Argument Parameter="registrationDocument" Member="InternalRegistrationDocument" />
+      <Argument Parameter="registrationDocumentContentType" Member="InternalRegistrationDocumentContentType" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+      <Argument Parameter="password" Member="InternalPassword" />
+      <Argument Parameter="hasFixedIp" Member="HasFixedIp" />
+      <Argument Parameter="hasCrocEgeIntegration" Member="HasCrocEgeIntegration" />
+      <Argument Parameter="educationInstitutionTypeId" Member="EducationInstitutionTypeId" />
+      <Argument Parameter="etalonOrgId" Member="EtalogOrgId" />
+    </UpdateFunction>
+  </Table>
+  <Table Name="" Member="UserAccountRegistrationDocuments">
+    <Type Name="UserAccountRegistrationDocument">
+      <Column Name="Login" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RegistrationDocument" Member="InternalDocument" AccessModifier="Internal" Type="System.Data.Linq.Binary" DbType="image" CanBeNull="false" />
+      <Column Name="RegistrationDocumentContentType" Member="InternalContentType" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="EditorLogin" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="EditorIp" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="status" Member="InternalStatus" Storage="_status" AccessModifier="Internal" Type="System.String" CanBeNull="true" />
+    </Type>
+    <UpdateFunction FunctionId="FunctionId2">
+      <Argument Parameter="login" Member="Login" />
+      <Argument Parameter="registrationDocument" Member="InternalDocument" />
+      <Argument Parameter="registrationDocumentContentType" Member="InternalContentType" />
+      <Argument Parameter="status" Member="InternalStatus" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+    </UpdateFunction>
+  </Table>
+  <Table Name="" Member="IntrantAccounts">
+    <Type Name="IntrantAccount" Id="ID2">
+      <Column Name="Login" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PasswordHash" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PatronymicName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="true" />
+      <Column Name="EditorLogin" AccessModifier="Internal" Type="System.String" DbType="nvarchar(50)" CanBeNull="false" />
+      <Column Name="EditorIp" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="GroupCode" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="true" />
+      <Column Name="IpAddresses" Member="InternalIpAddresses" Storage="_IpAddresses" Type="System.String" DbType="nvarchar(4000)" CanBeNull="false" />
+      <Column Name="HasFixedIp" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="datetime" CanBeNull="false" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId3">
+      <Argument Parameter="login" Member="Login" />
+      <Argument Parameter="passwordHash" Member="PasswordHash" />
+      <Argument Parameter="lastName" Member="LastName" />
+      <Argument Parameter="firstName" Member="FirstName" />
+      <Argument Parameter="patronymicName" Member="PatronymicName" />
+      <Argument Parameter="phone" Member="Phone" />
+      <Argument Parameter="email" Member="Email" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="ipAddresses" Member="InternalIpAddresses" />
+      <Argument Parameter="groupCode" Member="GroupCode" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+      <Argument Parameter="hasFixedIp" Member="HasFixedIp" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId3">
+      <Argument Parameter="login" Member="Login" />
+      <Argument Parameter="passwordHash" Member="PasswordHash" />
+      <Argument Parameter="lastName" Member="LastName" />
+      <Argument Parameter="firstName" Member="FirstName" />
+      <Argument Parameter="patronymicName" Member="PatronymicName" />
+      <Argument Parameter="phone" Member="Phone" />
+      <Argument Parameter="email" Member="Email" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="ipAddresses" Member="InternalIpAddresses" />
+      <Argument Parameter="groupCode" Member="GroupCode" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+      <Argument Parameter="hasFixedIp" Member="HasFixedIp" />
+    </UpdateFunction>
+  </Table>
+  <Table Name="" Member="AccountKeys">
+    <Type Name="AccountKey" Id="ID3">
+      <Column Name="[Key]" Member="Key" Type="System.String" DbType="NVarChar(255) NOT NULL" IsReadOnly="true" CanBeNull="false" />
+      <Column Name="DateFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EditorLogin" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="EditorIp" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+      <Column Name="Login" AccessModifier="Internal" Type="System.String" DbType="nvarchar(255)" CanBeNull="false" />
+    </Type>
+    <UpdateFunction FunctionId="FunctionId4">
+      <Argument Parameter="login" Member="Login" />
+      <Argument Parameter="key" Member="Key" />
+      <Argument Parameter="dateFrom" Member="DateFrom" />
+      <Argument Parameter="dateTo" Member="DateTo" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+    </UpdateFunction>
+  </Table>
+  <Function Name="dbo.GetAccountGroup" Method="GetAccountGroup" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="GetAccountGroupResult">
+      <Column Name="Login" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupCode" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetAccountRole" Method="GetAccountRole" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="GetAccountRoleResult">
+      <Column Name="login" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RoleCode" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpdateUserAccountStatus" Method="UpdateUserAccountStatus" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="adminComment" Type="System.String" DbType="NText" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CheckNewLogin" Method="CheckNewLogin" AccessModifier="Private">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="CheckNewLoginResult">
+      <Column Name="Login" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsExists" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SearchSameUserAccount" Method="SearchSameUserAccount" AccessModifier="Internal">
+    <Parameter Name="organizationName" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.GetRemindAccount" Method="GetRemindAccount" AccessModifier="Internal">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="GetRemindAccountResult">
+      <Column Name="Login" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.IsUserBanned" Method="IsUserBanned" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateAccountPassword" Method="UpdateAccountPassword" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="passwordHash" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VerifyAccount" Method="VerifyAccount" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ip" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="VerifyAccountResult">
+      <Column Name="Login" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Ip" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsLoginValid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsIpValid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CheckNewUserAccountEmail" Method="CheckNewUserAccountEmail" AccessModifier="Internal">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="CheckNewUserAccountEmailResult">
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsValid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CheckUserAccountEmail" Method="CheckUserAccountEmail" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="isUniq" Type="System.Int32" DbType="bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetAccount" Method="GetAccount" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.UpdateUserAccountRegistrationDocument" Method="UpdateUserAccountRegistrationDocument" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="registrationDocument" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="registrationDocumentContentType" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId3" Name="dbo.UpdateAccount" Method="UpdateAccount" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="passwordHash" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="patronymicName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="phone" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ipAddresses" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="groupCode" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="hasFixedIp" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CheckLastAccountIp" Method="CheckLastAccountIp" AccessModifier="Internal">
+    <Parameter Name="accountLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ip" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="CheckLastAccountIpResult">
+      <Column Name="AccountLogin" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Ip" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsLastIp" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Id="FunctionId1" Name="dbo.UpdateUserAccount" Method="UpdateUserAccount" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
+    <Parameter Name="passwordHash" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="patronymicName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="organizationRegionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="organizationName" Type="System.String" DbType="NVarChar(2000)" />
+    <Parameter Name="organizationFounderName" Type="System.String" DbType="NVarChar(2000)" />
+    <Parameter Name="organizationAddress" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="organizationChiefName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="organizationFax" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="organizationPhone" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="phone" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ipAddresses" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
+    <Parameter Name="registrationDocument" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="registrationDocumentContentType" Type="System.String" DbType="NVarChar(225)" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="hasFixedIp" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="hasCrocEgeIntegration" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="educationInstitutionTypeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="etalonOrgId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetUserAccount" Method="GetUserAccount" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Id="FunctionId4" Name="dbo.UpdateAccountKey" Method="UpdateAccountKey" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="dateFrom" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="dateTo" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetAccountKey" Method="GetAccountKey" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.CheckAccountKey" Method="CheckAccountKey" AccessModifier="Internal">
+    <Parameter Name="key" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ip" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="CheckAccountKeyResult">
+      <Column Name="[Key]" Member="Key" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Login" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsValid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpdateAccountEsrp" Method="UpdateAccountEsrp" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="patronymicName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="organizationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="phone" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateGroupUserEsrp" Method="UpdateGroupUserEsrp" AccessModifier="Internal">
+    <Parameter Name="login" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="groupIdEsrp" Type="System.Int32" DbType="Int" />
+    <Parameter Name="groupsEsrp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

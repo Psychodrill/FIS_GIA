@@ -1,0 +1,33 @@
+<!-- @@master = Partials/master.html -->
+
+<!-- @@block = content-->
+	<!--uncache-->
+	<link rel="stylesheet" href="/Content/Build/css/appeal.css">
+	<!--enduncache-->
+
+	<div class="page">
+		<!-- @@include = Partials/header.html -->
+
+		<div class="content" id="content">
+			<div class="account-block mb-10">
+				<span id="username"></span>
+				<a href="#" id="logout">Выход</a>
+			</div>
+			<div class="fl-right mb-20">
+				<a href="/exams">Все экзамены</a>
+			</div>
+			<h3>Статусы апелляции</h3>
+			<div id="table-container" class="table-container">
+				<!-- @@include = Partials/loader.html -->
+			</div>
+		</div>
+
+		<!-- @@include = Partials/footer.html -->
+
+		<!--uncache-->
+		<script src="/Content/Build/js/appeal.js"></script>
+		<!--enduncache-->
+
+	</div>
+
+<!-- @@close-->

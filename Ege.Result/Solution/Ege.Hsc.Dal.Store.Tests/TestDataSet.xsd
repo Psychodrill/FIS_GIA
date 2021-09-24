@@ -1,0 +1,137 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="TestDataSet" targetNamespace="http://tempuri.org/TestDataSet.xsd" xmlns:mstns="http://tempuri.org/TestDataSet.xsd" xmlns="http://tempuri.org/TestDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="TestDataSet" msdata:IsDataSet="true" msdata:Locale="">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BlankRequests">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="State" type="xs:int" minOccurs="0" />
+              <xs:element name="CreateDate" msdata:DataType="System.DateTimeOffset" type="xs:anyType" minOccurs="0" />
+              <xs:element name="OperatorUserId" type="xs:int" minOccurs="0" />
+              <xs:element name="EsrpUserId" type="xs:int" minOccurs="0" />
+              <xs:element name="UpdateDate" msdata:DataType="System.DateTimeOffset" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Note" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BlanksDownload">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="ParticipantId" type="xs:int" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="State" type="xs:int" minOccurs="0" />
+              <xs:element name="Order" type="xs:int" minOccurs="0" />
+              <xs:element name="RelativePath" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="ExamDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SubjectCode" type="xs:int" minOccurs="0" />
+              <xs:element name="CreateDate" msdata:DataType="System.DateTimeOffset" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PagesCount">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Barcode" type="xs:string" minOccurs="0" />
+              <xs:element name="ProjectBatchId" type="xs:int" minOccurs="0" />
+              <xs:element name="ProjectName" type="xs:string" minOccurs="0" />
+              <xs:element name="PageCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PagesCountBulk">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Barcode" type="xs:string" minOccurs="0" />
+              <xs:element name="ProjectBatchId" type="xs:int" minOccurs="0" />
+              <xs:element name="ProjectName" type="xs:string" minOccurs="0" />
+              <xs:element name="PageCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ParticipantInRequest">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="RequestId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="ParticipantId" type="xs:int" minOccurs="0" />
+              <xs:element name="ParticipantName" type="xs:string" minOccurs="0" />
+              <xs:element name="IsCollision" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Participants">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="ParticipantRbdId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="ParticipantHash" type="xs:string" minOccurs="0" />
+              <xs:element name="DocumentNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ParticipantCode" type="xs:string" minOccurs="0" />
+              <xs:element name="ParticipantExamId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RegionServerErrors">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="ExamDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Error" type="xs:int" minOccurs="0" />
+              <xs:element name="RbdId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RegionServers">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="Url" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="IsAvailable" type="xs:boolean" minOccurs="0" />
+              <xs:element name="LastAvailabilityCheck" msdata:DataType="System.DateTimeOffset" type="xs:anyType" minOccurs="0" />
+              <xs:element name="ServerBlankCount" type="xs:int" minOccurs="0" />
+              <xs:element name="LastFileCheck" msdata:DataType="System.DateTimeOffset" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SingleParticipantRequests">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="CreateDate" msdata:DataType="System.DateTimeOffset" type="xs:anyType" minOccurs="0" />
+              <xs:element name="OperatorUserId" type="xs:int" minOccurs="0" />
+              <xs:element name="EsrpUserId" type="xs:int" minOccurs="0" />
+              <xs:element name="IsDeleted" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ParticipantId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Users">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="Login" type="xs:string" minOccurs="0" />
+              <xs:element name="Ticket" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="LastLoginDate" msdata:DataType="System.DateTimeOffset" type="xs:anyType" minOccurs="0" />
+              <xs:element name="FirstLoginDate" msdata:DataType="System.DateTimeOffset" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

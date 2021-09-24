@@ -1,0 +1,133 @@
+﻿@model List<Admin.Models.CompetitiveGropViewModel>
+
+
+
+@if (Model.Count() == 0)
+{
+    <span style="color:red;">Не найдено Конкурсных групп с таким названием</span>
+}
+else
+{
+    <br />
+    <span>Конкурсные группы:</span>
+
+    <form method="post" asp-action="CompetitiveGroupSaveChanges" asp-controller="CompetitiveGroup">
+        <table class="table table-hover" id="CampaignList">
+            <thead>
+                <tr>
+                    <th>
+                        <label>Конкурсная группа</label>
+                    </th>
+                    <th>
+                        <label>Приемная кампания</label>
+                    </th>
+                    <th>
+                        <label>Форма образования</label>
+                    </th>
+                    <th>
+                        <label>Уровень Образования</label>
+                    </th>
+                    <th>
+                        <label>Направление</label>
+                    </th>
+                    <th>
+                        @*<label>Источник финансирования</label>*@
+                    </th>
+                    <th>
+
+                    </th>
+
+                </tr>
+            </thead>
+
+
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+
+                <tbody>
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => m[i].Name)
+                            <input type="hidden" value="@Model[i].Name" name="[i].Name" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m[i].CampaignName)
+                        </td>
+                        <td>
+                            <select asp-for="@Model[i].EducationFormId" asp-items="@Model[i].EducationForms"></select>
+                        </td>
+                        <td>
+                            <select asp-for="@Model[i].EducationLevelId" asp-items="@Model[i].EducationLevels"></select>
+                        </td>
+                        <td>
+                            <select asp-for="@Model[i].DirectionId" asp-items="@Model[i].Directions"></select>
+                        </td>
+                        @*<td>
+                            <select asp-for="@item.EducationSourceId" name="EducationSourceId" id="EducationSourceId"></select>
+                        </td>*@
+                        <td>
+                            <input type="hidden" asp-for="@Model[i].CompetitiveGroupId" />
+                            <input type="hidden" asp-for="@Model[i].InstitutionId" />
+                            <input type="submit" id="btnsubmit" class="btn btn-outline-success" value="Сохранить" />
+                        </td>
+                        <td>
+                            <a 
+                               data-ajax="true"
+                               data-ajax-mode="replace"
+                               data-ajax-method="GET"
+                               href="@Url.Action("GetEntranceTestItems", "EntranceTestItem",
+                                    new {CompetitiveGroupId = Model[i].CompetitiveGroupId})"
+                               class="entrItem">
+                                Вступительные испытания
+                            </a> 
+
+                        </td>
+
+                    </tr>
+                    
+                </tbody>
+
+            }
+
+        </table>
+
+    </form>
+
+}
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+
+<script>
+
+    $(function () {
+        $(".entrItem").click(function (e) {
+            e.preventDefault();
+            $.get(this.href, function (data) {
+                $('#dialogContent').html(data);
+                $('#modDialog').modal('show');
+                console.log(data);
+            });
+        });
+
+    });
+    $(function () {
+        $("#btnsubmit").click(function () {
+            event.preventDefault();
+            console.log("clicked");
+            if (confirm("Внести изменения?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "CompetitiveGroup/CompetitiveGroupSaveChanges",
+                    data: $("form").serialize(),
+                    success: function (data) {
+                        alert(data.message);
+                    }
+                });
+            };
+        });
+    });
+
+</script>

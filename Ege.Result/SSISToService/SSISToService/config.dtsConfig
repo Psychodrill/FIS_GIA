@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<DTSConfiguration>
+  <DTSConfigurationHeading>
+    <DTSConfigurationFileInfo GeneratedBy="HQ\ikulikov" GeneratedFromPackageName="WriteToService" GeneratedFromPackageID="{DCC502EA-B24C-4370-9AC9-DF828955C19C}" GeneratedDate="23.03.2015 6:55:55"/>
+  </DTSConfigurationHeading>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SqlCon].Properties[InitialCatalog]" ValueType="String">
+    <ConfiguredValue>ERBD_EGE_MAIN_14</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SqlCon].Properties[Password]" ValueType="String">
+    <ConfiguredValue>2222</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SqlCon].Properties[ServerName]" ValueType="String">
+    <ConfiguredValue>zubrus.rbc.ru\r2</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SqlCon].Properties[UserName]" ValueType="String">
+    <ConfiguredValue>sa</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::ServiceUrl].Properties[Value]" ValueType="String">
+    <ConfiguredValue>http://85.143.100.13:8000/EgeDataService.svc</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::UseProxy].Properties[Value]" ValueType="Int32">
+    <ConfiguredValue>0</ConfiguredValue>
+  </Configuration>
+</DTSConfiguration>

@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Personal.master.cs" Inherits="Esrp.Web.Common.Templates.Personal" %>
+
+<%@ Import Namespace="Esrp.Core.Systems" %>
+<%@ Import Namespace="Esrp.Web" %>
+<%@ Register TagPrefix="web" Namespace="WebControls" Assembly="WebControls" %>
+<%@ Register TagPrefix="esrp" Namespace="Esrp.Web.Controls" Assembly="Esrp.Web.UI" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+    <head>
+        <title>Единая система регистрации пользователей -
+            <%= SiteMap.CurrentNode.GetActualTitle() %></title>
+        <link media="all" href="/Common/Styles/Styles.css?200907071905" rel="stylesheet"
+              type="text/css" />
+        <asp:ContentPlaceHolder ID="cphHead" runat="server" />
+        <script type="text/javascript">
+    <!--
+            function back() {
+                if (window.history.current == window.history.previous) {
+                    window.history.go(-2);
+                } else
+                    window.history.back();
+            }
+        -->
+    </script>
+    </head>
+    <body>
+        <web:UINavigation runat="server" NavigationGraph="/Web.navigation" />
+        <!-- top blocks -->
+        <div class="col-left">
+            <div class="small-nav">
+                <ul>
+                    <li><a href="/" title="главная">
+                        <img src="/Common/Images/ico-home.gif" width="11" height="10" alt="Главная" /></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header">
+            <h2 class="title">
+                Единая система регистрации пользователей</h2>
+            <ul class="menutop">
+                <li><a href="/NewsArchive.aspx">Новости</a></li>
+                <li><a href="/Instructions.aspx" title="Инструкции">Инструкции</a></li>
+                <li><a href="/Documents.aspx" title="Документы">Документы</a></li>
+                <!--li><a href="#">Вопросы и Ответы</a></li-->
+                <li><a href="/Support.aspx" title="Горячая линия">Горячая линия</a></li>
+                <li><a href="/forum" title="Форум">Форум</a></li>
+                <%if (GeneralSystemManager.CanViewSubordinateOrganizations(User.Identity.Name))
+                  { %>
+                    <li><a href="/Administration/Organizations/UserDepartments/OrgList.aspx" title="Организации">
+                            Организации</a></li>
+                <% } %>
+                <% if (User.IsInRole("ViewAdministrationSection") && GeneralSystemManager.IsUserActivated(User.Identity.Name))
+                   { %>
+                    <li><a href="/Administration/Accounts/Users/List.aspx" title="Администрирование">Администрирование</a></li>
+                <% } %>
+                <li><a href="http://fbsege.ru/AllUsers/BatchCheckFileFormatByNumber.aspx" title="Тестирование пакетной проверки">Тестирование пакетной проверки</a></li>
+            </ul>
+        </div>
+        <!-- /top blocks -->
+        <div class="cleaner splitter-top">
+        </div>
+        <!-- left column -->
+        <div class="col-left">
+            <div class="user-block">
+                <a href="/Profile/View.aspx" class="user" title="Регистрационные данные">Рег. данные</a>
+                <a href="/Logout.aspx" class="exit" title="Выход">Выход</a>
+            </div>
+            <div class="left-menu">
+                <esrp:LeftMenu runat="server" RootResourceKey="profile" />
+            </div>
+            <asp:ContentPlaceHolder ID="cphActions" runat="server" />
+        </div>
+        <!-- /left column -->
+        <!-- main column -->
+        <div class="col-main">
+            <!-- content in -->
+            <div class="content-in">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <h1>
+                                <%= SiteMap.CurrentNode.GetActualTitle() %></h1>
+                        </td>
+                        <td style="align: right;">
+                            <%--<div class="r-nav" onclick="window.history.forward(); return false;">--%>
+                            <div class="r-nav">
+                                <a onclick="back();">&lt; Назад</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <asp:ContentPlaceHolder ID="cphContent" runat="server" />
+            </div>
+            <!-- /content in -->
+        </div>
+        <!-- /main column -->
+        <div class="cleaner">
+        </div>
+        <!-- footer -->
+        <div class="col-main">
+            <div id="footer">
+                <p class="copyright">
+                    © <%=DateTime.Now.Year %> Рособрнадзор</p>
+                <p class="contacts">
+                    <strong>Тел. горячей линии:</strong> <%=Esrp.Web.Config.SupportPhone %><span><strong>Электронная почта:</strong>
+                                                                            <a href="mailto:<%=Esrp.Web.Config.SupportMail %>"><%=Esrp.Web.Config.SupportMail %></a></span></p>
+            </div>
+        </div>
+        <!-- /footer -->
+    </body>
+</html>

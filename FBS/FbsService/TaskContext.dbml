@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="task_db" Class="TaskContext" AccessModifier="Internal" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FENIX\FENIX2005;Initial Catalog=task_db;User ID=work" SettingsObjectName="FbsService.Properties.Settings" SettingsPropertyName="TaskConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="" Member="Tasks">
+    <Type Name="Task" Id="ID1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Xml" Storage="_Description" AccessModifier="Internal" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Priority" Member="InternalPriority" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Member="InternalStatus" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId1">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="code" Member="Code" />
+      <Argument Parameter="description" Member="Xml" />
+      <Argument Parameter="priority" Member="InternalPriority" />
+      <Argument Parameter="status" Member="InternalStatus" />
+      <Argument Parameter="isActive" Member="IsActive" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId1">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="code" Member="Code" />
+      <Argument Parameter="description" Member="Xml" />
+      <Argument Parameter="priority" Member="InternalPriority" />
+      <Argument Parameter="status" Member="InternalStatus" />
+      <Argument Parameter="isActive" Member="IsActive" />
+    </UpdateFunction>
+  </Table>
+  <Table Name="" Member="BulkFiles">
+    <Type Name="BulkFile" Id="ID2">
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ServerName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId2">
+      <Argument Parameter="code" Member="Code" />
+      <Argument Parameter="date" Member="Date" />
+      <Argument Parameter="fileName" Member="FileName" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId2">
+      <Argument Parameter="code" Member="Code" />
+      <Argument Parameter="date" Member="Date" />
+      <Argument Parameter="fileName" Member="FileName" />
+    </UpdateFunction>
+  </Table>
+  <Function Name="dbo.GetTask" Method="GetTask">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Id="FunctionId1" Name="dbo.UpdateTask" Method="UpdateTask">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="code" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="description" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="priority" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SearchAbsenteeBulkFile" Method="SearchAbsenteeBulkFile">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.SearchDeprecatedBulkFile" Method="SearchDeprecatedBulkFile">
+    <Parameter Name="clearUp" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.UpdateBulkFile" Method="UpdateBulkFile">
+    <Parameter Name="code" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="fileName" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetBulkFile" Method="GetBulkFile">
+    <Parameter Name="code" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.UpdateBulkFileDbSubscription" Method="UpdateBulkFileDbSubscription">
+    <Parameter Name="code" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="dbName" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetAbsenteeDbSubscriptionBulkFile" Method="GetAbsenteeDbSubscriptionBulkFile">
+    <Parameter Name="code" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="dbName" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType IdRef="ID2" />
+  </Function>
+</Database>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<navigationGraph>
+  <process name="Root" stack="cut" />
+
+  <node uri="/" process="Root" />
+  <node uri="/Default.aspx" process="Root" />
+
+  <node uri="/Documents.aspx" process="Documents" />
+  <node uri="/Instructions.aspx" process="Instructions" />
+  <node uri="/Support.aspx" process="Support" />
+
+  <node uri="/NewsArchive.aspx" process="NewsArchive" />
+  <node uri="/News.aspx" process="News" />
+
+  <node uri="/AskedQuestion.aspx" process="AskedQuestion" />
+  <node uri="/AskedQuestions.aspx" process="AskedQuestions" />
+
+  <node uri="/Login.aspx" process="Login" />
+  
+  <node uri="/Registration.aspx" process="Registration" />
+  <node uri="/Profile/RegistrationSuccess.aspx" process="RegistrationSuccess" />
+  
+  <node uri="/RemindPassword.aspx" process="RemindPassword" />
+  <node uri="/RemindPasswordSuccess.aspx" process="RemindPasswordSuccess" />
+  
+  <node uri="/Profile/View.aspx" process="ProfileView" />
+  <node uri="/Profile/Edit.aspx" process="ProfileEdit" />
+  <node uri="/Profile/DocumentUpload.aspx" process="DocumentUpload" />
+  <node uri="/Profile/ChangePassword.aspx" process="ChangePassword" />
+  <node uri="/Profile/ChangePasswordSuccess.aspx" process="ChangePasswordSuccess" />
+  <node uri="/Profile/AccountKeyList.aspx" process="ProfileAccountKeyList" />
+  <node uri="/Profile/AccountKeyEdit.aspx" process="ProfileAccountKeyEdit" />
+  <node uri="/Profile/AccountKeyEditSuccess.aspx" process="ProfileAccountKeyEditSuccess" />
+  <node uri="/Profile/AccountKeyCreate.aspx" process="ProfileAccountKeyCreate" />
+  <node uri="/Profile/AccountKeyCreateSuccess.aspx" process="ProfileAccountKeyCreateSuccess" />
+  
+  <node uri="/Administration/Accounts/Users/List.aspx" process="UsersList" />
+  <node uri="/Administration/Accounts/Users/Create.aspx" process="UserCreate" />
+  <node uri="/Administration/Accounts/Users/View.aspx" process="UserView" />
+  <node uri="/Administration/Accounts/Users/Edit.aspx" process="UserEdit" />
+  <node uri="/Administration/Accounts/Users/EditSuccess.aspx" process="UserEditSuccess" />
+  <node uri="/Administration/Accounts/Users/History.aspx" process="UserHistory" />
+  <node uri="/Administration/Accounts/Users/HistoryVersion.aspx" process="UserHistoryVersion" />
+  <node uri="/Administration/Accounts/Users/Activate.aspx" process="UserActivate" />
+  <node uri="/Administration/Accounts/Users/ActivateSuccess.aspx" process="UserActivateSuccess" />
+  <node uri="/Administration/Accounts/Users/ChangePassword.aspx" process="UserChangePassword" />
+  <node uri="/Administration/Accounts/Users/ChangePasswordSuccess.aspx" process="UserChangePasswordSuccess" />
+  <node uri="/Administration/Accounts/Users/CreateSuccess.aspx" process="UserCreateSuccess" />
+  <node uri="/Administration/Accounts/Users/Deactivate.aspx" process="UserDeactivate" />
+  <node uri="/Administration/Accounts/Users/DeactivateSuccess.aspx" process="UserDeactivateSuccess" />
+  <node uri="/Administration/Accounts/Users/RemindPassword.aspx" process="UserRemindPassword" />
+  <node uri="/Administration/Accounts/Users/RemindPasswordSuccess.aspx" process="UserRemindPasswordSuccess" />
+  <node uri="/Administration/Accounts/Users/SendToRevision.aspx" process="UserSendToRevision" />
+  <node uri="/Administration/Accounts/Users/SendToRevisionSuccess.aspx" process="UserSendToRevisionSuccess" />
+  <node uri="/Administration/Accounts/Users/AuthenticationHistory.aspx" process="UserAuthenticationHistory" />
+  <node uri="/Administration/Accounts/Users/AuthenticationHistory.aspx" process="UserAuthenticationHistory" />
+  <node uri="/Administration/Accounts/Users/AccountKeyList.aspx" process="UserAccountKeyList" />
+  <node uri="/Administration/Accounts/Users/AccountKeyEdit.aspx" process="UserAccountKeyEdit" />
+  <node uri="/Administration/Accounts/Users/AccountKeyEditSuccess.aspx" process="UserAccountKeyEditSuccess" />
+  <node uri="/Administration/Accounts/Users/AccountKeyCreate.aspx" process="UserAccountKeyCreate" />
+  <node uri="/Administration/Accounts/Users/AccountKeyCreateSuccess.aspx" process="UserAccountKeyCreate" />
+  
+  <node uri="/Administration/Accounts/SupportUsers/List.aspx" process="SupportUsersList" />
+  <node uri="/Administration/Accounts/SupportUsers/Create.aspx" process="SupportUserCreate" />
+  <node uri="/Administration/Accounts/SupportUsers/View.aspx" process="SupportUserView" />
+  <node uri="/Administration/Accounts/SupportUsers/Edit.aspx" process="SupportUserEdit" />
+  <node uri="/Administration/Accounts/SupportUsers/History.aspx" process="SupportUserHistory" />
+  <node uri="/Administration/Accounts/SupportUsers/HistoryVersion.aspx" process="SupportUserHistoryVersion" />
+  <node uri="/Administration/Accounts/SupportUsers/ChangePassword.aspx" process="SupportUserChangePassword" />
+  <node uri="/Administration/Accounts/SupportUsers/AuthenticationHistory.aspx" process="SupportUserAuthenticationHistory" />
+
+  <node uri="/Administration/Accounts/Administrators/List.aspx" process="AdministratorsList" />
+  <node uri="/Administration/Accounts/Administrators/Create.aspx" process="AdministratortCreate" />
+  <node uri="/Administration/Accounts/Administrators/View.aspx" process="AdministratorView" />
+  <node uri="/Administration/Accounts/Administrators/Edit.aspx" process="AdministratorEdit" />
+  <node uri="/Administration/Accounts/Administrators/History.aspx" process="AdministratorHistory" />
+  <node uri="/Administration/Accounts/Administrators/HistoryVersion.aspx" process="AdministratorHistoryVersion" />
+  <node uri="/Administration/Accounts/Administrators/ChangePassword.aspx" process="AdministratorChangePassword" />
+  <node uri="/Administration/Accounts/Administrators/AuthenticationHistory.aspx" process="AdministratorAuthenticationHistory" />
+  <node uri="/Administration/Accounts/Administrators/AccountKeyList.aspx" process="AdministratorAccountKeyList" />
+  <node uri="/Administration/Accounts/Administrators/AccountKeyEdit.aspx" process="AdministratorAccountKeyEdit" />
+  <node uri="/Administration/Accounts/Administrators/AccountKeyEditSuccess.aspx" process="AdministratorAccountKeyEditSuccess" />
+  <node uri="/Administration/Accounts/Administrators/AccountKeyCreate.aspx" process="AdministratorAccountKeyCreate" />
+  <node uri="/Administration/Accounts/Administrators/AccountKeyCreateSuccess.aspx" process="AdministratorAccountKeyCreate" />
+
+  <node uri="/Administration/Accounts/Auditors/List.aspx" process="AuditorsList" />
+  <node uri="/Administration/Accounts/Auditors/Create.aspx" process="AuditortCreate" />
+  <node uri="/Administration/Accounts/Auditors/View.aspx" process="AuditorView" />
+  <node uri="/Administration/Accounts/Auditors/Edit.aspx" process="AuditorEdit" />
+  <node uri="/Administration/Accounts/Auditors/History.aspx" process="AuditorHistory" />
+  <node uri="/Administration/Accounts/Auditors/HistoryVersion.aspx" process="AuditorHistoryVersion" />
+  <node uri="/Administration/Accounts/Auditors/ChangePassword.aspx" process="AuditorChangePassword" />
+  <node uri="/Administration/Accounts/Auditors/AuthenticationHistory.aspx" process="AuditorAuthenticationHistory" />
+
+  <node uri="/Administration/Documents/List.aspx" process="DocumentsList" />
+  <node uri="/Administration/Documents/Create.aspx" process="DocumentsCreate" />
+  <node uri="/Administration/Documents/Edit.aspx" process="DocumentsEdit" />
+  <node uri="/Administration/Documents/View.aspx" process="DocumentsView" />
+
+  <node uri="/Administration/News/List.aspx" process="NewsList" />
+  <node uri="/Administration/News/Create.aspx" process="NewsCreate" />
+  <node uri="/Administration/News/Edit.aspx" process="NewsEdit" />
+  <node uri="/Administration/News/View.aspx" process="NewsView" />
+
+    <node uri="/Administration/Deliveries/List.aspx" process="DeliveriesList" />
+    <node uri="/Administration/Deliveries/Create.aspx" process="DeliveriesCreate" />
+    <node uri="/Administration/Deliveries/Edit.aspx" process="DeliveriesEdit" />
+    <node uri="/Administration/Deliveries/View.aspx" process="DeliveriesView" />
+
+  <node uri="/Administration/FAQ/List.aspx" process="FAQList" />
+  <node uri="/Administration/FAQ/Create.aspx" process="FAQCreate" />
+  <node uri="/Administration/FAQ/Edit.aspx" process="FAQEdit" />
+  <node uri="/Administration/FAQ/View.aspx" process="FAQView" />
+
+  <node uri="/Administration/Reports/UserActivation.aspx" process="ReportUserActivation" />
+  <node uri="/Administration/Reports/UserAccountActivityCommon.aspx" process="ReportUserAccountActivityCommon" />
+  <node uri="/Administration/Reports/OrganizationType.aspx" process="ReportOrganizationType" />
+  <node uri="/Administration/Reports/EducationalOrganization.aspx" process="ReportEducationalOrganization" />
+  <node uri="/Administration/Reports/UserAccountByRegion.aspx" process="ReportUserAccountByRegion" />
+  <node uri="/Administration/Reports/UserAccountActivityByRegion.aspx" process="ReportUserAccountActivityByRegion" />
+
+  <node uri="/Administration/Certificates/CommonNationalCertificateLoads.aspx" process="CertificateCommonNationalCertificateLoads" />
+  <node uri="/Administration/Certificates/CommonNationalCertificateLoadsErrors.aspx" process="CertificateCommonNationalCertificateLoadsErrors" />
+  <node uri="/Administration/Certificates/CommonNationalCertificateDenyingLoads.aspx" process="CertificateCommonNationalCertificateDenyingLoads" />
+  <node uri="/Administration/Certificates/CommonNationalCertificateDenyingLoadErrors.aspx" process="CertificateCommonNationalCertificateDenyingLoadErrors" />
+
+  <node uri="/Certificates/CommonNationalCertificates/BatchCheck.aspx" process="CommonNationalCertificatesBatchCheck" />
+  <node uri="/Certificates/CommonNationalCertificates/BatchCheckResult.aspx" process="CommonNationalCertificatesBatchCheckResult" />
+  <node uri="/Certificates/CommonNationalCertificates/BatchRequestByPassport.aspx" process="CommonNationalCertificatesBatchRequestByPassport" />
+  <node uri="/Certificates/CommonNationalCertificates/BatchRequestByPassportResult.aspx" process="CommonNationalCertificatesBatchRequestByPassportResult" />
+  <node uri="/Certificates/CommonNationalCertificates/RequestByPassport.aspx" process="CommonNationalCertificatesRequestByPassport" />
+  <node uri="/Certificates/CommonNationalCertificates/RequestByPassportResult.aspx" process="CommonNationalCertificatesRequestByPassportResult" />
+  <node uri="/Certificates/CommonNationalCertificates/RequestByMarks.aspx" process="CommonNationalCertificatesRequestByMarks" />
+  <node uri="/Certificates/CommonNationalCertificates/RequestByMarksResult.aspx" process="CommonNationalCertificatesRequestByMarksResult" />
+  <node uri="/Certificates/CommonNationalCertificates/Check.aspx" process="CommonNationalCertificatesCheck" />
+  <node uri="/Certificates/CommonNationalCertificates/CheckResult.aspx" process="CommonNationalCertificatesCheckResult" />
+
+  <node uri="/Certificates/Report/CommonNationalCertificateLoading.aspx" process="ReportCommonNationalCertificateLoading" />
+
+  <node uri="/Certificates/Entrants/LoadEntrantRenunciations.aspx" process="EntrantLoadEntrantRenunciations" />
+  <node uri="/Certificates/Entrants/LoadEntrants.aspx" process="EntrantLoadEntrants" />
+  <node uri="/Certificates/Entrants/LoadEntrantRenunciationsSuccess.aspx" process="EntrantLoadEntrantRenunciationsSuccess" />
+  <node uri="/Certificates/Entrants/LoadEntrantsSuccess.aspx" process="EntrantLoadEntrantsSuccess" />
+  <node uri="/Certificates/Entrants/Check.aspx" process="EntrantCheck" />
+  <node uri="/Certificates/Entrants/CheckResult.aspx" process="EntrantCheckResult" />
+  <node uri="/Certificates/Entrants/BatchCheck.aspx" process="EntrantBatchCheck" />
+  <node uri="/Certificates/Entrants/BatchCheckResult.aspx" process="EntrantBatchCheckResult" />
+  <node uri="/Certificates/Entrants/BatchCheckSuccess.aspx" process="EntrantBatchCheckSuccess" />
+
+  <node uri="/Certificates/SchoolLeavingCertificates/Check.aspx" process="SchoolLeavingCertificateCheck" />
+  <node uri="/Certificates/SchoolLeavingCertificates/CheckResult.aspx" process="SchoolLeavingCertificateCheckResult" />
+  <node uri="/Certificates/SchoolLeavingCertificates/BatchCheck.aspx" process="SchoolLeavingCertificateBatchCheck" />
+  <node uri="/Certificates/SchoolLeavingCertificates/BatchCheckResult.aspx" process="SchoolLeavingCertificateBatchCheckResult" />
+  <node uri="/Certificates/SchoolLeavingCertificates/BatchCheckSuccess.aspx" process="SchoolLeavingCertificateBatchCheckSuccess" />
+
+  <node uri="/Certificates/CompetitionCertificates/Request.aspx" process="CompetitionCertificateRequest" />
+  <node uri="/Certificates/CompetitionCertificates/RequestResult.aspx" process="CompetitionCertificateRequestResult" />
+  <node uri="/Certificates/CompetitionCertificates/BatchRequest.aspx" process="CompetitionCertificateBatchRequest" />
+  <node uri="/Certificates/CompetitionCertificates/BatchRequestResult.aspx" process="CompetitionCertificateBatchRequestResult" />
+  <node uri="/Certificates/CompetitionCertificates/BatchRequestSuccess.aspx" process="CompetitionCertificateBatchRequestSuccess" />
+
+</navigationGraph>

@@ -1,0 +1,22 @@
+﻿table.gvuzContentTable, table.gvuzHeaderTable
+{
+	width: 100%;
+	table-layout: fixed;
+	border-spacing: 0px 0px;
+	border-collapse: collapse;
+}
+
+table.gvuzContentTable td
+{
+	vertical-align: top;
+}
+
+table.gvuzContentTable td.gvuzContentName
+{
+}
+
+table.gvuzContentTable td.gvuzContentDetails
+{
+	text-align : center;
+}
+

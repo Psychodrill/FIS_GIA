@@ -1,0 +1,186 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Common/Templates/Certificates.Master" AutoEventWireup="true" CodeBehind="CertificateResultHistory.master.cs" Inherits="Fbs.Web.Common.Templates.CertificateResultHistory" %>
+<%@ Register TagPrefix="web" Namespace="WebControls" Assembly="WebControls" %>
+
+<asp:Content ContentPlaceHolderID="cphCertificateHead" runat="server">
+    <script type="text/javascript" src="/Common/Scripts/SessVars.js"> </script>
+    <script type="text/javascript" src="/Common/Scripts/Notice.js"> </script>
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="cphCertificateContent" runat="server">
+    <div class="notice" id="RequestByPassportResult">
+        <div class="top">
+            <div class="l">
+            </div>
+            <div class="r">
+            </div>
+            <div class="m">
+            </div>
+        </div>
+        <div class="cont">
+            <div dir="ltr" class="hide" title="Свернуть" onclick="ToggleNoticeState(this);">
+                x<span></span></div>
+            <div class="txt-in">
+                <p>
+                    Если не удается найти результаты участника ЕГЭ или свидетельство аннулировано без объяснения причины, то обращайтесь за информацией в Региональный Центр Обработки Информации, находящийся на территории региона, в котором было выдано данное свидетельство.
+                <br />
+                    Срок действия результатов ЕГЭ определяется в соответствии с действующими нормативными документами.
+                <br />
+                    В 2015 году действительны результаты ЕГЭ 2012, 2013, 2014 и 2015 годов.
+                <br />
+Результаты 2011 года действительны только для лиц, проходивших военную службу по призыву и уволенных с военной службы.
+<br />
+Специальным знаком &laquo;!&raquo; перед баллом выделены баллы, которые меньше минимальных установленных Рособрнадзором значений.
+<br />
+Аннулированные и недействительные результаты ЕГЭ отображаются как 0 баллов.</p>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="l">
+            </div>
+            <div class="r">
+            </div>
+            <div class="m">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        InitNotice();
+    </script>
+    <form runat="server">
+         <table class="pager">
+            <tr><td>
+    
+                <web:DataSourcePager runat="server"
+                    id="DataSourcePagerHead" 
+                    DataSourceId="resultCountDataSource"
+	                StartRowIndexParamName="start" 
+	                MaxRowCountParamName="count"
+	                HideDefaultTemplates="true"
+	                AlwaysShow="true"
+	                DefaultMaxRowCount="10"
+	                DefaultMaxRowCountSource="Cookies">
+                    <Header>
+                        Результаты проверок #StartRowIndex#-#LastRowIndex# из #TotalCount#.
+                
+                        <web:DataSourceMaxRowCount ID="DataSourceMaxRowCount1" runat="server"
+                            Variants="10,20,50"
+                            DataSourcePagerId="DataSourcePagerHead">
+                        <Header>Участников на странице: </Header>
+                        <Footer>.</Footer>
+                        <Separator>, </Separator>
+                        <ActiveTemplate><span>#count#</span></ActiveTemplate> 
+                        <InactiveTemplate><a href="/SetMaxRowCount.aspx?count=#count#" 
+                        title="Отображать #count# записей на странице">#count#</a></InactiveTemplate> 
+                        </web:DataSourceMaxRowCount>                 
+                    </Header>
+                </web:DataSourcePager>
+        
+            </td>    
+            <td align="right">
+
+                <web:DataSourcePager ID="DataSourcePager1" runat="server"
+                    DataSourceId="DataSourcePagerHead"
+	                StartRowIndexParamName="start"
+	                MaxRowCountParamName="count">
+			        <PrevGroupTemplate></PrevGroupTemplate>
+                    <NextGroupTemplate></NextGroupTemplate>
+                    <FirstPageTemplate><a href="#PageUrl#"><<</a>&nbsp;</FirstPageTemplate>
+                    <LastPageTemplate>&nbsp;<a href="#PageUrl#">>></a></LastPageTemplate>
+                    <ActivePrevPageTemplate><a href="#PageUrl#"><</a>&nbsp;</ActivePrevPageTemplate>
+                    <ActivePageTemplate><span>#PageNo#</span> </ActivePageTemplate>
+                    <ActiveNextPageTemplate>&nbsp;<a href="#PageUrl#">></a></ActiveNextPageTemplate>
+                </web:DataSourcePager>    
+
+            </td></tr>
+            </table>
+
+    <asp:GridView runat="server" AllowPaging="False" AutoGenerateColumns="False" ID="dsMaster"
+         CssClass="table-th" GridLines="None" EnableViewState="False">
+        <HeaderStyle CssClass="th"></HeaderStyle>
+        <Columns>
+            <asp:TemplateField>
+                <HeaderStyle CssClass="left-th"></HeaderStyle>
+                <HeaderTemplate>
+                    <div>Фамилия</div>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <%# DataBinder.Eval(Container, "DataItem.Surname") %>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="Name" HeaderText="Имя" />
+            <asp:BoundField DataField="SecondName" HeaderText="Отчество" />
+            <asp:TemplateField HeaderText="Документ">
+                <ItemTemplate>
+                    <%# DataBinder.Eval(Container, "DataItem.DocumentSeries") %>&nbsp;&nbsp;<%# DataBinder.Eval(Container, "DataItem.DocumentNumber") %>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField>
+                <HeaderStyle CssClass="right-th"></HeaderStyle>
+                <HeaderTemplate>
+                    <div>&nbsp;</div>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <asp:HyperLink runat="server" Text="Результат" NavigateUrl='<%# GetDetailsPageUrl(Convert.ToInt64(Request.QueryString["id"]), Convert.ToInt64(Eval("GroupId") == DBNull.Value ? (object)0 : (object)Eval("GroupId"))) %>'></asp:HyperLink>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+        </Columns>
+    </asp:GridView>
+    
+     <table class="pager">
+        <tr><td>
+    
+            <web:DataSourcePager ID="DataSourcePager2" runat="server"
+                DataSourceId="DataSourcePagerHead"
+	            StartRowIndexParamName="start" 
+	            MaxRowCountParamName="count"
+	            HideDefaultTemplates="true"
+	            AlwaysShow="true"
+	            DefaultMaxRowCount="10"
+	            DefaultMaxRowCountSource="Cookies">
+                <Header>
+                    Результаты проверок #StartRowIndex#-#LastRowIndex# из #TotalCount#.
+                
+                    <web:DataSourceMaxRowCount ID="DataSourceMaxRowCount2" runat="server"
+                        Variants="10,20,50"
+                        DataSourcePagerId="DataSourcePagerHead">
+                    <Header>Участников на странице: </Header>
+                    <Footer>.</Footer>
+                    <Separator>, </Separator>
+                    <ActiveTemplate><span>#count#</span></ActiveTemplate> 
+                    <InactiveTemplate><a href="/SetMaxRowCount.aspx?count=#count#" 
+                        title="Отображать #count# записей на странице">#count#</a></InactiveTemplate> 
+                    </web:DataSourceMaxRowCount>                 
+                </Header>
+            </web:DataSourcePager>
+        
+        </td>    
+        <td align="right">
+
+            <web:DataSourcePager ID="DataSourcePager3" runat="server"
+                DataSourceId="DataSourcePagerHead"
+    	        StartRowIndexParamName="start"
+	            MaxRowCountParamName="count">
+			    <PrevGroupTemplate></PrevGroupTemplate>
+                <NextGroupTemplate></NextGroupTemplate>
+                <FirstPageTemplate><a href="#PageUrl#"><<</a>&nbsp;</FirstPageTemplate>
+                <LastPageTemplate>&nbsp;<a href="#PageUrl#">>></a></LastPageTemplate>
+                <ActivePrevPageTemplate><a href="#PageUrl#"><</a>&nbsp;</ActivePrevPageTemplate>
+                <ActivePageTemplate><span>#PageNo#</span> </ActivePageTemplate>
+                <ActiveNextPageTemplate>&nbsp;<a href="#PageUrl#">></a></ActiveNextPageTemplate>
+            </web:DataSourcePager>    
+
+        </td></tr>
+        </table>
+    <web:NoRecordsText ControlId="dsMaster" runat="server">
+         <p align="center">
+                <img src="/Common/Images/spacer.gif" width="32" height="31" style="background-image: url('/Common/Images/important.gif')" />
+                По Вашему запросу ничего не найдено
+            </p>
+        <asp:HyperLink ID="noResultLink" runat="server" Target="_blank" NavigateUrl="#" Visible="False" Text="Распечатать" />
+    </web:NoRecordsText>
+    
+    <asp:ObjectDataSource runat="server" ID="resultCountDataSource" />
+    </form>
+
+</asp:Content>

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilesFromXML</title>
+
+    @Styles.Render("~/Content/css")
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+            @for (var i = 0; i < ViewBag.filesDB.Count; i++)
+            {
+                if (i > 0)
+                {
+                    <li role="presentation">
+                        <a href="#file_@i" aria-controls="file_@i" class="navbar-toggle" role="tab" data-toggle="tab">@ViewBag.filesDB[i].FileName</a>
+                    </li>
+                }
+                else
+                {
+                    <li role="presentation" class="active">
+                        <a href="#file_@i" aria-controls="file_@i" class="navbar-toggle" role="tab" data-toggle="tab">@ViewBag.filesDB[i].FileName</a>
+                    </li>
+                }
+            }
+        </ul>
+        <div class="tab-content">
+            @for (var i = 0; i < ViewBag.filesDB.Count; i++)
+            {
+                if (i > 0)
+                {
+                    <div role="tabpanel" class="tab-pane" id="file_@i">
+                        <object width="1000"
+                                height="600"
+                                type="@ViewBag.filesDB[i].FileMimeType"
+                                data="@ViewBag.filesDB[i].FileBody" typemustmatch></object>
+                    </div>
+                }
+                else
+                {
+                    <div role="tabpanel" class="tab-pane active" id="file_@i">
+                        <object width="1000"
+                                height="600"
+                                type="@ViewBag.filesDB[i].FileMimeType"
+                                data="@ViewBag.filesDB[i].FileBody"></object>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

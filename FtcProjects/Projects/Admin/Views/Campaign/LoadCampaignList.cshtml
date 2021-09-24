@@ -1,0 +1,115 @@
+﻿@model List<Admin.Models.CampaignViewModel>
+
+
+@if (Model.Count() == 0)
+{
+    <span style="color:red;">Данные по компаниям отсутствуют</span>
+}
+else
+{
+    <br />
+    <span>Приемные кампании:</span>
+    <form asp-action="CampaignSaveChanges" asp-controller="Campaign">
+        <table class="table table-hover table-sm" id="CampaignList">
+            <thead>
+                <tr>
+                    <th>
+                        <label>Начало</label>
+
+                    </th>
+                    <th>
+                        <label>Окончание</label>
+
+                    </th>
+                    <th>
+                        <label>Название</label>
+                    </th>
+                    <th>
+                        <label>Форма образования</label>
+                    </th>
+                    <th>
+                        <label>Тип приемной кампании</label>
+                    </th>
+                    <th>
+                        <label>Статус</label>
+                    </th>
+                    <th>
+                    </th>
+                    @*<th>
+                    </th>*@
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                <tr>
+                    <td>
+                        <select asp-for="@Model[i].YearStart" asp-items="@Model[i].YearsStart"></select>
+                    </td>
+                    <td>
+                        <select asp-for="@Model[i].YearEnd" asp-items="@Model[i].YearsEnd"></select>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model[i].Name)
+                        <input type="hidden" asp-for="@Model[i].Name" />
+                    </td>
+                    <td>
+                        <select asp-for="@Model[i].EducationFormFlag" asp-items="@Model[i].EducationForms"></select>
+                    </td>
+                    <td>
+                        <select asp-for="@Model[i].CampaignTypeId" asp-items="@Model[i].CampaignTypes"></select>
+                    </td>
+                    <td>
+                        <select asp-for="@Model[i].StatusId" asp-items="@Model[i].CampaignStatus"></select>
+                    </td>
+                    <td>
+                        <input type="hidden" asp-for="@Model[i].CampaignId" />
+                        <input type="submit" id="btnsubmit" class="btn btn-outline-success" value="Сохранить" />
+                    </td>
+                    @*<td>
+                        <input type="submit" id="btndelete" class="btn btn-outline-danger" value="Удалить" />
+                    </td>*@
+
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    </form>
+
+    <div id="Saved"></div>
+}
+
+
+<script>
+    $(function () {
+        $("#btnsubmit").click(function () {
+            event.preventDefault();
+            if (confirm("Внести изменения?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "Campaign/CampaignSaveChanges",
+                    data: $("form").serialize(),
+                    success: function (data) {
+                        alert(data.message);
+                    }
+                });
+            };  
+        });
+        $("#btndelete").click(function () {
+            event.preventDefault();
+            if (confirm("Удалить приемную кампанию?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "Campaign/DeleteCampaign",
+                    data: $("form").serialize(),
+                    success: function (data) {
+                        alert(data.message);
+                    }
+                });
+            };
+        });
+    });
+</script>

@@ -1,0 +1,56 @@
+﻿    
+
+@if (ViewBag.ApplicationList.Count == 0)
+    {
+        <br /><span class="product_title">Ничего не найдено</span>
+        <br />
+    }
+    else
+    {
+        <table class="table table-sm table-hover" border="0">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">ID заявления</th>
+                <th scope="col">Номер заявления</th>
+                <th scope="col">ID организации</th>
+                <th scope="col">ID абитуриента</th>
+                <th scope="col">ID документа</th>
+                <th scope="col">ФИО абитуриента</th>
+            </tr>
+            @foreach (var item in ViewBag.ApplicationList)
+            {
+                var fio = item.LastName + " " + item.FirstName + " " + item.MiddleName;
+            <tr id="@item.ApplicationID">
+                <th scope="row"><a href="#" onclick="disable(@item.ApplicationID, @item.EntrantID);" title="Удалить"><img src="~/images/delete.png" border="0" width="16" /></a></th>
+                <th>@item.ApplicationID</th>
+                <td>@item.ApplicationNumber</td>
+                <td>@item.InstitutionID</td>
+                <td>@item.EntrantID</td>
+                <td>@item.IdentityDocumentID</td>
+                <td>@fio</td>
+            </tr>
+            }
+        </table>
+
+    <div class="result"/>
+} 
+
+<script>
+            function disable(ApplicationID, EntrantID) {
+                var Application = {
+                    applicationID: ApplicationID,
+                    entrantID: EntrantID
+                };
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ApplicationRemove", "Applications")',
+                    data: Application,
+                    success: function (msg) {
+                        $('tr[id^="' + ApplicationID + '"]').remove();
+                        //$('.result').empty().html('<center>' + msg + '</center>');
+                    }
+                });
+            }
+
+</script>
+

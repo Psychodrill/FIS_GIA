@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlympicImport", "OlympicImport\OlympicImport.csproj", "{1DD0B51B-C03B-42CC-8506-D9AEF5A95B7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlympicsImport.Tests", "OlympicsImport.Tests\OlympicsImport.Tests.csproj", "{B0720B7C-4756-4343-B673-513F22A7C975}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DD0B51B-C03B-42CC-8506-D9AEF5A95B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD0B51B-C03B-42CC-8506-D9AEF5A95B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD0B51B-C03B-42CC-8506-D9AEF5A95B7C}.Debug|x86.ActiveCfg = Debug|x86
+		{1DD0B51B-C03B-42CC-8506-D9AEF5A95B7C}.Debug|x86.Build.0 = Debug|x86
+		{1DD0B51B-C03B-42CC-8506-D9AEF5A95B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD0B51B-C03B-42CC-8506-D9AEF5A95B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD0B51B-C03B-42CC-8506-D9AEF5A95B7C}.Release|x86.ActiveCfg = Release|x86
+		{1DD0B51B-C03B-42CC-8506-D9AEF5A95B7C}.Release|x86.Build.0 = Release|x86
+		{B0720B7C-4756-4343-B673-513F22A7C975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0720B7C-4756-4343-B673-513F22A7C975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0720B7C-4756-4343-B673-513F22A7C975}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B0720B7C-4756-4343-B673-513F22A7C975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0720B7C-4756-4343-B673-513F22A7C975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0720B7C-4756-4343-B673-513F22A7C975}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

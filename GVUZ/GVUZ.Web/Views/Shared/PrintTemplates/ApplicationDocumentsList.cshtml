@@ -1,0 +1,75 @@
+﻿@inherits WebViewPage<GVUZ.Web.ViewModels.PrintTemplateInfoViewModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Перечень документов, приложенных к заявлению</title>
+        <style type="text/css">
+            @@media print {
+                .dontprint { display: none; }
+            }
+
+            hr { margin-top: 20px; }
+
+            .alignleft { text-align: left; }
+
+            h4 { font-weight: normal; }
+        </style>
+    </head>
+    <body>
+        <a class="dontprint" href="#" onclick=" window.print() ">Печать</a>
+        <div>
+            <center>
+                @Model.InstitutionFullName<br/><br/>
+                <div class="alignleft">
+                    Конкурс: @Model.CompetitiveGroupName<br/>
+                    Формы обучения и источники финансирования: @Model.FormList<br/>
+                </div>
+
+                <h4>ПЕРЕЧЕНЬ ДОКУМЕНТОВ,</h4>
+                приложенных к заявлению поступающего № @Model.ApplicationNumber<br/>
+                @Model.EntrantLastName @Model.EntrantFistName @Model.EntrantMiddleName<br/><br/>
+                <div class="alignleft">
+                    @{
+                        for (int i = 0; i < Model.AttachedDocuments.Length; i++)
+                        {
+                            string result = i + 1 + ". " + Model.AttachedDocuments[i].TypeName + ": " + Model.AttachedDocuments[i].Series + " №" + Model.AttachedDocuments[i].Number;
+                            @result<br/>
+                        }
+                    }			
+                </div>
+                <br/>
+                Дополнительно:<br/>
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <br/>
+                <div class="alignleft">
+                    <table>
+                        <tbody>
+                            <tr><td>Секретарь приемной комиссии:</td> <td>_____________________ </td> <td>_____________________</td></tr>
+                            <tr><td></td> <td align="center" valign="top" style="font-size: 12px;">фамилия</td> <td align="center" valign="top" style="font-size: 12px;">подпись</td></tr>
+                        </tbody>
+                    </table>
+                    <br/><br/>
+                    <table>
+                        <tbody>
+                            <tr><td>Перечень составлен верно. Расписка получена @DateTime.Now.ToString("dd.MM.yyyyг.")</td><td>________________________________</td></tr>
+                            <tr><td>&nbsp;</td><td align="center" style="font-size: 12px">подпись абитуриента</td></tr>
+                        </tbody>
+                    </table>
+				
+                </div>
+            </center>
+        </div>
+    </body>
+</html>

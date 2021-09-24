@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Organization2010]
+    ADD CONSTRAINT [FK__Organizat__Regio__27D4BBFD] FOREIGN KEY ([RegionId]) REFERENCES [dbo].[Region] ([Id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

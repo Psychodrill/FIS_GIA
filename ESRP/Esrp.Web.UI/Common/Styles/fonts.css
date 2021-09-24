@@ -1,0 +1,12 @@
+/* CSS Document */
+	 
+@font-face {
+    font-family: 'Cambria-Bold';
+    src: url('../fonts/cambria_bold.eot');
+    src: local('☺'), url('../fonts/cambria_bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cambria_bold.woff') format('woff'),
+         url('../fonts/cambria_bold.ttf') format('truetype'),
+         url('../fonts/cambria_bold.svg#cambria_bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+	 }

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template>
+  <subject><![CDATA[Отчеты из ##ESRPNAME## от ##DATE##]]></subject>
+  <from><![CDATA[info@fbsege.ru]]></from>
+  <content-type><![CDATA[html]]></content-type>
+  <encoding><![CDATA[koi8-r]]></encoding>
+  <body>
+    <![CDATA[
+    <p>Здравствуйте.</p>
+    <p>Направляем Вам во вложении отчёты от ##DATE##.</p>
+	<p>Список отчетов: ##ReportList##</p>
+    <p>Система мониторинга ##ESRPNAME##</p>
+    ]]>
+  </body>
+</template>

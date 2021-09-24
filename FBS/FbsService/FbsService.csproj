@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7521088-46BC-4CEF-9AEF-278E7BA8CCF6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FbsService</RootNamespace>
+    <AssemblyName>FbsService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\lib\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BulkFile.cs" />
+    <Compile Include="BulkImportTask.cs" />
+    <Compile Include="FbsCheck\CNECheckBatch.cs" />
+    <Compile Include="FbsCheck\CNECheckBatchMonitorTask.cs" />
+    <Compile Include="FbsCheck\CNECheckBatchTask.cs" />
+    <Compile Include="FbsCheck\CheckContext.cs">
+      <DependentUpon>CheckContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="FbsCheck\CheckContext.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="FbsCheck\CNECheckImportCertificateDenyTask.cs" />
+    <Compile Include="FbsCheck\CNEForm.cs" />
+    <Compile Include="FbsCheck\CNEFormCheckMonitorTask.cs" />
+    <Compile Include="FbsCheck\CNECheckImportCertificateTask.cs" />
+    <Compile Include="FbsCheck\CNERequestBatch.cs" />
+    <Compile Include="FbsCheck\CNERequestBatchMonitorTask.cs" />
+    <Compile Include="FbsCheck\CNERequestBatchTask.cs" />
+    <Compile Include="FbsLoader\CNECertificateDenyImportTask.cs" />
+    <Compile Include="FbsLoader\CNECertificateImportTask.cs" />
+    <Compile Include="FbsLoader\CNEDenyLoadingTask.cs" />
+    <Compile Include="FbsLoader\CNELoadingTask.cs" />
+    <Compile Include="FbsLoader\LoaderContext.cs">
+      <DependentUpon>LoaderContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="FbsLoader\LoaderContext.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoaderContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Fbs\CompetitionRequestBatch.cs" />
+    <Compile Include="Fbs\CompetitionRequestBatchMonitorTask.cs" />
+    <Compile Include="Fbs\CompetitionRequestBatchTask.cs" />
+    <Compile Include="Fbs\EntrantCheckBatch.cs" />
+    <Compile Include="Fbs\EntrantCheckBatchMonitorTask.cs" />
+    <Compile Include="Fbs\EntrantCheckBatchTask.cs" />
+    <Compile Include="Fbs\CompetitionImportTask.cs" />
+    <Compile Include="Fbs\SLCertificateCheckBatch.cs" />
+    <Compile Include="Fbs\SLCertificateCheckBatchMonitorTask.cs" />
+    <Compile Include="Fbs\SLCertificateCheckBatchTask.cs" />
+    <Compile Include="Fbs\SLCertificateDenyImportTask.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="TaskService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TaskService.Designer.cs">
+      <DependentUpon>TaskService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task.cs" />
+    <Compile Include="TaskContext.cs">
+      <DependentUpon>TaskContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="TaskContext.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaskContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="TaskManager.cs" />
+    <Compile Include="TaskStatus.cs" />
+    <Compile Include="ThreadInstanceManager.cs" />
+    <Compile Include="Fbs\CNEFbsImportCertificateDenyTask.cs" />
+    <Compile Include="Fbs\CNEFbsImportCertificateTask.cs" />
+    <Compile Include="Fbs\FbsContext.cs">
+      <DependentUpon>FbsContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Fbs\FbsContext.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FbsContext.dbml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FbsCheck\CheckContext.dbml.layout">
+      <DependentUpon>CheckContext.dbml</DependentUpon>
+    </None>
+    <None Include="FbsLoader\LoaderContext.dbml.layout">
+      <DependentUpon>LoaderContext.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskService.resx">
+      <DependentUpon>TaskService.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Fbs\FbsContext.dbml.layout">
+      <DependentUpon>FbsContext.dbml</DependentUpon>
+    </None>
+    <None Include="TaskContext.dbml.layout">
+      <DependentUpon>TaskContext.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FbsCheck\CheckContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CheckContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FbsLoader\LoaderContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>LoaderContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TaskContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>TaskContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Fbs\FbsContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>FbsContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

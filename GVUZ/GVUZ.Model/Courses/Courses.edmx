@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CourseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008"
+              xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"
+              xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CourseModelStoreContainer">
+          <EntitySet Name="Attachment" EntityType="CourseModel.Store.Attachment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CourseSubject" EntityType="CourseModel.Store.CourseSubject" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CourseType" EntityType="CourseModel.Store.CourseType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Institution" EntityType="CourseModel.Store.Institution" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PreparatoryCourse" EntityType="CourseModel.Store.PreparatoryCourse" store:Type="Tables"
+                     Schema="dbo" />
+          <EntitySet Name="Subject" EntityType="CourseModel.Store.Subject" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CourseSubject_PreparatoryCourse"
+                          Association="CourseModel.Store.FK_CourseSubject_PreparatoryCourse">
+            <End Role="PreparatoryCourse" EntitySet="PreparatoryCourse" />
+            <End Role="CourseSubject" EntitySet="CourseSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseSubject_Subject" Association="CourseModel.Store.FK_CourseSubject_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="CourseSubject" EntitySet="CourseSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Institution_Attachment" Association="CourseModel.Store.FK_Institution_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="Institution" EntitySet="Institution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparatoryCourse_Attachment"
+                          Association="CourseModel.Store.FK_PreparatoryCourse_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="PreparatoryCourse" EntitySet="PreparatoryCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparatoryCourse_CourseType"
+                          Association="CourseModel.Store.FK_PreparatoryCourse_CourseType">
+            <End Role="CourseType" EntitySet="CourseType" />
+            <End Role="PreparatoryCourse" EntitySet="PreparatoryCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparatoryCourse_Institution"
+                          Association="CourseModel.Store.FK_PreparatoryCourse_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="PreparatoryCourse" EntitySet="PreparatoryCourse" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Attachment">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MimeType" Type="varchar" Nullable="false" MaxLength="512" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="512" />
+          <Property Name="Body" Type="varbinary(max)" Nullable="false" />
+          <Property Name="FileID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CourseSubject">
+          <Key>
+            <PropertyRef Name="CourseSubjectID" />
+          </Key>
+          <Property Name="CourseSubjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PreparatoryCourseID" Type="int" Nullable="false" />
+          <Property Name="SubjectID" Type="int" />
+          <Property Name="SubjectName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CourseType">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Institution">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Name="InstitutionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionTypeID" Type="smallint" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="1000" />
+          <Property Name="BriefName" Type="varchar" MaxLength="500" />
+          <Property Name="FormOfLawID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="Site" Type="varchar" MaxLength="255" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="HasMilitaryDepartment" Type="bit" Nullable="false" />
+          <Property Name="HasHostel" Type="bit" Nullable="false" />
+          <Property Name="HostelCapacity" Type="int" />
+          <Property Name="HasHostelForEntrants" Type="bit" Nullable="false" />
+          <Property Name="HostelAttachmentID" Type="int" />
+          <Property Name="INN" Type="char" MaxLength="10" />
+          <Property Name="OGRN" Type="char" Nullable="false" MaxLength="13" />
+          <Property Name="AdmissionStructurePublishDate" Type="datetime" />
+          <Property Name="ReceivingApplicationDate" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="EsrpOrgID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="OwnerDepartment" Type="varchar" MaxLength="255" />
+          <Property Name="MainEsrpOrgId" Type="int" />
+          <Property Name="FounderEsrpOrgId" Type="int" />
+        </EntityType>
+        <EntityType Name="PreparatoryCourse">
+          <Key>
+            <PropertyRef Name="PreparatoryCourseID" />
+          </Key>
+          <Property Name="PreparatoryCourseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="Information" Type="varchar(max)" />
+          <Property Name="MoreInformation" Type="int" />
+          <Property Name="CourseTypeID" Type="int" />
+          <Property Name="CourseName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsEge" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CourseSubject_PreparatoryCourse">
+          <End Role="PreparatoryCourse" Type="CourseModel.Store.PreparatoryCourse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CourseSubject" Type="CourseModel.Store.CourseSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PreparatoryCourse">
+              <PropertyRef Name="PreparatoryCourseID" />
+            </Principal>
+            <Dependent Role="CourseSubject">
+              <PropertyRef Name="PreparatoryCourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseSubject_Subject">
+          <End Role="Subject" Type="CourseModel.Store.Subject" Multiplicity="0..1" />
+          <End Role="CourseSubject" Type="CourseModel.Store.CourseSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="CourseSubject">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Institution_Attachment">
+          <End Role="Attachment" Type="CourseModel.Store.Attachment" Multiplicity="0..1" />
+          <End Role="Institution" Type="CourseModel.Store.Institution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="Institution">
+              <PropertyRef Name="HostelAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparatoryCourse_Attachment">
+          <End Role="Attachment" Type="CourseModel.Store.Attachment" Multiplicity="0..1" />
+          <End Role="PreparatoryCourse" Type="CourseModel.Store.PreparatoryCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="PreparatoryCourse">
+              <PropertyRef Name="MoreInformation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparatoryCourse_CourseType">
+          <End Role="CourseType" Type="CourseModel.Store.CourseType" Multiplicity="0..1" />
+          <End Role="PreparatoryCourse" Type="CourseModel.Store.PreparatoryCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseType">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="PreparatoryCourse">
+              <PropertyRef Name="CourseTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparatoryCourse_Institution">
+          <End Role="Institution" Type="CourseModel.Store.Institution" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PreparatoryCourse" Type="CourseModel.Store.PreparatoryCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="PreparatoryCourse">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CoursesModel" Alias="Self"
+              xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+              xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CoursesEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Attachment" EntityType="CoursesModel.Attachment" />
+          <EntitySet Name="CourseSubject" EntityType="CoursesModel.CourseSubject" />
+          <EntitySet Name="Institution" EntityType="CoursesModel.Institution" />
+          <EntitySet Name="PreparatoryCourse" EntityType="CoursesModel.PreparatoryCourse" />
+          <EntitySet Name="Subject" EntityType="CoursesModel.Subject" />
+          <AssociationSet Name="FK_PreparatoryCourse_Attachment"
+                          Association="CoursesModel.FK_PreparatoryCourse_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="PreparatoryCourse" EntitySet="PreparatoryCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseSubject_PreparatoryCourse"
+                          Association="CoursesModel.FK_CourseSubject_PreparatoryCourse">
+            <End Role="PreparatoryCourse" EntitySet="PreparatoryCourse" />
+            <End Role="CourseSubject" EntitySet="CourseSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseSubject_Subject" Association="CoursesModel.FK_CourseSubject_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="CourseSubject" EntitySet="CourseSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreparatoryCourse_Institution"
+                          Association="CoursesModel.FK_PreparatoryCourse_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="PreparatoryCourse" EntitySet="PreparatoryCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Institution_Attachment" Association="CoursesModel.FK_Institution_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="Institution" EntitySet="Institution" />
+          </AssociationSet>
+          <EntitySet Name="CourseType" EntityType="CoursesModel.CourseType" />
+          <AssociationSet Name="FK_PreparatoryCourse_CourseType"
+                          Association="CoursesModel.FK_PreparatoryCourse_CourseType">
+            <End Role="CourseType" EntitySet="CourseType" />
+            <End Role="PreparatoryCourse" EntitySet="PreparatoryCourse" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Attachment">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MimeType" Type="String" Nullable="false" MaxLength="512" Unicode="false" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="512" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PreparatoryCourse" Relationship="CoursesModel.FK_PreparatoryCourse_Attachment"
+                              FromRole="Attachment" ToRole="PreparatoryCourse" />
+          <NavigationProperty Name="Institution" Relationship="CoursesModel.FK_Institution_Attachment"
+                              FromRole="Attachment" ToRole="Institution" />
+          <Property Type="Guid" Name="FileID" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="Binary" Name="Body" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+        </EntityType>
+        <EntityType Name="CourseSubject">
+          <Key>
+            <PropertyRef Name="CourseSubjectID" />
+          </Key>
+          <Property Name="CourseSubjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PreparatoryCourseID" Type="Int32" Nullable="false" />
+          <Property Name="SubjectID" Type="Int32" />
+          <Property Name="SubjectName" Type="String" Nullable="false" MaxLength="50" Unicode="false"
+                    FixedLength="false" />
+          <NavigationProperty Name="PreparatoryCourse" Relationship="CoursesModel.FK_CourseSubject_PreparatoryCourse"
+                              FromRole="CourseSubject" ToRole="PreparatoryCourse" />
+          <NavigationProperty Name="Subject" Relationship="CoursesModel.FK_CourseSubject_Subject"
+                              FromRole="CourseSubject" ToRole="Subject" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+        </EntityType>
+        <EntityType Name="Institution">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionTypeID" Type="Int16" Nullable="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="BriefName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FormOfLawID" Type="Int32" />
+          <Property Name="RegionID" Type="Int32" />
+          <Property Name="Site" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="HasMilitaryDepartment" Type="Boolean" Nullable="false" />
+          <Property Name="HasHostel" Type="Boolean" Nullable="false" />
+          <Property Name="HostelCapacity" Type="Int32" />
+          <Property Name="HasHostelForEntrants" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PreparatoryCourse" Relationship="CoursesModel.FK_PreparatoryCourse_Institution"
+                              FromRole="Institution" ToRole="PreparatoryCourse" />
+          <Property Type="Int32" Name="HostelAttachmentID" />
+          <NavigationProperty Name="Attachment" Relationship="CoursesModel.FK_Institution_Attachment"
+                              FromRole="Institution" ToRole="Attachment" />
+          <Property Type="String" Name="INN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="OGRN" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="AdmissionStructurePublishDate" />
+          <Property Type="DateTime" Name="ReceivingApplicationDate" />
+          <Property Type="DateTime" Name="DateUpdated" />
+          <Property Type="Int32" Name="EsrpOrgID" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="String" Name="OwnerDepartment" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MainEsrpOrgId" />
+          <Property Type="Int32" Name="FounderEsrpOrgId" />
+        </EntityType>
+        <EntityType Name="PreparatoryCourse">
+          <Key>
+            <PropertyRef Name="PreparatoryCourseID" />
+          </Key>
+          <Property Name="PreparatoryCourseID" Type="Int32" Nullable="false"
+                    annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+          <Property Name="Information" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="MoreInformation" Type="Int32" />
+          <NavigationProperty Name="Attachment" Relationship="CoursesModel.FK_PreparatoryCourse_Attachment"
+                              FromRole="PreparatoryCourse" ToRole="Attachment" />
+          <NavigationProperty Name="CourseSubject" Relationship="CoursesModel.FK_CourseSubject_PreparatoryCourse"
+                              FromRole="PreparatoryCourse" ToRole="CourseSubject" />
+          <NavigationProperty Name="Institution" Relationship="CoursesModel.FK_PreparatoryCourse_Institution"
+                              FromRole="PreparatoryCourse" ToRole="Institution" />
+          <Property Type="Int32" Name="CourseTypeID" />
+          <NavigationProperty Name="CourseType" Relationship="CoursesModel.FK_PreparatoryCourse_CourseType"
+                              FromRole="PreparatoryCourse" ToRole="CourseType" />
+          <Property Type="String" Name="CourseName" Nullable="false" MaxLength="250" FixedLength="false"
+                    Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CourseSubject" Relationship="CoursesModel.FK_CourseSubject_Subject"
+                              FromRole="Subject" ToRole="CourseSubject" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Boolean" Name="IsEge" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PreparatoryCourse_Attachment">
+          <End Role="Attachment" Type="CoursesModel.Attachment" Multiplicity="0..1" />
+          <End Role="PreparatoryCourse" Type="CoursesModel.PreparatoryCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="PreparatoryCourse">
+              <PropertyRef Name="MoreInformation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseSubject_PreparatoryCourse">
+          <End Role="PreparatoryCourse" Type="CoursesModel.PreparatoryCourse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CourseSubject" Type="CoursesModel.CourseSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PreparatoryCourse">
+              <PropertyRef Name="PreparatoryCourseID" />
+            </Principal>
+            <Dependent Role="CourseSubject">
+              <PropertyRef Name="PreparatoryCourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseSubject_Subject">
+          <End Role="Subject" Type="CoursesModel.Subject" Multiplicity="0..1" />
+          <End Role="CourseSubject" Type="CoursesModel.CourseSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="CourseSubject">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreparatoryCourse_Institution">
+          <End Role="Institution" Type="CoursesModel.Institution" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PreparatoryCourse" Type="CoursesModel.PreparatoryCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="PreparatoryCourse">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Institution_Attachment">
+          <End Type="CoursesModel.Attachment" Role="Attachment" Multiplicity="0..1" />
+          <End Type="CoursesModel.Institution" Role="Institution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="Institution">
+              <PropertyRef Name="HostelAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CourseType">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PreparatoryCourse" Relationship="CoursesModel.FK_PreparatoryCourse_CourseType"
+                              FromRole="CourseType" ToRole="PreparatoryCourse" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+        </EntityType>
+        <Association Name="FK_PreparatoryCourse_CourseType">
+          <End Type="CoursesModel.CourseType" Role="CourseType" Multiplicity="0..1" />
+          <End Type="CoursesModel.PreparatoryCourse" Role="PreparatoryCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseType">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="PreparatoryCourse">
+              <PropertyRef Name="CourseTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CourseModelStoreContainer" CdmEntityContainer="CoursesEntities">
+          <EntitySetMapping Name="Attachment">
+            <EntityTypeMapping TypeName="CoursesModel.Attachment">
+              <MappingFragment StoreEntitySet="Attachment">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+                <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+                <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseSubject">
+            <EntityTypeMapping TypeName="CoursesModel.CourseSubject">
+              <MappingFragment StoreEntitySet="CourseSubject">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CourseSubjectID" ColumnName="CourseSubjectID" />
+                <ScalarProperty Name="PreparatoryCourseID" ColumnName="PreparatoryCourseID" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Institution">
+            <EntityTypeMapping TypeName="CoursesModel.Institution">
+              <MappingFragment StoreEntitySet="Institution">
+                <ScalarProperty Name="FounderEsrpOrgId" ColumnName="FounderEsrpOrgId" />
+                <ScalarProperty Name="MainEsrpOrgId" ColumnName="MainEsrpOrgId" />
+                <ScalarProperty Name="OwnerDepartment" ColumnName="OwnerDepartment" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="EsrpOrgID" ColumnName="EsrpOrgID" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="ReceivingApplicationDate" ColumnName="ReceivingApplicationDate" />
+                <ScalarProperty Name="AdmissionStructurePublishDate" ColumnName="AdmissionStructurePublishDate" />
+                <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="HostelAttachmentID" ColumnName="HostelAttachmentID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="InstitutionTypeID" ColumnName="InstitutionTypeID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="BriefName" ColumnName="BriefName" />
+                <ScalarProperty Name="FormOfLawID" ColumnName="FormOfLawID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="HasMilitaryDepartment" ColumnName="HasMilitaryDepartment" />
+                <ScalarProperty Name="HasHostel" ColumnName="HasHostel" />
+                <ScalarProperty Name="HostelCapacity" ColumnName="HostelCapacity" />
+                <ScalarProperty Name="HasHostelForEntrants" ColumnName="HasHostelForEntrants" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreparatoryCourse">
+            <EntityTypeMapping TypeName="CoursesModel.PreparatoryCourse">
+              <MappingFragment StoreEntitySet="PreparatoryCourse">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="CourseTypeID" ColumnName="CourseTypeID" />
+                <ScalarProperty Name="PreparatoryCourseID" ColumnName="PreparatoryCourseID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+                <ScalarProperty Name="MoreInformation" ColumnName="MoreInformation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subject">
+            <EntityTypeMapping TypeName="CoursesModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="IsEge" ColumnName="IsEge" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseType">
+            <EntityTypeMapping TypeName="CoursesModel.CourseType">
+              <MappingFragment StoreEntitySet="CourseType">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="CoursesModel.Attachment" Width="1.5" PointX="0.75" PointY="1.5"
+                         Height="0.39999999999999991" IsExpanded="false" />
+        <EntityTypeShape EntityType="CoursesModel.CourseSubject" Width="1.5" PointX="7.5" PointY="1.5"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="CoursesModel.Institution" Width="1.5" PointX="3" PointY="1.5"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="CoursesModel.PreparatoryCourse" Width="1.5" PointX="5.25" PointY="1.5"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="CoursesModel.Subject" Width="1.5" PointX="5.25" PointY="4.5"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <AssociationConnector Association="CoursesModel.FK_PreparatoryCourse_Attachment" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.9" />
+          <ConnectorPoint PointX="2.6250000000000004" PointY="2.2750000000000004" />
+          <ConnectorPoint PointX="4.8685384615384617" PointY="2.2750000000000004" />
+          <ConnectorPoint PointX="5.25" PointY="1.8935384615384618" />
+        </AssociationConnector>
+        <AssociationConnector Association="CoursesModel.FK_CourseSubject_PreparatoryCourse" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="1.7000000000000002" />
+          <ConnectorPoint PointX="7.5" PointY="1.7000000000000002" />
+        </AssociationConnector>
+        <AssociationConnector Association="CoursesModel.FK_CourseSubject_Subject" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="4.7" />
+          <ConnectorPoint PointX="8.25" PointY="4.7" />
+          <ConnectorPoint PointX="8.25" PointY="1.9000000000000004" />
+        </AssociationConnector>
+        <AssociationConnector Association="CoursesModel.FK_PreparatoryCourse_Institution" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="1.6687474999999994" />
+          <ConnectorPoint PointX="5.25" PointY="1.6687474999999994" />
+        </AssociationConnector>
+        <AssociationConnector Association="CoursesModel.FK_Institution_Attachment">
+          <ConnectorPoint PointX="2.25" PointY="1.6687475" />
+          <ConnectorPoint PointX="3" PointY="1.6687475" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CoursesModel.CourseType" Width="1.5" PointX="3" PointY="4.5"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <AssociationConnector Association="CoursesModel.FK_PreparatoryCourse_CourseType">
+          <ConnectorPoint PointX="4.5" PointY="4.5" />
+          <ConnectorPoint PointX="4.875" PointY="4.125" />
+          <ConnectorPoint PointX="4.875" PointY="2.2817682307692309" />
+          <ConnectorPoint PointX="5.2567682307692305" PointY="1.9000000000000004" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

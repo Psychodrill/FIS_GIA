@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<project name="Fbs 1.0" basedir="." xmlns="http://nant.sf.net/release/0.85/nant.xsd">
+
+    <target name="cleandb">
+        <!-- delete db build folder -->
+        <delete dir="${dir.src.db}\build" if="${directory::exists(dir.src.db + '\build')}" />
+    </target>
+
+    <!-- Обновление процедур и тестовых данных в БД -->
+    <target name="prepdb" description="Обновление процедур и тестовых данных в БД">
+                <call target="fillfunctions-testdb"/>
+                <call target="clear-testdb"/>
+                <call target="fillproc-testdb"/>
+                <call target="fill-testdb"/>
+    </target>
+
+    <!-- Заполнение БД тестовыми данными -->
+    <target name="fill-testdb" description="Заполнение БД тестовыми данными">
+        <call target="build-sql-test"/>
+
+        <exec program="${common.mssqltools.path}\isql.exe">
+            <arg value="-S"/>
+            <arg value="${db.server}"/>
+            <arg value="-d"/>
+            <arg value="${db}"/>
+            <arg value="-i"/>
+            <arg value="${dir.src.db}\build\test.sql"/>
+            <arg value="-U"/>
+            <arg value="${db.user}"/>
+            <arg value="-P"/>
+            <arg value="${db.pwd}"/>
+            <arg value="-b"/>
+            <arg value="-n"/>
+        </exec>
+    </target>
+
+    <!-- Удаление тестовых данных из БД -->
+    <target name="clear-testdb" description="Удаление тестовых данных из БД">
+        <exec program="${common.mssqltools.path}\isql.exe">
+            <arg value="-S"/>
+            <arg value="${db.server}"/>
+            <arg value="-d"/>
+            <arg value="${db}"/>
+            <arg value="-i"/>
+            <arg value="${dir.src.db}\yachts_db\cleardata.test"/>
+            <arg value="-U"/>
+            <arg value="${db.user}"/>
+            <arg value="-P"/>
+            <arg value="${db.pwd}"/>
+            <arg value="-b"/>
+            <arg value="-n"/>
+        </exec>
+    </target>
+
+    <!-- Обновление процедур в БД -->
+    <target name="fillproc-testdb" description="Обновление процедур в БД">
+        <call target="build-sql"/>
+
+        <exec program="${common.mssqltools.path}\isql.exe">
+            <arg value="-S"/>
+            <arg value="${db.server}"/>
+            <arg value="-d"/>
+            <arg value="${db}"/>
+            <arg value="-i"/>
+            <arg value="${dir.src.db}\build\script.sql"/>
+            <arg value="-U"/>
+            <arg value="${db.user}"/>
+            <arg value="-P"/>
+            <arg value="${db.pwd}"/>
+            <arg value="-b"/>
+            <arg value="-n"/>
+        </exec>
+    </target>
+
+        <!-- Обновления функций БД -->
+        <target name="fillfunctions-testdb" description="Обновления функций БД">
+                <call target="build-sql-functions" />
+                
+                <exec program="${common.mssqltools.path}\isql.exe">
+                        <arg value="-S"/>
+                        <arg value="${db.server}"/>
+                        <arg value="-d"/>
+                        <arg value="${db}"/>
+                        <arg value="-i"/>
+                        <arg value="${dir.src.db}\build\functions.sql"/>
+                        <arg value="-U"/>
+                        <arg value="${db.user}"/>
+                        <arg value="-P"/>
+                        <arg value="${db.pwd}"/>
+                        <arg value="-b"/>
+                        <arg value="-n"/>
+                </exec>
+        </target>
+
+        <!-- Сборка скрипта для создания(изменения) процедур, функций и тестовых данных в БД. -->
+    <target name="build-sql" description="Сборка скрипта для создания(изменения) процедур, функций и тестовых данных в БД.">
+                <call target="build-sql-script"/>
+        <call target="build-sql-test"/>
+    </target>
+    
+    <!-- Сборка файла db\build\script.sql из набора файлов db\yachts_db\*.sql -->
+    <target name="build-sql-script">
+        <delete file="${dir.src.db}\build\script.sql.temp" />
+
+                <!-- Обработаем процедуры --> 
+        <foreach item="File" property="var.filename">
+            <in>
+                <items basedir="${dir.src.db}\yachts_db">
+                    <include name="**\*.sql"/>
+                </items>
+            </in>
+            <do>
+                <loadfile file="${var.filename}" property="var.filecontent" encoding="windows-1251" />
+                <echo file="${dir.src.db}\build\script.sql.temp" append="true"
+                      message="---- VIEW ${path::get-file-name(var.filename)} ----" />
+                <echo file="${dir.src.db}\build\script.sql.temp" append="true"
+                      message="" />
+                <echo file="${dir.src.db}\build\script.sql.temp" append="true"
+                      message="${var.filecontent}" />
+                <echo file="${dir.src.db}\build\script.sql.temp" append="true"
+                      message="GO" />
+                <echo file="${dir.src.db}\build\script.sql.temp" append="true"
+                      message="" />
+            </do>
+        </foreach>
+        <move file="${dir.src.db}\build\script.sql.temp"
+              tofile="${dir.src.db}\build\script.sql"
+              inputencoding="utf-8"
+              outputencoding="windows-1251" />  
+    </target>
+
+    <!-- Сборка файла db\build\test.sql из набора файлов db\yachts_db\**\tests\*.test -->
+    <target name="build-sql-test">
+        <delete file="${dir.src.db}\build\test.sql.temp" />
+        <foreach item="File" property="var.filename">
+            <in>
+                <items basedir="${dir.src.db}\yachts_db">
+                    <include name="**\*.test"/>
+                    <exclude name="**\cleardata.test"/>
+                </items>
+            </in>
+            <do>
+                <loadfile file="${var.filename}" property="var.filecontent" encoding="windows-1251" />
+                <echo file="${dir.src.db}\build\test.sql.temp" append="true"
+                      message="---- PROCEDURE ${path::get-file-name(var.filename)} ----" />
+                <echo file="${dir.src.db}\build\test.sql.temp" append="true"
+                      message="" />
+                <echo file="${dir.src.db}\build\test.sql.temp" append="true"
+                      message="${var.filecontent}" />
+                <echo file="${dir.src.db}\build\test.sql.temp" append="true"
+                      message="GO" />
+                <echo file="${dir.src.db}\build\test.sql.temp" append="true"
+                      message="" />
+            </do>
+        </foreach>
+        <move file="${dir.src.db}\build\test.sql.temp"
+                    tofile="${dir.src.db}\build\test.sql"
+                    inputencoding="utf-8"
+                    outputencoding="windows-1251" />
+        </target>
+
+        <!-- Сборка файла db\build\functions.sql из набора файлов db\yachts_db\functions\*.sql -->
+        <target name="build-sql-functions">
+                <delete file="${dir.src.db}\build\functions.sql.temp" />
+                <foreach item="File" property="var.filename">
+                        <in>
+                                <items basedir="${dir.src.db}\yachts_db\functions">
+                                        <include name="*.sql"/>
+                                </items>
+                        </in>
+                        <do>
+                                <loadfile file="${var.filename}" property="var.filecontent" encoding="windows-1251" />
+                                <echo file="${dir.src.db}\build\functions.sql.temp" append="true"
+                      message="---- FUNCTION ${path::get-file-name(var.filename)} ----" />
+                                <echo file="${dir.src.db}\build\functions.sql.temp" append="true"
+                      message="" />
+                                <echo file="${dir.src.db}\build\functions.sql.temp" append="true"
+                      message="${var.filecontent}" />
+                                <echo file="${dir.src.db}\build\functions.sql.temp" append="true"
+                      message="GO" />
+                                <echo file="${dir.src.db}\build\functions.sql.temp" append="true"
+                      message="" />
+                        </do>
+                </foreach>
+
+                <move file="${dir.src.db}\build\functions.sql.temp"
+                    tofile="${dir.src.db}\build\functions.sql"
+                    inputencoding="utf-8"
+                    outputencoding="windows-1251" />
+        </target>
+
+
+</project>

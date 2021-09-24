@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template>
+  <subject><![CDATA[ФБС: Регистрация нового пользователя с новой организацией]]></subject>
+  <from><![CDATA[fbs@fbsege.ru]]></from>
+  <content-type><![CDATA[html]]></content-type>
+  <encoding><![CDATA[koi8-r]]></encoding>
+  <body>
+    <![CDATA[
+     <p>Здравствуйте, Администратор.</p>
+     <p>На портале зарегистрировался новый пользователь с новой организацией:<BR/>
+     <table>
+      <tr>
+        <td>Логин пользователя:</td> 
+        <td><a href="##SERVERURL##Administration/Accounts/Users/Edit.aspx?login=##LOGIN##" title="Перейти к карточке пользователя">##LOGIN##</a></td>
+      </tr>
+      <tr>
+        <td>ФИО пользователя:</td> 
+        <td>##FULLNAME##</td>
+      </tr>
+      <tr>
+        <td>EMail пользователя:</td> 
+        <td><a href="mailto:##EMAIL##">##EMAIL##</a></td>
+      </tr>
+      <tr>
+        <td>Телефон пользователя:</td> 
+        <td>##USERPHONE##</td>
+      </tr>
+      <tr>
+        <td>Полное наименование организации:</td> 
+        <td>##ORGNAME##</td>
+      </tr>
+      <tr>
+        <td>Тип организации:</td> 
+        <td>##ORGTYPE##</td>
+      </tr>
+       <tr>
+        <td>Субъект РФ, на территории которого находится организация:</td> 
+        <td>##ORGREGION##</td>
+      </tr>
+      <tr>
+        <td>Учредитель:</td> 
+        <td>##ORGFOUNDER##</td>
+      </tr>
+      <tr>
+        <td>Адрес:</td> 
+        <td>##ORGADDRESS##</td>
+      </tr>
+      <tr>
+        <td>Ф.И.О. руководителя организации:</td> 
+        <td>##ORGCHIEFNAME##</td>
+      </tr>
+       <tr>
+        <td>Факс:</td> 
+        <td>##ORGFAX##</td>
+      </tr>
+       <tr>
+        <td>Телефон:</td> 
+        <td>##ORGPHONE##</td>
+      </tr>
+    </table>
+    <p>Администрация Подсистемы ФИС &laquo;Результаты ЕГЭ&raquo;.</p>
+    <p>Убедительная просьба не отвечать на данное письмо. Письмо отправлено автоматически.</p>
+    ]]>
+  </body>
+</template>

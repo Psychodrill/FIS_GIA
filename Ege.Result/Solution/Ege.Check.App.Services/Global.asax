@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Ege.Check.App.Services.Global" Language="C#" %>

@@ -1,0 +1,20 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/activation.css")"/>
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/activation.js")"> </script>
+}
+@{
+    ViewBag.Title = "Активация учётной записи";
+}
+
+<div class="account-block">
+    <a href="#" id="logout">Выход</a>
+</div>
+
+<h2>@ViewBag.Title</h2>
+
+<button id="activate">
+    <span>Активировать</span>
+    @RawHtml("~/Content/Pages/Partials/loader.html")
+</button>

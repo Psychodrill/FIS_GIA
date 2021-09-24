@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="/" title="Главная страница">
+
+    <siteMapNode resourceKey="topLevelMenu" title="Меню верхнего уровня" >
+      <siteMapNode url="/Default.aspx" title="Главная"/>
+      <siteMapNode url="/NewsArchive.aspx" title="Новости">
+        <siteMapNode url="/News.aspx"/>
+      </siteMapNode>
+      <siteMapNode url="/Instructions.aspx" title="Инструкции"/>
+      <siteMapNode url="/Documents.aspx" title="Документы" resourceKey="Documents"/>
+      <!--<siteMapNode url="/ApplicationFCT/AppEnter.aspx" title="Заявка на подключение к ЗКСПД" roles="EditSelfAccount"/>-->
+      <siteMapNode url="/Support.aspx" title="Горячая линия"/>
+
+      <!-- ОБЯЗАТЕЛЬНО ДОБАВИТЬ РОЛЬ ПОЛЬЗОВАТЕЛЬ ОСНОВНОЙ ОРГАНИЗЦИИ-->
+      <siteMapNode url="/Administration/Organizations/UserDepartments/OrgList.aspx?#" title="Организации"
+                   roles="ViewStatisticSubordinate,CustomAppRule_IsUserFromMainOrg" resourceKey="organizationUserDepartments">
+        <siteMapNode title="Организации" roles="CustomAppRule_IsUserFromMainOrg">
+          <siteMapNode url="/Administration/Organizations/UserDepartments/OrgList.aspx" title="Список организаций"/>
+          <siteMapNode url="/Administration/Organizations/UserDepartments/OrgCardInfo.aspx" title="Карточка организации"/>
+        </siteMapNode>
+        <siteMapNode title="Статистика по подведомственным учреждениям" roles="CustomAppRule_IsUserFromMainOrg">
+          <siteMapNode url="/Administration/Organizations/UserDepartments/StatisticSubordinateOrg.aspx" title="Статистика по подведомственным учреждениям"/>
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="Администрирование" url="/Administration/Accounts/Users/List.aspx?#"
+                   roles="ViewAdministrationSection" resourceKey="administration">
+
+        <siteMapNode title="Рассылки" roles="ViewDeliveries">
+          <siteMapNode url="/Administration/Deliveries/List.aspx" title="Список рассылок" roles="EditDeliveries">
+            <siteMapNode url="/Administration/Deliveries/Create.aspx" title="Создание рассылки" />
+            <siteMapNode url="/Administration/Deliveries/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование рассылки “название”" />
+            <siteMapNode url="/Administration/Deliveries/View.aspx" title="ГЕНЕРАЦИЯ: Просмотр рассылки “название”" />
+          </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode title="Пользователи организаций" roles="ViewUserAccount">
+          <siteMapNode url="/Administration/Accounts/Users/List.aspx" title="Пользователи организаций" roles="ViewUserAccount">
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Users/Create.aspx" title="Создание нового пользователя">
+            <siteMapNode url="/Administration/Accounts/Users/CreateSuccess.aspx" title="Уведомление" />
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Users/View.aspx" title="ГЕНЕРАЦИЯ: Регистрационные данные “логин”" />
+          <siteMapNode url="/Administration/Accounts/Users/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование “логин”">
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Users/EditSuccess.aspx" title="Редактировали “логин”"/>
+
+          <siteMapNode url="/Administration/Accounts/Users/Activate.aspx" title="Активировать" />
+          <siteMapNode url="/Administration/Accounts/Users/ActivateSuccess.aspx" title="Активировали" />
+          <siteMapNode url="/Administration/Accounts/Users/Deactivate.aspx" title="Деактивировать" />
+          <siteMapNode url="/Administration/Accounts/Users/DeactivateSuccess.aspx" title="Деактивировали" />
+          <siteMapNode url="/Administration/Accounts/Users/RemindPassword.aspx" title="Напомнить пароль" />
+          <siteMapNode url="/Administration/Accounts/Users/RemindPasswordSuccess.aspx" title="Напомнили пароль" />
+
+          <siteMapNode url="/Administration/Accounts/Users/ChangePassword.aspx" title="Сменить пароль" roles="CustomAppRule_IpCheckDisabled" />
+          <siteMapNode url="/Administration/Accounts/Users/ChangePasswordSuccess.aspx" title="Сменили пароль" roles="CustomAppRule_IpCheckDisabled" />
+          <siteMapNode url="/Administration/Accounts/Users/History.aspx" title="История изменений"/>
+          <siteMapNode url="/Administration/Accounts/Users/HistoryVersion.aspx" title="Версия истории изменений"/>
+          <siteMapNode url="/Administration/Accounts/Users/AuthenticationHistory.aspx" title="История аунтефикаций"/>
+        </siteMapNode>
+
+        <siteMapNode title="Пользователи ИС" roles="ViewUserISAccount">
+          <siteMapNode url="/Administration/Accounts/Users/ListIS.aspx" title="Пользователи ИС" roles="ViewUserISAccount"/>
+          <siteMapNode url="/Administration/Accounts/Users/CreateIS.aspx" title="Создание нового пользователя"/>
+          <siteMapNode url="/Administration/Accounts/Users/ViewIS.aspx" title="ГЕНЕРАЦИЯ: Регистрационные данные “логин”" />
+          <siteMapNode url="/Administration/Accounts/Users/EditIS.aspx" title="ГЕНЕРАЦИЯ: Редактирование “логин”"/>
+          <siteMapNode url="/Administration/Accounts/Users/AccountKeyList.aspx" title="Ключи доступа"/>
+          <siteMapNode url="/Administration/Accounts/Users/AccountKeyCreate.aspx" title="Создать ключ доступа"/>
+          <siteMapNode url="/Administration/Accounts/Users/AccountKeyCreateSuccess.aspx" title="Создали ключ доступа"/>
+          <siteMapNode url="/Administration/Accounts/Users/AccountKeyEdit.aspx" title="Редактировать ключ доступа"/>
+          <siteMapNode url="/Administration/Accounts/Users/AccountKeyEditSuccess.aspx" title="Сохранили ключ доступа"/>
+        </siteMapNode>
+
+        <siteMapNode title="Пользователи ОУ" roles="ViewUserOUAccount, CustomAppRule_IpCheckDisabled">
+          <siteMapNode url="/Administration/Accounts/Users/ListOU.aspx" title="Пользователи ОУ" roles="ViewUserOUAccount, CustomAppRule_IpCheckDisabled">
+            <siteMapNode url="/Administration/Accounts/Users/CreateOU.aspx" title="Создание нового пользователя" />
+            <siteMapNode url="/Administration/Accounts/Users/ViewOU.aspx" title="ГЕНЕРАЦИЯ: Регистрационные данные “логин”" />
+            <siteMapNode url="/Administration/Accounts/Users/EditOU.aspx" title="ГЕНЕРАЦИЯ: Редактирование “логин”" roles="EditUserOUAccount" />
+          </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode title="Заявления" roles="ViewOrganizationRequest">
+          <siteMapNode url="/Administration/Requests/RequestList.aspx" title="Заявления" roles="EditUserAccount">
+            <siteMapNode url="/Administration/Requests/RequestForm.aspx" title="ГЕНЕРАЦИЯ: заявление на регистрацию №номер_заявления" />
+          </siteMapNode>
+          <siteMapNode url="/Administration/Requests/Action.aspx" title="действие над заявлением на регистрацию" />
+        </siteMapNode>
+
+        <siteMapNode title="Информационные системы" roles="InformationSystems">
+          <siteMapNode url="Administration/InformationSystems/InformationSystemsList.aspx" title="Список информационных систем"/>
+          <siteMapNode url="/Administration/InformationSystems/EditInformationSystems.aspx" title="Добавление информационной системы" />
+        </siteMapNode>
+
+        <siteMapNode title="Организации" roles="Organizations">
+          <siteMapNode  url="Administration/Organizations/Administrators/OrgList.aspx" title="Список организаций">
+            <siteMapNode  url="Administration/Organizations/Administrators/OrgCard_Edit.aspx" title="Редактирование карточки организации"/>
+            <siteMapNode  url="Administration/Organizations/Administrators/OrgCard_Edit_Success.aspx" title="Карточка организации"/>
+          </siteMapNode>
+          <siteMapNode  url="Administration/Organizations/Administrators/OrgCard_Edit.aspx?OrgID=0" title="Создание новой организации"/>
+
+          <siteMapNode  url="Administration/Organizations/OrganizationHistory.aspx" title="История изменения"/>
+        </siteMapNode>
+
+        <siteMapNode title="Пресс-Центр" roles="EditDocument,EditNews" resourceKey="press-center">
+          <siteMapNode url="/Administration/Documents/List.aspx" title="Документы"  roles="EditDocument">
+            <siteMapNode url="/Administration/Documents/Create.aspx" title="Создание документа" />
+            <siteMapNode url="/Administration/Documents/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование документа “название”" />
+            <siteMapNode url="/Administration/Documents/View.aspx" title="ГЕНЕРАЦИЯ: Просмотр документа “название”" />
+          </siteMapNode>
+
+          <siteMapNode url="/Administration/News/List.aspx" title="Новости" roles="EditNews">
+            <siteMapNode url="/Administration/News/Create.aspx" title="Создание новости" />
+            <siteMapNode url="/Administration/News/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование новости “название”" />
+            <siteMapNode url="/Administration/News/View.aspx" title="ГЕНЕРАЦИЯ: Просмотр новости “название”" />
+          </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode title="Отчеты" roles="ViewAdministrationReport"  resourceKey="report" url="/Administration/Reports/Default.aspx">          
+        </siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+
+
+
+    <siteMapNode url="/auth/Check.aspx" title="Вход в Систему"/>
+
+    <siteMapNode url="/Error.aspx" title="Ошибка"/>
+    <siteMapNode url="/NotFound.aspx" title="Страница не найдена"/>
+    <siteMapNode url="/ForbiddenIp.aspx" title="Запрещенный IP-адрес"/>
+
+    <siteMapNode url="/Map.aspx" title="Карта сайта"/>
+    <!--siteMapNode url="/NewsArchive.aspx" title="Новости">
+      <siteMapNode url="/News.aspx" title="ГЕНЕРАЦИЯ: дата заголовок" />
+    </siteMapNode-->
+
+    <siteMapNode url="/Login.aspx" title="Вход в систему"/>
+    <siteMapNode url="/LoginBlocked.aspx" title="Вход в систему. Ожидание."/>
+    <siteMapNode url="/Registration.aspx" title="Регистрация пользователя">
+      <siteMapNode url="/SelectOrg.aspx" title="Выбор организации"/>
+      <siteMapNode url="/Profile/RegistrationSuccess.aspx" title="Шаг 1 регистрации успешно пройден"/>
+    </siteMapNode>
+    <siteMapNode url="/RemindPassword.aspx" title="Напоминание пароля">
+      <siteMapNode url="/RemindPasswordSuccess.aspx" title="Уведомление"/>
+    </siteMapNode>
+
+    <siteMapNode title="Профиль" resourceKey="profile">
+      <siteMapNode url="/Profile/View.aspx" title="Регистрационные данные пользователя">
+        <siteMapNode url="/Profile/Edit.aspx" title="Редактирование информации о пользователе" />
+        <siteMapNode url="/Profile/DocumentUpload.aspx" title="Регистрация пользователя" />
+      </siteMapNode>
+      <siteMapNode url="/Profile/ChangePassword.aspx" title="Изменить пароль">
+        <siteMapNode url="/Profile/ChangePasswordSuccess.aspx" title="Уведомление"/>
+      </siteMapNode>
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

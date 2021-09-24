@@ -1,0 +1,451 @@
+-- =========================================================================
+-- «апись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (16, '016__2011_07_15__AlterOrgAggregatesAddBatch')
+-- =========================================================================
+GO
+
+IF NOT EXISTS(select * from sys.columns where Name = N'Batch' and Object_ID = Object_ID(N'ByDayOrgAggregates'))
+BEGIN
+	ALTER TABLE ByDayOrgAggregates ADD Batch int NULL
+END
+GO
+
+
+IF NOT EXISTS(select * from sys.columns where Name = N'Batch' and Object_ID = Object_ID(N'ByPeriodOrgAggregates'))
+BEGIN
+	ALTER TABLE ByPeriodOrgAggregates ADD Batch int NULL
+END
+GO
+
+if exists (select 1
+          from sysobjects
+          where  id = object_id('CalculateOrgAggregates')
+          and type in ('P','PC'))
+   drop procedure CalculateOrgAggregates
+go
+
+
+CREATE procedure [dbo].[CalculateOrgAggregates]
+as
+begin
+-- —уть алгоритма:
+-- 1. ќбъ€вл€ем табличную переменную в которую будем записывать врем€ выполнени€ операций
+-- 2. ќпредел€ем интервал, за который будут расчитыватьс€ агрегации
+-- 3. ќрганизуем цикл по всем дн€м с начала до окончани€ периода.
+--    ћожно будет отрабатывать процедуру не по всем дн€м периода, а за несколько приемов
+-- 4. «агружаем агрегаты по дн€м
+-- 5. «агружаем агрегаты за период
+-- 6. «аписываем статистику по итерации
+
+
+-- 1. ќбъ€вл€ем табличную переменную в которую будем записывать врем€ выполнени€ операций
+declare @timeTable table (
+	FactDate date,
+    StartOperationDate datetime,
+    EndOperationDate datetime
+)
+declare 
+	@startOperationDate datetime
+    
+-- 2. ќпредел€ем интервал, за который будут расчитыватьс€ агрегации
+declare 
+	@endDate date,
+	@currentDate date,
+    @periodStartDate date
+set @endDate = GetDate() - 1
+exec GetOrgAggregatesStartDate @StartDate = @currentDate output -- получаем дату начала расчетов
+if (@currentDate is null) return -- если расчитывать нечего, то выходим из процедуры
+
+-- 3. ќрганизуем цикл по всем дн€м с начала до окончани€ периода (можно будет отрабатывать процедуру не по всем дн€м периода, а за несколько приемов)
+
+while (@currentDate <= @endDate)
+begin
+
+	exec GetPeriodStartDate @CurrentDate = @currentDate, @PeriodStartDate = @periodStartDate output -- получаем дату начала периода
+	if (@periodStartDate is null) return -- если дата начала периода не определена, то выходим из процедуры
+
+	set @startOperationDate = GetDate()
+
+	-- 4. «агружаем агрегаты по дн€м
+
+    insert into ByDayOrgAggregates (OrgId, FactDate, 
+        FirstCheck, LastCheck, 
+        UniqueChecks, UniqueByCertNumber, UniqueByPassport, UniqueByTypoNumber, UniqueInteractive,
+        ByCertNumber, ByPassport, ByTypoNumber, Interactive, Incorrect, Batch,
+        FirstActivated, LastActivated, FirstRegistered, LastRegistered,
+        AccountsInConsideration, DeactivatedAccounts, ActivatedAccounts, AccountsOnRegistration, AccountsOnRevision, AccountsCount)
+    select
+        T1.OrgId,
+        @currentDate,
+        max(T1.FirstCheck),
+        max(T1.LastCheck),
+        max(T1.UniqueChecks),
+        max(T1.UniqueByCertificateNumber),
+        max(T1.UniqueByPassport),
+        max(T1.UniqueByTypoNumber),
+        max(T1.UniqueInteractive),
+        max(T1.ByCeritificateNumber),
+        max(T1.ByPassport),
+        max(T1.ByTypoNumber),
+        max(T1.Interactive),
+        max(T1.Incorrect),
+        MAX(T1.Batch),
+        max(T1.FirstActivated),
+        max(T1.LastActivated),
+        max(T1.FirstRegistered),
+        max(T1.LastRegistered),
+        max(T1.AccountsInConsideration),
+        max(T1.DeactivatedAccounts),
+        max(T1.ActivatedAccounts),
+        max(T1.AccountsOnRegistration),
+        max(T1.AccountsOnRevision),
+        max(T1.AccountsCount)
+    from
+    (
+        select 
+            CL.OrgId,
+            min(CL.UpdateDate) FirstCheck,
+            max(CL.UpdateDate) LastCheck,
+            count(distinct CL.CertId) UniqueChecks,
+            count(distinct (case when CL.CheckType = 'number' then CL.CertId else null end)) UniqueByCertificateNumber,
+            count(distinct (case when CL.CheckType = 'passport' then CL.CertId else null end)) UniqueByPassport,
+            count(distinct (case when CL.CheckType = 'typo' then CL.CertId else null end)) UniqueByTypoNumber,
+            count(distinct (case when CL.ClientType = 'interactive' then CL.CertId else null end)) UniqueInteractive,
+            coalesce(sum(case when CL.CheckType = 'number' then 1 else 0 end), 0) ByCeritificateNumber,
+            coalesce(sum(case when CL.CheckType = 'passport' then 1 else 0 end), 0) ByPassport,
+            coalesce(sum(case when CL.CheckType = 'typo' then 1 else 0 end), 0) ByTypoNumber,
+            coalesce(sum(case when CL.ClientType = 'interactive' then 1 else 0 end), 0) Interactive,
+            coalesce(sum(case when CL.CertId is null then 1 else 0 end), 0) Incorrect,
+            coalesce(sum(case when CL.ClientType = 'csv' then 1 else 0 end), 0) Batch,
+            null FirstActivated,
+            null LastActivated,
+            null FirstRegistered,
+            null LastRegistered,
+            0 AccountsInConsideration,
+            0 DeactivatedAccounts,
+            0 ActivatedAccounts,
+            0 AccountsOnRegistration,
+            0 AccountsOnRevision,
+            0 AccountsCount
+        from 
+            CheckLog CL
+        where
+            CL.LogDate = @currentDate
+        group by
+            CL.OrgId
+
+        union all
+
+        select
+            RL.OrgId,
+            null,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            min(case when RL.AccountStatus = 'activated' then RL.UpdateDate else null end),
+            max(case when RL.AccountStatus = 'activated' then RL.UpdateDate else null end),
+            min(case when RL.AccountStatus = 'registration' then RL.UpdateDate else null end),
+            max(case when RL.AccountStatus = 'registration' then RL.UpdateDate else null end),
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        from
+            RegistrationLog RL
+        where
+            RL.LogDate = @currentDate
+            and (RL.AccountStatus = 'activated' or RL.AccountStatus = 'registration')
+        group by 
+            RL.OrgId
+
+
+        union all
+
+        select
+            RL.OrgId,
+            null,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            null,
+            null,
+            null,
+            null,
+            coalesce(sum(case when RL.AccountStatus = 'consideration' then 1 else 0 end), 0),
+            coalesce(sum(case when RL.AccountStatus = 'deactivated' then 1 else 0 end), 0),
+            coalesce(sum(case when RL.AccountStatus = 'activated' then 1 else 0 end), 0),
+            coalesce(sum(case when RL.AccountStatus = 'registration' then 1 else 0 end), 0),
+            coalesce(sum(case when RL.AccountStatus = 'revision' then 1 else 0 end), 0),
+            0
+        from
+            (
+                select
+                    RL.OrgId,
+                    max(RL.RegistrationLogId) as RegistrationLogId
+                from
+                    RegistrationLog RL
+                where
+                    RL.LogDate <= @currentDate and RL.LogDate >= @periodStartDate 
+                group by
+                    RL.AccountId, RL.OrgId
+            ) A
+            inner join RegistrationLog RL on RL.RegistrationLogId = A.RegistrationLogId and RL.OrgId = A.OrgId
+        group by
+            RL.OrgId
+                
+        union all
+
+
+        select
+            RL.OrgId,
+            null,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            null,
+            null,
+            null,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        from 
+            RegistrationLog RL
+        where
+            RL.AccountStatus = 'registration'
+            and RL.LogDate <= @currentDate and RL.LogDate >= @periodStartDate 
+        group by
+            RL.OrgId
+    ) T1
+    group by
+        T1.OrgId
+
+	-- 5. «агружаем агрегаты за период
+
+    insert into ByPeriodOrgAggregates (OrgId, FactDate, 
+        FirstCheck, LastCheck, 
+        UniqueChecks, UniqueByCertNumber, UniqueByPassport, UniqueByTypoNumber, UniqueInteractive,
+        ByCertNumber, ByPassport, ByTypoNumber, Interactive, Incorrect, Batch,
+        FirstActivated, LastActivated, FirstRegistered, LastRegistered,
+        AccountsInConsideration, DeactivatedAccounts, ActivatedAccounts, AccountsOnRegistration, AccountsOnRevision, AccountsCount)
+    select 
+        T1.OrgId,
+        @currentDate,
+        max(FirstCheck),
+        max(LastCheck),
+        max(UniqueChecks),
+        max(UniqueByCertificateNumber),
+        max(UniqueByPassport),
+        max(UniqueByTypoNumber),
+        max(UniqueInteractive),
+        max(ByCeritificateNumber),
+        max(ByPassport),
+        max(ByTypoNumber),
+        max(Interactive),
+        max(Incorrect),
+        max(Batch),
+        max(FirstActivated),
+        max(LastActivated),
+        max(FirstRegistered),
+        max(LastRegistered),
+        max(AccountsInConsideration),
+        max(DeactivatedAccounts),
+        max(ActivatedAccounts),
+        max(AccountsOnRegistration),
+        max(AccountsOnRevision),
+        max(AccountsCount)
+    from
+        (
+        select 
+            CL.OrgId,
+            min(CL.UpdateDate) FirstCheck,
+            max(CL.UpdateDate) LastCheck,
+            count(distinct CL.CertId) UniqueChecks,
+            count(distinct (case when CL.CheckType = 'number' then CL.CertId else null end)) UniqueByCertificateNumber,
+            count(distinct (case when CL.CheckType = 'passport' then CL.CertId else null end)) UniqueByPassport,
+            count(distinct (case when CL.CheckType = 'typo' then CL.CertId else null end)) UniqueByTypoNumber,
+            count(distinct (case when CL.ClientType = 'interactive' then CL.CertId else null end)) UniqueInteractive,
+            coalesce(sum(case when CL.CheckType = 'number' then 1 else 0 end), 0) ByCeritificateNumber,
+            coalesce(sum(case when CL.CheckType = 'passport' then 1 else 0 end), 0) ByPassport,
+            coalesce(sum(case when CL.CheckType = 'typo' then 1 else 0 end), 0) ByTypoNumber,
+            coalesce(sum(case when CL.ClientType = 'interactive' then 1 else 0 end), 0) Interactive,
+            coalesce(sum(case when CL.CertId is null then 1 else 0 end), 0) Incorrect,
+            coalesce(sum(case when CL.ClientType = 'csv' then 1 else 0 end), 0) Batch,
+            null FirstActivated,
+            null LastActivated,
+            null FirstRegistered,
+            null LastRegistered,
+            0 AccountsInConsideration,
+            0 DeactivatedAccounts,
+            0 ActivatedAccounts,
+            0 AccountsOnRegistration,
+            0 AccountsOnRevision,
+            0 AccountsCount
+        from 
+            CheckLog CL
+        where
+            CL.LogDate <= @currentDate and CL.LogDate >= @periodStartDate
+        group by
+            CL.OrgId
+
+        union all
+
+        select
+            RL.OrgId,
+            null,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            min(case when RL.AccountStatus = 'activated' then RL.UpdateDate else null end),
+            max(case when RL.AccountStatus = 'activated' then RL.UpdateDate else null end),
+            min(case when RL.AccountStatus = 'registration' then RL.UpdateDate else null end),
+            max(case when RL.AccountStatus = 'registration' then RL.UpdateDate else null end),
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        from
+            RegistrationLog RL
+        where
+            RL.LogDate <= @currentDate and RL.LogDate >= @periodStartDate 
+            and (RL.AccountStatus = 'activated' or RL.AccountStatus = 'registration')
+        group by
+            RL.OrgId    
+
+        union all
+
+        select
+            RL.OrgId,
+            null,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            null,
+            null,
+            null,
+            null,
+            coalesce(sum(case when RL.AccountStatus = 'consideration' then 1 else 0 end), 0),
+            coalesce(sum(case when RL.AccountStatus = 'deactivated' then 1 else 0 end), 0),
+            coalesce(sum(case when RL.AccountStatus = 'activated' then 1 else 0 end), 0),
+            coalesce(sum(case when RL.AccountStatus = 'registration' then 1 else 0 end), 0),
+            coalesce(sum(case when RL.AccountStatus = 'revision' then 1 else 0 end), 0),
+            0
+        from
+            (
+                select
+                    RL.OrgId,
+                    max(RL.RegistrationLogId) as RegistrationLogId
+                from
+                    RegistrationLog RL
+                where
+                    RL.LogDate <= @currentDate and RL.LogDate >= @periodStartDate
+                group by
+                    RL.OrgId,
+                    RL.AccountId
+            ) A
+            inner join RegistrationLog RL on RL.RegistrationLogId = A.RegistrationLogId and RL.OrgId = A.OrgId
+        group by
+            RL.OrgId    
+
+        union all
+
+        select
+            RL.OrgId,
+            null,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            null,
+            null,
+            null,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            count(distinct RL.AccountId)
+        from 
+            RegistrationLog RL
+        where
+            RL.AccountStatus = 'registration'
+            and RL.LogDate <= @currentDate and RL.LogDate >= @periodStartDate 
+        group by
+            RL.OrgId
+    ) T1
+    group by
+        T1.OrgId
+
+	-- 6. «аписываем статистику по итерации
+	insert into @timeTable (FactDate, StartOperationDate, EndOperationDate)
+    values (@currentDate, @startOperationDate, GetDate())
+
+	set @currentDate = cast(@currentDate as datetime) + 1
+    
+end
+
+select * from @timeTable
+
+end
+go

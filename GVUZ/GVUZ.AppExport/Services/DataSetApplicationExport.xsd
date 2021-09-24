@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetApplicationExport" targetNamespace="http://tempuri.org/DataSetApplicationExport.xsd" xmlns:mstns="http://tempuri.org/DataSetApplicationExport.xsd" xmlns="http://tempuri.org/DataSetApplicationExport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetApplicationExport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetApplicationExport" msprop:Generator_UserDSName="DataSetApplicationExport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Applications" msprop:Generator_TableClassName="ApplicationsDataTable" msprop:Generator_TableVarName="tableApplications" msprop:Generator_TablePropName="Applications" msprop:Generator_RowDeletingName="ApplicationsRowDeleting" msprop:Generator_RowChangingName="ApplicationsRowChanging" msprop:Generator_RowEvHandlerName="ApplicationsRowChangeEventHandler" msprop:Generator_RowDeletedName="ApplicationsRowDeleted" msprop:Generator_UserTableName="Applications" msprop:Generator_RowChangedName="ApplicationsRowChanged" msprop:Generator_RowEvArgName="ApplicationsRowChangeEvent" msprop:Generator_RowClassName="ApplicationsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AppId" msprop:Generator_ColumnVarNameInTable="columnAppId" msprop:Generator_ColumnPropNameInRow="AppId" msprop:Generator_ColumnPropNameInTable="AppIdColumn" msprop:Generator_UserColumnName="AppId" type="xs:long" />
+              <xs:element name="LastDenyDate" msprop:Generator_ColumnVarNameInTable="columnLastDenyDate" msprop:Generator_ColumnPropNameInRow="LastDenyDate" msprop:Generator_ColumnPropNameInTable="LastDenyDateColumn" msprop:Generator_UserColumnName="LastDenyDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RegistrationDate" msprop:Generator_ColumnVarNameInTable="columnRegistrationDate" msprop:Generator_ColumnPropNameInRow="RegistrationDate" msprop:Generator_ColumnPropNameInTable="RegistrationDateColumn" msprop:Generator_UserColumnName="RegistrationDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="StatusId" msprop:Generator_ColumnVarNameInTable="columnStatusId" msprop:Generator_ColumnPropNameInRow="StatusId" msprop:Generator_ColumnPropNameInTable="StatusIdColumn" msprop:Generator_UserColumnName="StatusId" type="xs:int" minOccurs="0" />
+              <xs:element name="OrderEducationSourceId" msprop:Generator_ColumnVarNameInTable="columnOrderEducationSourceId" msprop:Generator_ColumnPropNameInRow="OrderEducationSourceId" msprop:Generator_ColumnPropNameInTable="OrderEducationSourceIdColumn" msprop:Generator_UserColumnName="OrderEducationSourceId" type="xs:int" default="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FinSourceAndEduForms" msprop:Generator_TableClassName="FinSourceAndEduFormsDataTable" msprop:Generator_TableVarName="tableFinSourceAndEduForms" msprop:Generator_TablePropName="FinSourceAndEduForms" msprop:Generator_RowDeletingName="FinSourceAndEduFormsRowDeleting" msprop:Generator_RowChangingName="FinSourceAndEduFormsRowChanging" msprop:Generator_RowEvHandlerName="FinSourceAndEduFormsRowChangeEventHandler" msprop:Generator_RowDeletedName="FinSourceAndEduFormsRowDeleted" msprop:Generator_UserTableName="FinSourceAndEduForms" msprop:Generator_RowChangedName="FinSourceAndEduFormsRowChanged" msprop:Generator_RowEvArgName="FinSourceAndEduFormsRowChangeEvent" msprop:Generator_RowClassName="FinSourceAndEduFormsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ApplicationId" msprop:Generator_ColumnVarNameInTable="columnApplicationId" msprop:Generator_ColumnPropNameInRow="ApplicationId" msprop:Generator_ColumnPropNameInTable="ApplicationIdColumn" msprop:Generator_UserColumnName="ApplicationId" type="xs:long" />
+              <xs:element name="EducationLevelId" msprop:Generator_ColumnVarNameInTable="columnEducationLevelId" msprop:Generator_ColumnPropNameInRow="EducationLevelId" msprop:Generator_ColumnPropNameInTable="EducationLevelIdColumn" msprop:Generator_UserColumnName="EducationLevelId" type="xs:long" minOccurs="0" />
+              <xs:element name="DirectionId" msprop:Generator_ColumnVarNameInTable="columnDirectionId" msprop:Generator_ColumnPropNameInRow="DirectionId" msprop:Generator_ColumnPropNameInTable="DirectionIdColumn" msprop:Generator_UserColumnName="DirectionId" type="xs:long" minOccurs="0" />
+              <xs:element name="FinanceSourceId" msprop:Generator_ColumnVarNameInTable="columnFinanceSourceId" msprop:Generator_ColumnPropNameInRow="FinanceSourceId" msprop:Generator_ColumnPropNameInTable="FinanceSourceIdColumn" msprop:Generator_UserColumnName="FinanceSourceId" type="xs:long" minOccurs="0" />
+              <xs:element name="EducationFormId" msprop:Generator_ColumnVarNameInTable="columnEducationFormId" msprop:Generator_ColumnPropNameInRow="EducationFormId" msprop:Generator_ColumnPropNameInTable="EducationFormIdColumn" msprop:Generator_UserColumnName="EducationFormId" type="xs:long" minOccurs="0" />
+              <xs:element name="IsForBeneficiary" msprop:Generator_ColumnVarNameInTable="columnIsForBeneficiary" msprop:Generator_ColumnPropNameInRow="IsForBeneficiary" msprop:Generator_ColumnPropNameInTable="IsForBeneficiaryColumn" msprop:Generator_UserColumnName="IsForBeneficiary" type="xs:boolean" minOccurs="0" />
+              <xs:element name="UseBeneficiarySubject" msprop:Generator_ColumnVarNameInTable="columnUseBeneficiarySubject" msprop:Generator_ColumnPropNameInRow="UseBeneficiarySubject" msprop:Generator_ColumnPropNameInTable="UseBeneficiarySubjectColumn" msprop:Generator_UserColumnName="UseBeneficiarySubject" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CommonBeneficiaryDocTypeId" msprop:Generator_ColumnVarNameInTable="columnCommonBeneficiaryDocTypeId" msprop:Generator_ColumnPropNameInRow="CommonBeneficiaryDocTypeId" msprop:Generator_ColumnPropNameInTable="CommonBeneficiaryDocTypeIdColumn" msprop:Generator_UserColumnName="CommonBeneficiaryDocTypeId" type="xs:long" minOccurs="0" />
+              <xs:element name="Number" msprop:Generator_ColumnVarNameInTable="columnNumber" msprop:Generator_ColumnPropNameInRow="Number" msprop:Generator_ColumnPropNameInTable="NumberColumn" msprop:Generator_UserColumnName="Number" type="xs:long" minOccurs="0" />
+              <xs:element name="OrderTypeId" msprop:Generator_ColumnVarNameInTable="columnOrderTypeId" msprop:Generator_ColumnPropNameInRow="OrderTypeId" msprop:Generator_ColumnPropNameInTable="OrderTypeIdColumn" msprop:Generator_UserColumnName="OrderTypeId" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EntranceTestResults" msprop:Generator_TableClassName="EntranceTestResultsDataTable" msprop:Generator_TableVarName="tableEntranceTestResults" msprop:Generator_TablePropName="EntranceTestResults" msprop:Generator_RowDeletingName="EntranceTestResultsRowDeleting" msprop:Generator_RowChangingName="EntranceTestResultsRowChanging" msprop:Generator_RowEvHandlerName="EntranceTestResultsRowChangeEventHandler" msprop:Generator_RowDeletedName="EntranceTestResultsRowDeleted" msprop:Generator_UserTableName="EntranceTestResults" msprop:Generator_RowChangedName="EntranceTestResultsRowChanged" msprop:Generator_RowEvArgName="EntranceTestResultsRowChangeEvent" msprop:Generator_RowClassName="EntranceTestResultsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ApplicationId" msprop:Generator_ColumnVarNameInTable="columnApplicationId" msprop:Generator_ColumnPropNameInRow="ApplicationId" msprop:Generator_ColumnPropNameInTable="ApplicationIdColumn" msprop:Generator_UserColumnName="ApplicationId" type="xs:long" default="0" />
+              <xs:element name="EntranceTestResultId" msprop:Generator_ColumnVarNameInTable="columnEntranceTestResultId" msprop:Generator_ColumnPropNameInRow="EntranceTestResultId" msprop:Generator_ColumnPropNameInTable="EntranceTestResultIdColumn" msprop:Generator_UserColumnName="EntranceTestResultId" type="xs:long" default="0" />
+              <xs:element name="EntranceTestTypeId" msprop:Generator_ColumnVarNameInTable="columnEntranceTestTypeId" msprop:Generator_ColumnPropNameInRow="EntranceTestTypeId" msprop:Generator_ColumnPropNameInTable="EntranceTestTypeIdColumn" msprop:Generator_UserColumnName="EntranceTestTypeId" type="xs:long" default="0" />
+              <xs:element name="ResultSourceTypeId" msprop:Generator_ColumnVarNameInTable="columnResultSourceTypeId" msprop:Generator_ColumnPropNameInRow="ResultSourceTypeId" msprop:Generator_ColumnPropNameInTable="ResultSourceTypeIdColumn" msprop:Generator_UserColumnName="ResultSourceTypeId" type="xs:long" default="0" />
+              <xs:element name="ResultValue" msprop:Generator_ColumnVarNameInTable="columnResultValue" msprop:Generator_ColumnPropNameInRow="ResultValue" msprop:Generator_ColumnPropNameInTable="ResultValueColumn" msprop:Generator_UserColumnName="ResultValue" type="xs:decimal" default="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Applications" />
+      <xs:field xpath="mstns:AppId" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Applications_FinSourceAndEduForms" msdata:parent="Applications" msdata:child="FinSourceAndEduForms" msdata:parentkey="AppId" msdata:childkey="ApplicationId" msprop:Generator_UserChildTable="FinSourceAndEduForms" msprop:Generator_ChildPropName="GetFinSourceAndEduFormsRows" msprop:Generator_UserRelationName="Applications_FinSourceAndEduForms" msprop:Generator_ParentPropName="ApplicationsRow" msprop:Generator_RelationVarName="relationApplications_FinSourceAndEduForms" msprop:Generator_UserParentTable="Applications" />
+      <msdata:Relationship name="FinSourceAndEduForms_EntranceTestResults" msdata:parent="FinSourceAndEduForms" msdata:child="EntranceTestResults" msdata:parentkey="ApplicationId" msdata:childkey="ApplicationId" msprop:Generator_UserChildTable="EntranceTestResults" msprop:Generator_ChildPropName="GetEntranceTestResultsRows" msprop:Generator_UserRelationName="FinSourceAndEduForms_EntranceTestResults" msprop:Generator_ParentPropName="FinSourceAndEduFormsRow" msprop:Generator_RelationVarName="relationFinSourceAndEduForms_EntranceTestResults" msprop:Generator_UserParentTable="FinSourceAndEduForms" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

@@ -1,0 +1,1788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8733A283-3F72-47E4-84EA-7FB541BB06B4}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GVUZ.Web</RootNamespace>
+    <AssemblyName>GVUZ.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DesktopBuildPackageLocation>Deploy\GVUZ.Web.zip</DesktopBuildPackageLocation>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <PublishDatabases>false</PublishDatabases>
+    <IncludeAppPool>false</IncludeAppPool>
+    <DeployIisAppPath>Default Web Site/GVUZ.Web</DeployIisAppPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ARMTRS.Controls">
+      <HintPath>..\lib\KURS_Platform\ARMTRS.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=2.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CarlosAg.ExcelXmlWriter, Version=1.0.0.6, Culture=neutral, PublicKeyToken=eac822d9c4196ba1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\CarlosAg.ExcelXmlWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\lib\KURS_Platform\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v9.1.Core, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.Charts.v9.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.Data.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.Utils.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraBars.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraCharts.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraEditors.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraNavBar.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraPivotGrid.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v9.1.Core, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraPivotGrid.v9.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraPrinting.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraReports.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraRichEdit.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraTreeList.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KURS_Platform\DevExpress.XtraVerticalGrid.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DocX">
+      <HintPath>..\lib\KURS_Platform\DocX.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>..\lib\KURS_Platform\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\lib\KURS_Platform\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Entity.CTP">
+      <HintPath>..\lib\Microsoft.Data.Entity.CTP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\lib\KURS_Platform\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.10\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="Plat.Abstractions">
+      <HintPath>..\lib\KURS_Platform\Plat.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plat.Common">
+      <HintPath>..\lib\KURS_Platform\Plat.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Plat.Common.Reporting">
+      <HintPath>..\lib\KURS_Platform\Plat.Common.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Plat.Subsystems">
+      <HintPath>..\lib\KURS_Platform\Plat.Subsystems.dll</HintPath>
+    </Reference>
+    <Reference Include="Plat.WebForms.Components">
+      <HintPath>..\lib\KURS_Platform\Plat.WebForms.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\lib\KURS_Platform\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\ErrorStrings.designer.cs">
+      <DependentUpon>ErrorStrings.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Auth2\EsrpAuthHelperV2.cs" />
+    <Compile Include="Auth2\GetEsrpUserData.cs" />
+    <Compile Include="Auth\CheckEsrpAuth.cs" />
+    <Compile Include="Auth\EsrpAuthModule.cs" />
+    <Compile Include="Auth\SqlCachedRoleProvider.cs" />
+    <Compile Include="Auth\UpdateUserDetailsResult.cs" />
+    <Compile Include="ContextExtensionsSQL\ApplicationSQL.cs" />
+    <Compile Include="ContextExtensionsSQL\ApplicationSQLWz0.cs" />
+    <Compile Include="ContextExtensionsSQL\ApplicationSQLWz2.cs" />
+    <Compile Include="ContextExtensionsSQL\ApplicationSQLWz3.cs" />
+    <Compile Include="ContextExtensionsSQL\ApplicationSQLWz5.cs" />
+    <Compile Include="ContextExtensionsSQL\ApplicationViewSQL.cs" />
+    <Compile Include="ContextExtensionsSQL\ApplicationViolationInfo.cs" />
+    <Compile Include="ContextExtensionsSQL\CacheKeys.cs" />
+    <Compile Include="ContextExtensionsSQL\CompositionResultSQL.cs" />
+    <Compile Include="ContextExtensionsSQL\OrderOfAdmissionRefuseSQL.cs" />
+    <Compile Include="ContextExtensionsSQL\EntrantListSQL.cs" />
+    <Compile Include="ContextExtensionsSQL\EntrantSQL.cs" />
+    <Compile Include="ContextExtensionsSQL\OrderOfAdmissionForAppSQL.cs" />
+    <Compile Include="ContextExtensionsSQL\OrderOfAdmissionIncSQL.cs" />
+    <Compile Include="ContextExtensionsSQL\OrderOfAdmissionSQL.cs" />
+    <Compile Include="ContextExtensionsSQL\ViolationError.cs" />
+    <Compile Include="ContextExtensions\BudgetLevelDistributionExtensions.cs" />
+    <Compile Include="ContextExtensions\TargetOrganizationExtensions.cs" />
+    <Compile Include="Controllers\Admission\AdmissionVolumeController.cs" />
+    <Compile Include="Controllers\ApplicationControllerWz0.cs" />
+    <Compile Include="Controllers\ApplicationControllerWz2.cs" />
+    <Compile Include="Controllers\ApplicationControllerWz3.cs" />
+    <Compile Include="Controllers\ApplicationControllerWz5.cs" />
+    <Compile Include="Controllers\AutoController.cs" />
+    <Compile Include="Controllers\CompositionResultsExportController.cs" />
+    <Compile Include="Controllers\OrderOfAdmissionRefuseController.cs" />
+    <Compile Include="Controllers\OlympicDiplomantController.cs" />
+    <Compile Include="Controllers\OrderOfAdmissionController.cs" />
+    <Compile Include="Controllers\OlympicFilesController.cs" />
+    <Compile Include="Controllers\OrderOfAdmissionIncController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\InstitutionProgramController.cs" />
+    <Compile Include="Controllers\TargetOrganizationController.cs" />
+    <Compile Include="Filters\NoCacheAttribute.cs" />
+    <Compile Include="Helpers\NetworkIO.cs" />
+    <Compile Include="Helpers\HtmlHelpersExtentionsGroups.cs" />
+    <Compile Include="Helpers\PagedList\GoToFormRenderOptions.cs" />
+    <Compile Include="Helpers\PagedList\PagedListHtmlHelper.cs" />
+    <Compile Include="Helpers\PagedList\PagedListDisplayMode.cs" />
+    <Compile Include="Helpers\PagedList\PagedListRenderOptions.cs" />
+    <Compile Include="Helpers\ExportHelper.cs" />
+    <Compile Include="Helpers\ResponseFileWriter.cs" />
+    <Compile Include="Models\DecimalModelBinder.cs" />
+    <Compile Include="ViewModels\AddAllowedDirectionItemViewModel.cs" />
+    <Compile Include="ViewModels\AddAllowedDirectionsViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionVolume\AdmissionVolumeClassificatorItemViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionVolume\DistributedPlanAdmissionVolumeItemViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionVolume\DistributedPlanAdmissionVolumeSaveViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionVolume\PlanAdmissionVolumeSaveViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionVolume\PlanAdmissionVolumeItemViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionVolume\DistributedPlanAdmissionVolumeViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionVolume\VolumeTransferViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionVolume\PlanAdmissionVolumeViewModel.cs" />
+    <Compile Include="ViewModels\Auto\AutoViewModel.cs" />
+    <Compile Include="ViewModels\CheckBenefitModel.cs" />
+    <Compile Include="ViewModels\CompositionViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionDirectionRequestItemViewModel.cs" />
+    <Compile Include="ViewModels\CompositionResults\CompositionResultsListViewModel.cs" />
+    <Compile Include="ViewModels\CompositionResults\CompositionResultRecordViewModel.cs" />
+    <Compile Include="ViewModels\CompositionResults\CompositionResultsFilterViewModel.cs" />
+    <Compile Include="ViewModels\CompositionResults\CompositionResultsQueryViewModel.cs" />
+    <Compile Include="ViewModels\Entrants\UpdateEntrantUidViewModel.cs" />
+    <Compile Include="Helpers\ConfigHelper.cs" />
+    <Compile Include="ViewModels\ApplicationWz2Models.cs" />
+    <Compile Include="ViewModels\ApplicationsList\ApplicationNavigationParameters.cs" />
+    <Compile Include="Helpers\ZipCompressionHelper.cs" />
+    <Compile Include="Infrastructure\CookieFilterStateManager.cs" />
+    <Compile Include="Infrastructure\IFilterStateManager.cs" />
+    <Compile Include="Infrastructure\FilterStateManager.cs" />
+    <Compile Include="ViewModels\ApplicationsList\Dialogs\IncludeRecommendedListSubmitViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\Dialogs\IncludeRecommendedListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\Dialogs\IncludeRecommendedRecordViewModel.cs" />
+    <Compile Include="Infrastructure\IFilterState.cs" />
+    <Compile Include="ViewModels\ApplicationsList\NewApplicationsFilterViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\NewApplicationsListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\NewApplicationsQueryViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\NewApplicationsRecordViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\NewInstitutionApplicationListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\SearchApplicationsFilterViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\SearchApplicationsQueryViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\SearchApplicationsListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\SearchApplicationsRecordViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\Dialogs\AcceptApplicationRecordViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\Dialogs\AcceptApplicationsListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\AcceptedApplicationsRecordViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\AcceptedApplicationsListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\AcceptedApplicationsFilterViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\AcceptedApplicationsQueryViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\Dialogs\CheckApplicationRecordViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\Dialogs\CheckApplicationsListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\RecommendedApplicationsQueryViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\RecommendedApplicationsListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\RecommendedApplicationsFilterViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\RecommendedApplicationsRecordViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\Dialogs\RevokeApplicationRecordViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\Dialogs\RevokeApplicationsListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationViewModels.cs" />
+    <Compile Include="ViewModels\Entrants\EntrantDetailsApplicationViewModel.cs" />
+    <Compile Include="ViewModels\Entrants\EntrantDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Entrants\EntrantRecordListFilterViewModel.cs" />
+    <Compile Include="ViewModels\Entrants\EntrantRecordListQueryViewModel.cs" />
+    <Compile Include="ViewModels\Entrants\EntrantRecordListViewModel.cs" />
+    <Compile Include="ViewModels\Entrants\EntrantRecordViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionDirectionRequestDetailsViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionDirectionRequestViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionInfo\InstitutionInfoUploadDocumentViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionInfo\InstitutionInfoYearDocumentViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionInfo\InstitutionInfoDocumentViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionInfo\InstitutionInfoViewModel.cs" />
+    <Compile Include="ViewModels\KcpDistribution\KcpLimitViewModel.cs" />
+    <Compile Include="ViewModels\KcpDistribution\KcpBudgetLevelViewModel.cs" />
+    <Compile Include="ViewModels\KcpDistribution\KcpEditorViewModel.cs" />
+    <Compile Include="ViewModels\KcpDistribution\KcpFieldViewModel.cs" />
+    <Compile Include="ViewModels\KcpDistribution\KcpForms.cs" />
+    <Compile Include="ViewModels\KcpDistribution\KcpLimitsViewModel.cs" />
+    <Compile Include="ViewModels\KcpDistribution\KcpUpdateViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionDirectionRequestListViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionDirectionRequestQueryViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionDirectionRequestRecordViewModel.cs" />
+    <Compile Include="ViewModels\OlympicDiplomant\OlympicDiplomantImportViewModel.cs" />
+    <Compile Include="ViewModels\OlympicDiplomant\OlympicDiplomantCanceledEditViewModel.cs" />
+    <Compile Include="ViewModels\OlympicDiplomant\OlympicDiplomantEditViewModel.cs" />
+    <Compile Include="ViewModels\OlympicDiplomant\OlympicDiplomantFilterViewModel.cs" />
+    <Compile Include="ViewModels\OlympicDiplomant\OlympicDiplomantListViewModel.cs" />
+    <Compile Include="ViewModels\OlympicDiplomant\OlympicDiplomantBaseViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\ApplicationDisagreeData.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\ConditionsForIncudeToOrder.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\MultiIncludeToOrderViewModel.cs" />
+    <Compile Include="ViewModels\OlympicFiles\OlympicFileRecordViewModel.cs" />
+    <Compile Include="ViewModels\OlympicFiles\OlympicFilesListViewModel.cs" />
+    <Compile Include="ViewModels\OlympicFiles\OlympicFileUploadViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\OrderOfAdmissionParametersViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\ApplicationOrderFilterViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\ApplicationOrderListViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\ApplicationOrderQueryViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\ApplicationOrderRecordViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\ApplicationSelectOrderViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\IncludeToOrderViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\OrderOfAdmissionCreateViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\OrderOfAdmissionEditViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\OrderOfAdmissionFilterViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\OrderOfAdmissionListViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\OrderOfAdmissionQueryViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\OrderOfAdmissionRecordViewModel.cs" />
+    <Compile Include="ViewModels\OrderOfAdmission\OrderOfAdmissionViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ReportsViewModel.cs" />
+    <Compile Include="ViewModels\RequestDirectionItemViewModel.cs" />
+    <Compile Include="ViewModels\RequestProfDirectionsDataViewModel.cs" />
+    <Compile Include="ViewModels\RequestDirectionsDataViewModel.cs" />
+    <Compile Include="ViewModels\SearchDirectionsDialogViewModel.cs" />
+    <Compile Include="ViewModels\Shared\AttachmentDocumentViewModel.cs" />
+    <Compile Include="ViewModels\Shared\EducationFormId.cs" />
+    <Compile Include="Helpers\EducationFormsHelper.cs" />
+    <Compile Include="ViewModels\Shared\EducationFormsSelectList.cs" />
+    <Compile Include="Helpers\DataBindingHelper.cs" />
+    <Compile Include="Infrastructure\CacheManager.cs" />
+    <Compile Include="Infrastructure\ConnectionProvider.cs" />
+    <Compile Include="ContextExtensionsSQL\DictionarySQL.cs" />
+    <Compile Include="ContextExtensionsSQL\EntrantApplicationSQL.cs" />
+    <Compile Include="Infrastructure\DebugHelper.cs" />
+    <Compile Include="Infrastructure\DefaultCacheProvider.cs" />
+    <Compile Include="Infrastructure\ICacheProvider.cs" />
+    <Compile Include="Infrastructure\SqlQueryHelper.cs" />
+    <Compile Include="ContextExtensionsSQL\SQL.cs" />
+    <Compile Include="ContextExtensions\AdministrationExtensions.cs" />
+    <Compile Include="ContextExtensions\AdmissionVolumeExtensions.cs" />
+    <Compile Include="ContextExtensions\ApplicationEntranceTestExtensions.cs" />
+    <Compile Include="ContextExtensions\ApplicationExtensions.cs" />
+    <Compile Include="ContextExtensions\ApplicationOrderExtensions.cs" />
+    <Compile Include="ContextExtensions\ApplicationPrioritiesContextExtension.cs" />
+    <Compile Include="ContextExtensions\AttachmentExtensions.cs" />
+    <Compile Include="ContextExtensions\BenefitExtensionsC.cs" />
+    <None Include="ContextExtensions\CampaignExtensions.cs" />
+    <Compile Include="ContextExtensions\CompetitiveGroupExtensions.cs" />
+    <Compile Include="ContextExtensions\CompetitiveGroupModelSaver.cs" />
+    <Compile Include="ContextExtensions\AccessLogExtensions.cs" />
+    <Compile Include="ContextExtensions\ImportExtensions.cs" />
+    <Compile Include="ContextExtensions\EntranceTestCreativeDirectionExtensions.cs" />
+    <Compile Include="ContextExtensions\EntranceTestExtensionsC.cs" />
+    <Compile Include="ContextExtensions\EntranceTestProfileDirectionExtensions.cs" />
+    <Compile Include="ContextExtensions\EntranceTestsExtensions.cs" />
+    <Compile Include="ContextExtensions\EntrantAddressExtensions.cs" />
+    <Compile Include="ContextExtensions\EntrantApplicationExtensions.cs" />
+    <Compile Include="ContextExtensions\EntrantExtensions.cs" />
+    <Compile Include="ContextExtensions\EntrantLanguageExtensions.cs" />
+    <Compile Include="ContextExtensions\EntrantPersonalDataExtensions.cs" />
+    <Compile Include="ContextExtensions\ExtendedApplicationListExtensions.cs" />
+    <Compile Include="ContextExtensions\ForeignLanguageExtensions.cs" />
+    <Compile Include="ContextExtensions\GeneralSubjectsExtesions.cs" />
+    <Compile Include="ContextExtensions\IndividualAchivementsExtension.cs" />
+    <Compile Include="ContextExtensions\InstitutionAchievementsExtensions.cs" />
+    <Compile Include="ContextExtensions\OlympicsExtensions.cs" />
+    <Compile Include="ContextExtensions\QualificationsExtensions.cs" />
+    <Compile Include="ContextExtensions\RecommendedListsExtensions.cs" />
+    <Compile Include="ContextExtensions\SubjectEgeMinValueExtensions.cs" />
+    <Compile Include="Controllers\AccessLogController.cs" />
+    <None Include="Controllers\ApplicationExportController.cs" />
+    <Compile Include="Controllers\CampaignController.cs" />
+    <Compile Include="Controllers\CompetitiveGroupController.cs" />
+    <Compile Include="Controllers\DictionaryController.cs" />
+    <Compile Include="Controllers\ImportController.cs" />
+    <Compile Include="Controllers\EgeCheckController.cs" />
+    <Compile Include="Controllers\ImportDicController.cs" />
+    <Compile Include="Infrastructure\ISortable.cs" />
+    <Compile Include="Infrastructure\IPagination.cs" />
+    <Compile Include="Infrastructure\ITransactionManager.cs" />
+    <Compile Include="Infrastructure\SqlTransactionManager.cs" />
+    <Compile Include="Filters\TransactionFilterAttribute.cs" />
+    <Compile Include="Infrastructure\TransactionManager.cs" />
+    <Compile Include="ViewModels\ApplicationsList\RevokedApplicationsListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\RevokedApplicationsQueryViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\RevokedApplicationsFilterViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\RevokedApplicationsRecordViewModel.cs" />
+    <Compile Include="ViewModels\Shared\EducationSourceId.cs" />
+    <Compile Include="ViewModels\Shared\EducationSourceSelectList.cs" />
+    <Compile Include="ViewModels\Shared\PagedListViewModelBase.cs" />
+    <Compile Include="ViewModels\Shared\PagedQueryViewModelBase.cs" />
+    <Compile Include="ViewModels\Shared\PagerViewModel.cs" />
+    <Content Include="Files\CSV\test.csv" />
+    <Content Include="Files\CSV\testMultipleErrors2.csv" />
+    <Content Include="Files\SQL\dbo.ChectBenefitOlympic.sql" />
+    <Content Include="Files\SQL\dbo.FindEntrantOlympic.sql" />
+    <Content Include="Files\testMultipleErrors2.csv" />
+    <None Include="Properties\PublishProfiles\Debug_Yusupov.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\Release %28aprob%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Release Aprob Package %283.1%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
+    <Content Include="Resources\icons\add_active.png" />
+    <Content Include="Resources\icons\add_disabled.png" />
+    <Content Include="Resources\icons\cancel_active.png" />
+    <Content Include="Resources\icons\copy_active.png" />
+    <Content Include="Resources\icons\copy_disabled.png" />
+    <Content Include="Resources\icons\export_csv_gray.png" />
+    <Content Include="Resources\icons\export_csv_white.png" />
+    <Content Include="Resources\icons\fact_gray.png" />
+    <Content Include="Resources\icons\fact_white.png" />
+    <Content Include="Resources\icons\go_order_active.png" />
+    <Content Include="Resources\icons\go_order_disabled.png" />
+    <Content Include="Resources\icons\go_statement_active.png" />
+    <Content Include="Resources\icons\go_statement_disabled.png" />
+    <Content Include="Resources\icons\link_active.png" />
+    <Content Include="Resources\icons\link_disabled.png" />
+    <Content Include="Resources\icons\map.psd" />
+    <Content Include="Resources\icons\open_active.png" />
+    <Content Include="Resources\icons\open_disabled.png" />
+    <Content Include="Resources\icons\plan_gray.png" />
+    <Content Include="Resources\icons\plan_white.png" />
+    <Content Include="Resources\icons\publish_active.png" />
+    <Content Include="Resources\icons\publish_disabled.png" />
+    <Content Include="Resources\icons\save_active.png" />
+    <Content Include="Resources\icons\save_disabled.png" />
+    <Content Include="Resources\icons\temp.psd" />
+    <None Include="Properties\PublishProfiles\Release_Aprob_Package_3.1.pubxml" />
+    <None Include="Properties\PublishProfiles\Release_gvuz2016_Package_3.1.pubxml" />
+    <None Include="Properties\PublishProfiles\Release_GVUZ_2016_Package_3.1.pubxml" />
+    <None Include="Web.config.default">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.Debug.default">
+      <DependentUpon>Web.config.default</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.Release.default">
+      <DependentUpon>Web.config.default</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ViewModels\Shared\SelectListItemViewModel.cs" />
+    <None Include="ViewModels\Shared\SelectListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\UncheckedApplicationsFilterViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\UncheckedApplicationsListViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\UncheckedApplicationsQueryViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationsList\UncheckedApplicationsRecordViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionAchievements\InstitutionAchievementModelBinder.cs" />
+    <Compile Include="Controllers\InstitutionAchievementsController.cs" />
+    <Compile Include="Controllers\InstitutionAdminController.cs" />
+    <Compile Include="Helpers\ModelHelpers.cs" />
+    <Compile Include="Controllers\RecommendedListsController.cs" />
+    <Compile Include="Controllers\RequestHandlerController.cs" />
+    <Compile Include="Filters\EntrantNameFilterAttribute.cs" />
+    <Compile Include="Helpers\AuthorizeAdmAttribute.cs" />
+    <Compile Include="Helpers\ImportPackageListXmlExporter.cs" />
+    <Compile Include="Helpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Helpers\VersionHelper.cs" />
+    <Compile Include="Helpers\Import\IImportService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\DoCheckApplicationSingleService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\GetResultCheckApplicationService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\DoDeleteService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\DoImportApplicationSingleService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\DoImportService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\DoValidateService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\Exceptions\IImportException.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\Exceptions\ImportExceptionType.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\GetResultDeleteApplicationService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\GetResultImportApplicationService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\GetInstitutionPartOfInfoService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\GetDictionaryDetailsService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\Exceptions\ImportXmlValidationException.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\Exceptions\ImportAuthorizationException.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\Exceptions\ImportExceptionBase.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\GetDictionariesListService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\GetInstitutionInfoService.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\ImportBaseService.cs" />
+    <Compile Include="Helpers\Import\ImportService.svc.cs">
+      <DependentUpon>ImportService.svc</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Helpers\Import\Infractrusture\Queued\FactoryWorkItem.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\Queued\QueuedFactoryProcessor.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\Queued\QueueManager.cs" />
+    <Compile Include="Helpers\Import\Infractrusture\Queued\QueueSender.cs" />
+    <Compile Include="Helpers\Import\ServiceErrorPolicyAttribute.cs" />
+    <Compile Include="Helpers\Import\ServiceTestResults.cs" />
+    <Compile Include="Pagers\Administration\Catalogs\CreativeDirectionPager.cs" />
+    <Compile Include="Pagers\Administration\Catalogs\EntranceTestsPager.cs" />
+    <Compile Include="Pagers\Administration\Catalogs\ForeignLanguagesPager.cs" />
+    <Compile Include="Pagers\Administration\Catalogs\GeneralSubjectsPager.cs" />
+    <Compile Include="ContextExtensions\InstitutionExtensions.cs" />
+    <Compile Include="ContextExtensions\InstitutionStructureExtensions.cs" />
+    <Compile Include="Pagers\Administration\Catalogs\OlympicsPager.cs" />
+    <Compile Include="Pagers\Administration\Catalogs\ProfileDirectionPager.cs" />
+    <Compile Include="Pagers\Administration\Catalogs\SubjectsAndEgeMinScorePager.cs" />
+    <Compile Include="Pagers\PagerBase.cs" />
+    <Compile Include="ContextExtensions\PreparatoryCourseExtensions.cs" />
+    <Compile Include="Pagers\Administration\Catalogs\QualificationsPager.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\Admission\AdmissionController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BenefitController.cs" />
+    <Compile Include="Controllers\ControllerWrapper.cs" />
+    <Compile Include="Controllers\ControllerWrapperExecutor.cs" />
+    <Compile Include="Controllers\InstitutionApplicationDraftController.cs" />
+    <Compile Include="Controllers\EntranceTestController.cs" />
+    <Compile Include="Controllers\EntrantController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FakeController.cs" />
+    <Compile Include="Controllers\GetFileController.cs" />
+    <Compile Include="Controllers\InstitutionApplicationController.cs" />
+    <Compile Include="Controllers\InstitutionController.cs" />
+    <Compile Include="Controllers\JsonRequestWrapper.cs" />
+    <Compile Include="Controllers\PreparatoryCourseController.cs" />
+    <Compile Include="Controllers\StructureController.cs" />
+    <Compile Include="Controllers\TreeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\EgeParameters.cs" />
+    <Compile Include="Helpers\InstitutionHelper.cs" />
+    <Compile Include="Helpers\NsiHelper.cs" />
+    <Compile Include="InformationService.asmx.cs">
+      <DependentUpon>InformationService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account\AccountMembershipService.cs" />
+    <Compile Include="Models\Account\AccountValidation.cs" />
+    <Compile Include="Models\Account\PersonalModel.cs" />
+    <Compile Include="Models\ApplicationStepType.cs" />
+    <Compile Include="Models\BaseInstitutionModel.cs" />
+    <Compile Include="Models\Account\FormsAuthenticationService.cs" />
+    <Compile Include="Models\Account\LogOnModel.cs" />
+    <Compile Include="Models\ModelBinder.cs" />
+    <Compile Include="Models\PropertiesMustMatchAttribute.cs" />
+    <Compile Include="Models\Account\RegisterModel.cs" />
+    <Compile Include="Models\ValidatePasswordLengthAttribute.cs" />
+    <Compile Include="PortletService.asmx.cs">
+      <DependentUpon>PortletService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Portlets\Applications\ApplicationCommonInfoViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Applications\ApplicationEntranceTestViewModelC.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Applications\ApplicationEntrantDocumentsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Applications\ApplicationInfoViewModelBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Applications\ApplicationSendingViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Applications\ApplicationViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Entrants\ApplicationListviewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Entrants\EntrantLanguageViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Entrants\PersonalRecordsAddressViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Entrants\PersonalRecordsDataViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Entrants\PersonalRecordsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Institutions\EntranceTestTreeViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Institutions\InstitutionInfoViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Institutions\InstitutionStructureViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\MainMenuViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\MainPortlet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\MainPortletViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Markup\ApplicationMarkup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Markup\CommonMarkup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Markup\EntrantMarkup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Markup\InstitutionMarkup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Markup\SearchMarkup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\MenuItemsType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\NavigationHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\PagerBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\PagerHtmlHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\PortletFileHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\PortletHttpContextWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\PortletLinkAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\PortletLinkHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\PortletType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\InstitutionSearchFields.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\JsonInstitutionSearchResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\JsonSearchHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\Search.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\SearchInformerPortlet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\SearchInformerResultViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\SearchInformerViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\SearchInstitutionViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\SearchPortletViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\SearchResultTreeViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\SearchService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\Searches\SearchType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Portlets\TriStateCheckBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Security\UrlHelperExtensions.cs" />
+    <Compile Include="Security\UserRole.cs" />
+    <Compile Include="ViewModels\AddAdmissionItemViewModel.cs" />
+    <Compile Include="ViewModels\AddBenefitViewModel.cs" />
+    <Compile Include="ViewModels\AddBenefitViewModelC.cs" />
+    <Compile Include="ViewModels\AddPreparatoryCourseViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\AddCreativeDirectionViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\AddForeignLanguageViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\AddGeneralSubjectViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\AddOlympicViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\AddProfileDirectionViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\AddQualificationViewModel.cs" />
+    <Compile Include="ViewModels\Administration\ApplicationExtraAttributes.cs" />
+    <Compile Include="ViewModels\Administration\AppCampaignViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\AddTestViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\CampaignOrderDateCatalogViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\CreativeDirectionViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\DirectionData.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\EntranceTestsViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\ProfileDirectionViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\SubjectsAndEgeMinScoreViewModel.cs" />
+    <Compile Include="ViewModels\Administration\ChangeUserPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\ForeignLanguagesViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\GeneralSubjectsViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\OlympicsViewModel.cs" />
+    <Compile Include="ViewModels\Administration\Catalogs\QualificationsViewModel.cs" />
+    <Compile Include="ViewModels\Administration\UserViewModel.cs" />
+    <Compile Include="ViewModels\AdmissionVolumeViewModel.cs" />
+    <Compile Include="ViewModels\AllowedDirectionAddViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationModels.cs" />
+    <Compile Include="ViewModels\ApplicationData.cs" />
+    <Compile Include="ViewModels\ApplicationExportViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationIncludeInOrderViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationPrioritiesViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationPriorityViewModel.cs" />
+    <Compile Include="ViewModels\BenefitItemSubjectViewModel.cs" />
+    <Compile Include="ViewModels\BenefitViewModel.cs" />
+    <Compile Include="ViewModels\BenefitViewModelC.cs" />
+    <None Include="ViewModels\CampaignDateEditViewModel.cs" />
+    <None Include="ViewModels\CampaignEditViewModel.cs" />
+    <None Include="ViewModels\CampaignListViewModel.cs" />
+    <Compile Include="ViewModels\CompetitiveGroupAddViewModel.cs" />
+    <Compile Include="ViewModels\CompetitiveGroupEditViewModel.cs" />
+    <None Include="ViewModels\CompetitiveGroupListViewModel.cs" />
+    <Compile Include="ViewModels\CompetitiveGroupSelectedDirectionsViewModel.cs" />
+    <None Include="ViewModels\CompetitiveGroupViewModel.cs" />
+    <Compile Include="ViewModels\AccessLogListViewModel.cs" />
+    <Compile Include="ViewModels\DictionaryModel.cs" />
+    <Compile Include="ViewModels\InstAppBaseListModel.cs" />
+    <Compile Include="ViewModels\InstAppNewListModel.cs" />
+    <Compile Include="ViewModels\InstitutionAchievements\InstitutionAchievementCategory.cs" />
+    <Compile Include="ViewModels\InstitutionAchievements\InstitutionAchievementCampaign.cs" />
+    <Compile Include="ViewModels\InstitutionAchievements\InstitutionAchievementRecordViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionAchievements\InstitutionAchievementUpdateRecordViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionApplication2ListViewModel.cs" />
+    <Compile Include="ViewModels\PrintExaminationResultCertificateMark.cs" />
+    <Compile Include="ViewModels\ImportPackageInfoViewModel.cs" />
+    <Compile Include="ViewModels\ImportPackageListViewModel.cs" />
+    <Compile Include="ViewModels\EntrantInfoViewModelC.cs" />
+    <Compile Include="ViewModels\EntrantsListViewModel.cs" />
+    <Compile Include="ViewModels\ExtendedApplicationListViewModel.cs" />
+    <Compile Include="ViewModels\IncludeInOrderListViewModel.cs" />
+    <Compile Include="ViewModels\IndividualAchivementsViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionListViewModel.cs" />
+    <Compile Include="ViewModels\PrintExaminationResultReferenceViewModel.cs" />
+    <Compile Include="ViewModels\PrintTemplateInfoViewModel.cs" />
+    <Compile Include="ViewModels\ImportDictionaryViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionApplicationListIncludeInOrderViewModel.cs" />
+    <Compile Include="ViewModels\EntranceTestViewModel.cs" />
+    <Compile Include="ViewModels\AddStructureItemViewModel.cs" />
+    <Compile Include="ViewModels\EditAdmissionItemViewModel.cs" />
+    <Compile Include="ViewModels\EditStructureItemViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionApplicationListViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionPrepareApplicationViewModel.cs" />
+    <Compile Include="ViewModels\InstitutionViewModels.cs" />
+    <Compile Include="Helpers\IOrderable.cs" />
+    <Compile Include="Helpers\IPageable.cs" />
+    <Compile Include="ViewModels\OlympicDetailsViewModel.cs" />
+    <Compile Include="ViewModels\PreparatoryCourseViewModel.cs" />
+    <Compile Include="ViewModels\RecommendedLists\ApplicationIncludeInRecListViewModel.cs" />
+    <Compile Include="ViewModels\RecommendedLists\RecommendedListsShowParametersViewModel.cs" />
+    <Compile Include="ViewModels\RecommendedLists\RecommendedListViewModel.cs" />
+    <Compile Include="ViewModels\RequestListViewModel.cs" />
+    <Compile Include="ViewModels\Shared\SortViewModel.cs" />
+    <Compile Include="ViewModels\TargetOrganizations\TargetOrganizationModelBinder.cs" />
+    <Compile Include="ViewModels\TargetOrganizations\TargetOrganizationRecordViewModel.cs" />
+    <Compile Include="ViewModels\TargetOrganizations\TargetOrganizationUpdateRecordViewModel.cs" />
+    <Compile Include="ViewModels\TreeViewModel.cs" />
+    <Compile Include="ViewModels\Validators\CommonValidator.cs" />
+    <Compile Include="MenuSections.cs" />
+    <Compile Include="Views\InstitutionProgram\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InstitutionProgram\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Pager\PagerView.ascx.cs">
+      <DependentUpon>PagerView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Pager\PagerView.ascx.designer.cs">
+      <DependentUpon>PagerView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TargetOrganization\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TargetOrganization\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Content Include="ListsMetadata\GVUZ_CompetitiveGroup.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\icons\abitu.png" />
+    <Content Include="Resources\icons\accept_active.png" />
+    <Content Include="Resources\icons\accept_disabled.png" />
+    <Content Include="Resources\icons\administration.png" />
+    <Content Include="Resources\icons\analysis.png" />
+    <Content Include="Resources\icons\application.png" />
+    <Content Include="Resources\icons\archive.png" />
+    <Content Include="Resources\icons\back_gray.png" />
+    <Content Include="Resources\icons\back_white.png" />
+    <Content Include="Resources\icons\cancel_gray.png" />
+    <Content Include="Resources\icons\cancel_white.png" />
+    <Content Include="Resources\icons\check.png" />
+    <Content Include="Resources\icons\collapse.png" />
+    <Content Include="Resources\icons\decline_active.png" />
+    <Content Include="Resources\icons\decline_disabled.png" />
+    <Content Include="Resources\icons\delete_active.png" />
+    <Content Include="Resources\icons\delete_disabled.png" />
+    <Content Include="Resources\icons\dummy.png" />
+    <Content Include="Resources\icons\edit_active.png" />
+    <Content Include="Resources\icons\edit_disabled.png" />
+    <Content Include="Resources\icons\exclude_active.png" />
+    <Content Include="Resources\icons\exclude_disabled.png" />
+    <Content Include="Resources\icons\expand.png" />
+    <Content Include="Resources\icons\export_excel_gray.png" />
+    <Content Include="Resources\icons\export_excel_white.png" />
+    <Content Include="Resources\icons\include_active.png" />
+    <Content Include="Resources\icons\include_disabled.png" />
+    <Content Include="Resources\icons\info.png" />
+    <Content Include="Resources\icons\inspect_active.png" />
+    <Content Include="Resources\icons\inspect_disabled.png" />
+    <Content Include="Resources\icons\logo.png" />
+    <Content Include="Resources\icons\logout.png" />
+    <Content Include="Resources\icons\map.png" />
+    <Content Include="Resources\icons\next_gray.png" />
+    <Content Include="Resources\icons\next_white.png" />
+    <Content Include="Resources\icons\orders.png" />
+    <Content Include="Resources\icons\search.png" />
+    <Content Include="Resources\icons\temp.png" />
+    <Content Include="Resources\icons\unlink_active.png" />
+    <Content Include="Resources\icons\unlink_disabled.png" />
+    <Content Include="Resources\icons\view_active.png" />
+    <Content Include="Resources\icons\view_disabled.png" />
+    <Content Include="Resources\Images\downarrow.png" />
+    <Content Include="Resources\Images\not-found1.png" />
+    <Content Include="Resources\Images\not-found.png" />
+    <Content Include="Resources\Images\pageleftleft.png" />
+    <Content Include="Resources\Images\pagerightright.png" />
+    <Content Include="Resources\Images\revoke.jpg" />
+    <Content Include="Resources\Images\revoke_gray.jpg" />
+    <Content Include="Resources\Images\uparrow.png" />
+    <Content Include="Resources\Scripts\jquery.cookie.js" />
+    <Content Include="Resources\Scripts\olympics.js" />
+    <Content Include="Resources\Scripts\vue\v-tooltip.min.js" />
+    <Content Include="Resources\Scripts\vue\vue-easy-toast.min.js" />
+    <Content Include="Resources\Scripts\vue\vue.helper.js" />
+    <Content Include="Resources\Scripts\vue\vue.min.js" />
+    <Content Include="Views\Admission\DistributedPlanVolumeEdit.ascx" />
+    <Content Include="Views\Admission\PlanVolumeEdit.aspx" />
+    <Content Include="Views\Admission\PlanVolumeView.aspx" />
+    <Content Include="Views\Admission\VolumeTransfer.aspx" />
+    <Content Include="Views\Application\ApplicationViewComposition.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Auto\Index.aspx" />
+    <Content Include="Views\InstitutionApplication\JavaScriptError.aspx" />
+    <Content Include="Views\InstitutionProgram\Index.aspx" />
+    <Content Include="Views\OlympicDiplomant\Index.aspx" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\ErrorStrings.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ErrorStrings.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Helpers\Import\ImportService.svc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="InformationService.asmx" />
+    <Content Include="ListsMetadata\GVUZ_Institutions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_ActionsAndElements.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_ActionsLog.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_ActionTypes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_DataConnections.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_ElementTypes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_MenuElements.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_MenuElementsSubGrid.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_MenuElementsSubGridLink.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_MenuItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_MenuItemsSubgrid.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_ReportingCategories.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_ReportTemplateExportFormat.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_RootMenuItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ListsMetadata\Required_Texts.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PortletService.asmx" />
+    <Content Include="Resources\PagedList.css" />
+    <Content Include="Resources\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Resources\Scripts\jquery.validate.min.js" />
+    <Content Include="Resources\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Admission\ViewDirectionRequestDialog.ascx" />
+    <Content Include="Views\Admission\DirectionRequestDetails.ascx" />
+    <Content Include="Views\Admission\DirectionRequestGrid.ascx" />
+    <Content Include="Views\Admission\InstitutionDirectionRequestList.aspx" />
+    <Content Include="Views\OrderOfAdmission\ApplicationSelectRefuseOrder.aspx" />
+    <Content Include="Views\Shared\Admission\RequestProfDirectionsDialog.ascx" />
+    <Content Include="Views\Shared\Admission\RequestDirectionsDialog.ascx" />
+    <Content Include="Views\Shared\Admission\SearchDirectionsDialog.ascx" />
+    <Content Include="Resources\Scripts\underscore-min.js" />
+    <Content Include="Resources\Chosen\chosen-sprite.png" />
+    <Content Include="Resources\Scripts\Chosen\chosen.jquery.min.js" />
+    <Content Include="Resources\Chosen\chosen.min.css" />
+    <Content Include="Views\Shared\Admission\RequestDirectionsDialog.ascx" />
+    <Content Include="Views\Shared\Admission\SearchDirectionsDialog.ascx" />
+    <Content Include="Views\Shared\Application\ApplicationWz5_Conditions_Row.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shared\Application\ApplicationWz5_Conditions.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shared\InstitutionApplication\Dialogs\DeleteApplications.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantCanceledEditView.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantCanceledTableView.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantImportView.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantInfoView.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantFindResultsView.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantFindInfo4View.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantFindInfo3View.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantFindInfo1View.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantRowCanceledView.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantTableView.ascx" />
+    <Content Include="Views\Shared\OlympicDiplomant\OlympicDiplomantEditView.ascx" />
+    <Content Include="Views\Shared\Olympics\OlympicsCatalogEdit.ascx" />
+    <Content Include="Views\Shared\Olympics\TableView.ascx" />
+    <Content Include="Views\Shared\Pager\ClientPagerView.ascx" />
+    <Content Include="Resources\controls.css" />
+    <Content Include="Resources\ie7-and-down.css" />
+    <Content Include="Resources\Images\add.gif" />
+    <Content Include="Resources\Images\add.png" />
+    <Content Include="Resources\Images\add_16.gif" />
+    <Content Include="Resources\Images\arrowdown.jpg" />
+    <Content Include="Resources\Images\arrowleft.jpg" />
+    <Content Include="Resources\Images\arrowright.jpg" />
+    <Content Include="Resources\Images\arrowup.jpg" />
+    <Content Include="Resources\Images\blackarrow.jpg" />
+    <Content Include="Resources\Images\browsing.png" />
+    <Content Include="Resources\Images\busy.gif" />
+    <Content Include="Resources\Images\button.jpg" />
+    <Content Include="Resources\Images\calendar.gif" />
+    <Content Include="Resources\Images\calendar\c_bg.png" />
+    <Content Include="Resources\Images\calendar\c_left.png" />
+    <Content Include="Resources\Images\calendar\c_right.png" />
+    <Content Include="Resources\Images\calendar\n_bg.png" />
+    <Content Include="Resources\Images\clock.jpg" />
+    <Content Include="Resources\Images\connect_16.gif" />
+    <Content Include="Resources\Images\connect_16_gray.gif" />
+    <Content Include="Resources\Images\copy.gif" />
+    <Content Include="Resources\Images\copy_16.gif" />
+    <Content Include="Resources\Images\cross.jpg" />
+    <Content Include="Resources\Images\ddl.png" />
+    <Content Include="Resources\Images\delete.gif" />
+    <Content Include="Resources\Images\delete.png" />
+    <Content Include="Resources\Images\delete_16.gif" />
+    <Content Include="Resources\Images\delete_16_gray.gif" />
+    <Content Include="Resources\Images\doc.jpg" />
+    <Content Include="Resources\Images\downarrow.jpg" />
+    <Content Include="Resources\Images\down_16.gif" />
+    <Content Include="Resources\Images\down_16_gray.gif" />
+    <Content Include="Resources\Images\down_sort.gif" />
+    <Content Include="Resources\Images\edit_16.gif" />
+    <Content Include="Resources\Images\edit_16_gray.gif" />
+    <Content Include="Resources\Images\edit_icon.png" />
+    <Content Include="Resources\Images\edit_iconGray.png" />
+    <Content Include="Resources\Images\error_16.gif" />
+    <Content Include="Resources\Images\expand_leaf.gif" />
+    <Content Include="Resources\Images\expand_minus.gif" />
+    <Content Include="Resources\Images\expand_plus.gif" />
+    <Content Include="Resources\Images\fon.jpg" />
+    <Content Include="Resources\Images\footer.jpg" />
+    <Content Include="Resources\Images\footershar.jpg" />
+    <Content Include="Resources\Images\header.jpg" />
+    <Content Include="Resources\Images\i.gif" />
+    <Content Include="Resources\Images\input.jpg" />
+    <Content Include="Resources\Images\i_half.gif" />
+    <Content Include="Resources\Images\i_half_2.gif" />
+    <Content Include="Resources\Images\calendar.jpg" />
+    <Content Include="Resources\Images\leaf.gif" />
+    <Content Include="Resources\Images\linza.jpg" />
+    <Content Include="Resources\Images\logotype.jpg" />
+    <Content Include="Resources\Images\menuAdmin.jpg" />
+    <Content Include="Resources\Images\menuAdmin_active.jpg" />
+    <Content Include="Resources\Images\menuApp.jpg" />
+    <Content Include="Resources\Images\menuApp_active.jpg" />
+    <Content Include="Resources\Images\menuCheckEge.jpg" />
+    <Content Include="Resources\Images\menuCheckEge_active.jpg" />
+    <Content Include="Resources\Images\menuEdu.jpg" />
+    <Content Include="Resources\Images\menuEdu_active.jpg" />
+    <Content Include="Resources\Images\menuEntrants.jpg" />
+    <Content Include="Resources\Images\menuEntrants_active.jpg" />
+    <Content Include="Resources\Images\menuOlympics.jpg" />
+    <Content Include="Resources\Images\menuOlympics_active.jpg" />
+    <Content Include="Resources\Images\menuReport.jpg" />
+    <Content Include="Resources\Images\menuReport_active.jpg" />
+    <Content Include="Resources\Images\minus.gif" />
+    <Content Include="Resources\Images\minus.jpg" />
+    <Content Include="Resources\Images\move_16.gif" />
+    <Content Include="Resources\Images\move_16_Gray.gif" />
+    <Content Include="Resources\Images\no.jpg" />
+    <Content Include="Resources\Images\no2.jpg" />
+    <Content Include="Resources\Images\noGray.jpg" />
+    <Content Include="Resources\Images\ok.gif" />
+    <Content Include="Resources\Images\ok.jpg" />
+    <Content Include="Resources\Images\ok.png" />
+    <Content Include="Resources\Images\okGray.jpg" />
+    <Content Include="Resources\Images\okGray.png" />
+    <Content Include="Resources\Images\ok_16.gif" />
+    <Content Include="Resources\Images\ok_16.png" />
+    <Content Include="Resources\Images\ok_16_gray.gif" />
+    <Content Include="Resources\Images\pageleft.jpg" />
+    <Content Include="Resources\Images\pageleftleft.jpg" />
+    <Content Include="Resources\Images\pageright.jpg" />
+    <Content Include="Resources\Images\pagerightright.jpg" />
+    <Content Include="Resources\Images\pageselect.jpg" />
+    <Content Include="Resources\Images\pdf.jpg" />
+    <Content Include="Resources\Images\plus.gif" />
+    <Content Include="Resources\Images\plus.jpg" />
+    <Content Include="Resources\Images\plus2.jpg" />
+    <Content Include="Resources\Images\portfel.jpg" />
+    <Content Include="Resources\Images\prosmotr_icon.png" />
+    <Content Include="Resources\Images\prosmotr_icon_gray.png" />
+    <Content Include="Resources\Images\research_16.gif" />
+    <Content Include="Resources\Images\russia.jpg" />
+    <Content Include="Resources\Images\save.gif" />
+    <Content Include="Resources\Images\save_16.gif" />
+    <Content Include="Resources\Images\Search.jpg" />
+    <Content Include="Resources\Images\star_gray_16.gif" />
+    <Content Include="Resources\Images\star_green_16.gif" />
+    <Content Include="Resources\Images\star_green_16.png" />
+    <Content Include="Resources\Images\stop.jpg" />
+    <Content Include="Resources\Images\structure_copy.gif" />
+    <Content Include="Resources\Images\tableHeader.jpg" />
+    <Content Include="Resources\Images\tr.jpg" />
+    <Content Include="Resources\Images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Resources\Images\uparrow.jpg" />
+    <Content Include="Resources\Images\up_16.gif" />
+    <Content Include="Resources\Images\up_sort.gif" />
+    <Content Include="Resources\Portlet.css" />
+    <Content Include="Resources\Scripts\AjaxHelper.js" />
+    <Content Include="Resources\Scripts\Autocomplete.js" />
+    <Content Include="Resources\Scripts\grid\ListViewModelBase.js" />
+    <Content Include="Resources\Scripts\grid\PagerViewModel.js" />
+    <Content Include="Resources\Scripts\grid\FilterViewModelBase.js" />
+    <Content Include="Resources\Scripts\koClientPager.js" />
+    <Content Include="Resources\Scripts\WebUtils.js" />
+    <Content Include="Resources\Scripts\DataUtils.js" />
+    <Content Include="Resources\Scripts\FogSoft.Common.js" />
+    <Content Include="Resources\Scripts\jquery-1.4.2.js" />
+    <Content Include="Resources\Scripts\jquery-1.4.2.min.js" />
+    <Content Include="Resources\Scripts\jquery-1.8.2.js" />
+    <Content Include="Resources\Scripts\jquery-ui-1.8.5.custom.min.js" />
+    <Content Include="Resources\Scripts\jquery-ui.js" />
+    <Content Include="Resources\Scripts\libs\jquery.autocomplete.js" />
+    <Content Include="Resources\Scripts\libs\jquery.form.js" />
+    <Content Include="Resources\Scripts\libs\jquery.htmlClean-min.js" />
+    <Content Include="Resources\Scripts\libs\jquery.htmlInput-min.js" />
+    <Content Include="Resources\Scripts\libs\jquery.maskedinput-1.2.2.min.js" />
+    <Content Include="Resources\Scripts\libs\jquery.ui.autocomplete.js" />
+    <Content Include="Resources\Scripts\libs\jquery.ui.datepicker-ru.js" />
+    <Content Include="Resources\Scripts\libs\jQuery.blockUI.js" />
+    <Content Include="Resources\Scripts\libs\jquery.ui.button.js" />
+    <Content Include="Resources\Scripts\libs\jquery.ui.core.js" />
+    <Content Include="Resources\Scripts\libs\jquery.ui.datepicker.js" />
+    <Content Include="Resources\Scripts\libs\jquery.ui.dialog.js" />
+    <Content Include="Resources\Scripts\libs\jquery.ui.position.js" />
+    <Content Include="Resources\Scripts\libs\jquery.ui.widget.js" />
+    <Content Include="Resources\Scripts\libs\json2.js" />
+    <Content Include="Resources\Scripts\libs\knockout.mapping-latest.js" />
+    <Content Include="Resources\Scripts\libs\sprintf.js" />
+    <Content Include="Resources\Scripts\TabControl.js" />
+    <Content Include="Resources\Scripts\tree\BaseTreeView.js" />
+    <Content Include="Resources\Scripts\tree\ClickableTreeView.js" />
+    <Content Include="Resources\Scripts\tree\TableTreeView.js" />
+    <Content Include="Resources\Scripts\tree\TreeView.js" />
+    <Content Include="Resources\Scripts\utils.js" />
+    <Content Include="Resources\ScrollableTree.css" />
+    <Content Include="Resources\skin.css" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Resources\Themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Resources\Themes\ui-lightness\jquery-ui-1.8.5.custom.css" />
+    <Content Include="Resources\Tree.css" />
+    <Content Include="Resources\Images.css" />
+    <Content Include="Resources\ui.htmlInput.css" />
+    <Content Include="Resources\Scripts\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Resources\Scripts\libs\knockout-3.3.0.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Views\AccessLog\AccessLogList.aspx" />
+    <Content Include="Views\Account\AuthError.aspx" />
+    <Content Include="Views\Account\AjaxError.aspx" />
+    <Content Include="Views\Account\AuthRedirect.aspx" />
+    <Content Include="Views\Account\Personal.aspx" />
+    <Content Include="Views\Administration\Catalogs\CampaignOrderDateCatalog.aspx" />
+    <Content Include="Views\Administration\ImportantInformation.aspx" />
+    <Content Include="Views\Admission\EntranceTestEdit.aspx" />
+    <Content Include="Views\Admission\RequestList.aspx" />
+    <Content Include="Views\Application\ApplicationEdit.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationV0.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationV1.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationV2.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationV3.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationV4.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationV5.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationView.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationWz.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\ApplicationExport\Index.aspx" />
+    <Content Include="Views\Application\ApplicationIndividualAchivements.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationWz0.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationWz3.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\CompetitiveGroup\CompetitiveGroupEdit.aspx" />
+    <Content Include="Views\CompositionResultsExport\CompositionList.ascx" />
+    <Content Include="Views\CompositionResultsExport\CompositionListFilter.ascx" />
+    <Content Include="Views\CompositionResultsExport\Index.aspx" />
+    <Content Include="Views\Entrant\EntrantDetailsDialog.ascx" />
+    <Content Include="Views\Entrant\EntrantsListGridFilter.ascx" />
+    <Content Include="Views\Entrant\ListEntrants.aspx" />
+    <Content Include="Views\InstitutionApplication\ExtendedApplicationSearch.aspx" />
+    <Content Include="Views\Application\ApplicationWz2.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationWz4.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationWz5.ascx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Institution\EditInstitutionDocumentsList.ascx" />
+    <Content Include="Views\Institution\ViewNew.aspx" />
+    <Content Include="Views\Institution\EditNew.aspx" />
+    <Content Include="Views\OlympicFiles\AddDialog.ascx" />
+    <Content Include="Views\OlympicFiles\Index.aspx" />
+    <Content Include="Views\OrderOfAdmission\ApplicationSelectOrder.aspx" />
+    <Content Include="Views\OrderOfAdmission\ViewOrderFields.ascx" />
+    <Content Include="Views\OrderOfAdmission\ViewOrder.aspx" />
+    <Content Include="Views\OrderOfAdmission\CreateOrderFields.ascx" />
+    <Content Include="Views\OrderOfAdmission\EditOrder.aspx" />
+    <Content Include="Views\OrderOfAdmission\CreateOrder.aspx" />
+    <Content Include="Views\OrderOfAdmission\EditOrderFields.ascx" />
+    <Content Include="Views\OrderOfAdmission\IncludeToOrder.aspx" />
+    <Content Include="Views\OrderOfAdmission\JavaScriptError.aspx" />
+    <Content Include="Views\OrderOfAdmission\MultiIncludeToOrder.aspx" />
+    <Content Include="Views\Reports\Index.aspx" />
+    <Content Include="Views\Shared\Admission\AddAllowedDirectionProf.ascx" />
+    <Content Include="Views\Shared\OrderOfAdmission\ApplicationOrderList.ascx" />
+    <Content Include="Views\Shared\OrderOfAdmission\ApplicationOrderListFilter_old.ascx" />
+    <Content Include="Views\Shared\OrderOfAdmission\Dialogs\PublishOrderDialog.ascx" />
+    <Content Include="Views\Shared\OrderOfAdmission\Dialogs\ExcludeApplicationsDialog.ascx" />
+    <Content Include="Views\Shared\OrderOfAdmission\Dialogs\RemoveOrderDialog.ascx" />
+    <Content Include="Views\Shared\OrderOfAdmission\OrderList.ascx" />
+    <Content Include="Views\OrderOfAdmission\OrderOfAdmissionList.aspx" />
+    <Content Include="Views\Shared\Entrant\EntrantDocumentEdit.ascx" />
+    <Content Include="Views\InstitutionAchievements\Index.aspx" />
+    <Content Include="Views\RecommendedLists\RecommendedLists.aspx" />
+    <Content Include="Views\OlympicsCheck\Result.aspx" />
+    <Content Include="Views\Shared\Entrant\EntrantDocumentJS.ascx" />
+    <Content Include="Views\Shared\Entrant\EntrantDocumentVIew.ascx" />
+    <Content Include="Views\Entrant\EntrantsListGrid.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\AcceptedList.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\AcceptedListFilter.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\Dialogs\EditApplication.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\Dialogs\ViewApplication.ascx" />
+    <Content Include="Views\Shared\OrderOfAdmission\OrderListFilter.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\NewList.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\Dialogs\IncludeRecommended.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\NewListFilter.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\SearchListFilter.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\SearchList.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\Dialogs\AcceptApplications.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\Dialogs\CancelRevokeApplications.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\Dialogs\CheckApplications.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\Dialogs\RevokeApplications.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\RecommendedListFilter.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\RecommendedList.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\RevokedListFilter.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\RevokedList.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\PagerView.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\UncheckedListFilter.ascx" />
+    <Content Include="Views\Shared\InstitutionApplication\UncheckedList.ascx" />
+    <Content Include="Views\CompositionResultsExport\JavaScriptError.aspx" />
+    <Content Include="Views\Shared\Pager\PagerView.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationIndividualAchivements.ascx" />
+    <Content Include="Views\Campaign\CampaignEdit.aspx" />
+    <Content Include="Views\Campaign\CampaignDateEdit.aspx" />
+    <Content Include="Views\Campaign\CampaignList.aspx" />
+    <Content Include="Views\EgeCheck\Index.aspx" />
+    <Content Include="Views\Institution\ImportDic\ImportDictionaries.aspx" />
+    <Content Include="Views\Import\ImportInfo.aspx" />
+    <Content Include="Views\Import\ImportList.aspx" />
+    <Content Include="Views\Institution\InstitutionList.aspx" />
+    <Content Include="Views\Shared\Admission\AddAllowedDirection.ascx" />
+    <Content Include="Views\Shared\Admission\AddAllowedDirectionEdu.ascx" />
+    <Content Include="Views\Shared\Admission\DeleteAllowedDirectionEdu.ascx" />
+    <Content Include="Views\Shared\Admission\DirectionInfoPopup.ascx" />
+    <Content Include="Views\Shared\Application\ApplicationIncludeInOrderList.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shared\Catalogs\AddTest.ascx" />
+    <Content Include="Views\Administration\Catalogs\EntranceTests.aspx" />
+    <Content Include="Views\Shared\InstitutionApplication\IncludeInOrderList.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationIndividualAchivementsView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\EduCustomDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\EduCustomDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\GiaDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\GiaDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\StudentDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\StudentDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\EntrantPrintTemplatesView.ascx" />
+    <Content Include="Views\Entrant\EntrantInfo.aspx" />
+    <Content Include="Views\Entrant\EntrantsList.aspx" />
+    <Content Include="Views\InstitutionApplication\ExtendedApplicationList.aspx" />
+    <Content Include="Views\Shared\Application\QuickApplicationSearch.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shared\Catalogs\AddProfileDirection.ascx" />
+    <Content Include="Views\Shared\Catalogs\AddCreativeDirection.ascx" />
+    <Content Include="Views\Administration\Catalogs\SubjectsAndEgeMinScore.aspx" />
+    <Content Include="Views\Administration\Catalogs\EntranceTestProfileDirections.aspx" />
+    <Content Include="Views\Administration\Catalogs\EntranceTestCreativeDirections.aspx" />
+    <Content Include="Views\Shared\Catalogs\AddGeneralSubject.ascx" />
+    <Content Include="Views\Shared\Catalogs\AddQualification.ascx" />
+    <Content Include="Views\Shared\Catalogs\AddOlympic.ascx" />
+    <Content Include="Views\Shared\Catalogs\AddForeignLanguage.ascx" />
+    <Content Include="Views\Administration\CatalogsList.aspx" />
+    <Content Include="Views\Administration\ChangeUserPassword.aspx" />
+    <Content Include="Views\Administration\EditFbdUser.aspx" />
+    <Content Include="Views\Administration\Catalogs\GeneralSubjects.aspx" />
+    <Content Include="Views\Administration\Catalogs\ForeignLanguages.aspx" />
+    <Content Include="Views\Administration\Catalogs\Olympics.aspx" />
+    <Content Include="Views\Administration\Catalogs\Qualifications.aspx" />
+    <Content Include="Views\Administration\ViewUser.aspx" />
+    <Content Include="Views\Administration\EditUser.aspx" />
+    <Content Include="Views\Administration\RonList.aspx" />
+    <Content Include="Views\Administration\EduList.aspx" />
+    <Content Include="Views\Administration\ManageEntranceCampaign.aspx" />
+    <Content Include="Views\Admission\CompetitiveGroupView.aspx" />
+    <Content Include="Views\Admission\CompetitiveGroupEdit.aspx" />
+    <Content Include="Views\Admission\VolumeView.aspx" />
+    <Content Include="Views\CompetitiveGroup\CompetitiveGroupList.aspx" />
+    <Content Include="Views\Admission\VolumeEdit.aspx" />
+    <Content Include="Views\Application\ApplicationDocuments.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationPersonalData.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationSending.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationParentData.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationAddress.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationLanguages.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationEntranceTest.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Application\ApplicationAdditionalInfo.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\InstitutionApplicationDraft\InstitutionApplicationListDraft.aspx" />
+    <Content Include="Views\InstitutionApplicationDraft\InstitutionApplicationSNILS.aspx" />
+    <Content Include="Views\InstitutionApplication\InstitutionApplicationList.aspx" />
+    <Content Include="Views\OlympicsCheck\Index.aspx" />
+    <Content Include="Views\Entrant\Address.aspx" />
+    <Content Include="Views\Entrant\AddressEdit.aspx" />
+    <Content Include="Views\Entrant\ApplicationList.aspx" />
+    <Content Include="Views\Entrant\Edit.aspx" />
+    <Content Include="Views\Entrant\DocumentListView.aspx" />
+    <Content Include="Views\Entrant\DocumentList.aspx" />
+    <Content Include="Views\Entrant\Language.aspx" />
+    <Content Include="Views\Entrant\LanguageEdit.aspx" />
+    <Content Include="Views\Error\Error.aspx" />
+    <Content Include="Views\InstitutionApplication\InstitutionApplicationListIncludeInOrder.aspx" />
+    <Content Include="Views\Institution\Index.aspx" />
+    <Content Include="Views\Institution\Edit.aspx" />
+    <Content Include="Views\PreparatoryCourse\Index.aspx" />
+    <Content Include="Views\Shared\Admission\AddCompetitiveGroup.ascx" />
+    <Content Include="Views\Shared\Admission\CompetitiveGroupView.ascx" />
+    <Content Include="Views\Shared\Application\ApplicationIncludeInOrder.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shared\Benefit\AddBenefitItem.ascx" />
+    <Content Include="Views\Shared\Benefit\BenefitItemList.ascx" />
+    <Content Include="Views\Shared\Benefit\OlympicView.ascx" />
+    <Content Include="Views\Shared\Common\ApplicationSendingTabControl.ascx" />
+    <Content Include="Views\Shared\Common\ApplicationTabControl.ascx" />
+    <Content Include="Views\Shared\Common\BenefitView.ascx" />
+    <Content Include="Views\Shared\Common\CommonAjaxTabControl.ascx" />
+    <Content Include="Views\Shared\Common\CommonInfoControl.ascx" />
+    <Content Include="Views\Shared\Controls\RequiredFieldInfo.ascx" />
+    <Content Include="Views\Shared\Entrant\EntrantCard.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationEntranceTestC.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationEntranceTestCView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\OlympicTotalDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\OlympicTotalDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\MainMenuControl.ascx" />
+    <Content Include="Views\Shared\Common\NewEntrantTabControl.ascx" />
+    <Content Include="Views\Shared\Common\PreparatoryCourseView.ascx" />
+    <Content Include="Views\Shared\Controls\AdminMenuControl.ascx" />
+    <Content Include="Views\Shared\Common\CommonTabControl.ascx" />
+    <Content Include="Views\Shared\Controls\EntrantDocumentAddPart.ascx" />
+    <Content Include="Views\Shared\Controls\ImageStyles.ascx" />
+    <Content Include="Views\Shared\Controls\ResourcesHolderControl.ascx" />
+    <Content Include="Views\Shared\EntranceTest\AddEntranceTest.ascx" />
+    <Content Include="Views\Entrant\Index.aspx" />
+    <Content Include="Views\Shared\Portlets\Applications\Application.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationAddress.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationCommonInfo.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationDocuments.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationDocumentsView.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationLanguages.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationParentData.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationPersonalData.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationSending.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationSendingPage.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationView.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationWizardButtons.ascx" />
+    <Content Include="Views\Shared\Portlets\Applications\ApplicationAdditionalInfo.ascx" />
+    <Content Include="Views\Shared\Application\ApplicationViewPopup.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shared\Portlets\Entrants\EntrantApplicationList.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\EntrantLanguageView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\EntrantLanguageEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\BasicDiplomaDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\EGEDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\IdentityDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\SchoolCertificateDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\DiplomaDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\OlympicDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\DisabilityDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\PsychoDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\MilitaryCardDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\CustomDocumentView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\EntrantDocumentsListView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\BaseDocumentEditCommonPart.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\BasicDiplomaDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\CustomDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\MilitaryCardDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\PsychoDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\DisabilityDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\OlympicDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\EGEDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\DiplomaDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\SchoolCertificateDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\Documents\IdentityDocumentEdit.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\EntrantDocumentsListEdit.ascx" />
+    <Content Include="Views\Shared\Common\EntrantsTabControl.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\PersonalRecordsAddress.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\PersonalRecordsAddressView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\PersonalRecordsDataView.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\PersonalRecords.ascx" />
+    <Content Include="Views\Shared\Portlets\Entrants\PersonalRecordsData.ascx" />
+    <Content Include="Views\Shared\Portlets\Institutions\EntranceTestTree.ascx" />
+    <Content Include="Views\Shared\Portlets\Institutions\EntranceTestView.ascx" />
+    <Content Include="Views\Shared\Portlets\Institutions\InstitutionInfo.ascx" />
+    <Content Include="Views\Shared\Common\InstitutionsTabControl.ascx" />
+    <Content Include="Views\Shared\Portlets\Institutions\InstitutionStructure.ascx" />
+    <Content Include="Views\Shared\Portlets\MainPortlet.ascx" />
+    <Content Include="Views\Shared\Portlets\Searches\SearchInformer.ascx" />
+    <Content Include="Views\Shared\Portlets\Searches\SearchInstitution.ascx" />
+    <Content Include="Views\Shared\Portlets\Searches\SearchPortlet.ascx" />
+    <Content Include="Views\Shared\Portlets\Searches\SearchResultTree.ascx" />
+    <Content Include="Views\Shared\PreparatoryCourse\AddPreparatoryCourse.ascx" />
+    <Content Include="Views\Shared\RecommendedLists\IncludeApplicationInRecList.ascx" />
+    <Content Include="Views\Shared\Structure\AddItem.ascx" />
+    <Content Include="Views\Shared\TabControl.ascx" />
+    <Content Include="Views\Structure\Index.aspx" />
+    <Content Include="Views\TargetOrganization\Index.aspx" />
+    <Content Include="Views\Tree\Index.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Scripts\extra\jquery-1.4.1.js" />
+    <Content Include="Resources\Scripts\extra\jquery-1.4.1.min.js" />
+    <Content Include="Resources\Scripts\extra\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Resources\Scripts\extra\jquery.validate.js" />
+    <Content Include="Resources\Scripts\extra\jquery.validate.min.js" />
+    <Content Include="Resources\Scripts\extra\jquery.validate-vsdoc.js" />
+    <Content Include="Resources\Scripts\extra\MicrosoftAjax.js" />
+    <Content Include="Resources\Scripts\extra\MicrosoftAjax.debug.js" />
+    <Content Include="Resources\Scripts\extra\MicrosoftMvcAjax.js" />
+    <Content Include="Resources\Scripts\extra\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Resources\Scripts\extra\MicrosoftMvcValidation.js" />
+    <Content Include="Resources\Scripts\extra\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Account\LogOn.aspx" />
+    <Content Include="Views\Account\Register.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\EntranceTest\" />
+    <Folder Include="Views\Shared\EditorTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FogSoft.WSRP\FogSoft.WSRP.csproj">
+      <Project>{09138548-68D3-4EC0-9294-36833C0AED19}</Project>
+      <Name>FogSoft.WSRP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.CompositionExportModel\GVUZ.CompositionExportModel.csproj">
+      <Project>{1b20e4d0-2acd-4065-8ce9-f4949c54dbba}</Project>
+      <Name>GVUZ.CompositionExportModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.DAL\GVUZ.DAL.csproj">
+      <Project>{461dd23c-aa0b-44be-bb7b-1e949f24cd57}</Project>
+      <Name>GVUZ.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.Helper\GVUZ.Helper.csproj">
+      <Project>{2821a68d-1955-426c-81f5-73951804fa8a}</Project>
+      <Name>GVUZ.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.ImportService2016.Core\GVUZ.ImportService2016.Core.csproj">
+      <Project>{a80735fc-92a4-4390-a524-fe90f5a9d1a4}</Project>
+      <Name>GVUZ.ImportService2016.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.Model\GVUZ.Model.csproj">
+      <Project>{BF47ACA9-1DC7-4A28-BAE8-378421D198B3}</Project>
+      <Name>GVUZ.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GVUZ.ServiceModel\GVUZ.ServiceModel.csproj">
+      <Project>{0B539F23-B7BD-4080-BFC2-FC3ABAC6DA5D}</Project>
+      <Name>GVUZ.ServiceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\FogSoft.Helpers\FogSoft.Helpers.csproj">
+      <Project>{173475E2-84C2-46BE-BDFF-167D46632792}</Project>
+      <Name>FogSoft.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\FogSoft.Import\FogSoft.Import.csproj">
+      <Project>{9410C848-A627-470A-B373-9C7F038A7765}</Project>
+      <Name>FogSoft.Import</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\FogSoft.Web\FogSoft.Web.csproj">
+      <Project>{E8A0701F-4B7B-4158-9C18-10FB5ED9DCB2}</Project>
+      <Name>FogSoft.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rdms\ClearUsernameBinding\ClearUsernameBinding.csproj">
+      <Project>{D2BC4C2B-591E-4489-9515-0075112F73B0}</Project>
+      <Name>ClearUsernameBinding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rdms\Communication\Rdms.Communication.csproj">
+      <Project>{3733A805-9DD7-4E8C-B72A-8A419E94A7B8}</Project>
+      <Name>Rdms.Communication</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log4net.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SiteSimple.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\PrintTemplates\EducationDocumentCopyReplacement.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\PrintTemplates\DocumentsIssuanceReceipt.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\PrintTemplates\DocumentsAdmissionReceipt.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\PrintTemplates\ApplicationDocumentsList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Debug.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="publish_prerelease.cmd" />
+    <None Include="publish_testdevelop.cmd" />
+    <None Include="Resources\skin.css_" />
+    <Content Include="Views\Shared\PrintTemplates\ExaminationResultReference.cshtml" />
+    <Content Include="Views\Application\ApplicationWz1.ascx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61561</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61562</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

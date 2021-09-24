@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0D69885E-C53A-4AE9-B561-5688EB6814C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Esrp.EIISIntegration</RootNamespace>
+    <AssemblyName>Esrp.EIISIntegration</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug2|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug2\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\EE.EIIS.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_2|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_2\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\EE.EIIS.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Catalogs\CatalogWithCache.cs" />
+    <Compile Include="Catalogs\GenericCatalog.cs" />
+    <Compile Include="EIIS.cs" />
+    <Compile Include="Import\Importers\AllowedEducationalDirectionQualificationsImporter.cs" />
+    <Compile Include="Import\Importers\QualificationsImporter.cs" />
+    <Compile Include="Import\RetryInfo.cs" />
+    <Compile Include="Import\ErrorMessage.cs" />
+    <Compile Include="Import\Importers\AllowedEducationalDirectionsImporter.cs" />
+    <Compile Include="Import\Importers\OrganizationFoundersImporter.cs" />
+    <Compile Include="Import\Importers\FounderTypesImporter.cs" />
+    <Compile Include="Import\Importers\FoundersImporter.cs" />
+    <Compile Include="Import\Importers\LicensesImporter.cs" />
+    <Compile Include="Import\Importers\LicenseSupplementsImporter.cs" />
+    <Compile Include="Import\ImportValidationException.cs" />
+    <Compile Include="Import\Importers\EducationalDirectionsImporter.cs" />
+    <Compile Include="Import\Importers\EducationalDirectionGroupsImporter.cs" />
+    <Compile Include="Import\Importers\EIISObjectCodes.cs" />
+    <Compile Include="Import\Importers\OrganizationLimitationsImporter.cs" />
+    <Compile Include="Import\Importers\OrganizationsImporter.cs" />
+    <Compile Include="Import\Importers\EducationalDirectionTypesImporter.cs" />
+    <Compile Include="Import\Importers\EducationalLevelEIISMapImporter.cs" />
+    <Compile Include="Import\ImportEventArgs.cs" />
+    <Compile Include="Import\EIISClientFactory.cs" />
+    <Compile Include="Import\EIISObject.cs" />
+    <Compile Include="EIISEntryPoint.cs" />
+    <Compile Include="Import\Importers\OrganizationKindEIISMapImporter.cs" />
+    <Compile Include="Import\Importers\OrganizationStatusEIISMapImporter.cs" />
+    <Compile Include="Import\Importers\RegionsImporter.cs" />
+    <Compile Include="Import\ImportException.cs" />
+    <Compile Include="Import\ImporterBase.cs" />
+    <Compile Include="Import\MemoryImporter.cs" />
+    <Compile Include="Import\MessageParsers\CreatePackageParser.cs" />
+    <Compile Include="Import\MessageParsers\GetPackageMetaParser.cs" />
+    <Compile Include="Import\MessageParsers\GetPackageParser.cs" />
+    <Compile Include="Import\MessageParsers\GetSessionIdParser.cs" />
+    <Compile Include="Import\ParserBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EIISClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Esrp.DB\Esrp.DB.csproj">
+      <Project>{46902306-A482-47DE-98B7-A1BB7723CEC1}</Project>
+      <Name>Esrp.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Esrp.Integration.Common\Esrp.Integration.Common.csproj">
+      <Project>{BF3AFCBE-58C9-4AFF-B564-83171CB1B988}</Project>
+      <Name>Esrp.Integration.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="P:\Ард\ФИС Приема\SVN\ESRP\trunk\Esrp.EIISIntegration\WSDL\eiis.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EIISClient\</RelPath>
+      <UpdateFromURL>P:\Ард\ФИС Приема\SVN\ESRP\trunk\Esrp.EIISIntegration\WSDL\eiis.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Esrp_EIISIntegration_EIISClient_BaseService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EIISClient\eiis.wsdl" />
+    <None Include="Web References\EIISClient\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="WSDL\eiis.wsdl" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

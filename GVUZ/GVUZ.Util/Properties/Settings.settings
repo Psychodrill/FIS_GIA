@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GVUZ.Util.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="parseMinDateChecked" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="parseMinDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2014-01-01</Value>
+    </Setting>
+    <Setting Name="parseTruncateTable" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="parseFilterInstitution" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="parseInstitutionId" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="parseConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;User ID=scholar;Password=scholar;MultipleActiveResultSets=True;Connect Timeout=300</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0">
+    <Entities>
+        <Entity id="MenuItems" groupId="Navigation">
+            <CommonSettings allowEdit="true" allowCreate="true" allowDelete="true" newIdMode="UserInput" />
+            <DataSettings   baseTableName="MenuItems" >
+                <WhereExpression>MENUITEMS.PARENTMENUITEMID is not NULL</WhereExpression>
+            </DataSettings>
+            <ListSettings pageSize="20" headerText="Разделы 2-5 уровней" />
+            <FormSettings>
+                <FieldGroups>
+                    <FieldGroup caption="Раздел" id="1" order="1"/>
+                    <FieldGroup caption="Подразделы" id="2" order="2"/>
+                    <FieldGroup caption="Элементы" id="3" order="3"/>
+                </FieldGroups>
+            </FormSettings>
+            <Fields>
+                <Field>
+                    <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <Filter caption="Идентификатор" order="1" lineBreakAfterInput="true" input="Text" size="Short" visible="true"></Filter>
+                        <View visibility="Visible" order="1" caption="Идентификатор" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Идентификатор" editMode="ReadOnlyText" input="Text" isRequired="true" size="Normal" order="1" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Code" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Код" order="10" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="10" caption="Код" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Код" input="Text" isRequired="true" size="Normal" order="10" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <CommonSettings isNameField="true" />
+                    <DataSettings fieldName="Text" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Надпись" order="20" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="20" caption="Надпись" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Надпись" input="LongText" isRequired="true" size="Long" order="20" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="PARENTMENUITEMID" fieldType="Integer" filterMode="Equals">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Раздел 1-го уровня" order="30" lineBreakAfterInput="true" input="Picker" size="NormalLong" visible="true">
+                            <Picker entityId="RootMenuItems" />
+                        </Filter>
+                        <View visibility="Never" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings isExternal="true" lineBreakAfterInput="true" caption="Раздел 1-го уровня" input="Picker" isRequired="true" size="Long" order="30" visible="true" groupId="1">
+                        <Picker entityId="RootMenuItems" />
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Published" fieldType="Boolean" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <Filter caption="Опубликован" order="40" lineBreakAfterInput="true" input="Boolean" size="Short" visible="true"></Filter>
+                        <View visibility="Visible" order="40" caption="Опубликован" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Опубликован" editMode="Control" input="Boolean" isRequired="true" size="Normal" order="40" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>
+
+                <Field>
+                    <DataSettings fieldName="MenuItemsSubgrid" fieldType="String" filterMode="Equals" isPrimaryKey="false">
+                        <SqlExpression>MenuItems.Id</SqlExpression>
+                    </DataSettings>
+                    <FormSettings addMode="NotVisible" editMode="ReadOnlyText" caption="" groupId="2" input="SubGrid" lineBreakAfterInput="true" visible="true">
+                        <SubGrid allowUnlink="false" entityId="MenuItemsSubgrid" filterFieldName="MenuItems.PARENTMENUITEMID"/>
+                    </FormSettings>
+                </Field>
+
+                <Field>
+                    <DataSettings fieldName="MenuElementsSubGrid" fieldType="String" filterMode="Equals" isPrimaryKey="false">
+                        <SqlExpression>MenuItems.Id</SqlExpression>
+                    </DataSettings>
+                    <FormSettings addMode="NotVisible" editMode="ReadOnlyText" caption="" groupId="3" input="SubGrid" lineBreakAfterInput="true" visible="true">
+                        <SubGrid allowUnlink="false" entityId="MenuElementsSubGrid" filterFieldName="MenuElements.MenuItemId"/>
+                    </FormSettings>
+                </Field>
+
+                <Relation baseTableField="PARENTMENUITEMID" relatedTableName="MenuItems" mustExist="true" relatedTableAlias="RootItems">
+                    <Field>
+                        <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer"></DataSettings>
+                    </Field>
+                    <Field>
+                        <DataSettings fieldName="Text" fieldType="String"></DataSettings>
+                        <ListSettings>
+                            <View visibility="Visible" order="30" caption="Родительский раздел" />
+                        </ListSettings>
+                    </Field>
+                </Relation>
+            </Fields>
+        </Entity>
+    </Entities>
+</Metadata>

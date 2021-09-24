@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="Windows-1251" ?>
+<!-- Fbs 1.0 build file -->
+<project name="Fbs 1.0" default="env-check" basedir="." xmlns="http://nant.sf.net/release/0.85/nant.xsd">
+
+    <!-- подключить переменные и настройки пользователя -->
+    <include buildfile="main.include" />
+
+    <!-- подключить прикладные сборки -->
+    <include buildfile="db.include" />
+    <include buildfile="test.include" />
+    <include buildfile="report.include" />
+
+    <property name="dir.build.website" value="${dir.build}\WebSite" />
+    <!--
+    <property name="dir.build.webservice" value="${dir.build}\WebService" />
+    <property name="dir.build.service" value="${dir.build}\Service" />
+    -->
+    <!-- подготовка к работе -->
+	<target name="start"
+        description="Подготовка к работе">
+
+		<!-- подключить диск ${cg.subst.drive} -->
+		<if test="${not directory::exists(subst.drive)}">
+			<echo message="Подключение диска ${subst.drive} ${subst.path}" />
+			<exec program="subst" commandline='${subst.drive} "${subst.path}"' />
+		</if>
+
+		<!-- запустить сервисы Windows -->
+		<echo message="Запуск сервиса Microsoft SQL Server..." />
+		<servicecontroller action="Start" service="MSSQLSERVER" timeout="10000" />
+
+		<echo message="Запуск сервиса ASP.NET State Service..." />
+		<servicecontroller action="Start" service="aspnet_state" timeout="10000" />
+
+		<echo message="Запуск сервиса Wold Wide Web Publishing..." />
+		<servicecontroller action="Start" service="w3svc" timeout="10000" />
+	</target>
+
+	<!-- завершение работы -->
+	<target name="stop"
+        description="Завершение работы">
+
+		<!-- остановить сервисы Windows -->
+		<echo message="Остановка сервиса Microsoft SQL Server..." />
+		<servicecontroller action="Stop" service="MSSQLSERVER" timeout="10000" />
+
+		<echo message="Остановка сервиса ASP.NET State Service..." />
+		<servicecontroller action="Stop" service="aspnet_state" timeout="10000" />
+
+		<echo message="остановка сервиса Wold Wide Web Publishing..." />
+		<servicecontroller action="Stop" service="w3svc" timeout="10000" />
+
+		<!-- отключить диск ${cg.subst.drive} -->
+		<echo message="Отключение диска ${subst.drive} ..." />
+		<exec program="subst" commandline="${subst.drive} /D" />
+	</target>
+
+
+	<!-- очистка каталогов -->
+	<target name="clean" depends="start"
+            description="Удаление файлов, созданных при сборке проекта">
+
+		<call target="clean-fbs"/>
+	</target>
+	<target name="clean-fbs" description="Очистка каталога приложения">
+		<delete dir="${dir.build.website}" />
+
+	    <delete>
+      	    <fileset basedir="${dir.src}">
+               	<include name="*/bin/**"/>
+				<include name="*/obj/**"/>
+      	    </fileset>
+	    </delete>
+	</target>
+
+	<!-- Компиляция приложения, пересобирает только сборки в каталоге WebSite  -->
+	<target name="build" 
+		 description="Компиляция приложения, пересобирает только сборки в каталоге WebSite">
+
+        <!--mkdir dir="${dir.build.service}" /-->
+
+		<if test="${not directory::exists(dir.build.website)}">
+			<!-- Если каталог WebSite не создан, соберем его -->
+			<call target="lib-copy" />
+		</if>
+
+        	<call target="build-fbs" />
+
+		<call target="merge-config" />
+
+	<!--
+        <call target="build-service" />
+        -->
+        <!-- Копирование сервиса -->
+        <!--
+        <copy todir="${dir.build.service}" overwrite="true">
+            <fileset basedir="${dir.src}\FbsService\bin\${build.configuration}" >
+                <include name="FbsService.exe" />
+                <include name="FbsService.pdb" />
+                <include name="FbsService.exe.config" />
+            </fileset>
+        </copy>
+        -->
+    </target>
+	
+	<!-- Полная пересборка приложения, полностью пересобирает каталог WebSite -->
+	<target name="rebuild" 
+		 description="Полная пересборка приложения, полностью пересобирает каталог WebSite">
+
+		<!-- Удалим каталог WebSite -->
+		<call target="clean" />
+		<!-- Полная пересборка приложения, полностью пересобирает каталог WebSite -->
+		<call target="build" />
+	</target>
+
+	<!-- Копирование библиотек в каталог WebSite -->
+	<target name="lib-copy">
+		<!-- Копирование библиотек в каталог WebSite -->
+		
+		<copy todir="${dir.build}\WebSite\bin" overwrite="true">
+			<fileset basedir="${dir.lib}\log4net" >
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${dir.build}\WebSite\bin" overwrite="true">
+			<fileset basedir="${dir.lib}\Microsoft.Office.Interop.Word" >
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<copy todir="${dir.build}\WebSite\bin" overwrite="true">
+			<fileset basedir="${dir.lib}\WebControls" >
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<!--
+		<copy todir="${dir.build.website}" overwrite="true">
+			<fileset basedir="${dir.lib}\CGWebUI" >
+				<include name="**/*" />
+				<exclude name="**/Web.config" />
+				<exclude name="**/Web.config.user" />
+			</fileset>
+		</copy>
+
+		<property name="config" value="${dir.lib}\CGWebUI\Web.config" />
+		<property name="config.user" value="${dir.lib}\CGWebUI\Web.config.user" />
+
+		<if test="${file::exists(config.user)}">
+  		    <echo message="Base user config found." />
+			<copy file="${config.user}" tofile="${dir.build}\WebSite\Web.Config" overwrite="true" />
+		</if>
+
+		<if test="${not file::exists(config.user)}">
+			<copy file="${config}" tofile="${dir.build}\WebSite\Web.Config" overwrite="true" />
+		</if>
+		-->
+	</target>
+
+	<!-- Компиляция проектов приложения яхт -->
+	<target name="build-fbs" 
+		 description="Компиляция проектов приложения">
+
+	        <exec program ="${common.dotnet.path}\MSBuild.exe" commandline="/nologo /v:m FbsWebUI.sln"
+        	      workingdir="${dir.src}" />
+
+		<!-- Копирование страниц в WebSite -->
+	        <copy todir="${dir.build.website}" overwrite="true">
+        	    <fileset basedir="${dir.src}\FbsWebUI">
+	        	    <include name="*.axd" />
+        	    	<include name="*.asax" />
+	                <include name="*.aspx" />
+	                <include name="*.config" />
+	                <include name="*.sitemap" />
+	                <include name="*.navigation" />
+	                <include name="*.gif" />
+	                <include name="*.svc" />
+        	    </fileset>
+	        </copy>
+
+	        <copy todir="${dir.build.website}\Common" overwrite="true">
+        	    <fileset basedir="${dir.src}\FbsWebUI\Common">
+	                <include name="**/*" />
+        	    </fileset>
+	        </copy>
+
+		<delete>
+	    	    <fileset basedir="${dir.build.website}\Common\Templates">
+               	        <include name="*.cs"/>
+		    </fileset>
+		</delete>
+
+	        <copy todir="${dir.build.website}\Administration" overwrite="true">
+        	    <fileset basedir="${dir.src}\FbsWebUI\Administration">
+	                <include name="**/*.aspx" />
+        	    </fileset>
+	        </copy>
+
+	        <copy todir="${dir.build.website}\Profile" overwrite="true">
+        	    <fileset basedir="${dir.src}\FbsWebUI\Profile">
+	                <include name="**/*.aspx" />
+                    <include name="**/*.ashx" />
+        	    </fileset>
+	        </copy>
+
+	        <copy todir="${dir.build.website}\Templates" overwrite="true">
+        	    <fileset basedir="${dir.src}\FbsWebUI\Templates">
+	                <include name="**/*" />
+        	    </fileset>
+	        </copy>
+
+	        <copy todir="${dir.build.website}\Shared" overwrite="true">
+        	    <fileset basedir="${dir.src}\FbsWebUI\Shared">
+	                <include name="**/*" />
+        	    </fileset>
+	        </copy>
+	        
+            <copy todir="${dir.build.website}\Certificates" overwrite="true">
+        	    <fileset basedir="${dir.src}\FbsWebUI\Certificates">
+	                <include name="**/*.aspx" />
+        	    </fileset>
+	        </copy>
+
+       		<!-- Копирование контролов в WebSite -->
+	        <copy todir="${dir.build.website}\Controls" overwrite="true">
+        	    <fileset basedir="${dir.src}\FbsWebUI\Controls">
+	                <include name="**/*.ascx" />
+        	    </fileset>
+	        </copy>
+
+		<!-- Копирование сборок в WebSite -->
+	        <copy todir="${dir.build.website}\bin" overwrite="true">
+        	    <fileset basedir="${dir.src}\FbsWebUI\bin">
+	                <include name="Fbs*.*" />
+        	    </fileset>
+	        </copy>
+		<!-- Копирование TinyMce в WebSite -->
+	        <!--
+	        <copy todir="${dir.build.website}\common\tiny_mce" overwrite="true">
+        	    <fileset basedir="${dir.src}\TinyMce">
+	                <include name="**/*.*" />
+        	    </fileset>
+	        </copy>
+	        -->
+	</target>
+
+	<!-- Объединение конфигурационных файлов -->
+	<target name="merge-config" 
+		description="Объединение конфигурационных файлов">
+		<!--
+        <exec program="${dir.tools}\XmlConfigMerge\XmlConfigMergeConsole.exe">
+			<arg value="${dir.build}\WebSite\Web.config" />
+            <arg value="-m" />
+            <arg value="${dir.src}\YachtsWebUI\Web.config" />
+    	</exec>
+
+		<property name="config" value="${dir.src}\YachtsWebUI\Web.config" />
+		<property name="config.user" value="${dir.src}\YachtsWebUI\Web.config.user" />
+
+		<if test="${file::exists(config.user)}">
+  		    <echo message="User config found." />
+	        <exec program="${dir.tools}\XmlConfigMerge\XmlConfigMergeConsole.exe">
+                <arg value="${dir.build}\WebSite\Web.config" />
+                <arg value="-m" />
+                <arg value="${config.user}" />
+    	    </exec>
+		</if>
+
+		<if test="${not file::exists(config.user)}">
+	        <exec program="${dir.tools}\XmlConfigMerge\XmlConfigMergeConsole.exe">
+                <arg value="${dir.build}\WebSite\Web.config" />
+                <arg value="-m" />
+                <arg value="${config}" />
+    	    </exec>
+		</if>
+		-->
+	</target>
+
+    <!-- Компиляция сервиса FbsService -->
+    <!--
+    <target name="build-service"
+        description="Компиляция проектов приложения">
+
+        <exec program ="${common.dotnet.path}\MSBuild.exe" commandline="/nologo /v:m FbsService.sln"
+              workingdir="${dir.src}" />
+
+    </target>
+    -->
+
+    <!-- Регистрация/разрегистрация сервиса YachtsService -->
+    <!--
+    <target name="install-service"
+            description="Регистрация сервиса FbsService">
+        <exec program ="${common.dotnet.path}\InstallUtil.exe" commandline="FbsService.exe"
+              workingdir="${dir.build.service}" />
+    </target>
+    <target name="uninstall-service"
+            description="Разрегистрация сервиса FbsService">
+        <exec program ="${common.dotnet.path}\InstallUtil.exe" commandline="/u FbsService.exe"
+              workingdir="${dir.build.service}" />
+    </target>
+
+    <target name="start-service"
+            description="Запуск сервиса FbsService">
+        <exec program="net.exe" commandline="START FbsService" />
+    </target>
+
+    <target name="stop-service"
+            description="Останов сервиса FbsService">
+        <exec program="net.exe" commandline="STOP FbsService" />
+    </target>
+    -->
+</project>

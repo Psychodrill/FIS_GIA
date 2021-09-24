@@ -1,0 +1,119 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/profile.css")"/>
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/profile.js")"> </script>
+}
+@{
+    ViewBag.Title = "Личный кабинет";
+}
+
+@Html.Partial("Menu")
+
+<input type="hidden" value="@User.IsInRole("fct").ToString()" id="is-fct" />
+
+<div class="account-block">
+    <a href="#" id="logout">Выход</a>
+</div>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="tabs" id="tabs">
+    <div class="tab">Контакты РЦОИ</div>
+    <div class="tab">Смена пароля</div>
+</div>
+<div id="tab-content" class="tab-content"></div>
+
+<script type="text/html" id="tab-0">
+    <button class="btn-light fl-right btn-m" id="deactivate">Отключить учетную запись</button>
+    <form class="entry-form" data-index="0">
+        <div class="entry-form_label">
+            ФИО администратора портала &laquo;Результаты ЕГЭ&raquo;
+        </div>
+        <div class="entry-form_input">
+            <input type="text" name="Fio" value="{{Fio}}">
+        </div>
+        <div class="entry-form_label">
+            Номер телефона РЦОИ
+        </div>
+        <div class="entry-form_input">
+            <input type="text" name="Phone" value="{{Phone}}">
+        </div>
+        <div class="entry-form_label">
+            E-mail РЦОИ
+        </div>
+        <div class="entry-form_input">
+            <input type="text" name="Email" value="{{Email}}">
+        </div>
+        <div class="entry-form_label">
+            Номер телефона горячей линии РЦОИ
+        </div>
+        <div class="entry-form_input">
+            <input type="text" name="HotLinePhone" value="{{HotLinePhone}}">
+            <div class="entry-form_input_label">
+                По данному номеру участники ЕГЭ смогут обращаться по вопросам работы портала &laquo;Результаты ЕГЭ&raquo;
+            </div>
+        </div>
+        <div class="entry-form_label">
+            Реквизиты сервера бланков ЕГЭ
+        </div>
+        <div class="entry-form_input">
+            <input type="text" name="BlanksServer" value="{{BlanksServer}}">
+            <div class="entry-form_input_label">
+                Ссылка на корневую папку сервера бланков ЕГЭ
+            </div>
+        </div>
+        <div class="entry-form_label">
+            Реквизиты сервера бланков сочинений
+        </div>
+        <div class="entry-form_input">
+            <input type="text" name="CompositionBlanksServer" value="{{CompositionBlanksServer}}">
+            <div class="entry-form_input_label">
+                Ссылка на корневую папку сервера бланков итогового сочинения (изложения). Если для бланков ЕГЭ и сочинения используется один сервер, продублируйте ссылку.
+            </div>
+        </div>
+        <div class="entry-form_label">
+            Информация для участников ЕГЭ
+        </div>
+        <div class="entry-form_input">
+            <textarea name="Description">{{Description}}</textarea>
+            <div class="entry-form_input_label">
+                Сообщение будет доступно для просмотра всем участникам ЕГЭ региона
+            </div>
+        </div>
+        <button>
+            <span>Сохранить</span>
+            @RawHtml("~/Content/Pages/Partials/loader.html")
+        </button>
+    </form>
+</script>
+
+<script type="text/html" id="tab-1">
+    <form class="entry-form" data-index="1">
+        <div class="entry-form_label">
+            Введите новый пароль
+        </div>
+        <div class="entry-form_input">
+            <input type="password" name="Password" required>
+        </div>
+        <div class="entry-form_label">
+            Введите новый пароль повторно
+        </div>
+        <div class="entry-form_input">
+            <input type="password" required>
+        </div>
+        <button>
+            <span>Сохранить</span>
+            @RawHtml("~/Content/Pages/Partials/loader.html")
+        </button>
+    </form>
+</script>
+
+<script type="text/html" id="region-tmpl">
+    <select id="regions-select">
+        <option disabled selected>Выберите регион</option>
+        {{#regions}}
+        <option value="{{REGION}}">{{RegionName}}</option>
+        {{/regions}}
+    </select>
+</script>

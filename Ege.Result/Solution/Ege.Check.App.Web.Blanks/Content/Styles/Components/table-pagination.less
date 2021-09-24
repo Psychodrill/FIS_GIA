@@ -1,0 +1,34 @@
+.dataTables_paginate {
+	margin-top: 10px;
+	text-align: right;
+
+	.paginate_button {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		outline: none;
+		text-decoration: none;
+		cursor: pointer;
+		text-align: center;
+		background: #dae1f7;
+		color: #000;
+		margin-left: 2px;
+		border: 1px solid #C2C2C2;
+
+		&.current {
+			background: #94AAEF;
+			border-color: #929292;
+		}
+
+		&.disabled {
+			background: #F3F3F3;
+			border-color: #E4E4E4;
+			color: #B2B2B2;
+		}
+	}
+
+	span:not(.paginate_button) {
+		margin: 0 3px;
+	}
+}

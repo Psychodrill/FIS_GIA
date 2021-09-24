@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://nant.sf.net/release/0.90/nant.xsd" name="GVUZ.AppExport" default="publish">
+	<property name="build-files" value="bin\Release" />
+	<property name="publish-dir" value="C:\develop\AppExportService" />
+	<target name="publish">
+		<exec program="net.exe" commandline="stop gvuzappex" failonerror="false" timeout="30000" />
+		<delete dir="${publish-dir}" />
+		<copy todir="${publish-dir}">
+			<fileset basedir="${build-files}">
+				<include name="**/*" />
+				<exclude name="*.pdb" />
+				<exclude name="*.vshost.*" />
+			</fileset>
+		</copy>
+		<exec program="${publish-dir}\Install\x64\reinstall.bat" workingdir="${publish-dir}\Install\x64" failonerror="false" />
+		<exec program="net.exe" commandline="start gvuzappex" failonerror="false" />
+	</target>
+</project>	

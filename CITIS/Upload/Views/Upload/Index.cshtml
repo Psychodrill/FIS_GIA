@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Загрузка файлов";
+}
+
+@Scripts.Render("~/bundles/jquery")
+
+<h2>Загрузка файлов</h2>
+
+<div class="row">
+    @using (Html.BeginForm("Commit", "Upload", FormMethod.Post))
+    {
+        <div class="form-group row">
+            <label for="campageUID" class="col-md-2 col-form-label">Приемная компания</label>
+            <div class="col-md-10">
+                @Html.TextBox("campageUID", null, new { @class = "form-control", @required = "required" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="enrUID" class="col-md-2 col-form-label">UID абитуриента</label>
+            <div class="col-md-10">
+                @Html.TextBox("enrUID", null, new { @class = "form-control", @required = "required" })
+            </div>
+        </div>
+
+        Html.RenderAction("GetComponent", "DropzoneAttachment", new { referenceId = "uploadpage" });
+        <button class="btn btn-primary pull-right" type="submit">Загрузить</button>
+    }
+</div>

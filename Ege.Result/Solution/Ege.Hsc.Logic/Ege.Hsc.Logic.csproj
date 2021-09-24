@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{640444CC-4172-4443-A76D-72241AE5182F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ege.Hsc.Logic</RootNamespace>
+    <AssemblyName>Ege.Hsc.Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.1.0\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.1.0\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.NLog31, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.NLog31.3.1.0\lib\net40\Common.Logging.NLog31.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.2.12.0.2\lib\net40-client\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.3\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JetBrains.Annotations">
+      <HintPath>..\packages\JetBrains.Annotations.Redist.7.1\lib\net40\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TsSoft.BindingsDescription, Version=1.0.5583.35493, Culture=neutral, PublicKeyToken=e362646c9e1f551e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.BindingsDescription.1.0.5583.35493\lib\net45\TsSoft.BindingsDescription.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TsSoft.Commons">
+      <HintPath>..\packages\TsSoft.Commons.2.1.5511.23069\lib\net4\TsSoft.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="TsSoft.Excel, Version=1.0.5584.30206, Culture=neutral, PublicKeyToken=35a1e0dbba8f8097, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.Excel.1.0.5584.30206\lib\net45\TsSoft.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TsSoft.Excel.NinjectResolver, Version=1.0.5584.30206, Culture=neutral, PublicKeyToken=35a1e0dbba8f8097, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.Excel.NinjectResolver.1.0.5584.30206\lib\net45\TsSoft.Excel.NinjectResolver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TsSoft.Expressions.Helpers, Version=1.0.5583.35493, Culture=neutral, PublicKeyToken=e362646c9e1f551e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.Expressions.Helpers.1.0.5583.35493\lib\net45\TsSoft.Expressions.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TsSoft.Expressions.Models, Version=1.0.5583.35493, Culture=neutral, PublicKeyToken=e362646c9e1f551e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.Expressions.Models.1.0.5583.35493\lib\net45\TsSoft.Expressions.Models.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blanks\BlankDownloader.cs" />
+    <Compile Include="Blanks\BlankService.cs" />
+    <Compile Include="Blanks\BlankZipper.cs" />
+    <Compile Include="Blanks\ConfigBlankApplicationSettings.cs" />
+    <Compile Include="Blanks\FilePathHelper.cs" />
+    <Compile Include="Blanks\FileWriter.cs" />
+    <Compile Include="Blanks\IBlankApplicationSettings.cs" />
+    <Compile Include="Blanks\IBlankService.cs" />
+    <Compile Include="Blanks\IBlankZipper.cs" />
+    <Compile Include="Blanks\IErrorFileCreator.cs" />
+    <Compile Include="Blanks\IFilePathHelper.cs" />
+    <Compile Include="Blanks\IFileWriter.cs" />
+    <Compile Include="Blanks\IInvalidPngRemover.cs" />
+    <Compile Include="Blanks\InvalidPngRemover.cs" />
+    <Compile Include="Blanks\MagicNumbers.cs" />
+    <Compile Include="Configuration\HscSettings.cs" />
+    <Compile Include="Configuration\IHscSettings.cs" />
+    <Compile Include="Csv\IRequestCsvParser.cs" />
+    <Compile Include="Mappers\BlankServerErrorToExcelModelMapper.cs" />
+    <Compile Include="Mappers\BlankToDownloadEntityToBlankMapper.cs" />
+    <Compile Include="Mappers\ParticipantNameExtractor.cs" />
+    <Compile Include="Mappers\RequestDataToRequestStatusMapper.cs" />
+    <Compile Include="Mappers\RequestErrorMapper.cs" />
+    <Compile Include="Mappers\RequestToParticipantMapper.cs" />
+    <Compile Include="Ninject\EgeHscLogicNinjectModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Blanks\IBlankDownloader.cs" />
+    <Compile Include="Requests\IRequestService.cs" />
+    <Compile Include="Requests\RequestService.cs" />
+    <Compile Include="Servers\IServerChecker.cs" />
+    <Compile Include="Servers\IServerFileParser.cs" />
+    <Compile Include="Servers\IServerService.cs" />
+    <Compile Include="Servers\ServerChecker.cs" />
+    <Compile Include="Servers\ServerFileParser.cs" />
+    <Compile Include="Servers\ServerService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ege.Check.Common\Ege.Check.Common.csproj">
+      <Project>{5DEE1362-7ED0-4A8D-BAB0-211DA7AD3C04}</Project>
+      <Name>Ege.Check.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Dal.Blanks\Ege.Check.Dal.Blanks.csproj">
+      <Project>{F9E98331-CDC2-4D2D-BD74-6D3A9C1A29DF}</Project>
+      <Name>Ege.Check.Dal.Blanks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Logic.Models\Ege.Check.Logic.Models.csproj">
+      <Project>{FC3A4FFE-EAEC-40F5-92EE-ACC13D0C224C}</Project>
+      <Name>Ege.Check.Logic.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Dal.Common\Ege.Dal.Common.csproj">
+      <Project>{410C7C9C-CDD7-4018-8526-3B9A207CDD89}</Project>
+      <Name>Ege.Dal.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Hsc.Dal.Entities\Ege.Hsc.Dal.Entities.csproj">
+      <Project>{BD805E08-A9FD-4ADA-BF7F-504A9336AD14}</Project>
+      <Name>Ege.Hsc.Dal.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Hsc.Dal.Store\Ege.Hsc.Dal.Store.csproj">
+      <Project>{610F2462-9A34-48DA-9A04-6F7681659A8E}</Project>
+      <Name>Ege.Hsc.Dal.Store</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Hsc.Logic.Models\Ege.Hsc.Logic.Models.csproj">
+      <Project>{B309F323-FD91-4147-8430-B8A748A5848D}</Project>
+      <Name>Ege.Hsc.Logic.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

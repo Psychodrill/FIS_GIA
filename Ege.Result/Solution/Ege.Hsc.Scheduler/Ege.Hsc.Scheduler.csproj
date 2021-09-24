@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4EE32E3D-BE29-488D-8785-E09132729E2E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ege.Hsc.Scheduler</RootNamespace>
+    <AssemblyName>Ege.Hsc.Scheduler</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.1.0\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.1.0\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.NLog31, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.NLog31.3.1.0\lib\net40\Common.Logging.NLog31.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.3\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JetBrains.Annotations">
+      <HintPath>..\packages\JetBrains.Annotations.Redist.7.1\lib\net40\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.3.2.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.3.2\lib\net40\Quartz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TsSoft.BindingsDescription, Version=1.0.5583.35493, Culture=neutral, PublicKeyToken=e362646c9e1f551e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.BindingsDescription.1.0.5583.35493\lib\net45\TsSoft.BindingsDescription.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TsSoft.Excel, Version=1.0.5584.30206, Culture=neutral, PublicKeyToken=35a1e0dbba8f8097, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.Excel.1.0.5584.30206\lib\net45\TsSoft.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TsSoft.Excel.NinjectResolver, Version=1.0.5584.30206, Culture=neutral, PublicKeyToken=35a1e0dbba8f8097, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.Excel.NinjectResolver.1.0.5584.30206\lib\net45\TsSoft.Excel.NinjectResolver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TsSoft.Expressions.Helpers, Version=1.0.5583.35493, Culture=neutral, PublicKeyToken=e362646c9e1f551e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.Expressions.Helpers.1.0.5583.35493\lib\net45\TsSoft.Expressions.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TsSoft.Expressions.Models, Version=1.0.5583.35493, Culture=neutral, PublicKeyToken=e362646c9e1f551e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.Expressions.Models.1.0.5583.35493\lib\net45\TsSoft.Expressions.Models.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TsSoft.NinjectBindings, Version=1.0.5583.35494, Culture=neutral, PublicKeyToken=e362646c9e1f551e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TsSoft.NinjectBindings.1.0.5583.35494\lib\net45\TsSoft.NinjectBindings.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\IJobCronStringConfiguration.cs" />
+    <Compile Include="Configuration\ConfigurationManagerJobCronStringConfiguration.cs" />
+    <Compile Include="Jobs\AsyncJob.cs" />
+    <Compile Include="Jobs\BaseJob.cs" />
+    <Compile Include="Jobs\CheckServerAvailabilityJob.cs" />
+    <Compile Include="Jobs\DeleteOldZipsJob.cs" />
+    <Compile Include="Jobs\DownloadBlanksJob.cs" />
+    <Compile Include="Jobs\FixPageCountInconsistenciesJob.cs" />
+    <Compile Include="Jobs\LoadBlanksJob.cs" />
+    <Compile Include="Jobs\LoadCompositionPageCountJob.cs" />
+    <Compile Include="Jobs\LoadServersJob.cs" />
+    <Compile Include="Jobs\UpdateBlankCacheJob.cs" />
+    <Compile Include="Jobs\ZipBlanksJob.cs" />
+    <Compile Include="Ninject\Extensions.Quartz\NinjectJobFactory.cs" />
+    <Compile Include="Ninject\Extensions.Quartz\NinjectSchedulerFactory.cs" />
+    <Compile Include="Ninject\Extensions.Quartz\QuartzNinjectModule.cs" />
+    <Compile Include="Ninject\NinjectKernelFactory.cs" />
+    <Compile Include="Ninject\NinjectRetriever.cs" />
+    <Compile Include="Ninject\SchedulerNinjectModule.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Retrievers\ISchedulerRetriever.cs" />
+    <Compile Include="Retrievers\ISchedulingManagerRetriever.cs" />
+    <Compile Include="Scheduler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Scheduler.Designer.cs">
+      <DependentUpon>Scheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scheduling\ISchedulingManager.cs" />
+    <Compile Include="Scheduling\SchedulingManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="App.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="App.Test.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ege.Check.Common\Ege.Check.Common.csproj">
+      <Project>{5DEE1362-7ED0-4A8D-BAB0-211DA7AD3C04}</Project>
+      <Name>Ege.Check.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Dal.Blanks\Ege.Check.Dal.Blanks.csproj">
+      <Project>{F9E98331-CDC2-4D2D-BD74-6D3A9C1A29DF}</Project>
+      <Name>Ege.Check.Dal.Blanks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Dal.Cache.Interfaces\Ege.Check.Dal.Cache.Interfaces.csproj">
+      <Project>{9DAD3F69-C3B5-4010-AA52-A4A4B54E7F64}</Project>
+      <Name>Ege.Check.Dal.Cache.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Dal.Cache.Redis\Ege.Check.Dal.Cache.Redis.csproj">
+      <Project>{EBD2DC82-AE75-4E9D-BAF1-03F0C16C4955}</Project>
+      <Name>Ege.Check.Dal.Cache.Redis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Dal.Cache\Ege.Check.Dal.Cache.csproj">
+      <Project>{B0056DE4-610C-446B-B761-9E64D65A81AF}</Project>
+      <Name>Ege.Check.Dal.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Dal.MemoryCache\Ege.Check.Dal.MemoryCache.csproj">
+      <Project>{327D48CC-4FD2-49FA-BEDF-2295560F38B6}</Project>
+      <Name>Ege.Check.Dal.MemoryCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Dal.Store\Ege.Check.Dal.Store.csproj">
+      <Project>{6284F453-A392-4456-8B41-21C648EC3BD8}</Project>
+      <Name>Ege.Check.Dal.Store</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Logic\Ege.Check.Logic.csproj">
+      <Project>{3C8EB881-7AA0-48C6-8725-AAE6DD4B76D5}</Project>
+      <Name>Ege.Check.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Dal.Common\Ege.Dal.Common.csproj">
+      <Project>{410C7C9C-CDD7-4018-8526-3B9A207CDD89}</Project>
+      <Name>Ege.Dal.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Hsc.Dal.Entities\Ege.Hsc.Dal.Entities.csproj">
+      <Project>{BD805E08-A9FD-4ADA-BF7F-504A9336AD14}</Project>
+      <Name>Ege.Hsc.Dal.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Hsc.Dal.Store\Ege.Hsc.Dal.Store.csproj">
+      <Project>{610F2462-9A34-48DA-9A04-6F7681659A8E}</Project>
+      <Name>Ege.Hsc.Dal.Store</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Hsc.Logic.Models\Ege.Hsc.Logic.Models.csproj">
+      <Project>{B309F323-FD91-4147-8430-B8A748A5848D}</Project>
+      <Name>Ege.Hsc.Logic.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Hsc.Logic\Ege.Hsc.Logic.csproj">
+      <Project>{640444CC-4172-4443-A76D-72241AE5182F}</Project>
+      <Name>Ege.Hsc.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="AfterCompile" Condition="exists('app.$(Configuration).config')">
+    <!-- Generate transformed app config in the intermediate directory -->
+    <TransformXml Source="app.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="app.$(Configuration).config" />
+    <!-- Force build process to use the transformed configuration file from now on. -->
+    <ItemGroup>
+      <AppConfigWithTargetPath Remove="app.config" />
+      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
+        <TargetPath>$(TargetFileName).config</TargetPath>
+      </AppConfigWithTargetPath>
+    </ItemGroup>
+  </Target>
+</Project>

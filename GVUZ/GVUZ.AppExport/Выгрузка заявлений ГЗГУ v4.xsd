@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by Any1 (Ru-Board) -->
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="TDate">
+		<xs:restriction base="xs:date">
+			<xs:minInclusive value="1800-01-01"/>
+			<xs:maxInclusive value="3000-01-01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TDateTime">
+		<xs:restriction base="xs:dateTime">
+			<xs:minInclusive value="1800-01-01T00:00:00"/>
+			<xs:maxInclusive value="3000-01-01T00:00:00"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="PackageData">
+		<xs:annotation>
+			<xs:documentation>Пакет с выгружаемыми данными</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Applications">
+					<xs:annotation>
+						<xs:documentation>Заявления абитуриентов</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Application" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Заявление от абитуриента</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:all>
+										<xs:element name="AppID" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>Идентификатор Заявления</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="RegistrationDate" type="TDateTime">
+											<xs:annotation>
+												<xs:documentation>Дата регистрации заявления</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="LastDenyDate" type="TDateTime" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Дата отзыва заявления</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="StatusID" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>Статус заявления (справочник №4)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="FinSourceAndEduForms">
+											<xs:annotation>
+												<xs:documentation>Условия приема, выбранные абитуриентом</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="FinSourceEduForm" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Условие приема</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:all>
+																<xs:element name="FinanceSourceID" type="xs:unsignedInt">
+																	<xs:annotation>
+																		<xs:documentation>ИД источника финансирования (справочник №15)</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="EducationFormID" type="xs:unsignedInt">
+																	<xs:annotation>
+																		<xs:documentation>ИД формы обучения (справочник №14)</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="EducationLevelID" type="xs:unsignedInt">
+																	<xs:annotation>
+																		<xs:documentation>ИД уровня подготовки</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="DirectionID" type="xs:unsignedInt">
+																	<xs:annotation>
+																		<xs:documentation>ИД направления</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="Number">
+																	<xs:annotation>
+																		<xs:documentation>Количество мест по условию приема</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="OrderTypeID" type="xs:unsignedInt" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Тип приказа о зачислении</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="IsForBeneficiary" type="xs:unsignedInt" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Признак приказа для льготных категорий</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="UseBeneficiarySubject" type="xs:unsignedInt" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Признак использоваания льготы по предмету</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="CommonBeneficiaryDocTypeID" type="xs:unsignedInt" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Тип документа общей льготы без ВИ</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="EntranceTestResults" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Результаты вступительных испытаний с которыми заявление было включено в приказ</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="EntranceTestResult" maxOccurs="unbounded">
+																				<xs:annotation>
+																					<xs:documentation>Результат вступительного испытания</xs:documentation>
+																				</xs:annotation>
+																				<xs:complexType>
+																					<xs:all>
+																						<xs:element name="EntranceTestResultID" type="xs:unsignedInt">
+																							<xs:annotation>
+																								<xs:documentation>Идентификатор результата ВИ</xs:documentation>
+																							</xs:annotation>
+																						</xs:element>
+																						<xs:element name="ResultValue" type="xs:decimal">
+																							<xs:annotation>
+																								<xs:documentation>Балл</xs:documentation>
+																							</xs:annotation>
+																						</xs:element>
+																						<xs:element name="ResultSourceTypeID" type="xs:unsignedInt">
+																							<xs:annotation>
+																								<xs:documentation>ИД основания для оценки (справочник №6)</xs:documentation>
+																							</xs:annotation>
+																						</xs:element>
+																						<xs:element name="EntranceTestTypeID" type="xs:unsignedInt">
+																							<xs:annotation>
+																								<xs:documentation>ИД типа вступительного испытания (справочник №11)</xs:documentation>
+																							</xs:annotation>
+																						</xs:element>
+																					</xs:all>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:all>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:all>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Root">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="PackageData"/>
+				<xs:element name="EsrpOrgID">
+					<xs:annotation>
+						<xs:documentation>Идентификатор ВУЗа</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

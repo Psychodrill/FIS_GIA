@@ -1,0 +1,18 @@
+﻿@using Ege.Check.App.Web.Controllers
+<div class="menu">
+    <div class="menu-table">
+        @if (User.IsInRole("fct") || User.IsInRole("rcoi"))
+        {
+            <a href="@Url.RouteUrl(StaffController.SettingsRoute)" id="settings-link">Настройки экзаменов</a>
+            <a href="@Url.RouteUrl(StaffController.CancelledRoute)" id="cancelled-link">Отменённые результаты</a>
+            <a href="@Url.RouteUrl(StaffController.ProfileRoute)" id="profile-link">Личный кабинет РЦОИ</a>
+            <a href="@Url.RouteUrl(StaffController.DocumentsRoute)" id="docs-link">Документы</a>
+        }
+        @if (User.IsInRole("fct"))
+        {
+            <a href="@Url.RouteUrl(StaffController.TaskSettingsRoute)" id="task-settings-link">Настройки ответов</a>
+            <a href="@Url.RouteUrl(StaffController.UsersRoute)" id="users-link">Пользователи</a>
+            <a href="@Url.RouteUrl(StaffController.ServersRoute)" id="servers-link">Доступность серверов</a>
+        }
+    </div>
+</div>

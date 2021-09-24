@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BenefitsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BenefitsModelStoreContainer">
+          <EntitySet Name="AdmissionRules" EntityType="BenefitsModel.Store.AdmissionRules" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Benefit" EntityType="BenefitsModel.Store.Benefit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BenefitItemC" EntityType="BenefitsModel.Store.BenefitItemC" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BenefitItemCOlympicType" EntityType="BenefitsModel.Store.BenefitItemCOlympicType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BenefitItemSubject" EntityType="BenefitsModel.Store.BenefitItemSubject" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GlobalMinEge" EntityType="BenefitsModel.Store.GlobalMinEge" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Institution" EntityType="BenefitsModel.Store.Institution" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OlympicDiplomType" EntityType="BenefitsModel.Store.OlympicDiplomType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OlympicLevel" EntityType="BenefitsModel.Store.OlympicLevel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OlympicType" EntityType="BenefitsModel.Store.OlympicType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OlympicTypeSubjectLink" EntityType="BenefitsModel.Store.OlympicTypeSubjectLink" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subject" EntityType="BenefitsModel.Store.Subject" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BenefitItemC_Benefit" Association="BenefitsModel.Store.FK_BenefitItemC_Benefit">
+            <End Role="Benefit" EntitySet="Benefit" />
+            <End Role="BenefitItemC" EntitySet="BenefitItemC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenefitItemC_OlympicDiplomType" Association="BenefitsModel.Store.FK_BenefitItemC_OlympicDiplomType">
+            <End Role="OlympicDiplomType" EntitySet="OlympicDiplomType" />
+            <End Role="BenefitItemC" EntitySet="BenefitItemC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenefitItemCOlympicType_BenefitItemC" Association="BenefitsModel.Store.FK_BenefitItemCOlympicType_BenefitItemC">
+            <End Role="BenefitItemC" EntitySet="BenefitItemC" />
+            <End Role="BenefitItemCOlympicType" EntitySet="BenefitItemCOlympicType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenefitItemCOlympicType_OlympicType" Association="BenefitsModel.Store.FK_BenefitItemCOlympicType_OlympicType">
+            <End Role="OlympicType" EntitySet="OlympicType" />
+            <End Role="BenefitItemCOlympicType" EntitySet="BenefitItemCOlympicType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenefitItemSubject_BenefitItemC1" Association="BenefitsModel.Store.FK_BenefitItemSubject_BenefitItemC1">
+            <End Role="BenefitItemC" EntitySet="BenefitItemC" />
+            <End Role="BenefitItemSubject" EntitySet="BenefitItemSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenefitItemSubject_Subject1" Association="BenefitsModel.Store.FK_BenefitItemSubject_Subject1">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="BenefitItemSubject" EntitySet="BenefitItemSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OlympicLevel_OlympicTypeSubjectLink" Association="BenefitsModel.Store.FK_OlympicLevel_OlympicTypeSubjectLink">
+            <End Role="OlympicLevel" EntitySet="OlympicLevel" />
+            <End Role="OlympicTypeSubjectLink" EntitySet="OlympicTypeSubjectLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OlympicType_OlympicLevel" Association="BenefitsModel.Store.FK_OlympicType_OlympicLevel">
+            <End Role="OlympicLevel" EntitySet="OlympicLevel" />
+            <End Role="OlympicType" EntitySet="OlympicType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OlympicTypeSubjectLink_OlympicType" Association="BenefitsModel.Store.FK_OlympicTypeSubjectLink_OlympicType">
+            <End Role="OlympicType" EntitySet="OlympicType" />
+            <End Role="OlympicTypeSubjectLink" EntitySet="OlympicTypeSubjectLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OlympicTypeSubjectLink_Subject" Association="BenefitsModel.Store.FK_OlympicTypeSubjectLink_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="OlympicTypeSubjectLink" EntitySet="OlympicTypeSubjectLink" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdmissionRules">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="varchar" Nullable="false" MaxLength="512" />
+          <Property Name="MimeType" Type="varchar" Nullable="false" MaxLength="512" />
+          <Property Name="File" Type="varbinary(max)" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ChangeDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Benefit">
+          <Key>
+            <PropertyRef Name="BenefitID" />
+          </Key>
+          <Property Name="BenefitID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ShortName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BenefitItemC">
+          <Key>
+            <PropertyRef Name="BenefitItemID" />
+          </Key>
+          <Property Name="BenefitItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EntranceTestItemID" Type="int" />
+          <Property Name="OlympicDiplomTypeID" Type="smallint" Nullable="false" />
+          <Property Name="OlympicLevelFlags" Type="smallint" Nullable="false" />
+          <Property Name="BenefitID" Type="smallint" Nullable="false" />
+          <Property Name="IsForAllOlympic" Type="bit" Nullable="false" />
+          <Property Name="IsProfileSubject" Type="bit" Nullable="false" />
+          <Property Name="CompetitiveGroupID" Type="int" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="OlympicYear" Type="int" Nullable="false" />
+          <Property Name="EgeMinValue" Type="int" />
+        </EntityType>
+        <EntityType Name="BenefitItemCOlympicType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BenefitItemID" Type="int" Nullable="false" />
+          <Property Name="OlympicTypeID" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BenefitItemSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BenefitItemId" Type="int" Nullable="false" />
+          <Property Name="SubjectId" Type="int" Nullable="false" />
+          <Property Name="EgeMinValue" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GlobalMinEge">
+          <Key>
+            <PropertyRef Name="EgeYear" />
+          </Key>
+          <Property Name="EgeYear" Type="int" Nullable="false" />
+          <Property Name="MinEgeScore" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Institution">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Name="InstitutionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionTypeID" Type="smallint" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="1000" />
+          <Property Name="BriefName" Type="varchar" MaxLength="500" />
+          <Property Name="FormOfLawID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="Site" Type="varchar" MaxLength="255" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="HasMilitaryDepartment" Type="bit" Nullable="false" />
+          <Property Name="HasHostel" Type="bit" Nullable="false" />
+          <Property Name="HostelCapacity" Type="int" />
+          <Property Name="HasHostelForEntrants" Type="bit" Nullable="false" />
+          <Property Name="HostelAttachmentID" Type="int" />
+          <Property Name="INN" Type="char" MaxLength="10" />
+          <Property Name="OGRN" Type="char" Nullable="false" MaxLength="13" />
+          <Property Name="AdmissionStructurePublishDate" Type="datetime" />
+          <Property Name="ReceivingApplicationDate" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="EsrpOrgID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="OwnerDepartment" Type="varchar" MaxLength="255" />
+          <Property Name="MainEsrpOrgId" Type="int" />
+          <Property Name="FounderEsrpOrgId" Type="int" />
+          <Property Name="StatusId" Type="int" />
+        </EntityType>
+        <EntityType Name="OlympicDiplomType">
+          <Key>
+            <PropertyRef Name="OlympicDiplomTypeID" />
+          </Key>
+          <Property Name="OlympicDiplomTypeID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OlympicLevel">
+          <Key>
+            <PropertyRef Name="OlympicLevelID" />
+          </Key>
+          <Property Name="OlympicLevelID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OlympicType">
+          <Key>
+            <PropertyRef Name="OlympicID" />
+          </Key>
+          <Property Name="OlympicID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="1023" />
+          <Property Name="OlympicLevelID" Type="smallint" />
+          <Property Name="OrganizerName" Type="varchar" MaxLength="4000" />
+          <Property Name="OlympicNumber" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="OlympicYear" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OlympicTypeSubjectLink">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OlympicID" Type="int" Nullable="false" />
+          <Property Name="SubjectID" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="SubjectLevelID" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsEge" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BenefitItemC_Benefit">
+          <End Role="Benefit" Type="BenefitsModel.Store.Benefit" Multiplicity="1" />
+          <End Role="BenefitItemC" Type="BenefitsModel.Store.BenefitItemC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Benefit">
+              <PropertyRef Name="BenefitID" />
+            </Principal>
+            <Dependent Role="BenefitItemC">
+              <PropertyRef Name="BenefitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenefitItemC_OlympicDiplomType">
+          <End Role="OlympicDiplomType" Type="BenefitsModel.Store.OlympicDiplomType" Multiplicity="1" />
+          <End Role="BenefitItemC" Type="BenefitsModel.Store.BenefitItemC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicDiplomType">
+              <PropertyRef Name="OlympicDiplomTypeID" />
+            </Principal>
+            <Dependent Role="BenefitItemC">
+              <PropertyRef Name="OlympicDiplomTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenefitItemCOlympicType_BenefitItemC">
+          <End Role="BenefitItemC" Type="BenefitsModel.Store.BenefitItemC" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BenefitItemCOlympicType" Type="BenefitsModel.Store.BenefitItemCOlympicType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BenefitItemC">
+              <PropertyRef Name="BenefitItemID" />
+            </Principal>
+            <Dependent Role="BenefitItemCOlympicType">
+              <PropertyRef Name="BenefitItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenefitItemCOlympicType_OlympicType">
+          <End Role="OlympicType" Type="BenefitsModel.Store.OlympicType" Multiplicity="1" />
+          <End Role="BenefitItemCOlympicType" Type="BenefitsModel.Store.BenefitItemCOlympicType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicType">
+              <PropertyRef Name="OlympicID" />
+            </Principal>
+            <Dependent Role="BenefitItemCOlympicType">
+              <PropertyRef Name="OlympicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenefitItemSubject_BenefitItemC1">
+          <End Role="BenefitItemC" Type="BenefitsModel.Store.BenefitItemC" Multiplicity="1" />
+          <End Role="BenefitItemSubject" Type="BenefitsModel.Store.BenefitItemSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BenefitItemC">
+              <PropertyRef Name="BenefitItemID" />
+            </Principal>
+            <Dependent Role="BenefitItemSubject">
+              <PropertyRef Name="BenefitItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenefitItemSubject_Subject1">
+          <End Role="Subject" Type="BenefitsModel.Store.Subject" Multiplicity="1" />
+          <End Role="BenefitItemSubject" Type="BenefitsModel.Store.BenefitItemSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="BenefitItemSubject">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OlympicLevel_OlympicTypeSubjectLink">
+          <End Role="OlympicLevel" Type="BenefitsModel.Store.OlympicLevel" Multiplicity="0..1" />
+          <End Role="OlympicTypeSubjectLink" Type="BenefitsModel.Store.OlympicTypeSubjectLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicLevel">
+              <PropertyRef Name="OlympicLevelID" />
+            </Principal>
+            <Dependent Role="OlympicTypeSubjectLink">
+              <PropertyRef Name="SubjectLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OlympicType_OlympicLevel">
+          <End Role="OlympicLevel" Type="BenefitsModel.Store.OlympicLevel" Multiplicity="0..1" />
+          <End Role="OlympicType" Type="BenefitsModel.Store.OlympicType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicLevel">
+              <PropertyRef Name="OlympicLevelID" />
+            </Principal>
+            <Dependent Role="OlympicType">
+              <PropertyRef Name="OlympicLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OlympicTypeSubjectLink_OlympicType">
+          <End Role="OlympicType" Type="BenefitsModel.Store.OlympicType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OlympicTypeSubjectLink" Type="BenefitsModel.Store.OlympicTypeSubjectLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicType">
+              <PropertyRef Name="OlympicID" />
+            </Principal>
+            <Dependent Role="OlympicTypeSubjectLink">
+              <PropertyRef Name="OlympicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OlympicTypeSubjectLink_Subject">
+          <End Role="Subject" Type="BenefitsModel.Store.Subject" Multiplicity="1" />
+          <End Role="OlympicTypeSubjectLink" Type="BenefitsModel.Store.OlympicTypeSubjectLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="OlympicTypeSubjectLink">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BenefitsModel" Alias="Self"
+              xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+              xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BenefitsEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Benefit" EntityType="BenefitsModel.Benefit" />
+          <EntitySet Name="OlympicDiplomType" EntityType="BenefitsModel.OlympicDiplomType" />
+          <EntitySet Name="OlympicLevel" EntityType="BenefitsModel.OlympicLevel" />
+          <EntitySet Name="BenefitItemC" EntityType="BenefitsModel.BenefitItemC" />
+          <AssociationSet Name="FK_BenefitItemC_Benefit" Association="BenefitsModel.FK_BenefitItemC_Benefit">
+            <End Role="Benefit" EntitySet="Benefit" />
+            <End Role="BenefitItemC" EntitySet="BenefitItemC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenefitItemC_OlympicDiplomType"
+                          Association="BenefitsModel.FK_BenefitItemC_OlympicDiplomType">
+            <End Role="OlympicDiplomType" EntitySet="OlympicDiplomType" />
+            <End Role="BenefitItemC" EntitySet="BenefitItemC" />
+          </AssociationSet>
+          <EntitySet Name="BenefitItemCOlympicType" EntityType="BenefitsModel.BenefitItemCOlympicType" />
+          <AssociationSet Name="FK_BenefitItemCOlympicType_BenefitItemC"
+                          Association="BenefitsModel.FK_BenefitItemCOlympicType_BenefitItemC">
+            <End Role="BenefitItemC" EntitySet="BenefitItemC" />
+            <End Role="BenefitItemCOlympicType" EntitySet="BenefitItemCOlympicType" />
+          </AssociationSet>
+          <EntitySet Name="Subject" EntityType="BenefitsModel.Subject" />
+          <EntitySet Name="Institution" EntityType="BenefitsModel.Institution" />
+          <EntitySet Name="OlympicTypeSubjectLink" EntityType="BenefitsModel.OlympicTypeSubjectLink" />
+          <AssociationSet Name="FK_OlympicTypeSubjectLink_Subject"
+                          Association="BenefitsModel.FK_OlympicTypeSubjectLink_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="OlympicTypeSubjectLink" EntitySet="OlympicTypeSubjectLink" />
+          </AssociationSet>
+          <EntitySet Name="AdmissionRules" EntityType="BenefitsModel.AdmissionRules" />
+          <AssociationSet Name="FK_AdmissionRules_Institution"
+                          Association="BenefitsModel.FK_AdmissionRules_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="AdmissionRules" EntitySet="AdmissionRules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OlympicLevel_OlympicTypeSubjectLink"
+                          Association="BenefitsModel.FK_OlympicLevel_OlympicTypeSubjectLink">
+            <End Role="OlympicLevel" EntitySet="OlympicLevel" />
+            <End Role="OlympicTypeSubjectLink" EntitySet="OlympicTypeSubjectLink" />
+          </AssociationSet>
+          <EntitySet Name="OlympicType" EntityType="BenefitsModel.OlympicType" />
+          <AssociationSet Name="FK_BenefitItemCOlympicType_OlympicType"
+                          Association="BenefitsModel.FK_BenefitItemCOlympicType_OlympicType">
+            <End Role="OlympicType" EntitySet="OlympicType" />
+            <End Role="BenefitItemCOlympicType" EntitySet="BenefitItemCOlympicType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OlympicType_OlympicLevel" Association="BenefitsModel.FK_OlympicType_OlympicLevel">
+            <End Role="OlympicLevel" EntitySet="OlympicLevel" />
+            <End Role="OlympicType" EntitySet="OlympicType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OlympicTypeSubjectLink_OlympicType"
+                          Association="BenefitsModel.FK_OlympicTypeSubjectLink_OlympicType">
+            <End Role="OlympicType" EntitySet="OlympicType" />
+            <End Role="OlympicTypeSubjectLink" EntitySet="OlympicTypeSubjectLink" />
+          </AssociationSet>
+          <EntitySet Name="BenefitItemSubject" EntityType="BenefitsModel.BenefitItemSubject" />
+          <EntitySet Name="GlobalMinEge" EntityType="BenefitsModel.GlobalMinEge" />
+          <AssociationSet Name="FK_BenefitItemSubject_BenefitItemC1" Association="BenefitsModel.FK_BenefitItemSubject_BenefitItemC1">
+            <End Role="BenefitItemC" EntitySet="BenefitItemC" />
+            <End Role="BenefitItemSubject" EntitySet="BenefitItemSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenefitItemSubject_Subject1" Association="BenefitsModel.FK_BenefitItemSubject_Subject1">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="BenefitItemSubject" EntitySet="BenefitItemSubject" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Benefit">
+          <Key>
+            <PropertyRef Name="BenefitID" />
+          </Key>
+          <Property Name="BenefitID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Type="String" Name="ShortName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BenefitItemC" Relationship="BenefitsModel.FK_BenefitItemC_Benefit"
+                              FromRole="Benefit" ToRole="BenefitItemC" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+        </EntityType>
+        <EntityType Name="OlympicDiplomType">
+          <Key>
+            <PropertyRef Name="OlympicDiplomTypeID" />
+          </Key>
+          <Property Name="OlympicDiplomTypeID" Type="Int16" Nullable="false"
+                    annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="BenefitItemC" Relationship="BenefitsModel.FK_BenefitItemC_OlympicDiplomType"
+                              FromRole="OlympicDiplomType" ToRole="BenefitItemC" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+        </EntityType>
+        <EntityType Name="OlympicLevel">
+          <Key>
+            <PropertyRef Name="OlympicLevelID" />
+          </Key>
+          <Property Name="OlympicLevelID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <NavigationProperty Name="OlympicTypeSubjectLink"
+                              Relationship="BenefitsModel.FK_OlympicLevel_OlympicTypeSubjectLink"
+                              FromRole="OlympicLevel" ToRole="OlympicTypeSubjectLink" />
+          <NavigationProperty Name="OlympicType" Relationship="BenefitsModel.FK_OlympicType_OlympicLevel"
+                              FromRole="OlympicLevel" ToRole="OlympicType" />
+        </EntityType>
+        <EntityType Name="BenefitItemC">
+          <Key>
+            <PropertyRef Name="BenefitItemID" />
+          </Key>
+          <Property Type="Int32" Name="BenefitItemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EntranceTestItemID" Nullable="true" />
+          <Property Type="Int16" Name="OlympicDiplomTypeID" Nullable="false" />
+          <Property Type="Int16" Name="OlympicLevelFlags" Nullable="false" />
+          <Property Type="Int16" Name="BenefitID" Nullable="false" />
+          <Property Type="Boolean" Name="IsForAllOlympic" Nullable="false" />
+          <NavigationProperty Name="Benefit" Relationship="BenefitsModel.FK_BenefitItemC_Benefit"
+                              FromRole="BenefitItemC" ToRole="Benefit" />
+          <NavigationProperty Name="OlympicDiplomType" Relationship="BenefitsModel.FK_BenefitItemC_OlympicDiplomType"
+                              FromRole="BenefitItemC" ToRole="OlympicDiplomType" />
+          <Property Type="Boolean" Name="IsProfileSubject" Nullable="false" />
+          <NavigationProperty Name="BenefitItemCOlympicType"
+                              Relationship="BenefitsModel.FK_BenefitItemCOlympicType_BenefitItemC"
+                              FromRole="BenefitItemC" ToRole="BenefitItemCOlympicType" />
+          <Property Type="Int32" Name="CompetitiveGroupID" Nullable="false" />
+          <Property Type="String" Name="UID" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="OlympicYear" Nullable="false" />
+          <Property Type="Int32" Name="EgeMinValue" />
+          <NavigationProperty Name="BenefitItemSubject" Relationship="BenefitsModel.FK_BenefitItemSubject_BenefitItemC1" FromRole="BenefitItemC" ToRole="BenefitItemSubject" />
+        </EntityType>
+        <Association Name="FK_BenefitItemC_Benefit">
+          <End Type="BenefitsModel.Benefit" Role="Benefit" Multiplicity="1" />
+          <End Type="BenefitsModel.BenefitItemC" Role="BenefitItemC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Benefit">
+              <PropertyRef Name="BenefitID" />
+            </Principal>
+            <Dependent Role="BenefitItemC">
+              <PropertyRef Name="BenefitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenefitItemC_OlympicDiplomType">
+          <End Type="BenefitsModel.OlympicDiplomType" Role="OlympicDiplomType" Multiplicity="1" />
+          <End Type="BenefitsModel.BenefitItemC" Role="BenefitItemC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicDiplomType">
+              <PropertyRef Name="OlympicDiplomTypeID" />
+            </Principal>
+            <Dependent Role="BenefitItemC">
+              <PropertyRef Name="OlympicDiplomTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BenefitItemCOlympicType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="BenefitItemID" Nullable="false" />
+          <Property Type="Int32" Name="OlympicTypeID" Nullable="false" />
+          <NavigationProperty Name="BenefitItemC" Relationship="BenefitsModel.FK_BenefitItemCOlympicType_BenefitItemC"
+                              FromRole="BenefitItemCOlympicType" ToRole="BenefitItemC" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <NavigationProperty Name="OlympicType" Relationship="BenefitsModel.FK_BenefitItemCOlympicType_OlympicType"
+                              FromRole="BenefitItemCOlympicType" ToRole="OlympicType" />
+        </EntityType>
+        <Association Name="FK_BenefitItemCOlympicType_BenefitItemC">
+          <End Type="BenefitsModel.BenefitItemC" Role="BenefitItemC" Multiplicity="1" />
+          <End Type="BenefitsModel.BenefitItemCOlympicType" Role="BenefitItemCOlympicType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BenefitItemC">
+              <PropertyRef Name="BenefitItemID" />
+            </Principal>
+            <Dependent Role="BenefitItemCOlympicType">
+              <PropertyRef Name="BenefitItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Type="Int32" Name="SubjectID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Boolean" Name="IsEge" Nullable="false" />
+          <NavigationProperty Name="OlympicTypeSubjectLink"
+                              Relationship="BenefitsModel.FK_OlympicTypeSubjectLink_Subject" FromRole="Subject"
+                              ToRole="OlympicTypeSubjectLink" />
+          <NavigationProperty Name="BenefitItemSubject" Relationship="BenefitsModel.FK_BenefitItemSubject_Subject1" FromRole="Subject" ToRole="BenefitItemSubject" />
+        </EntityType>
+        <EntityType Name="Institution">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="InstitutionTypeID" Nullable="false" />
+          <Property Type="String" Name="FullName" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BriefName" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="FormOfLawID" />
+          <Property Type="Int32" Name="RegionID" />
+          <Property Type="String" Name="Site" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="HasMilitaryDepartment" Nullable="false" />
+          <Property Type="Boolean" Name="HasHostel" Nullable="false" />
+          <Property Type="Int32" Name="HostelCapacity" />
+          <Property Type="Boolean" Name="HasHostelForEntrants" Nullable="false" />
+          <Property Type="Int32" Name="HostelAttachmentID" />
+          <Property Type="String" Name="INN" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="OGRN" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="AdmissionStructurePublishDate" />
+          <Property Type="DateTime" Name="ReceivingApplicationDate" />
+          <Property Type="DateTime" Name="DateUpdated" />
+          <Property Type="Int32" Name="EsrpOrgID" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="String" Name="OwnerDepartment" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MainEsrpOrgId" />
+          <Property Type="Int32" Name="FounderEsrpOrgId" />
+          <NavigationProperty Name="AdmissionRules" Relationship="BenefitsModel.FK_AdmissionRules_Institution"
+                              FromRole="Institution" ToRole="AdmissionRules" />
+          <Property Type="Int32" Name="StatusId" />
+        </EntityType>
+        <EntityType Name="OlympicTypeSubjectLink">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="OlympicID" Nullable="false" />
+          <Property Type="Int32" Name="SubjectID" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <NavigationProperty Name="Subject" Relationship="BenefitsModel.FK_OlympicTypeSubjectLink_Subject"
+                              FromRole="OlympicTypeSubjectLink" ToRole="Subject" />
+          <Property Type="Int16" Name="SubjectLevelID" />
+          <NavigationProperty Name="OlympicLevel" Relationship="BenefitsModel.FK_OlympicLevel_OlympicTypeSubjectLink"
+                              FromRole="OlympicTypeSubjectLink" ToRole="OlympicLevel" />
+          <NavigationProperty Name="OlympicType" Relationship="BenefitsModel.FK_OlympicTypeSubjectLink_OlympicType"
+                              FromRole="OlympicTypeSubjectLink" ToRole="OlympicType" />
+        </EntityType>
+        <Association Name="FK_OlympicTypeSubjectLink_Subject">
+          <End Type="BenefitsModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="BenefitsModel.OlympicTypeSubjectLink" Role="OlympicTypeSubjectLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="OlympicTypeSubjectLink">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AdmissionRules">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Type="Int32" Name="RecordID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <Property Type="Int32" Name="Year" Nullable="false" />
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MimeType" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="File" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="DateTime" Name="CreationDate" />
+          <Property Type="DateTime" Name="ChangeDate" />
+          <NavigationProperty Name="Institution" Relationship="BenefitsModel.FK_AdmissionRules_Institution"
+                              FromRole="AdmissionRules" ToRole="Institution" />
+        </EntityType>
+        <Association Name="FK_AdmissionRules_Institution">
+          <End Type="BenefitsModel.Institution" Role="Institution" Multiplicity="1" />
+          <End Type="BenefitsModel.AdmissionRules" Role="AdmissionRules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="AdmissionRules">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OlympicLevel_OlympicTypeSubjectLink">
+          <End Type="BenefitsModel.OlympicLevel" Role="OlympicLevel" Multiplicity="0..1" />
+          <End Type="BenefitsModel.OlympicTypeSubjectLink" Role="OlympicTypeSubjectLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicLevel">
+              <PropertyRef Name="OlympicLevelID" />
+            </Principal>
+            <Dependent Role="OlympicTypeSubjectLink">
+              <PropertyRef Name="SubjectLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OlympicType">
+          <Key>
+            <PropertyRef Name="OlympicID" />
+          </Key>
+          <Property Type="Int32" Name="OlympicID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="1023" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="OlympicLevelID" />
+          <Property Type="String" Name="OrganizerName" Nullable="false" MaxLength="1023" FixedLength="false"
+                    Unicode="false" />
+          <Property Type="Int32" Name="OlympicNumber" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="OlympicYear" Nullable="false" />
+          <NavigationProperty Name="BenefitItemCOlympicType"
+                              Relationship="BenefitsModel.FK_BenefitItemCOlympicType_OlympicType"
+                              FromRole="OlympicType" ToRole="BenefitItemCOlympicType" />
+          <NavigationProperty Name="OlympicLevel" Relationship="BenefitsModel.FK_OlympicType_OlympicLevel"
+                              FromRole="OlympicType" ToRole="OlympicLevel" />
+          <NavigationProperty Name="OlympicTypeSubjectLink"
+                              Relationship="BenefitsModel.FK_OlympicTypeSubjectLink_OlympicType" FromRole="OlympicType"
+                              ToRole="OlympicTypeSubjectLink" />
+        </EntityType>
+        <Association Name="FK_BenefitItemCOlympicType_OlympicType">
+          <End Type="BenefitsModel.OlympicType" Role="OlympicType" Multiplicity="1" />
+          <End Type="BenefitsModel.BenefitItemCOlympicType" Role="BenefitItemCOlympicType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicType">
+              <PropertyRef Name="OlympicID" />
+            </Principal>
+            <Dependent Role="BenefitItemCOlympicType">
+              <PropertyRef Name="OlympicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OlympicType_OlympicLevel">
+          <End Type="BenefitsModel.OlympicLevel" Role="OlympicLevel" Multiplicity="0..1" />
+          <End Type="BenefitsModel.OlympicType" Role="OlympicType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicLevel">
+              <PropertyRef Name="OlympicLevelID" />
+            </Principal>
+            <Dependent Role="OlympicType">
+              <PropertyRef Name="OlympicLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OlympicTypeSubjectLink_OlympicType">
+          <End Type="BenefitsModel.OlympicType" Role="OlympicType" Multiplicity="1" />
+          <End Type="BenefitsModel.OlympicTypeSubjectLink" Role="OlympicTypeSubjectLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OlympicType">
+              <PropertyRef Name="OlympicID" />
+            </Principal>
+            <Dependent Role="OlympicTypeSubjectLink">
+              <PropertyRef Name="OlympicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BenefitItemSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="BenefitItemId" Nullable="false" />
+          <Property Type="Int32" Name="SubjectId" Nullable="false" />
+          <Property Type="Int32" Name="EgeMinValue" Nullable="false" />
+          <NavigationProperty Name="BenefitItemC" Relationship="BenefitsModel.FK_BenefitItemSubject_BenefitItemC1" FromRole="BenefitItemSubject" ToRole="BenefitItemC" />
+          <NavigationProperty Name="Subject" Relationship="BenefitsModel.FK_BenefitItemSubject_Subject1" FromRole="BenefitItemSubject" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="GlobalMinEge">
+          <Key>
+            <PropertyRef Name="EgeYear" />
+          </Key>
+          <Property Type="Int32" Name="EgeYear" Nullable="false" />
+          <Property Type="Int32" Name="MinEgeScore" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BenefitItemSubject_BenefitItemC1">
+          <End Type="BenefitsModel.BenefitItemC" Role="BenefitItemC" Multiplicity="1" />
+          <End Type="BenefitsModel.BenefitItemSubject" Role="BenefitItemSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BenefitItemC">
+              <PropertyRef Name="BenefitItemID" />
+            </Principal>
+            <Dependent Role="BenefitItemSubject">
+              <PropertyRef Name="BenefitItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenefitItemSubject_Subject1">
+          <End Type="BenefitsModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="BenefitsModel.BenefitItemSubject" Role="BenefitItemSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="BenefitItemSubject">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BenefitsModelStoreContainer"
+                                CdmEntityContainer="BenefitsEntities">
+          <EntitySetMapping Name="Benefit">
+            <EntityTypeMapping TypeName="BenefitsModel.Benefit">
+              <MappingFragment StoreEntitySet="Benefit">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="BenefitID" ColumnName="BenefitID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OlympicDiplomType">
+            <EntityTypeMapping TypeName="BenefitsModel.OlympicDiplomType">
+              <MappingFragment StoreEntitySet="OlympicDiplomType">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="OlympicDiplomTypeID" ColumnName="OlympicDiplomTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OlympicLevel">
+            <EntityTypeMapping TypeName="BenefitsModel.OlympicLevel">
+              <MappingFragment StoreEntitySet="OlympicLevel">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="OlympicLevelID" ColumnName="OlympicLevelID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BenefitItemC">
+            <EntityTypeMapping TypeName="BenefitsModel.BenefitItemC">
+              <MappingFragment StoreEntitySet="BenefitItemC">
+                <ScalarProperty Name="EgeMinValue" ColumnName="EgeMinValue" />
+                <ScalarProperty Name="OlympicYear" ColumnName="OlympicYear" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="CompetitiveGroupID" ColumnName="CompetitiveGroupID" />
+                <ScalarProperty Name="IsProfileSubject" ColumnName="IsProfileSubject" />
+                <ScalarProperty Name="IsForAllOlympic" ColumnName="IsForAllOlympic" />
+                <ScalarProperty Name="BenefitID" ColumnName="BenefitID" />
+                <ScalarProperty Name="OlympicLevelFlags" ColumnName="OlympicLevelFlags" />
+                <ScalarProperty Name="OlympicDiplomTypeID" ColumnName="OlympicDiplomTypeID" />
+                <ScalarProperty Name="EntranceTestItemID" ColumnName="EntranceTestItemID" />
+                <ScalarProperty Name="BenefitItemID" ColumnName="BenefitItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BenefitItemCOlympicType">
+            <EntityTypeMapping TypeName="BenefitsModel.BenefitItemCOlympicType">
+              <MappingFragment StoreEntitySet="BenefitItemCOlympicType">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="OlympicTypeID" ColumnName="OlympicTypeID" />
+                <ScalarProperty Name="BenefitItemID" ColumnName="BenefitItemID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subject">
+            <EntityTypeMapping TypeName="BenefitsModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="IsEge" ColumnName="IsEge" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Institution">
+            <EntityTypeMapping TypeName="BenefitsModel.Institution">
+              <MappingFragment StoreEntitySet="Institution">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="FounderEsrpOrgId" ColumnName="FounderEsrpOrgId" />
+                <ScalarProperty Name="MainEsrpOrgId" ColumnName="MainEsrpOrgId" />
+                <ScalarProperty Name="OwnerDepartment" ColumnName="OwnerDepartment" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="EsrpOrgID" ColumnName="EsrpOrgID" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="ReceivingApplicationDate" ColumnName="ReceivingApplicationDate" />
+                <ScalarProperty Name="AdmissionStructurePublishDate" ColumnName="AdmissionStructurePublishDate" />
+                <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="HostelAttachmentID" ColumnName="HostelAttachmentID" />
+                <ScalarProperty Name="HasHostelForEntrants" ColumnName="HasHostelForEntrants" />
+                <ScalarProperty Name="HostelCapacity" ColumnName="HostelCapacity" />
+                <ScalarProperty Name="HasHostel" ColumnName="HasHostel" />
+                <ScalarProperty Name="HasMilitaryDepartment" ColumnName="HasMilitaryDepartment" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="FormOfLawID" ColumnName="FormOfLawID" />
+                <ScalarProperty Name="BriefName" ColumnName="BriefName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="InstitutionTypeID" ColumnName="InstitutionTypeID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OlympicTypeSubjectLink">
+            <EntityTypeMapping TypeName="BenefitsModel.OlympicTypeSubjectLink">
+              <MappingFragment StoreEntitySet="OlympicTypeSubjectLink">
+                <ScalarProperty Name="SubjectLevelID" ColumnName="SubjectLevelID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="OlympicID" ColumnName="OlympicID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdmissionRules">
+            <EntityTypeMapping TypeName="BenefitsModel.AdmissionRules">
+              <MappingFragment StoreEntitySet="AdmissionRules">
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="File" ColumnName="File" />
+                <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OlympicType">
+            <EntityTypeMapping TypeName="BenefitsModel.OlympicType">
+              <MappingFragment StoreEntitySet="OlympicType">
+                <ScalarProperty Name="OlympicYear" ColumnName="OlympicYear" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="OlympicNumber" ColumnName="OlympicNumber" />
+                <ScalarProperty Name="OrganizerName" ColumnName="OrganizerName" />
+                <ScalarProperty Name="OlympicLevelID" ColumnName="OlympicLevelID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="OlympicID" ColumnName="OlympicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BenefitItemSubject">
+            <EntityTypeMapping TypeName="BenefitsModel.BenefitItemSubject">
+              <MappingFragment StoreEntitySet="BenefitItemSubject">
+                <ScalarProperty Name="EgeMinValue" ColumnName="EgeMinValue" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="BenefitItemId" ColumnName="BenefitItemId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GlobalMinEge">
+            <EntityTypeMapping TypeName="BenefitsModel.GlobalMinEge">
+              <MappingFragment StoreEntitySet="GlobalMinEge">
+                <ScalarProperty Name="MinEgeScore" ColumnName="MinEgeScore" />
+                <ScalarProperty Name="EgeYear" ColumnName="EgeYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Benefits" ZoomLevel="100">
+        <EntityTypeShape EntityType="BenefitsModel.Benefit" Width="1.5" PointX="0.75" PointY="5.125"
+                         Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BenefitsModel.OlympicDiplomType" Width="1.5" PointX="0.75" PointY="4"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="BenefitsModel.OlympicLevel" Width="1.5" PointX="1" PointY="1.125"
+                         Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BenefitsModel.BenefitItemC" Width="2" PointX="7.375" PointY="2.125"
+                         Height="3.7109993489583335" IsExpanded="true" />
+        <AssociationConnector Association="BenefitsModel.FK_BenefitItemC_Benefit" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.857646484375" />
+          <ConnectorPoint PointX="6.166666666666667" PointY="5.8576464843749987" />
+          <ConnectorPoint PointX="6.333333333333333" PointY="5.857646484375" />
+          <ConnectorPoint PointX="7.375" PointY="5.857646484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="BenefitsModel.FK_BenefitItemC_OlympicDiplomType">
+          <ConnectorPoint PointX="2.25" PointY="4.2" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="4.1999999999999993" />
+          <ConnectorPoint PointX="2.4895833333333335" PointY="4.2" />
+          <ConnectorPoint PointX="5" PointY="4.2" />
+          <ConnectorPoint PointX="5" PointY="1.875" />
+          <ConnectorPoint PointX="7.843748" PointY="1.875" />
+          <ConnectorPoint PointX="7.843748" PointY="2.125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BenefitsModel.BenefitItemCOlympicType" Width="1.5" PointX="5.25" PointY="0.75"
+                         Height="0.39999999999999947" IsExpanded="false" />
+        <AssociationConnector Association="BenefitsModel.FK_BenefitItemCOlympicType_BenefitItemC">
+          <ConnectorPoint PointX="8.6406265" PointY="2.125" />
+          <ConnectorPoint PointX="8.6406265" PointY="0.94999999999999973" />
+          <ConnectorPoint PointX="6.75" PointY="0.94999999999999973" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BenefitsModel.Subject" Width="1.5" PointX="5.75" PointY="6.625"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="BenefitsModel.Institution" Width="1.5" PointX="0.75" PointY="7.125"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="BenefitsModel.OlympicTypeSubjectLink" Width="1.5" PointX="5.25" PointY="2.75"
+                         Height="2.7494921874999996" IsExpanded="true" />
+        <AssociationConnector Association="BenefitsModel.FK_OlympicTypeSubjectLink_Subject">
+          <ConnectorPoint PointX="6.25" PointY="6.625" />
+          <ConnectorPoint PointX="6.25" PointY="5.4994921875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BenefitsModel.AdmissionRules" Width="1.5" PointX="3" PointY="7.125"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <AssociationConnector Association="BenefitsModel.FK_AdmissionRules_Institution">
+          <ConnectorPoint PointX="2.25" PointY="7.3249999999999993" />
+          <ConnectorPoint PointX="3" PointY="7.3249999999999993" />
+        </AssociationConnector>
+        <AssociationConnector Association="BenefitsModel.FK_OlympicLevel_OlympicTypeSubjectLink">
+          <ConnectorPoint PointX="2.40625" PointY="3.2975878906249996" />
+          <ConnectorPoint PointX="2.40625" PointY="4.7625" />
+          <ConnectorPoint PointX="5.25" PointY="4.7625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BenefitsModel.OlympicType" Width="1.5" PointX="3" PointY="0.75"
+                         Height="3.1340950520833317" />
+        <AssociationConnector Association="BenefitsModel.FK_BenefitItemCOlympicType_OlympicType">
+          <ConnectorPoint PointX="4.5" PointY="0.91874749999999894" />
+          <ConnectorPoint PointX="5.25" PointY="0.91874749999999894" />
+        </AssociationConnector>
+        <AssociationConnector Association="BenefitsModel.FK_OlympicType_OlympicLevel">
+          <ConnectorPoint PointX="2.5" PointY="2.2112939453125" />
+          <ConnectorPoint PointX="3" PointY="2.2112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="BenefitsModel.FK_OlympicTypeSubjectLink_OlympicType">
+          <ConnectorPoint PointX="4.5" PointY="3.3170475260416654" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="3.317047526041665" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="3.3170475260416654" />
+          <ConnectorPoint PointX="5.25" PointY="3.3170475260416654" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BenefitsModel.BenefitItemSubject" Width="1.5" PointX="10.5" PointY="3.5" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="BenefitsModel.GlobalMinEge" Width="1.5" PointX="0.75" PointY="8.75" Height="1.4033821614583317" />
+        <AssociationConnector Association="BenefitsModel.FK_BenefitItemSubject_BenefitItemC1" >
+          <ConnectorPoint PointX="9.375" PointY="4.5862939453125016" />
+          <ConnectorPoint PointX="10.5" PointY="4.5862939453125016" />
+        </AssociationConnector>
+        <AssociationConnector Association="BenefitsModel.FK_BenefitItemSubject_Subject1" >
+          <ConnectorPoint PointX="7.25" PointY="6.825" />
+          <ConnectorPoint PointX="11.25" PointY="6.825" />
+          <ConnectorPoint PointX="11.25" PointY="5.6725878906250031" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

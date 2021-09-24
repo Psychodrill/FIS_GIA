@@ -1,0 +1,335 @@
+-- =========================================================================
+-- Запись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (1, '001__2011_06_15__CollationErrors')
+-- =========================================================================
+GO
+
+
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+go
+
+-- exec dbo.SearchDeprecatedBulkFile
+-- ================================================
+-- Найти устаревшие файлы пакетной закачки.
+-- v.1.0: Created by Fomin Dmitriy 04.06.2008
+-- ================================================
+ALTER procedure [dbo].[SearchDeprecatedBulkFile]
+	@clearUp bit = 1
+as
+begin
+	declare @deprecatedBulkFile table
+		(
+		Id bigint
+		, Code nvarchar(255)
+		, Date datetime
+		, [FileName] nvarchar(max)
+		)
+
+	insert into @deprecatedBulkFile
+	select 
+		bulk_file.Id
+		, bulk_file.Code
+		, bulk_file.Date
+		, bulk_file.[FileName]
+	from dbo.BulkFile bulk_file
+		inner join sys.servers local_server
+			on local_server.server_id = 0
+				and local_server.Name collate cyrillic_general_ci_ai = bulk_file.ServerName collate cyrillic_general_ci_ai
+	where 
+		bulk_file.Date < (select max(inner_bulk_file.Date)
+				from dbo.BulkFile inner_bulk_file
+				where inner_bulk_file.Code = bulk_file.Code
+					and inner_bulk_file.ServerName = bulk_file.ServerName)
+
+	select
+		deprecated_bulk_file.Code
+		, deprecated_bulk_file.Date
+		, deprecated_bulk_file.FileName
+	from @deprecatedBulkFile deprecated_bulk_file
+
+	if @clearUp = 1
+	begin
+		begin tran delete_deprecated_bulk
+
+			delete from dbo.BulkFileDbSubscription
+			where FileId in (select Id from @deprecatedBulkFile)
+
+			delete from dbo.BulkFile
+			where Id in (select Id from @deprecatedBulkFile)
+
+		commit tran delete_deprecated_bulk
+	end
+
+	return 0
+end
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+go
+
+-- exec dbo.SearchAbsenteeBulkFile
+-- ================================================
+-- Найти отсутствующие файлы пакетной закачки.
+-- v.1.0: Created by Fomin Dmitriy 04.06.2008
+-- ================================================
+ALTER procedure [dbo].[SearchAbsenteeBulkFile]
+as
+begin
+	with LastBulkFile
+		(
+		UpdateDate
+		, Code
+		, Date
+		, [FileName]
+		, ByLocalServer
+		)
+	as
+	(select 
+		bulk_file.UpdateDate
+		, bulk_file.Code
+		, bulk_file.Date
+		, bulk_file.[FileName]
+		, case
+			when not local_server.server_id is null then 1
+			else 0
+		end ByLocalServer
+	from dbo.BulkFile bulk_file
+		left outer join sys.servers local_server
+			on local_server.server_id = 0
+				and local_server.Name collate cyrillic_general_ci_ai = bulk_file.ServerName collate cyrillic_general_ci_ai
+	where 
+		bulk_file.Date = (select max(inner_bulk_file.Date)
+				from dbo.BulkFile inner_bulk_file
+				where inner_bulk_file.Code = bulk_file.Code))
+
+	select
+		last_bulk_file.Code
+		, last_bulk_file.Date
+		, last_bulk_file.FileName
+	from LastBulkFile last_bulk_file
+	where 
+		not last_bulk_file.Code in (select inner_last_bulk_file.Code
+				from LastBulkFile inner_last_bulk_file
+				where inner_last_bulk_file.ByLocalServer = 1
+					and inner_last_bulk_file.Code = last_bulk_file.Code)
+		and last_bulk_file.UpdateDate = (select min(inner_last_bulk_file.UpdateDate)
+				from LastBulkFile inner_last_bulk_file
+				where inner_last_bulk_file.Code = last_bulk_file.Code)
+
+	return 0
+end
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+go
+
+-- exec dbo.UpdateBulkFileDbSubscription
+-- ================================================
+-- Сохранить изменения подписки файла.
+-- v.1.0: Created by Fomin Dmitriy 07.06.2008
+-- ================================================
+ALTER procedure [dbo].[UpdateBulkFileDbSubscription]
+	@code nvarchar(50)
+	, @date datetime
+	, @dbName nvarchar(255)
+as
+begin
+	insert into dbo.BulkFileDbSubscription
+		(
+		CreateDate
+		, UpdateDate
+		, FileId
+		, DbName
+		)
+	select 
+		GetDate()
+		, GetDate()
+		, bulk_file.Id
+		, @dbName
+	from dbo.BulkFile bulk_file
+		inner join sys.servers local_server
+			on local_server.server_id = 0
+				and local_server.Name collate cyrillic_general_ci_ai = bulk_file.ServerName collate cyrillic_general_ci_ai 
+	where bulk_file.Code = @code
+		and bulk_file.Date = @date
+
+	return 0
+end
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+go
+
+-- exec dbo.GetAbsenteeDbSubscriptionBulkFile
+-- ================================================
+-- Получить файл отсутствующей подписки для БД.
+-- v.1.0: Created by Fomin Dmitriy 07.06.2008
+-- ================================================
+ALTER procedure [dbo].[GetAbsenteeDbSubscriptionBulkFile]
+	@code nvarchar(50)
+	, @dbName nvarchar(255)
+as
+begin
+	select 
+		bulk_file.Code
+		, bulk_file.Date
+		, bulk_file.[FileName]
+	from dbo.BulkFile bulk_file
+		inner join sys.servers local_server
+			on local_server.server_id = 0
+				and local_server.Name collate cyrillic_general_ci_ai = bulk_file.ServerName collate cyrillic_general_ci_ai
+	where bulk_file.Code = @code
+		and bulk_file.Date = (select max(inner_bulk_file.Date)
+				from dbo.BulkFile inner_bulk_file
+				where inner_bulk_file.Code = bulk_file.Code
+					and inner_bulk_file.ServerName collate cyrillic_general_ci_ai = bulk_file.ServerName collate cyrillic_general_ci_ai)
+		and not bulk_file.Id in (select db_subscription.FileId
+				from dbo.BulkFileDbSubscription db_subscription
+				where db_subscription.DbName = @dbName)
+
+	return 0
+end
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+go
+
+-- exec dbo.GetBulkFile
+-- ================================================
+-- Получить файл пакетной закачки.
+-- v.1.0: Created by Fomin Dmitriy 04.06.2008
+-- ================================================
+ALTER procedure [dbo].[GetBulkFile]
+	@code nvarchar(50)
+as
+begin
+	select 
+		bulk_file.Code
+		, bulk_file.Date
+		, bulk_file.[FileName]
+	from dbo.BulkFile bulk_file
+		inner join sys.servers local_server
+			on local_server.server_id = 0
+				and local_server.Name collate cyrillic_general_ci_ai = bulk_file.ServerName collate cyrillic_general_ci_ai
+	where bulk_file.Code = @code
+		and bulk_file.Date = (select max(inner_bulk_file.Date)
+				from dbo.BulkFile inner_bulk_file
+				where inner_bulk_file.Code = bulk_file.Code
+					and inner_bulk_file.ServerName = bulk_file.ServerName)
+
+	return 0
+end
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

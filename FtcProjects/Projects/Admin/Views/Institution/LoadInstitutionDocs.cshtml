@@ -1,0 +1,50 @@
+﻿
+@if (ViewBag.Documents.Count == 0)
+{
+    <br /><span style="color:red;">Ничего не найдено</span>
+    <br />
+}
+else
+{
+    <div id="docs">
+        <table class="table table-sm table-hover" border="0">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">ID документа</th>
+                <th scope="col">Наименование документа</th>
+                <th scope="col">Наименование файла</th>
+            </tr>
+            @foreach (var item in ViewBag.Documents)
+            {
+        <tr id="@item.AttachmentId">
+            <td scope="row"><a href="#" onclick="disable('@item.AttachmentId');" title="Удалить"><img src="~/images/delete.png" border="0" width="16" /></a></td>
+            <td>@item.AttachmentId</td>
+            <td>@item.DisplayName</td>
+            <td>@item.DocumentName</td>
+        </tr>
+            }
+        </table>
+    </div>
+}
+
+<!--<div class="return" />-->
+
+<script>
+
+    function disable(Id) {
+        var Attachment = {
+            Id : Id
+        }
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("InstitutionDocRemove", "Institution")',
+                    data: Attachment,
+                    success: function (msg) {
+                        $('tr[id^="' + Id + '"]').remove();
+                        //$('.return').empty().html('<center>' + msg + '</center>');
+                    }
+                });
+            }
+
+
+</script>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PressContext">
+  <DataContextMoniker Name="/PressContext" />
+  <nestedChildShapes>
+    <classShape Id="269f8872-6f6d-4314-a157-896f44412af0" absoluteBounds="0.5, 0.5, 2, 2.73962646484375">
+      <DataClassMoniker Name="/PressContext/Document" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c19e7ea5-da98-482d-9f29-e9bdb0705a26" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abc3e684-0beb-4ccd-8a73-d3372c1723fa" absoluteBounds="2.75, 0.5, 2, 2.0822371419270831">
+      <DataClassMoniker Name="/PressContext/News" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6d324a7-a052-4e0e-894a-e377e857f074" absoluteBounds="2.765, 0.96, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c56cc77e-4fbf-4978-9ee7-5e96a10fd157" absoluteBounds="5, 0.5, 2, 2.9039737955729166">
+      <DataClassMoniker Name="/PressContext/AskedQuestion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56231bc5-f2c5-43c9-aa0f-33e952ef3c58" absoluteBounds="5.015, 0.96, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

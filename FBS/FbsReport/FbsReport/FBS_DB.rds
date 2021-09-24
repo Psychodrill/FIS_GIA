@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>FBS_DB</Name>
+  <DataSourceID>b98884e2-acce-4b26-b789-63c3d0d92a7f</DataSourceID>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=MAKAREV\MAKAREV2005;Failover Partner=FENIX\FENIX2005;Initial Catalog=fbs_db;uid=work;pwd=sql</ConnectString>
+  </ConnectionProperties>
+</RptDataSource>

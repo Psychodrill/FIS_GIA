@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:ersp:v1" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:ersp:v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:ersp:v1">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="CheckUserAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userLogin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="systemID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserAccessResult" type="tns:UserCheckResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserCheckResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckUserTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="receivedUID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="systemID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserTicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserTicketResult" type="tns:UserCheckResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserCheckResult" nillable="true" type="tns:UserCheckResult" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckUserAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserAccess" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserTicket" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAccessHttpGetIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+    <wsdl:part name="systemID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAccessHttpGetOut">
+    <wsdl:part name="Body" element="tns:UserCheckResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAccessHttpPostIn">
+    <wsdl:part name="userLogin" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+    <wsdl:part name="systemID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAccessHttpPostOut">
+    <wsdl:part name="Body" element="tns:UserCheckResult" />
+  </wsdl:message>
+  <wsdl:portType name="CheckAuthSoap">
+    <wsdl:operation name="CheckUserAccess">
+      <wsdl:input message="tns:CheckUserAccessSoapIn" />
+      <wsdl:output message="tns:CheckUserAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserTicket">
+      <wsdl:input message="tns:CheckUserTicketSoapIn" />
+      <wsdl:output message="tns:CheckUserTicketSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CheckAuthHttpGet">
+    <wsdl:operation name="CheckUserAccess">
+      <wsdl:input message="tns:CheckUserAccessHttpGetIn" />
+      <wsdl:output message="tns:CheckUserAccessHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CheckAuthHttpPost">
+    <wsdl:operation name="CheckUserAccess">
+      <wsdl:input message="tns:CheckUserAccessHttpPostIn" />
+      <wsdl:output message="tns:CheckUserAccessHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CheckAuthSoap" type="tns:CheckAuthSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckUserAccess">
+      <soap:operation soapAction="urn:ersp:v1/CheckUserAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserTicket">
+      <soap:operation soapAction="urn:ersp:v1/CheckUserTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckAuthSoap12" type="tns:CheckAuthSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckUserAccess">
+      <soap12:operation soapAction="urn:ersp:v1/CheckUserAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserTicket">
+      <soap12:operation soapAction="urn:ersp:v1/CheckUserTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckAuthHttpGet" type="tns:CheckAuthHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CheckUserAccess">
+      <http:operation location="/CheckUserAccess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckAuthHttpPost" type="tns:CheckAuthHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CheckUserAccess">
+      <http:operation location="/CheckUserAccess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CheckAuth">
+    <wsdl:port name="CheckAuthSoap" binding="tns:CheckAuthSoap">
+      <soap:address location="http://localhost:100/auth/CheckAuth.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CheckAuthSoap12" binding="tns:CheckAuthSoap12">
+      <soap12:address location="http://localhost:100/auth/CheckAuth.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CheckAuthHttpGet" binding="tns:CheckAuthHttpGet">
+      <http:address location="http://localhost:100/auth/CheckAuth.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CheckAuthHttpPost" binding="tns:CheckAuthHttpPost">
+      <http:address location="http://localhost:100/auth/CheckAuth.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

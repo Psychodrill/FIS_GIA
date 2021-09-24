@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Service="Ege.Check.Logic.Services.EgeDataService, Ege.Check.Logic.Services" Factory="Ninject.Extensions.Wcf.NinjectServiceHostFactory" %>

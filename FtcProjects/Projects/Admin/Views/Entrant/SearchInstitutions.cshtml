@@ -1,0 +1,41 @@
+﻿<div id="search_table">
+    <select multiple class="form-control" id="SearchInstitutions" name="SearchInstitutions">
+        @{
+            foreach (var item in ViewBag.Institution)
+            {
+                if (item.BriefName == null)
+                {
+                    <option value="@item.InstitutionId">@item.FullName</option>
+                }
+                else
+                {
+                    <option value="@item.InstitutionId">@item.BriefName</option>
+                }
+            }
+        }
+    </select>
+</div>
+
+@* <div id="years"></div> *@
+<div class="row align-items-start ">
+    <div id="LoadInvalidEntrants" />
+</div>
+
+<script type="text/javascript">
+    $("#SearchInstitutions").change(function () {
+        var Search = {
+            Id: $("#SearchInstitutions option:selected").val(),                
+            @* Name: $("#SearchInstitutions option:selected").text() *@
+        }
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("LoadInvalidEntrants", "Entrant")',
+            data: Search,
+            success: function (msg) {
+                $('#search_table').empty();
+                $('#LoadInvalidEntrants').empty().html(msg);
+            }
+        });
+    });
+
+</script>

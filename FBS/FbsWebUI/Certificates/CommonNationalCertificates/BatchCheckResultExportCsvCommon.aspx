@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BatchCheckResultExportCsvCommon.aspx.cs" Inherits="Fbs.Web.Certificates.CommonNationalCertificates.BatchCheckResultExportCsvCommon" %>

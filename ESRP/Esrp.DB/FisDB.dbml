@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GVUZ_Develop" Class="FisDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PC;Initial Catalog=GVUZ_Develop;Integrated Security=True" SettingsObjectName="Esrp.DB.Properties.Settings" SettingsPropertyName="GVUZ_DevelopConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AllowedDirections" Member="AllowedDirections">
+    <Type Name="AllowedDirection">
+      <Column Name="InstitutionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DirectionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AdmissionItemTypeID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AllowedDirectionsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EIIS_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Esrp_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllowedDirectionStatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Direction_AllowedDirection" Member="Direction" ThisKey="DirectionID" OtherKey="DirectionID" Type="Direction" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Institution_AllowedDirection" Member="Institution" ThisKey="InstitutionID" OtherKey="InstitutionID" Type="Institution" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Direction" Member="Directions">
+    <Type Name="Direction">
+      <Column Name="DirectionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EIIS_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Esrp_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SYS_GUID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDULEVEL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="EducationLevelId" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="EDUPROGRAMTYPE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="EducationProgramTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UGSCODE" Type="System.String" DbType="Char(8)" CanBeNull="true" />
+      <Column Name="UGSNAME" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="QUALIFICATIONCODE" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="QUALIFICATIONNAME" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PERIOD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDU_DIRECTORY" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="EDUPR_ADDITIONAL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NewCode" Type="System.String" DbType="Char(8)" CanBeNull="true" />
+      <Association Name="Direction_AllowedDirection" Member="AllowedDirections" ThisKey="DirectionID" OtherKey="DirectionID" Type="AllowedDirection" />
+      <Association Name="EDU_PROGRAM_TYPE_Direction" Member="EDU_PROGRAM_TYPE" ThisKey="EducationProgramTypeId" OtherKey="ID" Type="EDU_PROGRAM_TYPE" IsForeignKey="true" />
+      <Association Name="ParentDirection_Direction" Member="ParentDirection" ThisKey="ParentID" OtherKey="ParentDirectionID" Type="ParentDirection" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EDU_PROGRAM_TYPES" Member="EDU_PROGRAM_TYPEs">
+    <Type Name="EDU_PROGRAM_TYPE">
+      <Column Name="Code" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="EIIS_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SHORTNAME" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Esrp_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="EDU_PROGRAM_TYPE_Direction" Member="Directions" ThisKey="ID" OtherKey="EducationProgramTypeId" Type="Direction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Institution" Member="Institutions">
+    <Type Name="Institution">
+      <Column Name="InstitutionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InstitutionTypeID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="BriefName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FormOfLawID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HasMilitaryDepartment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HasHostel" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HostelCapacity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HasHostelForEntrants" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HostelAttachmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INN" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="OGRN" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="AdmissionStructurePublishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReceivingApplicationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EsrpOrgID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OwnerDepartment" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MainEsrpOrgId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FounderEsrpOrgId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StatusId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="IsPrivate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsFilial" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LawAddress" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="KPP" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="EIIS_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Institution_AllowedDirection" Member="AllowedDirections" ThisKey="InstitutionID" OtherKey="InstitutionID" Type="AllowedDirection" />
+      <Association Name="Institution_InstitutionLicense" Member="InstitutionLicenses" ThisKey="InstitutionID" OtherKey="InstitutionID" Type="InstitutionLicense" />
+      <Association Name="RegionType_Institution" Member="RegionType" ThisKey="RegionID" OtherKey="RegionId" Type="RegionType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ParentDirection" Member="ParentDirections">
+    <Type Name="ParentDirection">
+      <Column Name="ParentDirectionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="Char(8)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EIIS_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Esrp_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ParentDirection_Direction" Member="Directions" ThisKey="ParentDirectionID" OtherKey="ParentID" Type="Direction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegionType" Member="RegionTypes">
+    <Type Name="RegionType">
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="OkatoCode" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="OkatoModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DisplayOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EsrpCode" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="RegionId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="RegionType_Institution" Member="Institutions" ThisKey="RegionId" OtherKey="RegionID" Type="Institution" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InstitutionLicense" Member="InstitutionLicenses">
+    <Type Name="InstitutionLicense">
+      <Column Name="LicenseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InstitutionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LicenseNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LicenseDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AttachmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EIIS_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Esrp_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Institution_InstitutionLicense" Member="Institution" ThisKey="InstitutionID" OtherKey="InstitutionID" Type="Institution" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

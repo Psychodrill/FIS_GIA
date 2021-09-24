@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Скачать архив с бланками";
+}
+@section styles {
+    <link href="@Url.Content("~/Content/Build/css/downloads.css")" rel="stylesheet" />
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/downloads.js")"></script>
+}
+
+<div class="mb-20">
+	<a href="/blanks">Вернуться в формам выгрузки бланков</a>
+</div>
+
+<div id="table-container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th rowspan="2">Дата создания</th>
+				<th rowspan="2">Состояние</th>
+				<th colspan="3">Количество бланков</th>
+				<th colspan="4">Количество участников</th>
+				<th rowspan="2">Комментарий</th>
+				<th rowspan="2"></th>
+			</tr>
+			<tr>
+				<th>всего</th>
+				<th>без ошибки</th>
+				<th>с ошибкой</th>
+				<th>всего</th>
+				<th>все бланки без ошибки</th>
+				<th>есть ошибки</th>
+				<th>не найдены</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>

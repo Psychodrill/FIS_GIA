@@ -1,0 +1,54 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FbsReportSender.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SMTPServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.gmail.com</Value>
+    </Setting>
+    <Setting Name="SMTPServer_EnableSSL" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SMTPServer_Login" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">info@fbsege.ru</Value>
+    </Setting>
+    <Setting Name="SMTPServer_Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">4422u4</Value>
+    </Setting>
+    <Setting Name="EmailAddress_From" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">info@fbsege.ru</Value>
+    </Setting>
+    <Setting Name="SMTPServer_Port" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="ReportName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Отчеты из Подсистемы ФИС Результаты ЕГЭ</Value>
+    </Setting>
+    <Setting Name="EmailAddress_To" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">denis.valeev@gmail.com,dvaleev@armd.ru</Value>
+    </Setting>
+    <Setting Name="DBConnection" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=zubrus;Initial Catalog=fbs_db;Persist Security Info=True;User ID=fbs;Password=fbs;Connection Timeout=3000&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=zubrus;Initial Catalog=fbs_db;Persist Security Info=True;User ID=fbs;Password=fbs;Connection Timeout=3000</Value>
+    </Setting>
+    <Setting Name="ReportViewListDaily" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">
+          [Отчет о регистрации пользователей за 24 часа],
+          [Отчет о загрузках свидетельств за 24 часа],
+          [Отчет об уникальных проверках свидетельств за 24 часа],
+          [Отчет о наиболее активных организациях за 24 часа]
+        </Value>
+    </Setting>
+    <Setting Name="ReportViewListWeekly" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">
+          [Отчет о регистрации пользователей за неделю],
+          [Отчет о загрузках свидетельств за неделю],
+          [Отчет об уникальных проверках свидетельств за неделю],
+          [Отчет о наиболее активных организациях за неделю]
+        </Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,162 @@
+﻿/*---------- tree control ---------*/
+
+/* container contains nodes. Node responsible for indent. */
+.Tree .Container
+{
+	padding: 0;
+	margin: 0;
+}
+
+.Tree .Container li
+{
+	list-style-type: none; /* remove bullets */
+}
+
+/* margin node */
+.Tree .Node
+{
+	margin-left: 18px; 
+	zoom: 1; /* required for compatibility wit IE 6, 7. set hasLayout */
+	line-height: 18px;
+}
+
+/* node icon properties
+ */
+.Tree .Expand
+{
+	width: 18px;
+	height: 18px;
+	float: left;
+	padding-top: 2px;	
+}
+
+/* node header */
+.Tree .NodeContent
+{
+	margin-left: 18px;
+	min-height: 18px;	
+	border-bottom: 1px dotted darkGray;
+	padding-bottom : 5px;
+	padding-top : 5px;
+	color: #0a4b9c !important;
+}
+
+.Tree .NodeContent a
+{
+	text-decoration: none;
+	color: #0a4b9c !important;
+}
+
+/* all beginning with "* html" only for IE 6 */
+* html .Tree .NodeContent
+{
+	height: 18px; /* min-height fore IE 6 */
+}
+
+.Tree .ExpandOpen .Container
+{
+	display: block;
+}
+
+.Tree .ExpandClosed .Container
+{
+	display: none;
+}
+
+.Tree .ExpandOpen .Expand, .ExpandClosed .Expand
+{
+	cursor: pointer; 
+}
+
+.Tree .ExpandLeaf .Expand
+{
+	cursor: auto;
+	margin-top: -3px;
+}
+
+.Tree .Root
+{
+	background-image: none;
+	margin-left: 0px;
+}
+
+.Node .NodeContent .Left, .TreeHeader .Left
+{
+	float: left;	
+	text-align : left;
+}
+
+.Node .NodeContent .Right, .TreeHeader .Right
+{
+	float: right;
+	width: 130px;
+}
+
+.Node .NodeContent div
+{
+	text-align : center;
+}
+
+table.gvuzHeaderTable
+{
+	margin-bottom: 10px;
+}
+
+table.gvuzHeaderTable td.gvuzContentName
+{
+	font-weight: bold;
+	text-align : left;
+}
+
+table.gvuzHeaderTable td.gvuzContentDetails
+{
+	font-weight: bold;
+	text-align : center;
+}
+
+div.NodeContent[levelID="1"]
+{
+	font-size: 24px;
+}
+
+div.NodeContent[levelID="2"]
+{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+div.NodeContent[levelID="3"]
+{
+	font-size: 12px;
+}
+
+div.NodeContent[levelID="4"] a
+{
+	font-size: 12px;
+	color: #9c9c9c !important;	
+}
+
+
+/*---------- tree control ---------*/
+
+/*---------- Button controls ---------*/
+
+.addBtn, .dltBtn, .strCpyBtn
+{
+	cursor: hand;
+	cursor: pointer;	
+	vertical-align: middle;
+}
+
+table.tree-icons
+{
+	border-width: 0px;
+	border-collapse: collapse;
+}
+table.tree-icons td
+{
+	width: 31px;
+	text-align: left;
+}
+
+/*---------- Button controls ---------*/

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{70CFD496-3625-4FC3-86B2-87A0CAD8EB3C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FBS.Replicator</RootNamespace>
+    <AssemblyName>FBS.Replicator</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\binaries\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\binaries\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\binaries\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\..\binaries\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GVUZ.CompositionExportModel">
+      <HintPath>..\_lib\GVUZ.CompositionExportModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DB\Connections.cs" />
+    <Compile Include="DataHelper.cs" />
+    <Compile Include="DB\ERBD\CompositionsHelper.cs" />
+    <Compile Include="DB\ERBD\ReadDB.cs" />
+    <Compile Include="DB\FBS\AlterDB.cs" />
+    <Compile Include="DB\FBS\WriteDB_Bulk.cs" />
+    <Compile Include="DB\FBS\WriteDB.cs" />
+    <Compile Include="FastDataReader.cs" />
+    <Compile Include="Helpers\AssemblyInfo.cs" />
+    <Compile Include="Helpers\LaunchConditions.cs" />
+    <Compile Include="Helpers\NetworkConnection.cs" />
+    <Compile Include="DB\GVUZ\WriteDB_Bulk.cs" />
+    <Compile Include="DB\GVUZ\ReadDB.cs" />
+    <Compile Include="DB\GVUZ\WriteDB.cs" />
+    <Compile Include="DB\Queries.cs" />
+    <Compile Include="DB\Tables.cs" />
+    <Compile Include="Entities\ERBD\CompositionInfo.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Helpers\NetworkIO.cs" />
+    <Compile Include="Helpers\ProcessData.cs" />
+    <Compile Include="Replication\ERBDToFBS\Actions.cs" />
+    <Compile Include="Entities\Certificate.cs" />
+    <Compile Include="Entities\CertificatesMark.cs" />
+    <Compile Include="Entities\ERBD\CancelledCertificate.cs" />
+    <Compile Include="Entities\ERBD\CertificatesMark.cs" />
+    <Compile Include="Entities\ERBD\Certificate.cs" />
+    <Compile Include="Entities\ERBD\HumanTest.cs" />
+    <Compile Include="Entities\ERBD\Participant.cs" />
+    <Compile Include="Entities\FBS\CancelledCeritifcate.cs" />
+    <Compile Include="Entities\FBS\Certificate.cs" />
+    <Compile Include="Entities\FBS\CertificatesMark.cs" />
+    <Compile Include="Entities\FBS\ExpireDate.cs" />
+    <Compile Include="Entities\FBS\GVUZDocumentTypesMapping.cs" />
+    <Compile Include="Entities\FBS\MinimalMark.cs" />
+    <Compile Include="Entities\FBS\Participant.cs" />
+    <Compile Include="Entities\FBS\IdentityDocument.cs" />
+    <Compile Include="Entities\FBS\Person.cs" />
+    <Compile Include="Entities\GVUZ\IdentityDocument.cs" />
+    <Compile Include="Entities\GVUZ\Person.cs" />
+    <Compile Include="Entities\Participant.cs" />
+    <Compile Include="DB\FBS\ReadDB.cs" />
+    <Compile Include="Replication\ERBDToFBS\Merger.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Replication\ERBDToFBS\Replicator.cs" />
+    <Compile Include="Replication\FBSToGVUZ\Actions.cs" />
+    <Compile Include="Replication\FBSToGVUZ\Merger.cs" />
+    <Compile Include="Replication\FBSToGVUZ\Replicator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FBS.Common\FBS.Common.csproj">
+      <Project>{67ED45D2-CC8B-40EC-9241-3B44C61F8D68}</Project>
+      <Name>FBS.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

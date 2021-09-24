@@ -1,0 +1,140 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" 
+    Inherits="Fbs.Web.Common.Templates.Main" %>
+<%@ Import Namespace="Fbs.Web" %>
+<%@ Register TagPrefix="web" Namespace="WebControls" Assembly="WebControls" %>
+<%@ Register TagPrefix="c" TagName="LoginControl"  Src="~/LoginControl.ascx"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+<head>
+    <title>ФБС - Главная страница</title>
+    <link media="all" href="/Common/Styles/Styles.css?200907071905" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/Common/Images/favicon.ico" type="image/x-icon">
+    <asp:ContentPlaceHolder ID="cphHead" runat="server" />
+</head>
+<body>
+    
+<web:UINavigation runat="server" NavigationGraph="/Web.navigation" />    
+    
+<!-- wrapper -->
+<div id="wrapper">
+
+<!-- top blocks -->
+<div class="col-left">
+<div class="small-nav">
+<ul>
+<!--li><a href="#" title="написать письмо"><img src="/Common/Images/ico-mail.gif" width="12" height="10" alt="написать письмо" /></a></li>
+<li><a href="#" title="карта сайта"><img src="/Common/Images/ico-map.gif" width="11" height="10" alt="карта сайта" /></a></li-->
+<li><img src="/Common/Images/ico-home.gif" width="11" height="10" alt="Главная" /></li>
+</ul>
+</div>
+</div>
+
+<div class="header">
+<%--<div style="float:left; width:50%; margin-left:20px">
+<b style="color:red;">Внимание!</b>
+24.07.2009  в период с 18.40 по 19.10 (мск) будут проводиться регламентные работы на сайте Подсистемы ФИС &laquo;Результаты ЕГЭ&raquo;.
+</div>--%>
+<h2 class="title">Подсистема ФИС &laquo;Результаты ЕГЭ&raquo;</h2>
+<ul class="menutop">
+   <li><a href="http://priem.edu.ru/NewsArchive.aspx">Новости</a></li>
+    <li><a href="http://priem.edu.ru/Instructions.aspx" title="Инструкции">Инструкции</a></li>
+    <li><a href="http://priem.edu.ru/Documents.aspx" title="Документы">Документы</a></li>
+    <!--<li><a href="/AskedQuestions.aspx">Вопросы и Ответы</a></li>-->
+    <li><a href="http://priem.edu.ru/Support.aspx" title="Горячая линия">Горячая линия</a></li>     
+
+<%if ((AllowCheckCert) && (User.IsInRole("ViewCertificateSection")) && (User.IsInRole("CheckCommonNationalCertificate")))
+    {
+        if (EnableOpenedFbs)
+        {%>
+        <li><a href="/Certificates/CommonNationalCertificates/CheckForOpenedFbs.aspx" title="Свидетельства">Свидетельства</a></li>
+        <% }
+        else
+        {%>
+        <li><a href="/Certificates/CommonNationalCertificates/Check.aspx" title="Свидетельства">Свидетельства</a></li>
+        <% }
+    }%>
+    
+<% if (User.IsInRole("ViewAdministrationSection")) { %>
+    <li><a href="/Administration/Accounts/Users/List.aspx" title="Администрирование">Администрирование</a></li>
+<% } %>
+   <%if (EnableHashedChecks)
+                  { %>
+                <li><a href="/Certificates/CommonNationalCertificates/HashedCheck/CheckByMarkSum.aspx"
+                    title="Проверки частных лиц">Проверки частных лиц</a></li>
+                <% }
+              if (!EnableOpenedFbs)
+                      { %>
+                <li><a href="/AllUsers/BatchCheckFileFormat.aspx" title="Тестирование пакетной проверки">
+                    Тестирование пакетной проверки</a></li>
+                <%}
+                else
+                      {%>
+                <li><a href="/AllUsers/BatchCheckFileFormatByNumber.aspx" title="Тестирование пакетной проверки">
+                    Тестирование пакетной проверки</a></li>
+                <%}%>
+</ul>
+</div>
+<!-- /top blocks -->
+
+<div class="cleaner splitter-top"></div>
+
+<!-- left column -->
+<div class="col-left" >
+
+<c:LoginControl runat="server" ID = "loginControl"/>
+<%--<% if (User.Identity.IsAuthenticated) {%>
+
+<div class="user-block">    
+<a href="/Profile/View.aspx" class="user" title="Регистрационные данные">Рег. данные</a>
+<a href="/Logout.aspx" class="exit" title="Выход">Выход</a>
+</div>
+        
+<% } else { %>
+
+<div class="authorization-block"><div>
+<form action="/Login.aspx" method="post"><span>
+    <span>
+      <input class="bt" type="submit" value="Войти в систему" /><br />
+    </span>
+</form>
+</div></div>
+<% } %>--%>
+
+</div>
+<!-- /left column -->
+
+<!-- main column -->
+<div class="col-main">
+
+<!-- content in -->
+<div class="content-in">
+
+    <asp:ContentPlaceHolder ID="cphContent" runat="server" />
+
+</div>
+<!-- /content in -->
+
+</div>
+<!-- /main column -->
+
+<div class="cleaner"></div>
+
+<!-- footer -->
+<div class="col-main">
+<div id="footer">
+<p class="copyright">© <%=DateTime.Now.Year %> Рособрнадзор</p>
+<p class="contacts"><strong>Тел. горячей линии:</strong><%=Fbs.Web.Config.SupportPhone %><span><strong>Электронная почта:</strong>
+    <a href="#"><%=Fbs.Web.Config.SupportMail %></a></span></p>
+</div>
+</div>
+<!-- /footer -->
+
+</div>
+<!-- wrapper -->
+
+<!-- Гугл аналитика должна быть здесь, сразу же перед </body>: -->
+
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0">
+    <EntityGroups>
+      <Group name="Справочники" id="Catalogs" order="1">
+        <Group name="Навигация" id="Navigation" order="10"/>
+        <Group name="Прочие"    id="Common" order="20"/>
+	<Group name="Служебные" id="ReportingCategories" order="30" />
+      </Group>
+    </EntityGroups>
+    <Entities>
+        <Entity id="Texts" groupId="Common">
+            <CommonSettings allowEdit="true" allowCreate="false" allowDelete="false" newIdMode="UserInput"  />
+            <DataSettings baseTableName="Texts" />
+            <ListSettings pageSize="20" headerText="Надписи" />
+            <FormSettings />
+            <Fields>
+                <Field>
+                    <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <View visibility="Visible" order="1" caption="Идентификатор" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Идентификатор" editMode="ReadOnlyText" input="Text" isRequired="true" size="Normal" order="1" visible="true">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Code" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <View visibility="Visible" formatSchema="" order="10" caption="Код" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Код" input="Text" isRequired="true" size="Normal" order="10" visible="true"> 
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Text" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Надпись" order="10" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="20" caption="Надпись" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Надпись" input="LongText" isRequired="true" size="Long" order="20" visible="true">
+                    </FormSettings>
+                </Field>
+            </Fields>
+        </Entity>
+    </Entities>
+</Metadata>

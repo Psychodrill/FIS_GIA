@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<Metadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" formatVersion="2.0">
+  <Entities>
+    <Entity id="ReportTemplateExportFormat">
+      <CommonSettings allowEdit="true" allowCreate="false" allowDelete="false" newIdMode="UserInput" />
+      <DataSettings baseTableName="ReportTemplateExportFormat">
+        <SortExpression>NAME</SortExpression>
+      </DataSettings>
+        <ListSettings headerText="Формат экспорта отчета в файл" allowExport="true">
+            <PagerSettings Mode="None"/>
+        </ListSettings>
+      <FormSettings btnBack="Назад" btnSave="" btnCancel="">
+      </FormSettings>
+      <Fields>
+        <Field>
+          <CommonSettings caption="Идентификатор элемента" />
+          <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer" filterMode="None" />
+          <ListSettings>
+            <Filter visible="false" input="None" caption="Идентификатор элемента: " lineBreakAfterInput="true" />
+            <View visibility="Hidden" caption="Идентификатор элемента" />
+          </ListSettings>
+          <FormSettings visible="true" input="Text" caption="Идентификатор элемента: " lineBreakAfterInput="true" size="Normal" editMode="ReadOnlyText" addMode="Control" isRequired="true" />
+        </Field>
+        <Field>
+          <CommonSettings caption="Наименование" />
+          <DataSettings fieldName="Name" isPrimaryKey="false" fieldType="String" filterMode="Substring" />
+          <ListSettings>
+            <Filter visible="true" input="Text" caption="Наименование: " lineBreakAfterInput="true" />
+            <View visibility="Visible" caption="Наименование" />
+          </ListSettings>
+          <FormSettings visible="true" input="Text" caption="Наименование: " lineBreakAfterInput="true" size="Normal" editMode="ReadOnlyText" addMode="Control" isRequired="true" />
+        </Field>
+        <Field>
+          <CommonSettings caption="Системное название элемента" />
+          <DataSettings fieldName="Code" isPrimaryKey="false" fieldType="String" filterMode="Substring" />
+          <ListSettings>
+            <Filter visible="true" input="Text" caption="Системное название элемента: " lineBreakAfterInput="true" />
+            <View visibility="Visible" caption="Системное название элемента" />
+          </ListSettings>
+          <FormSettings visible="true" input="Text" caption="Системное название элемента: " lineBreakAfterInput="true" size="Normal" editMode="ReadOnlyText" addMode="Control" isRequired="true" />
+        </Field>
+        <Field>
+          <CommonSettings caption="Статус элемента" />
+          <DataSettings fieldName="Deleted" isPrimaryKey="false" fieldType="Boolean" filterMode="Equals" />
+          <ListSettings>
+            <Filter visible="true" input="Text" caption="Статус элемента: " lineBreakAfterInput="true" />
+            <View visibility="Visible" caption="Статус элемента" />
+          </ListSettings>
+          <FormSettings visible="true" input="Boolean" caption="Статус элемента: " lineBreakAfterInput="true" size="Normal" editMode="ReadOnlyText" addMode="Control" isRequired="true" />
+        </Field>
+      </Fields>
+    </Entity>
+  </Entities>
+</Metadata>

@@ -1,0 +1,70 @@
+@import "../Variables/typography-variables.less";
+
+body {
+	font-size: 14px;
+	font-family: @font-family-primary;
+}
+
+.heading {
+	font-family: @font-family-secondary;
+	font-weight: bold;	
+	margin-top: 0;
+}
+
+* + .heading {
+	margin-top: 0.83em;
+}
+
+.heading-1 {
+	.heading;
+	font-size: 28px;
+	text-transform: uppercase;
+}
+
+.heading-2 {
+	.heading;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+
+.heading-3 {
+	.heading;
+	font-size: 22px;
+}
+
+.heading-4 {
+	.heading;
+	font-size: 18px;
+}
+
+.heading-5 {
+	.heading;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.heading-6 {
+	.heading;
+	font-size: 14px;
+}
+
+h1 { .heading-1; }
+h2 { .heading-2; }
+h3 { .heading-3; }
+h4 { .heading-4; }
+h5 { .heading-5; }
+h6 { .heading-6; }
+
+p {
+	font-size: 11px;
+	line-height: 1.5;
+	margin: 0;
+
+	&.red {
+		color: red;
+	}
+
+	&.size-l {
+		font-size: 12px;
+	}
+}

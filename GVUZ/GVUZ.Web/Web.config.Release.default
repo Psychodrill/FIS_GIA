@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=152368
+  -->
+<configuration>
+  <configSections>
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="GVUZ.Web.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      <section name="GVUZ.Helper.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    </sectionGroup>
+    <section
+       name="cachingConfiguration"
+       type="Microsoft.Practices.EnterpriseLibrary.Caching.Configuration.CacheManagerSettings, Microsoft.Practices.EnterpriseLibrary.Caching, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+       requirePermission="true" />
+    <section name="PlatformConfiguration" type="Plat.Common.Configuration.Sections.PlatformConfigurationSection, Plat.Common" allowLocation="false" allowDefinition="MachineToApplication" />
+  </configSections>
+    <PlatformConfiguration>
+        <MetadataLocations lists="~/ListsMetadata" catalogs="~/ListsMetadata" />
+        <ConnectionSettings defaultConnectionStringName="Reports" OLAPCommandTimeout="600" OLTPCommandTimeout="60" />
+        <DataFormattingSchemas listsDefaultSchema="Default" formsDefaultSchema="Default"  gridReportsDefaultSchema="Default" devXReportsDefaultSchema="Default">
+            <add name="Default">
+                <DateFormat format="Short" includeTime="False"></DateFormat>
+                <BooleanFormat trueText="Да" falseText="Нет"></BooleanFormat>
+                <LongStringFormat truncateToLength="0"></LongStringFormat>
+                <BoundaryValuesFormat nullText="" zeroText="" emptyStringText=""></BoundaryValuesFormat>
+            </add>
+            <add name="DateTimeSecond">
+                <DateFormat format="Short" includeTime="True"></DateFormat>
+                <BooleanFormat trueText="Да" falseText="Нет"></BooleanFormat>
+                <LongStringFormat truncateToLength="0"></LongStringFormat>
+                <BoundaryValuesFormat nullText="Нет данных" zeroText="" emptyStringText="Нет данных"></BoundaryValuesFormat>
+            </add>
+            <add name="DateTime">
+                <DateFormat format="Short" includeTime="True"></DateFormat>
+                <BooleanFormat trueText="Да" falseText="Нет"></BooleanFormat>
+                <LongStringFormat truncateToLength="0"></LongStringFormat>
+                <BoundaryValuesFormat nullText="Нет данных" zeroText="Нет данных" emptyStringText="Нет данных"></BoundaryValuesFormat>
+            </add>
+        </DataFormattingSchemas>
+    </PlatformConfiguration>
+  <connectionStrings>
+    <add name="InstitutionsEntities" connectionString="metadata=res://*/Institutions.Institution.csdl|res://*/Institutions.Institution.ssdl|res://*/Institutions.Institution.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;User Id=scholar;Password=scholar;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+    <add name="CoursesEntities" connectionString="metadata=res://*/Courses.Courses.csdl|res://*/Courses.Courses.ssdl|res://*/Courses.Courses.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;User Id=scholar;Password=scholar;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+    <add name="BenefitsEntities" connectionString="metadata=res://*/Benefits.Benefits.csdl|res://*/Benefits.Benefits.ssdl|res://*/Benefits.Benefits.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;User Id=scholar;Password=scholar;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+    <add name="EntrantsEntities" connectionString="metadata=res://*/Entrants.Entrants.csdl|res://*/Entrants.Entrants.ssdl|res://*/Entrants.Entrants.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;User Id=scholar;Password=scholar;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+    <add name="AdministrationEntities" connectionString="metadata=res://*/Administration.Administration.csdl|res://*/Administration.Administration.ssdl|res://*/Administration.Administration.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=10.32.200.96;&#xD;&#xA;   Initial Catalog=gvuz_develop_2016;User Id=scholar;Password=scholar;Persist Security Info=True;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+    <add name="NormativeDictionaryEntities" connectionString="metadata=res://*/NormativeDictionaries.NormativeDictionaries.csdl|res://*/NormativeDictionaries.NormativeDictionaries.ssdl|res://*/NormativeDictionaries.NormativeDictionaries.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;User Id=scholar;Password=scholar;Persist Security Info=True;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+    <add name="Main" connectionString="Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;uid=scholar;pwd=scholar;" providerName="System.Data.SqlClient" />
+    <add name="ImportEntities" connectionString="metadata=res://*/Import.ImportEntities.csdl|res://*/Import.ImportEntities.ssdl|res://*/Import.ImportEntities.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;Persist Security Info=True;User ID=scholar;Password=scholar;MultipleActiveResultSets=True;&quot;" providerName="System.Data.EntityClient" />
+    <add name="ApplicationPrioritiesEntities" connectionString="metadata=res://*/ApplicationPriorities.ApplicationPriorities.csdl|res://*/ApplicationPriorities.ApplicationPriorities.ssdl|res://*/ApplicationPriorities.ApplicationPriorities.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;persist security info=True;user id=scholar;password=scholar;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+    <add name="RecommendedListsEntities" connectionString="metadata=res://*/RecommendedLists.RecommendedLists.csdl|res://*/RecommendedLists.RecommendedLists.ssdl|res://*/RecommendedLists.RecommendedLists.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;persist security info=True;User Id=scholar;Password=scholar;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+      <add name="FbsConnectionString" connectionString="Data Source=10.32.200.164;Initial Catalog=FBS_2015_Debug;User ID=scholar;Password=scholar" />
+    <add name="AppExport" connectionString="Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;User Id=scholar;Password=scholar;MultipleActiveResultSets=true"/>
+    <add name="Reports" connectionString="Data Source=10.32.200.164;Initial Catalog=gvuz_reports;User Id=scholar;Password=scholar;MultipleActiveResultSets=true" providerName="System.Data.SqlClient"/>
+  </connectionStrings>
+
+  <appSettings>
+    <add key="Search.PageSize" value="10" />
+    <add key="Application.TotalLimit" value="5" />
+    <add key="Application.LocalLimit" value="3" />
+    <add key="ConnectionFactory.Address" value="http://195.239.66.206/Rdms" />
+    <add key="ConnectionFactory.Username" value="Administrator" />
+    <add key="ConnectionFactory.Password" value="gfhjkm" />
+    <add key="ConnectionFactory.ProxyUsername" value="" />
+    <add key="ConnectionFactory.ProxyPassword" value="" />
+    <!--<add key="ESRPAuth.EsrpVersion" value="1"/>-->
+    <add key="ESRPAuth.Path" value="http://10.32.200.164:100" />
+    <!--add key="ESRPAuth.Path" value="http://195.239.66.223:16480/" -->
+    <add key="ESRPAuth.EsrpVersion" value="2"/>
+
+    <add key="SqlCommandTimeout" value="800" />
+    <add key="ImportProcessorThreadcount" value="2"/>
+    <add key="EnablePersonalRecordsAccessLog" value="false" />
+
+    <add key="ESRPAuth.CookieLifeTime" value="200" />
+    <add key="ESRPAuth.SkipAuthPath" value="/resources/;/import/importservice.svc;/informationservice.asmx" />
+    <add key="EgeCheckLogin" value="Babchenko" />
+    <add key="EgeCheckPassword" value="123" />
+      <add key="EgeCheckPage" value="http://10.32.200.164:4243/Certificates/CommonNationalCertificates/Check.aspx" />
+    <add key="RunImportProcessorInsideApp" value="true" />
+
+    <add key="CampaignDefaultDateStart" value="20.06" />
+    <add key="CampaignDefaultDateEnd" value="25.07" />
+    <add key="CampaignDefaultDateOrderTarget" value="30.07" />
+    <add key="CampaignDefaultDateOrderStage1" value="05.08" />
+    <add key="CampaignDefaultDateOrderStage2" value="10.08" />
+    <add key="CampaignDateOrderPaidMax" value="22.08" />
+
+    <add key="QueuedFactoryProcessorIsOn" value="false" />
+    <add key="QueuedFactoryProcessorThreadCount.DoImportApplicationSingleService" value="3" />
+    <add key="QueuedFactoryProcessorThreadCount.DoCheckApplicationSingleService" value="3" />
+    <add key="QueuedFactoryProcessorThreadCount.GetResultCheckApplicationService" value="3" />
+    <add key="QueuedFactoryProcessorThreadCount.GetResultDeleteApplicationService" value="3" />
+    <add key="QueuedFactoryProcessorThreadCount.GetResultImportApplicationService" value="3" />
+    <add key="CampaignForeignerOrderDate" value="07.08.2015"/>
+
+    <!-- Ef, Bulk, Xml -->
+    <add key="ImportType" value="Bulk" />
+    <add key="CampaignForeignerOrderDate" value="07.08.2015"/>
+
+    <!-- Campaign years range -->
+    <add key="CampaignYearRangeStart" value="2012" />
+    <add key="CampaignYearRangeLength" value="11" />
+
+    <add key="ShowFilterStatistics" value="true" />
+    <add key="OlympicFileAccessRestriction" value="6754,587" />
+    <add key="OlympicFileStorage" value="C:\temp\FIS_DEV\file_storage" />
+    
+    <!-- Hide order of admission menu -->
+    <add key="HideOrdersMenu" value="false" />
+    <!-- Отображение раздела "Анализ хода ПК" -->
+    <add key ="ShowInstitutionReports" value="true" />
+    <!-- Корневой MenuElement, элементы которого отображаются в разделе "Анализ хода ПК" в качестве отчетов -->
+    <add key ="InstitutionReportsRootCode" value="FIS_OORUK" />
+  </appSettings>
+
+  <applicationSettings>
+    <GVUZ.Web.Properties.Settings>
+      <setting name="AppExportFileStorage" serializeAs="String">
+        <value>C:\develop\ExportFiles</value>
+      </setting>
+    </GVUZ.Web.Properties.Settings>
+    <GVUZ.Helper.Properties.Settings>
+      <setting name="GVUZ_Helper_EgeChecks_WSChecks" serializeAs="String">
+          <value>http://10.32.200.164:4243/wsChecks.asmx</value>
+      </setting>
+    </GVUZ.Helper.Properties.Settings>
+  </applicationSettings>
+  <system.web>
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <add assembly="System.Web.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Routing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.WebPages, Version=1.0.0.0, Culture=neutral,PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+        <add assembly="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+      </assemblies>
+    </compilation>
+
+    <customErrors mode="Off" defaultRedirect="Error/HttpError">
+      <error statusCode="404" redirect="Error/Http404" />
+    </customErrors>
+
+    <authentication mode="Forms">
+      <forms loginUrl="~/Account/LogOn" timeout="2880" slidingExpiration="true" />
+    </authentication>
+
+    <sessionState cookieName="gvuz.cookie" mode="InProc" timeout="20" regenerateExpiredSessionId="false" sessionIDManagerType="">
+    </sessionState>
+
+    <membership>
+      <providers>
+        <clear />
+        <add name="AspNetSqlMembershipProvider" type="System.Web.Security.SqlMembershipProvider" connectionStringName="Main" enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="true" maxInvalidPasswordAttempts="5" minRequiredPasswordLength="4" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10" applicationName="/" />
+      </providers>
+    </membership>
+
+    <profile>
+      <providers>
+        <clear />
+        <!--<add name="AspNetSqlProfileProvider" type="System.Web.Profile.SqlProfileProvider" connectionStringName="Main" applicationName="/" />-->
+      </providers>
+    </profile>
+
+    <roleManager enabled="true">
+      <providers>
+        <clear />
+        <add name="AspNetSqlRoleProvider" type="System.Web.Security.SqlRoleProvider" connectionStringName="Main" applicationName="/" />
+        <!--<add name="AspNetWindowsTokenRoleProvider" type="System.Web.Security.WindowsTokenRoleProvider" applicationName="/" />-->
+      </providers>
+    </roleManager>
+
+    <pages>
+      <namespaces>
+        <add namespace="System.Web.Mvc" />
+        <add namespace="System.Web.Mvc.Ajax" />
+        <add namespace="System.Web.Mvc.Html" />
+        <add namespace="System.Web.Routing" />
+      </namespaces>
+    </pages>
+
+    <httpRuntime executionTimeout="110" maxRequestLength="71680" requestValidationMode="2.0" maxQueryStringLength="71680" maxUrlLength="71680" />
+    <machineKey validationKey="02296922DE81BA7A0898C2E143247B12CC4E0D470F353FAB63D89F1FAEE3AD11C43484F592D64D9EE26DE4D5D2C91D6F64B412475C58A6AA2374D9685E3100AC" decryptionKey="46F8D099FF54318B73E97A34ECFF0021D9995AE61AD6D6F4" validation="SHA1" />
+    <globalization culture="ru-RU" uiCulture="ru-RU" />
+  </system.web>
+  <system.webServer>
+    <httpRedirect enabled="false" />
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="71680000" />
+      </requestFiltering>
+    </security>
+    <validation validateIntegratedModeConfiguration="false" />
+    <modules runAllManagedModulesForAllRequests="true">
+      <add name="EsrpAuthModule" type="GVUZ.Web.Auth.EsrpAuthModule" />
+    </modules>
+    <directoryBrowse enabled="false" showFlags="None" />
+
+    <defaultDocument>
+      <files>
+        <clear />
+        <add value="default.aspx" />
+        <add value="Default.htm" />
+        <add value="Default.asp" />
+        <add value="index.htm" />
+        <add value="index.html" />
+        <add value="iisstart.htm" />
+      </files>
+    </defaultDocument>
+
+    <handlers>
+      <add name="isapi1" path="*" verb="*" modules="IsapiModule" scriptProcessor="C:\Windows\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" resourceType="Unspecified" preCondition="classicMode,runtimeVersionv4.0,bitness32" />
+      <add name="isapi" path="*" verb="*" modules="IsapiModule" scriptProcessor="C:\Windows\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" resourceType="Unspecified" requireAccess="None" preCondition="classicMode,runtimeVersionv4.0,bitness32" />
+    </handlers>
+
+  </system.webServer>
+
+  <system.web>
+    <httpModules>
+      <add name="EsrpAuthModule" type="GVUZ.Web.Auth.EsrpAuthModule" />
+    </httpModules>
+  </system.web>
+
+  <system.serviceModel>
+    <services>
+      <service name="GVUZ.Web.Import.ImportService">
+        <endpoint address="" behaviorConfiguration="GVUZ.Web.Import.Service1AspNetAjaxBehavior" binding="webHttpBinding" contract="GVUZ.Web.Import.IImportService"  />
+      </service>
+    </services>
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true" />
+    <behaviors>
+      <endpointBehaviors>
+        <behavior name="clientBehavior">
+          <dataContractSerializer maxItemsInObjectGraph="2147483647" />
+        </behavior>
+        <behavior name="GVUZ.Web.Import.Service1AspNetAjaxBehavior">
+          <webHttp helpEnabled="true" />
+        </behavior>
+      </endpointBehaviors>
+      <serviceBehaviors>
+        <behavior name="">
+          <serviceMetadata httpGetEnabled="true" />
+          <serviceDebug includeExceptionDetailInFaults="false" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    <extensions>
+      <bindingExtensions>
+        <add name="clearUsernameBinding" type="WebServices20.BindingExtenions.ClearUsernameCollectionElement, ClearUsernameBinding" />
+      </bindingExtensions>
+    </extensions>
+
+    <bindings>
+      <webHttpBinding>
+        <binding maxReceivedMessageSize="100000000"  />
+      </webHttpBinding>
+      <clearUsernameBinding>
+        <binding name="wsHttp" messageVersion="Soap12" closeTimeout="00:01:00" openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00">
+        </binding>
+      </clearUsernameBinding>
+
+    </bindings>
+
+    <client>
+      <endpoint name="ExportServiceEndpoint" binding="clearUsernameBinding" bindingConfiguration="wsHttp" behaviorConfiguration="clientBehavior" contract="Rdms.Communication.Interface.IExportService" />
+      <endpoint name="VersionServiceEndpoint" binding="clearUsernameBinding" bindingConfiguration="wsHttp" behaviorConfiguration="clientBehavior" contract="Rdms.Communication.Interface.IVersionService" />
+    </client>
+  </system.serviceModel>
+
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+
+  <cachingConfiguration defaultCacheManager="UserRoleCache">
+    <cacheManagers>
+      <add name="UserRoleCache" type="Microsoft.Practices.EnterpriseLibrary.Caching.CacheManager, Microsoft.Practices.EnterpriseLibrary.Caching"
+        expirationPollFrequencyInSeconds="1800" maximumElementsInCacheBeforeScavenging="1000"
+        numberToRemoveWhenScavenging="300" backingStoreName="Null Storage" />
+    </cacheManagers>
+    <backingStores>
+      <add name="Null Storage" encryptionProviderName="" type="Microsoft.Practices.EnterpriseLibrary.Caching.BackingStoreImplementations.NullBackingStore, Microsoft.Practices.EnterpriseLibrary.Caching"/>
+    </backingStores>
+  </cachingConfiguration>
+</configuration>

@@ -1,0 +1,112 @@
+﻿@using Admin.Models
+@model IndexViewModel
+
+<div>
+    Количество записей: @ViewBag.itemCount
+</div>
+
+<p>
+    Поиск по фамилии: @Html.TextBox("SearchString")  
+    <input class="searchString" type="submit" value="Поиск" />
+</p>
+
+<div id="docs">
+    <table class="table table-sm table-hover" border="0" width="70%">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">ID абитуриента</th>
+            <th scope="col">ФИО абитуриента</th>
+            <th scope="col">Дата создания</th>
+            <th scope="col">Номер заявления</th>
+        </tr>
+        @foreach (var item in Model.EntrantViewModel)
+        {
+            <tr id="@item.Entrant.EntrantId">
+                <td scope="row"><a href="#" class="deleteEntrant" data-id="@item.Entrant.EntrantId" title="Удалить"><img
+                            src="~/images/delete.png" border="0" width="16" /></a></td>
+                <td>@item.Entrant.EntrantId</td>
+                <td>@item.Entrant.LastName&nbsp;&nbsp;@item.Entrant.FirstName&nbsp;&nbsp;@item.Entrant.MiddleName</td>
+                <td>@item.Entrant.CreatedDate.ToShortDateString()</td>
+                <td>@item.Application.ApplicationNumber</td>
+            </tr>
+        }
+    </table>
+    @if (Model.PageViewModel.HasPreviousPage)
+    {
+        <a href="#" class="pager" data-page="@(Model.PageViewModel.PageNumber - 1)"
+            data-instID = "@ViewBag.instID"
+            class="btn btn-outline-dark">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Назад
+        </a>
+    }
+    @if (Model.PageViewModel.HasNextPage)
+    {
+        <a href="#" class="pager" data-page="@(Model.PageViewModel.PageNumber + 1)"
+            data-instID = "@ViewBag.instID"
+            class="btn btn-outline-dark">
+            Вперед
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    }
+</div>
+
+<div class="return" />
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('.pager').on('click', function () {
+            var Search = {                
+            Id: '@ViewBag.instID',
+            page: $(this).data("page"),
+            }
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("LoadInvalidEntrants", "Entrant")',
+                data: Search,
+                success: function (msg) {
+                    $('#LoadInvalidEntrants').empty().html(msg);
+                }
+            });
+        })
+
+        $('.searchString').on('click', function () {
+            @* var value = document.getElementById("SearchString").value; *@
+            var Search = {                
+            Id: '@ViewBag.instID',
+            page: $(this).data("page"),
+            searchString: document.getElementById("SearchString").value,
+            }
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("LoadInvalidEntrants", "Entrant")',
+                data: Search,
+                success: function (msg) {
+                    $('#LoadInvalidEntrants').empty().html(msg);
+                }
+            });
+        })
+
+        $('.deleteEntrant').on('click', function () {
+            if (confirm('Удалить абитуриента с ID=' + $(this).data("id") + '?')) {
+                var id = $(this).data("id");
+                var Entrant = {
+                    EntrantId: $(this).data("id")
+                }
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("EntrantRemove", "Entrant")',
+                    data: Entrant,
+                    success: function (msg) {
+                        $('#docs tr#' + id).remove();
+                        $('.return').empty().html('<center>' + msg + '</center>');
+                    }
+                });
+            }
+        })
+    });
+
+
+</script>

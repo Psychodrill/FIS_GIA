@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA29F27F-38C8-4FC1-AC51-95CF13FF4A64}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FbsServices</RootNamespace>
+    <AssemblyName>FbsServices</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BatchCheckResultCommonCsvExporter.cs" />
+    <Compile Include="BatchPrintService.cs" />
+    <Compile Include="CertificateBatchCheckHistoryService.cs" />
+    <Compile Include="CertificateCheckHistoryService.cs" />
+    <Compile Include="CertificateCheckHistoryServiceBase.cs" />
+    <Compile Include="CertificateCheckMode.cs" />
+    <Compile Include="CNECService.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="CommandExtensions.cs" />
+    <Compile Include="CommonCheckType.cs" />
+    <Compile Include="BatchCheckResultObsoleteCsvExporter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportingService.cs" />
+    <Compile Include="SqlDataHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChecksClient\FbsCheckClient.csproj">
+      <Project>{7CC15CB0-6DDB-4C34-9616-D1776C6C5BF0}</Project>
+      <Name>FbsCheckClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FbsCore\FbsCore.csproj">
+      <Project>{A88961B0-C7CA-4875-B0BF-75A159495610}</Project>
+      <Name>FbsCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FbsUtility\FbsUtility.csproj">
+      <Project>{B72D1735-BB10-42C1-AF35-3F5A12DF9607}</Project>
+      <Name>FbsUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FbsWebViewModel\FbsWebViewModel.csproj">
+      <Project>{17657D01-54BB-4CB4-8DB5-A7F1DD919CC2}</Project>
+      <Name>FbsWebViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

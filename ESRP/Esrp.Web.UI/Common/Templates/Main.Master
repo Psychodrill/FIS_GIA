@@ -1,0 +1,140 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Esrp.Web.Common.Templates.Main" %>
+<%@ Import Namespace="Esrp.Web" %>
+<%@ Import Namespace="Esrp.Core.Systems" %>
+<%@ Register TagPrefix="web" Namespace="WebControls" Assembly="WebControls" %>
+<%@ Register TagPrefix="esrp" Namespace="Esrp.Web.Controls" Assembly="Esrp.Web.UI" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+<head runat="server">
+    <title>ЕСРП</title>
+    <link media="all" rel="stylesheet" href="/Common/Styles/style.css" type="text/css" />
+    <link media="all" rel="stylesheet" href="/Common/Styles/cusel.css" type="text/css" />
+    <link media="all" rel="stylesheet" href="/Common/Styles/fonts.css" type="text/css" />
+    <link media="all" rel="Stylesheet" href="/Common/Styles/redmond/jquery-ui-1.8.24.custom.css" />
+    <script type="text/javascript" src="/Common/Scripts/jquery-1.6.1.min.js"> </script>
+    <script type="text/javascript" src="/Common/Scripts/jquery-ui-1.8.24.min.js"> </script>
+    <script src="/Common/Scripts/jquery.ui.datepicker-ru.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Common/Scripts/cusel-min-2.5.js"></script>
+    <script type="text/javascript" src="/Common/Scripts/js.js"></script>
+    <asp:ContentPlaceHolder ID="cphHead" runat="server" />
+    <script type="text/javascript">
+        function changePageCount(sender) {
+            var url = '/SetMaxRowCount.aspx?count=' + (sender?sender.value:document.getElementById('selectPageCount').value);
+            correctRedirectToURLfromJS(url);
+            return true;
+        }
+        function correctRedirectToURLfromJS(url) {
+            var fakeLink = document.createElement("a");
+            if (typeof (fakeLink.click) == 'undefined')
+                location.href = url;  // sends referrer in FF, not in IE
+            else {
+                fakeLink.href = url;
+                document.body.appendChild(fakeLink);
+                fakeLink.click();   // click() method defined in IE only
+            }
+            return true;
+        }
+    </script>
+    <!--[if gte IE 9]>
+        <style type="text/css">
+            .ajax__combobox_textboxcontainer input {
+                height: 29px !important;
+            }
+        </style>
+    <![endif]-->
+</head>
+<body>
+    <web:UINavigation ID="UINavigation1" runat="server" NavigationGraph="/Web.navigation" />
+    <div class="root">
+        <asp:ContentPlaceHolder ID="cphContentModalDialog" runat="server" />
+        <div class="head">
+            <div class="top_line">
+                <div class="max_width">
+                    <asp:LoginView runat="server">
+                        <LoggedInTemplate>
+                            <p class="log">
+                                <a href="/Profile/View.aspx" class="un"><asp:LoginName CssClass="name_user" ID="LoginName1" runat="server" /></a>
+                                <a href="/Logout.aspx" class="un">Выйти</a>
+                                <%--<asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Выйти" LoginText="" LogoutPageUrl="~/Logout.aspx"   />--%>
+                            </p>
+                        </LoggedInTemplate>
+                        <AnonymousTemplate>
+                        </AnonymousTemplate>
+                    </asp:LoginView>
+                    <%--<asp:PlaceHolder runat="server" ID="LoginNameHolder" Visible="true">--%>
+                        
+                        <%--<span class="name_user"><a href="/Profile/View.aspx" class="un"><%= User.Identity.Name %></a></span>   <a href="/Logout.aspx" class="un">Выйти</a></p>--%>
+                    <%--</asp:PlaceHolder>--%>
+                    <p class="logo"><a href="#">Единая система регистрации пользователей</a></p>
+                    <div class="clear"></div>
+                </div>
+            </div><!--top_line-->
+            <div class="middle_line">
+                <div class="max_width">
+                    <esrp:TopMenu runat="server" RootResourceKey="topLevelMenu" HeaderTemplate="<ul>" 
+                                 FooterTemplate="</ul>" />					
+                    <div class="clear"></div>
+                </div>
+            </div><!--middle_line-->
+            <asp:ContentPlaceHolder ID="cphSecondLevelMenu" runat="server" />
+            <asp:ContentPlaceHolder ID="cphThirdLevelMenu" runat="server" />
+        </div><!--head-->
+
+        <div class="max_width">
+            <div class="main">
+                <asp:PlaceHolder runat="server" ID="LoginFormHolder" Visible="true">
+                    <div class="right_col">
+                        <div class="col_in">
+                            <div class="form">
+                                <p class="title">Вход для зарегистрированных пользователей</p>
+                                <div class="form_in">
+                                    <form action="/Login.aspx" method="post">
+                                        <p>Логин<br /><input type="text" name="login" id="login"/></p>
+                                        <p>Пароль<br /><input type="password" name="password"/></p>
+                                        <p><input type="submit" value="Войти" /> 
+                                            <asp:PlaceHolder runat="server" ID="RememberMeHolder">
+                                                <input type="checkbox" id="persistant" /><label for="persistant">Запомнить</label>
+                                            </asp:PlaceHolder>
+                                        </p>
+                                    </form>
+                                    <% if (GeneralSystemManager.IsOpenSystem())
+                                       {%>
+                                        <p><a href="/RemindPassword.aspx" class="un">Напомнить пароль</a></p>       
+                                        <p><a href="/Registration.aspx" class="un">Регистрация</a></p>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--right_col-->
+                    <div class="left_col">
+                </asp:PlaceHolder>
+                    <asp:ContentPlaceHolder ID="cphContent" runat="server" />					    
+                    </div><!--left_col-->
+				
+                <div class="clear"></div>
+            </div><!--main-->
+            <div class="vote"></div>
+        </div>
+    </div><!--root-->
+    <!-- footer -->
+    <div class="footer">
+        <div class="max_width">
+            <div class="left_foot">
+                <div class="col_in">
+                    <p class="copy">© Рособрнадзор, <%=DateTime.Now.Year %></p>
+                </div>
+            </div><!--left_foot-->
+            <div class="right_foot">
+                <div class="col_in">
+                    <p><span class="tel">Телефон горячей линии: <%=Esrp.Web.Config.SupportPhone %></span>      Электронная почта: <a href="#" class="un"><%=Esrp.Web.Config.SupportMail %></a></p>
+                </div>
+            </div><!--right_foot-->
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- /footer -->
+    <div id="busy-layer"></div>
+    <!-- Гугл аналитика должна быть здесь, сразу же перед </body>: -->
+</body>
+</html>

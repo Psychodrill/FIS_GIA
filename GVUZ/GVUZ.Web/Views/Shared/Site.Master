@@ -1,0 +1,178 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<%@ Import Namespace="GVUZ.Web" %>
+<%@ Import Namespace="GVUZ.Web.Auth" %>
+<%@ Import Namespace="GVUZ.Web.Controllers" %>
+<%@ Import Namespace="GVUZ.Helper" %>
+<%@ Import Namespace="GVUZ.Web.Filters" %>
+<%@ Import Namespace="GVUZ.Web.Helpers" %>
+<%@ Import Namespace="GVUZ.Web.Security" %>
+<%@ Import Namespace="FogSoft.Helpers" %>
+<%@ Register TagPrefix="gv" TagName="ResourcesHolder" Src="~/Views/Shared/Controls/ResourcesHolderControl.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head runat="server">
+    <%--<link rel="shortcut icon" href="<%= Url.Images("faviconnew.ico") %>" />--%>
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <script type="text/javascript">
+        var absoluteAppPath = '<%= Url.Resource("") %>'
+
+        if (!String.prototype.trim) {
+            String.prototype.trim = function () {
+                return this.replace(/^\s+|\s+$/g, '');
+            };
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="PageHeaderContent" runat="server" />
+    <gv:ResourcesHolder ID="ResourcesHolder1" runat="server" />
+</head>
+
+    <body>
+    <div class="pageBody">
+        <div class="pageHeader">
+            <div class="login" id="logDiv">
+                <% Html.RenderPartial("LogOnUserControl"); %>
+            </div>
+<%--            <div class="logotype">
+                <a href="<%= Request.ApplicationPath %>">
+                    <img src="<%= Url.Images("logo.png") %>" alt="На главную страницу" border="0"></a>
+            </div>--%>
+            <div class="titleDiv"><h1 class="siteTitle">
+                <% if (ConfigHelper.FisVersion() != null) { %>
+                    <%= ConfigHelper.FisVersion() %>
+                <% } %>
+            </h1>
+                <% Html.RenderPartial("Application/QuickApplicationSearch"); %>
+            </div>
+           
+
+            <% if(Request.IsAuthenticated) {%>
+            <div class="pageMenu">
+                <%  var roles = Roles.GetRolesForUser();%>
+
+                <%--<%:Html.MenuLink<InstitutionApplicationDraftController>("Ввод заявления", "PrepareNewApplication", MenuSections.ApplicationsDraft, showForRoles: UserRole.StringValue(Role.EduUsr), elementID: "give")%>--%>
+                <%:Html.MenuLink<InstitutionApplicationController>("Заявления", "ApplicationList", MenuSections.Applications, showForRoles: UserRole.StringValue(Role.EduUsr), elementID: "statement")%>
+                <%:Html.MenuLink<EntrantController>("Абитуриенты", "EntrantsList", MenuSections.Entrants, showForRoles: UserRole.StringValue(Role.EduUsr), elementID: "entrants")%>
+                <% if(!ConfigHelper.HideOrderOfAdmissionMenu()) { %>
+                <%:Html.MenuLink<OrderOfAdmissionController>("Приказы", "OrdersOfAdmissionList", MenuSections.OrdersOfAdmission, showForRoles: UserRole.StringValue(Role.EduUsr), elementID: "ordersOfAdmissionMenuItem")%>
+                <% } %>
+                <%:Html.MenuLink<InstitutionController>("Сведения об ОО", "View", MenuSections.Institution, showForRoles: UserRole.StringValue(Role.EduUsr), elementID: "edu")%>
+                <%:Html.MenuLink<InstitutionController>("Сведения об ОО", "ViewRonInst", MenuSections.Institution, showForRoles: UserRole.StringValue(Role.RonInst), elementID: "edu")%>
+                <%:Html.MenuLink<EgeCheckController>("Проверка ЕГЭ", "Index", MenuSections.EgeCheck, showForRoles: UserRole.StringValue(Role.EduUsr), elementID: "checkEge")%>
+
+                <% if(roles.Contains(UserRole.FbdAuthorizedStaffOlympic)) { %>
+                <%:Html.MenuLink<OlympicDiplomantController>("Участники олимпиад", "Index", MenuSections.OlympiсDiplomant, showForRoles: UserRole.FbdAuthorizedStaffOlympic, elementID: "olympicDiplomant")%>
+                <% } %>
+                
+                <!-- %:Html.MenuLink<AdministrationController>("Администрирование ОО", "EduList", MenuSections.Administration, showForRoles: UserRole.StringValue(Role.EduAdm | Role.RonFbdUser), elementID: "administration", hideForReadonly: UserRole.CurrentUserInRole(UserRole.FBDReadonly))% -->
+                <% if((roles.Length == 1) && (roles[0] == "fbd_^user")) { %>
+                <% if(ConfigHelper.ShowInstitutionReports()) {%>
+                <%:Html.MenuLink<ReportsController>("Анализ ПК", "Index", MenuSections.InstitutionReports, showForRoles: UserRole.StringValue(Role.EduAdm | Role.RonFbdUser), elementID: "report")%>
+                <% } %>
+                <%:Html.MenuLink<CampaignController>("Администрирование", "CampaignList", MenuSections.Administration, showForRoles: UserRole.StringValue(Role.EduUsr ), elementID: "administration")%>
+                <% if (ConfigHelper.ShowAutoReports())
+                   {%>
+                <%:Html.MenuLink<AutoController>("Автоприказы", "Index", MenuSections.AutoOrders, showForRoles: UserRole.StringValue(Role.EduAutoOrders), elementID: "autoOrders")%>
+                <% } %>
+
+                <% } else { %>
+                <% if(ConfigHelper.ShowInstitutionReports()) {%>
+                <%:Html.MenuLink<ReportsController>("Анализ ПК", "Index", MenuSections.InstitutionReports, showForRoles: UserRole.StringValue(Role.EduAdm | Role.RonFbdUser), elementID: "report")%>
+                <% } %>
+                <%:Html.MenuLink<AdministrationController>("Администрирование", "EduList", MenuSections.Administration, showForRoles: UserRole.StringValue(Role.EduAdm | Role.RonFbdUser), elementID: "administration")%>
+                <% } %>
+                <% if (ConfigHelper.ShowAutoReports())
+                   {%>
+                <%:Html.MenuLink<AutoController>("Автоприказы", "Index", MenuSections.AutoOrders, showForRoles: UserRole.StringValue(Role.EduAutoOrders), elementID: "autoOrders")%>
+                <% } %>
+                <%:Html.MenuLink<AdministrationController>("Пользователи РОН", "RonList", MenuSections.Administration, showForRoles: UserRole.StringValue(Role.RonAdm), elementID: "edu", hideForReadonly: true)%>
+                <%--<%:Html.ActionLink("! О необходимости скорректировать модель передачи данных для филиалов", "ImportantInformation", MenuSections.Administration, null, new { @class = "menu-info" })%>--%>
+                <%--<a class="menu-info" href="<%: AppSettings.Get("FisVersion2015", "") %>" target="_blank">Перейти в архивную версию<br/> системы с данными 2015 года и ранее</a>--%>
+                <a class="menu" id="archive" href="<%: AppSettings.Get("FisVersion2015", "") %>" >Архивная версия</a>
+                <% if(UserRole.CurrentUserInRole(UserRole.EduUser)) { %>
+                <%--		<a target="_blank" class="menu" href="http://ketch.i-kompas.ru/statreport" id="report">Отчеты</a> --%>
+                <% } %>
+                <%:Html.MenuLink<ImportDicController>("Справочники", "ImportDictionaries", MenuSections.Import, showForRoles: UserRole.StringValue(Role.RonNsi), elementID: "administration")%>
+            </div>
+            <% }%>
+            <% if(ViewData.ContainsKey(EntrantNameFilterAttribute.EntrantFullName)) {%>
+            <div class="entrantFullName">
+                <span>Абитуриент:&nbsp;</span><%:ViewData[EntrantNameFilterAttribute.EntrantFullName]%>
+            </div>
+            <% }%>
+        </div>
+        <div class="pageContent">
+
+            <div class="zagolovok">
+                <h2 class="title" id="pageTitleH2">
+                    <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+                    </asp:ContentPlaceHolder>
+                </h2>
+                <h3 class="subtitle" id="pageSubtitleH2">
+                    <asp:ContentPlaceHolder ID="PageSubtitle" runat="server">
+                    </asp:ContentPlaceHolder>
+                </h3>
+                <div id="ajax-status-message" style="display: none;">
+                </div>
+            </div>
+            <div class="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <div id="divPager" class="pageBlock" style="display: none">
+            </div>
+            <div id="divPagerSep" style="display: none;">
+                &nbsp;
+            </div>
+        </div>
+       
+            <div class="pageFooter">
+                <div class="pageCopyrights">
+                    <b>©
+                        <%=DateTime.Now.Year %>
+                        ФИС ГИА и приема</b><br />
+                    Тел. горячей линии: <b>8 (499) 455 16 80</b>Электронная почта: <a href="mailto:priem@rustest.ru">priem@rustest.ru</a><br />
+                    <br />
+                    <img src="<%= EsrpAuthHelperV2.GetRenewLink() %>" width="1" height="1" />
+                </div>
+            </div>
+        
+    </div>
+    <script type="text/javascript">
+
+        function safeNavigate(url) {
+            try {
+                document.location = url;
+            }
+            catch (e) { }
+        }
+
+        //	    jQuery(document).ready(
+        //	        function () {             
+
+        //	            //$('input[type="submit"], input[type="button"], a.btn').button();
+        //	            // }
+
+        //	        });
+    </script>
+    <!-- Version: <%= VersionHelper.GetVersion() %> -->
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url: "<%= Url.Generate<AccountController>(x => x.UserConnected()) %>",
+                type: "GET",
+                dataType: "json",
+                success: function (json) {
+                    $('#connectedUsers').text("На сайте " + json.count + " человек");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+ 
+</html>

@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[CommonNationalExamCertificateForm]
+    ADD CONSTRAINT [staging_CommonNationalExamCertificateForm_20100511-151637_CertificateFormIdx] PRIMARY KEY CLUSTERED ([Partition] ASC, [Number] ASC) WITH (FILLFACTOR = 90, ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, PAD_INDEX = OFF, IGNORE_DUP_KEY = OFF, STATISTICS_NORECOMPUTE = OFF);
+

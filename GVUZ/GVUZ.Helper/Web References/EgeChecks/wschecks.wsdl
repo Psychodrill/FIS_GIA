@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:fbs:v2"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:fbs:v2"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:fbs:v2">
+      <s:element name="SingleCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SingleCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SingleCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserCredentials" type="tns:UserCredentials" />
+      <s:complexType name="UserCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="BatchCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BatchCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BatchCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchCheckResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchCheckResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatchCheckResultResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleCheckQuerySample">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSingleCheckQuerySampleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleCheckQuerySampleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchCheckQuerySample">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBatchCheckQuerySampleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatchCheckQuerySampleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SingleCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SingleCheck" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SingleCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:BatchCheck" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:BatchCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckResult" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleCheckQuerySample" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleCheckQuerySampleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckQuerySample" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckQuerySampleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSChecksSoap">
+    <wsdl:operation name="SingleCheck">
+      <wsdl:input message="tns:SingleCheckSoapIn" />
+      <wsdl:output message="tns:SingleCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheck">
+      <wsdl:input message="tns:BatchCheckSoapIn" />
+      <wsdl:output message="tns:BatchCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <wsdl:input message="tns:GetBatchCheckResultSoapIn" />
+      <wsdl:output message="tns:GetBatchCheckResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <wsdl:input message="tns:GetSingleCheckQuerySampleSoapIn" />
+      <wsdl:output message="tns:GetSingleCheckQuerySampleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <wsdl:input message="tns:GetBatchCheckQuerySampleSoapIn" />
+      <wsdl:output message="tns:GetBatchCheckQuerySampleSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSChecksSoap" type="tns:WSChecksSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SingleCheck">
+      <soap:operation soapAction="urn:fbs:v2/SingleCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SingleCheckUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheck">
+      <soap:operation soapAction="urn:fbs:v2/BatchCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BatchCheckUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <soap:operation soapAction="urn:fbs:v2/GetBatchCheckResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBatchCheckResultUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <soap:operation soapAction="urn:fbs:v2/GetSingleCheckQuerySample" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <soap:operation soapAction="urn:fbs:v2/GetBatchCheckQuerySample" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSChecksSoap12" type="tns:WSChecksSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SingleCheck">
+      <soap12:operation soapAction="urn:fbs:v2/SingleCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SingleCheckUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheck">
+      <soap12:operation soapAction="urn:fbs:v2/BatchCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BatchCheckUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <soap12:operation soapAction="urn:fbs:v2/GetBatchCheckResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBatchCheckResultUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <soap12:operation soapAction="urn:fbs:v2/GetSingleCheckQuerySample" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <soap12:operation soapAction="urn:fbs:v2/GetBatchCheckQuerySample" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSChecks">
+    <wsdl:port name="WSChecksSoap" binding="tns:WSChecksSoap">
+      <soap:address location="http://dev22.dev.armd.ru:8001/wschecks.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSChecksSoap12" binding="tns:WSChecksSoap12">
+      <soap12:address location="http://dev22.dev.armd.ru:8001/wschecks.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

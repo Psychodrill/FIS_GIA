@@ -1,0 +1,81 @@
+﻿@inherits WebViewPage<GVUZ.Web.ViewModels.PrintTemplateInfoViewModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Расписка в приеме документов</title>
+        <style type="text/css">
+            @@media print {
+                .dontprint { display: none; }
+            }
+
+            .alignleft {
+                text-align: left;
+                width: 100%;
+            }
+
+            hr { margin-top: 20px; }
+
+            h4 { font-weight: normal; }
+        </style>
+    </head>
+    <body>
+        <a class="dontprint" href="#" onclick=" window.print() ">Печать</a>
+        <div>
+            <center>
+                <h4>@Model.InstitutionFullName</h4>
+                <div class="alignleft">
+                    Конкурс: @Model.CompetitiveGroupName<br/>
+                    Формы обучения и источники финансирования: @Model.FormList<br />
+                </div>			
+                <h4>РАСПИСКА В ПРИЕМЕ ДОКУМЕНТОВ</h4>			
+                Заявление №: @Model.ApplicationNumber<br/>
+                <br/>
+                <div class="alignleft">
+                    Получены следующие документы от: @Model.EntrantLastName @Model.EntrantFistName @Model.EntrantMiddleName<br/>
+                    1.	Заявление ____________________________________________________<br/>
+                    2.	Документ о полном среднем образовании @{
+	                                                                string original = "";
+	                                                                if (Model.OriginalDocumentsReceived)
+	                                                                {
+	                                                                    original = "Подлинник";
+	                                                                }
+	                                                            } @original: @Model.SchoolCertificateDocument.Series № @Model.SchoolCertificateDocument.Number<br/>
+                    3.	Фотографии 3x4 ____ шт.	_______________________________________<br/>
+                    4.	Дополнительно:<br/>
+                </div>
+                <hr/>
+                <hr/>
+                <hr/>
+                <hr/>
+                <hr/>
+                <hr/>
+                <hr/>
+                <hr/>
+                <hr/>
+                <hr/>
+                <hr/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div class="alignleft">
+                    Принял секретарь приемной комиссии:<br/><br/>
+                    Дата:  @DateTime.Now.ToString("dd.MM.yyyyг.") Фамилия:_____________________ Подпись:_____________________<br />
+                </div>
+                <br/>
+                <br/>
+                <b>Внимание!</b><br/>			
+                Для зачисления необходимо до ___________ предоставить в приемную комиссию<br/>
+                ПОДЛИННИК документа об образовании.<br/>
+                В случае утери данной расписки немедленно заявить в приемную комиссию.<br/>
+                При затребовании документов предъявление данной расписки обязательно.<br />			
+            </center>
+        </div>
+    </body>
+</html>

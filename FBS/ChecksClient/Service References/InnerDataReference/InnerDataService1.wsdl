@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="CNELastUpdateDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="CNELastUpdateDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CNELastUpdateDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCommonNationalExamCertificateByNumberForXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkSubjectMarks" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="participantid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="shouldCheckMarks" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCommonNationalExamCertificateByNumberForXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCommonNationalExamCertificateByNumberForXmlResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCheckHystoryCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCheckHystoryCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SelectCheckHystoryCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCheckHystory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startRowIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxRowCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCheckHystoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectCheckHystoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCommonNationalExamCertificateByPassportForXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="passportSeria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passportNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="checkSubjectMarks" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="shouldWriteLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCommonNationalExamCertificateByPassportForXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCommonNationalExamCertificateByPassportForXmlResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateByFioAndPassport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentCertificateNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passportNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passportSeria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patronymicName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateByFioAndPassportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateByFioAndPassportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportCertificateLoadShortTVF">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReportCertificateLoadShortTVFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportCertificateLoadShortTVFResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchCommonNationalExamCertificateCheckByOuterId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="batchId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchCommonNationalExamCertificateCheckByOuterIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchCommonNationalExamCertificateCheckByOuterIdResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCNECCheckHystoryByOrgId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orgId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="startRow" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxRow" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sortBy" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isUniqueCheck" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="sortorder" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="typeCheck" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="family" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dats" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datf" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCNECCheckHystoryByOrgIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectCNECCheckHystoryByOrgIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountCNECCheckHystoryByOrgId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orgId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="isUniqueCheck" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="typeCheck" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="family" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dats" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datf" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountCNECCheckHystoryByOrgIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountCNECCheckHystoryByOrgIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartBatchCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="batchId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartBatchCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartBatchCheckResult" nillable="true" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dateTime" type="s:dateTime" />
+      <s:element name="int" type="s:int" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CNELastUpdateDateSoapIn">
+    <wsdl:part name="parameters" element="tns:CNELastUpdateDate" />
+  </wsdl:message>
+  <wsdl:message name="CNELastUpdateDateSoapOut">
+    <wsdl:part name="parameters" element="tns:CNELastUpdateDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCommonNationalExamCertificateByNumberForXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCommonNationalExamCertificateByNumberForXml" />
+  </wsdl:message>
+  <wsdl:message name="CheckCommonNationalExamCertificateByNumberForXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCommonNationalExamCertificateByNumberForXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryCountSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectCheckHystoryCount" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryCountSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectCheckHystoryCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystorySoapIn">
+    <wsdl:part name="parameters" element="tns:SelectCheckHystory" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystorySoapOut">
+    <wsdl:part name="parameters" element="tns:SelectCheckHystoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCommonNationalExamCertificateByPassportForXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCommonNationalExamCertificateByPassportForXml" />
+  </wsdl:message>
+  <wsdl:message name="CheckCommonNationalExamCertificateByPassportForXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCommonNationalExamCertificateByPassportForXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateByFioAndPassportSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateByFioAndPassport" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateByFioAndPassportSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateByFioAndPassportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportCertificateLoadShortTVFSoapIn">
+    <wsdl:part name="parameters" element="tns:ReportCertificateLoadShortTVF" />
+  </wsdl:message>
+  <wsdl:message name="ReportCertificateLoadShortTVFSoapOut">
+    <wsdl:part name="parameters" element="tns:ReportCertificateLoadShortTVFResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchCommonNationalExamCertificateCheckByOuterIdSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchCommonNationalExamCertificateCheckByOuterId" />
+  </wsdl:message>
+  <wsdl:message name="SearchCommonNationalExamCertificateCheckByOuterIdSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchCommonNationalExamCertificateCheckByOuterIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectCNECCheckHystoryByOrgIdSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectCNECCheckHystoryByOrgId" />
+  </wsdl:message>
+  <wsdl:message name="SelectCNECCheckHystoryByOrgIdSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectCNECCheckHystoryByOrgIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountCNECCheckHystoryByOrgIdSoapIn">
+    <wsdl:part name="parameters" element="tns:CountCNECCheckHystoryByOrgId" />
+  </wsdl:message>
+  <wsdl:message name="CountCNECCheckHystoryByOrgIdSoapOut">
+    <wsdl:part name="parameters" element="tns:CountCNECCheckHystoryByOrgIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartBatchCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:StartBatchCheck" />
+  </wsdl:message>
+  <wsdl:message name="StartBatchCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:StartBatchCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="CNELastUpdateDateHttpGetIn" />
+  <wsdl:message name="CNELastUpdateDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryCountHttpGetIn">
+    <wsdl:part name="login" type="s:string" />
+    <wsdl:part name="type" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryHttpGetIn">
+    <wsdl:part name="login" type="s:string" />
+    <wsdl:part name="startRowIndex" type="s:string" />
+    <wsdl:part name="maxRowCount" type="s:string" />
+    <wsdl:part name="type" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateByFioAndPassportHttpGetIn">
+    <wsdl:part name="currentCertificateNumber" type="s:string" />
+    <wsdl:part name="passportNumber" type="s:string" />
+    <wsdl:part name="passportSeria" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="patronymicName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateByFioAndPassportHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReportCertificateLoadShortTVFHttpGetIn" />
+  <wsdl:message name="ReportCertificateLoadShortTVFHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectCNECCheckHystoryByOrgIdHttpGetIn">
+    <wsdl:part name="orgId" type="s:string" />
+    <wsdl:part name="startRow" type="s:string" />
+    <wsdl:part name="maxRow" type="s:string" />
+    <wsdl:part name="sortBy" type="s:string" />
+    <wsdl:part name="isUniqueCheck" type="s:string" />
+    <wsdl:part name="sortorder" type="s:string" />
+    <wsdl:part name="typeCheck" type="s:string" />
+    <wsdl:part name="family" type="s:string" />
+    <wsdl:part name="dats" type="s:string" />
+    <wsdl:part name="datf" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectCNECCheckHystoryByOrgIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCNECCheckHystoryByOrgIdHttpGetIn">
+    <wsdl:part name="orgId" type="s:string" />
+    <wsdl:part name="isUniqueCheck" type="s:string" />
+    <wsdl:part name="typeCheck" type="s:string" />
+    <wsdl:part name="family" type="s:string" />
+    <wsdl:part name="dats" type="s:string" />
+    <wsdl:part name="datf" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCNECCheckHystoryByOrgIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CNELastUpdateDateHttpPostIn" />
+  <wsdl:message name="CNELastUpdateDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryCountHttpPostIn">
+    <wsdl:part name="login" type="s:string" />
+    <wsdl:part name="type" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryHttpPostIn">
+    <wsdl:part name="login" type="s:string" />
+    <wsdl:part name="startRowIndex" type="s:string" />
+    <wsdl:part name="maxRowCount" type="s:string" />
+    <wsdl:part name="type" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectCheckHystoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateByFioAndPassportHttpPostIn">
+    <wsdl:part name="currentCertificateNumber" type="s:string" />
+    <wsdl:part name="passportNumber" type="s:string" />
+    <wsdl:part name="passportSeria" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="patronymicName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateByFioAndPassportHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReportCertificateLoadShortTVFHttpPostIn" />
+  <wsdl:message name="ReportCertificateLoadShortTVFHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectCNECCheckHystoryByOrgIdHttpPostIn">
+    <wsdl:part name="orgId" type="s:string" />
+    <wsdl:part name="startRow" type="s:string" />
+    <wsdl:part name="maxRow" type="s:string" />
+    <wsdl:part name="sortBy" type="s:string" />
+    <wsdl:part name="isUniqueCheck" type="s:string" />
+    <wsdl:part name="sortorder" type="s:string" />
+    <wsdl:part name="typeCheck" type="s:string" />
+    <wsdl:part name="family" type="s:string" />
+    <wsdl:part name="dats" type="s:string" />
+    <wsdl:part name="datf" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SelectCNECCheckHystoryByOrgIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCNECCheckHystoryByOrgIdHttpPostIn">
+    <wsdl:part name="orgId" type="s:string" />
+    <wsdl:part name="isUniqueCheck" type="s:string" />
+    <wsdl:part name="typeCheck" type="s:string" />
+    <wsdl:part name="family" type="s:string" />
+    <wsdl:part name="dats" type="s:string" />
+    <wsdl:part name="datf" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCNECCheckHystoryByOrgIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:portType name="InnerDataServiceSoap">
+    <wsdl:operation name="CNELastUpdateDate">
+      <wsdl:input message="tns:CNELastUpdateDateSoapIn" />
+      <wsdl:output message="tns:CNELastUpdateDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCommonNationalExamCertificateByNumberForXml">
+      <wsdl:input message="tns:CheckCommonNationalExamCertificateByNumberForXmlSoapIn" />
+      <wsdl:output message="tns:CheckCommonNationalExamCertificateByNumberForXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystoryCount">
+      <wsdl:input message="tns:SelectCheckHystoryCountSoapIn" />
+      <wsdl:output message="tns:SelectCheckHystoryCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystory">
+      <wsdl:input message="tns:SelectCheckHystorySoapIn" />
+      <wsdl:output message="tns:SelectCheckHystorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCommonNationalExamCertificateByPassportForXml">
+      <wsdl:input message="tns:CheckCommonNationalExamCertificateByPassportForXmlSoapIn" />
+      <wsdl:output message="tns:CheckCommonNationalExamCertificateByPassportForXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateByFioAndPassport">
+      <wsdl:input message="tns:GetCertificateByFioAndPassportSoapIn" />
+      <wsdl:output message="tns:GetCertificateByFioAndPassportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportCertificateLoadShortTVF">
+      <wsdl:input message="tns:ReportCertificateLoadShortTVFSoapIn" />
+      <wsdl:output message="tns:ReportCertificateLoadShortTVFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCommonNationalExamCertificateCheckByOuterId">
+      <wsdl:input message="tns:SearchCommonNationalExamCertificateCheckByOuterIdSoapIn" />
+      <wsdl:output message="tns:SearchCommonNationalExamCertificateCheckByOuterIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCNECCheckHystoryByOrgId">
+      <wsdl:input message="tns:SelectCNECCheckHystoryByOrgIdSoapIn" />
+      <wsdl:output message="tns:SelectCNECCheckHystoryByOrgIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountCNECCheckHystoryByOrgId">
+      <wsdl:input message="tns:CountCNECCheckHystoryByOrgIdSoapIn" />
+      <wsdl:output message="tns:CountCNECCheckHystoryByOrgIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartBatchCheck">
+      <wsdl:input message="tns:StartBatchCheckSoapIn" />
+      <wsdl:output message="tns:StartBatchCheckSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="InnerDataServiceHttpGet">
+    <wsdl:operation name="CNELastUpdateDate">
+      <wsdl:input message="tns:CNELastUpdateDateHttpGetIn" />
+      <wsdl:output message="tns:CNELastUpdateDateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystoryCount">
+      <wsdl:input message="tns:SelectCheckHystoryCountHttpGetIn" />
+      <wsdl:output message="tns:SelectCheckHystoryCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystory">
+      <wsdl:input message="tns:SelectCheckHystoryHttpGetIn" />
+      <wsdl:output message="tns:SelectCheckHystoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateByFioAndPassport">
+      <wsdl:input message="tns:GetCertificateByFioAndPassportHttpGetIn" />
+      <wsdl:output message="tns:GetCertificateByFioAndPassportHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportCertificateLoadShortTVF">
+      <wsdl:input message="tns:ReportCertificateLoadShortTVFHttpGetIn" />
+      <wsdl:output message="tns:ReportCertificateLoadShortTVFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCNECCheckHystoryByOrgId">
+      <wsdl:input message="tns:SelectCNECCheckHystoryByOrgIdHttpGetIn" />
+      <wsdl:output message="tns:SelectCNECCheckHystoryByOrgIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountCNECCheckHystoryByOrgId">
+      <wsdl:input message="tns:CountCNECCheckHystoryByOrgIdHttpGetIn" />
+      <wsdl:output message="tns:CountCNECCheckHystoryByOrgIdHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="InnerDataServiceHttpPost">
+    <wsdl:operation name="CNELastUpdateDate">
+      <wsdl:input message="tns:CNELastUpdateDateHttpPostIn" />
+      <wsdl:output message="tns:CNELastUpdateDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystoryCount">
+      <wsdl:input message="tns:SelectCheckHystoryCountHttpPostIn" />
+      <wsdl:output message="tns:SelectCheckHystoryCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystory">
+      <wsdl:input message="tns:SelectCheckHystoryHttpPostIn" />
+      <wsdl:output message="tns:SelectCheckHystoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateByFioAndPassport">
+      <wsdl:input message="tns:GetCertificateByFioAndPassportHttpPostIn" />
+      <wsdl:output message="tns:GetCertificateByFioAndPassportHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportCertificateLoadShortTVF">
+      <wsdl:input message="tns:ReportCertificateLoadShortTVFHttpPostIn" />
+      <wsdl:output message="tns:ReportCertificateLoadShortTVFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCNECCheckHystoryByOrgId">
+      <wsdl:input message="tns:SelectCNECCheckHystoryByOrgIdHttpPostIn" />
+      <wsdl:output message="tns:SelectCNECCheckHystoryByOrgIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountCNECCheckHystoryByOrgId">
+      <wsdl:input message="tns:CountCNECCheckHystoryByOrgIdHttpPostIn" />
+      <wsdl:output message="tns:CountCNECCheckHystoryByOrgIdHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InnerDataServiceSoap" type="tns:InnerDataServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CNELastUpdateDate">
+      <soap:operation soapAction="http://tempuri.org/CNELastUpdateDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCommonNationalExamCertificateByNumberForXml">
+      <soap:operation soapAction="http://tempuri.org/CheckCommonNationalExamCertificateByNumberForXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystoryCount">
+      <soap:operation soapAction="http://tempuri.org/SelectCheckHystoryCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystory">
+      <soap:operation soapAction="http://tempuri.org/SelectCheckHystory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCommonNationalExamCertificateByPassportForXml">
+      <soap:operation soapAction="http://tempuri.org/CheckCommonNationalExamCertificateByPassportForXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateByFioAndPassport">
+      <soap:operation soapAction="http://tempuri.org/GetCertificateByFioAndPassport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportCertificateLoadShortTVF">
+      <soap:operation soapAction="http://tempuri.org/ReportCertificateLoadShortTVF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCommonNationalExamCertificateCheckByOuterId">
+      <soap:operation soapAction="http://tempuri.org/SearchCommonNationalExamCertificateCheckByOuterId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCNECCheckHystoryByOrgId">
+      <soap:operation soapAction="http://tempuri.org/SelectCNECCheckHystoryByOrgId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCNECCheckHystoryByOrgId">
+      <soap:operation soapAction="http://tempuri.org/CountCNECCheckHystoryByOrgId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartBatchCheck">
+      <soap:operation soapAction="http://tempuri.org/StartBatchCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InnerDataServiceSoap12" type="tns:InnerDataServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CNELastUpdateDate">
+      <soap12:operation soapAction="http://tempuri.org/CNELastUpdateDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCommonNationalExamCertificateByNumberForXml">
+      <soap12:operation soapAction="http://tempuri.org/CheckCommonNationalExamCertificateByNumberForXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystoryCount">
+      <soap12:operation soapAction="http://tempuri.org/SelectCheckHystoryCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystory">
+      <soap12:operation soapAction="http://tempuri.org/SelectCheckHystory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCommonNationalExamCertificateByPassportForXml">
+      <soap12:operation soapAction="http://tempuri.org/CheckCommonNationalExamCertificateByPassportForXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateByFioAndPassport">
+      <soap12:operation soapAction="http://tempuri.org/GetCertificateByFioAndPassport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportCertificateLoadShortTVF">
+      <soap12:operation soapAction="http://tempuri.org/ReportCertificateLoadShortTVF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCommonNationalExamCertificateCheckByOuterId">
+      <soap12:operation soapAction="http://tempuri.org/SearchCommonNationalExamCertificateCheckByOuterId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCNECCheckHystoryByOrgId">
+      <soap12:operation soapAction="http://tempuri.org/SelectCNECCheckHystoryByOrgId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCNECCheckHystoryByOrgId">
+      <soap12:operation soapAction="http://tempuri.org/CountCNECCheckHystoryByOrgId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartBatchCheck">
+      <soap12:operation soapAction="http://tempuri.org/StartBatchCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InnerDataServiceHttpGet" type="tns:InnerDataServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CNELastUpdateDate">
+      <http:operation location="/CNELastUpdateDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystoryCount">
+      <http:operation location="/SelectCheckHystoryCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystory">
+      <http:operation location="/SelectCheckHystory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateByFioAndPassport">
+      <http:operation location="/GetCertificateByFioAndPassport" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportCertificateLoadShortTVF">
+      <http:operation location="/ReportCertificateLoadShortTVF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCNECCheckHystoryByOrgId">
+      <http:operation location="/SelectCNECCheckHystoryByOrgId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCNECCheckHystoryByOrgId">
+      <http:operation location="/CountCNECCheckHystoryByOrgId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InnerDataServiceHttpPost" type="tns:InnerDataServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CNELastUpdateDate">
+      <http:operation location="/CNELastUpdateDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystoryCount">
+      <http:operation location="/SelectCheckHystoryCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCheckHystory">
+      <http:operation location="/SelectCheckHystory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateByFioAndPassport">
+      <http:operation location="/GetCertificateByFioAndPassport" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportCertificateLoadShortTVF">
+      <http:operation location="/ReportCertificateLoadShortTVF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCNECCheckHystoryByOrgId">
+      <http:operation location="/SelectCNECCheckHystoryByOrgId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCNECCheckHystoryByOrgId">
+      <http:operation location="/CountCNECCheckHystoryByOrgId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InnerDataService">
+    <wsdl:port name="InnerDataServiceSoap" binding="tns:InnerDataServiceSoap">
+      <soap:address location="http://localhost:200/InnerDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InnerDataServiceSoap12" binding="tns:InnerDataServiceSoap12">
+      <soap12:address location="http://localhost:200/InnerDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InnerDataServiceHttpGet" binding="tns:InnerDataServiceHttpGet">
+      <http:address location="http://localhost:200/InnerDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InnerDataServiceHttpPost" binding="tns:InnerDataServiceHttpPost">
+      <http:address location="http://localhost:200/InnerDataService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

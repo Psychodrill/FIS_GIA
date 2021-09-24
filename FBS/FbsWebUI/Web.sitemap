@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="/" title="Главная страница" >
+    <!--title="$Resources: SiteMap, MainPage "-->
+    <siteMapNode url="/Documents.aspx" title="Документы"/>
+    <siteMapNode url="/Instructions.aspx" title="Инструкции"/>
+    <siteMapNode url="/For2011.aspx" title="Подготовка к 2011г."/>
+    <siteMapNode url="/Support.aspx" title="Горячая линия"/>
+    <siteMapNode url="/AskedQuestions.aspx" title="Вопросы и Ответы">
+      <siteMapNode url="/AskedQuestion.aspx" title="ГЕНЕРАЦИЯ: заголовок" />
+    </siteMapNode>
+
+    <siteMapNode url="/Error.aspx" title="Ошибка"/>
+    <siteMapNode url="/NotFound.aspx" title="Страница не найдена"/>
+    <siteMapNode url="/ForbiddenIp.aspx" title="Запрещенный IP-адрес"/>
+
+    <siteMapNode url="/Map.aspx" title="Карта сайта"/>
+    <siteMapNode url="/NewsArchive.aspx" title="Новости">
+      <siteMapNode url="/News.aspx" title="ГЕНЕРАЦИЯ: дата заголовок" />
+    </siteMapNode>
+
+    <siteMapNode url="/Login.aspx" title="Вход в систему"/>
+    <siteMapNode url="/LoginBlocked.aspx" title="Вход в систему. Ожидание."/>
+    <siteMapNode url="/RemindPassword.aspx" title="Напоминание пароля">
+      <siteMapNode url="/RemindPasswordSuccess.aspx" title="Уведомление"/>
+    </siteMapNode>
+
+    <siteMapNode title="Профиль" resourceKey="profile">
+      <siteMapNode url="/Profile/View.aspx" title="Регистрационные данные пользователя">
+        <siteMapNode url="/Profile/Edit.aspx" title="Редактирование информации о пользователе" />
+      </siteMapNode>
+      <!--<siteMapNode url="/Profile/ChangePassword.aspx" title="Изменить пароль">
+                <siteMapNode url="/Profile/ChangePasswordSuccess.aspx" title="Уведомление"/>
+            </siteMapNode>-->
+      <!--
+      <siteMapNode url="/Profile/AccountKeyList.aspx" title="Ключи доступа" roles="HasIntegration" >
+        <siteMapNode url="/Profile/AccountKeyEdit.aspx" title="ГЕНЕРАЦИЯ: Редактирование ключа “код”" roles="HasIntegration" >
+          <siteMapNode url="/Profile/AccountKeyEditSuccess.aspx" title="Уведомление" roles="HasIntegration" />
+        </siteMapNode>
+        <siteMapNode url="/Profile/AccountKeyCreate.aspx" title="Создание ключа" roles="HasIntegration" >
+          <siteMapNode url="/Profile/AccountKeyCreateSuccess.aspx" title="Уведомление" roles="HasIntegration" />
+        </siteMapNode>
+      </siteMapNode>
+      -->
+    </siteMapNode>
+    
+    <siteMapNode resourceKey="administration" title="Администрирование">
+
+      <siteMapNode title="Рассылки" roles="ViewDeliveries">
+        <siteMapNode url="/Administration/Deliveries/List.aspx" title="Список рассылок" roles="EditDeliveries">
+          <siteMapNode url="/Administration/Deliveries/Create.aspx" title="Создание рассылки" />
+          <siteMapNode url="/Administration/Deliveries/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование рассылки “название”" />
+          <siteMapNode url="/Administration/Deliveries/View.aspx" title="ГЕНЕРАЦИЯ: Просмотр рассылки “название”" />
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Пользователи" roles="ViewUserAccount,ViewAuditorAccount,ViewSupportAccount,ViewAdministratorAccount">
+        <siteMapNode url="/Administration/Accounts/Users/List.aspx" title="ВУЗ/CCУЗ/Учредители" roles="ViewUserAccount">
+          <siteMapNode url="/Administration/Accounts/Users/Create.aspx" title="Создание нового пользователя">
+            <siteMapNode url="/Administration/Accounts/Users/CreateSuccess.aspx" title="Уведомление" />
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Users/View.aspx" title="ГЕНЕРАЦИЯ: Регистрационные данные “логин”" />
+          <siteMapNode url="/Administration/Accounts/Users/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование “логин”">
+            <siteMapNode url="/Administration/Accounts/Users/EditSuccess.aspx" title="Уведомление" />
+            <siteMapNode url="/Administration/Accounts/Users/Deactivate.aspx" title="Отключение учетной записи">
+              <siteMapNode url="/Administration/Accounts/Users/DeactivateSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+            <siteMapNode url="/Administration/Accounts/Users/SendToRevision.aspx" title="Отправление на доработку">
+              <siteMapNode url="/Administration/Accounts/Users/SendToRevisionSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+            <siteMapNode url="/Administration/Accounts/Users/ChangePassword.aspx" title="Изменение пароля">
+              <siteMapNode url="/Administration/Accounts/Users/ChangePasswordSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+            <siteMapNode url="/Administration/Accounts/Users/Activate.aspx" title="Активация учетной записи">
+              <siteMapNode url="/Administration/Accounts/Users/ActivateSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+            <siteMapNode url="/Administration/Accounts/Users/RemindPassword.aspx" title="Напоминание пароля">
+              <siteMapNode url="/Administration/Accounts/Users/RemindPasswordSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Users/History.aspx" title="ГЕНЕРАЦИЯ: История изменений “логин”">
+            <siteMapNode url="/Administration/Accounts/Users/HistoryVersion.aspx" title="ГЕНЕРАЦИЯ: Просмотр версии №номер"/>
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Users/AuthenticationHistory.aspx" title="ГЕНЕРАЦИЯ: История аутентификаций “логин”" />
+          <!--<siteMapNode url="/Administration/Accounts/Users/AccountKeyList.aspx" title="ГЕНЕРАЦИЯ: Ключи доступа “пользователь”" roles="EditUserAccount">
+            <siteMapNode url="/Administration/Accounts/Users/AccountKeyEdit.aspx" title="ГЕНЕРАЦИЯ: Редактирование ключа “код”" >
+              <siteMapNode url="/Administration/Accounts/Users/AccountKeyEditSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+            <siteMapNode url="/Administration/Accounts/Users/AccountKeyCreate.aspx" title="Создание ключа" >
+              <siteMapNode url="/Administration/Accounts/Users/AccountKeyCreateSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+          </siteMapNode>-->
+        </siteMapNode>
+
+        <siteMapNode url="/Administration/Accounts/Auditors/List.aspx" title="Проверяющие" roles="ViewAuditorAccount">
+          <siteMapNode url="/Administration/Accounts/Auditors/Create.aspx" title="Создание нового пользователя">
+            <siteMapNode url="/Administration/Accounts/Auditors/CreateSuccess.aspx" title="Уведомление" />
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Auditors/View.aspx" title="ГЕНЕРАЦИЯ: Регистрационные данные “логин”" />
+          <siteMapNode url="/Administration/Accounts/Auditors/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование “логин”">
+            <siteMapNode url="/Administration/Accounts/Auditors/EditSuccess.aspx" title="Уведомление" />
+            <siteMapNode url="/Administration/Accounts/Auditors/ChangePassword.aspx" title="Изменение пароля">
+              <siteMapNode url="/Administration/Accounts/Auditors/ChangePasswordSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Auditors/History.aspx" title="ГЕНЕРАЦИЯ: История изменений “логин”">
+            <siteMapNode url="/Administration/Accounts/Auditors/HistoryVersion.aspx" title="ГЕНЕРАЦИЯ: Просмотр версии №номер"/>
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Auditors/AuthenticationHistory.aspx" title="ГЕНЕРАЦИЯ: История аутентификаций “логин”" />
+        </siteMapNode>
+
+        <siteMapNode url="/Administration/Accounts/SupportUsers/List.aspx" title="Горячая линия" roles="ViewSupportAccount" >
+          <siteMapNode url="/Administration/Accounts/SupportUsers/Create.aspx" title="Создание нового пользователя">
+            <siteMapNode url="/Administration/Accounts/SupportUsers/CreateSuccess.aspx" title="Уведомление" />
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/SupportUsers/View.aspx" title="ГЕНЕРАЦИЯ: Регистрационные данные “логин”" />
+          <siteMapNode url="/Administration/Accounts/SupportUsers/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование “логин”">
+            <siteMapNode url="/Administration/Accounts/SupportUsers/EditSuccess.aspx" title="Уведомление" />
+            <siteMapNode url="/Administration/Accounts/SupportUsers/ChangePassword.aspx" title="Изменение пароля">
+              <siteMapNode url="/Administration/Accounts/SupportUsers/ChangePasswordSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/SupportUsers/History.aspx" title="ГЕНЕРАЦИЯ: История изменений “логин”">
+            <siteMapNode url="/Administration/Accounts/SupportUsers/HistoryVersion.aspx" title="ГЕНЕРАЦИЯ: Просмотр версии №номер"/>
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/SupportUsers/AuthenticationHistory.aspx" title="ГЕНЕРАЦИЯ: История аутентификаций “логин”" />
+        </siteMapNode>
+
+        <siteMapNode url="/Administration/Accounts/Administrators/List.aspx" title="Администраторы" roles="ViewAdministratorAccount">
+          <siteMapNode url="/Administration/Accounts/Administrators/Create.aspx" title="Создание нового пользователя">
+            <siteMapNode url="/Administration/Accounts/Administrators/CreateSuccess.aspx" title="Уведомление" />
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Administrators/View.aspx" title="ГЕНЕРАЦИЯ: Регистрационные данные “логин”" />
+          <siteMapNode url="/Administration/Accounts/Administrators/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование “логин”">
+            <siteMapNode url="/Administration/Accounts/Administrators/EditSuccess.aspx" title="Уведомление" />
+            <siteMapNode url="/Administration/Accounts/Administrators/ChangePassword.aspx" title="Изменение пароля">
+              <siteMapNode url="/Administration/Accounts/Administrators/ChangePasswordSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Administrators/History.aspx" title="ГЕНЕРАЦИЯ: История изменений “логин”">
+            <siteMapNode url="/Administration/Accounts/Administrators/HistoryVersion.aspx" title="ГЕНЕРАЦИЯ: Просмотр версии №номер"/>
+          </siteMapNode>
+          <siteMapNode url="/Administration/Accounts/Administrators/AuthenticationHistory.aspx" title="ГЕНЕРАЦИЯ: История аутентификаций “логин”" />
+          <!--<siteMapNode url="/Administration/Accounts/Administrators/AccountKeyList.aspx" title="ГЕНЕРАЦИЯ: Ключи доступа “пользователь”" roles="EditUserAccount">
+            <siteMapNode url="/Administration/Accounts/Administrators/AccountKeyEdit.aspx" title="ГЕНЕРАЦИЯ: Редактирование ключа “код”" >
+              <siteMapNode url="/Administration/Accounts/Administrators/AccountKeyEditSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+            <siteMapNode url="/Administration/Accounts/Administrators/AccountKeyCreate.aspx" title="Создание ключа" >
+              <siteMapNode url="/Administration/Accounts/Administrators/AccountKeyCreateSuccess.aspx" title="Уведомление" />
+            </siteMapNode>
+          </siteMapNode>-->
+        </siteMapNode>
+
+      </siteMapNode>
+
+      <siteMapNode title="Организации" roles="ViewAdministrationSection">
+        <siteMapNode  url="Administration/Organizations/Administrators/OrgList.aspx" title="Список организаций">
+          <siteMapNode  url="Administration/Organizations/Administrators/OrgCard_Edit.aspx" title="Просмотр карточки организации"/>
+          <siteMapNode  url="Administration/Organizations/Administrators/OrgCard_Edit_Success.aspx" title="Просмотр карточки организации"/>
+          <siteMapNode url="Administration/Organizations/CertificateList.aspx" title="История проверок свидетельств организацией" />
+          <siteMapNode url="Administration/Organizations/CertificateListCommon.aspx" title="История проверок свидетельств организацией" />
+          <siteMapNode url="Administration/Organizations/CertificateListCommonDetails.aspx" title="История проверок свидетельств организацией" />
+        </siteMapNode>
+        <!--<siteMapNode  url="Administration/Organizations/Administrators/OrgCard_Edit.aspx?OrgID=0" title="Создание новой организации"/>-->
+      </siteMapNode>
+
+      <siteMapNode title="Организации" roles="ViewStatisticSubordinate">
+        <siteMapNode>
+          <siteMapNode url="Administration/Organizations/UserDepartments/OrgCardInfo.aspx" title="Карточка организации"/>
+        </siteMapNode>
+        <siteMapNode url="Administration/Organizations/UserDepartments/OrgList.aspx" title="Список организаций">
+        </siteMapNode>
+        <siteMapNode url="Administration/Organizations/UserDepartments/StatisticSubordinateOrg.aspx" title="Статистика по подведомственным учреждениям"/>
+        <siteMapNode  url="Administration/Organizations/OrganizationHistory.aspx" title="Карточка истории изменений организации"/>
+        <siteMapNode  url="Administration/Organizations/OrganizationHistoryVersion.aspx" title="Карточка версии организации"/>
+      </siteMapNode>
+
+      <siteMapNode title="Статистика ОУ" roles="ViewStatiscicRCOI">
+        <siteMapNode  url="RCOI/StatisticForRcoi.aspx" title="Статистика ОУ"/>
+      </siteMapNode>
+
+      <siteMapNode title="Пресс-Центр" roles="EditDocument,EditNews">
+        <siteMapNode url="/Administration/Documents/List.aspx" title="Документы" roles="EditDocument">
+          <siteMapNode url="/Administration/Documents/Create.aspx" title="Создание документа" />
+          <siteMapNode url="/Administration/Documents/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование документа “название”" />
+          <siteMapNode url="/Administration/Documents/View.aspx" title="ГЕНЕРАЦИЯ: Просмотр документа “название”" />
+        </siteMapNode>
+
+        <siteMapNode url="/Administration/News/List.aspx" title="Новости" roles="EditNews">
+          <siteMapNode url="/Administration/News/Create.aspx" title="Создание новости" />
+          <siteMapNode url="/Administration/News/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование новости “название”" />
+          <siteMapNode url="/Administration/News/View.aspx" title="ГЕНЕРАЦИЯ: Просмотр новости “название”" />
+        </siteMapNode>
+
+        <!--<siteMapNode url="/Administration/FAQ/List.aspx" title="Вопросы и Ответы" roles="EditFAQ">
+          <siteMapNode url="/Administration/FAQ/Create.aspx" title="Создание вопроса" />
+          <siteMapNode url="/Administration/FAQ/Edit.aspx" title="ГЕНЕРАЦИЯ: Редактирование вопроса “название”" />
+          <siteMapNode url="/Administration/FAQ/View.aspx" title="ГЕНЕРАЦИЯ: Просмотр вопроса “название”" />
+        </siteMapNode>-->
+      </siteMapNode>
+
+      <!--<siteMapNode title="Загрузка" roles="LoadCommonNationalCertificate">
+                <siteMapNode url="/Administration/Certificates/Report.aspx" title="Отчет о загрузке свидетельств ЕГЭ" />
+                <siteMapNode url="/Administration/Certificates/CommonNationalCertificateLoads.aspx" title="Свидетельства ЕГЭ">
+                    <siteMapNode url="/Administration/Certificates/CommonNationalCertificateLoadsErrors.aspx" title="Ошибки" />
+                </siteMapNode>
+                <siteMapNode url="/Administration/Certificates/CommonNationalCertificateDenyingLoads.aspx" title="Аннулирования свидетельств ЕГЭ">
+                    <siteMapNode url="/Administration/Certificates/CommonNationalCertificateDenyingLoadErrors.aspx" title="Ошибки" />
+                </siteMapNode>
+            </siteMapNode>-->
+
+      <siteMapNode title="Отчеты" roles="ViewAdministrationReport" >
+        <siteMapNode url="/Administration/Reports/ChecksCount.aspx" title="Количество и распределение проверок свидетельств ЕГЭ в открытой части Подсистемы ФИС Результаты ЕГЭ" />
+        <siteMapNode url="/Administration/Reports/FalseRequests.aspx" title="Образовательные учреждения направившие ошибочные запросы по номеру и серии документа удостоверяющего личность (без баллов)" />
+        <siteMapNode url="/Administration/Reports/OrgChecksDetailed.aspx" title="Детальный отчет о проверках организациями" />
+        
+        <siteMapNode url="http://fbsege.ru:8010" title="Система отчетности" />
+        <!--<siteMapNode url="/Administration/Reports/UserActivation.aspx" title="Регистрация пользователей" />-->
+        <!--                <siteMapNode url="/Administration/Reports/UserAccountActivityCommon.aspx" title="Аналитическая информация по работе с ФБС"  />-->
+        <!--            <siteMapNode url="/Administration/Reports/OrganizationType.aspx" title="Статистика зарегистрированных в ФБС по типам образовательных учреждений"  />-->
+        <!--<siteMapNode url="/Administration/Reports/EducationalOrganization.aspx" title="Список ВУЗов и ССУЗов, зарегистрированных в ФБС (XLS)" />-->
+        <!--        <siteMapNode url="/Administration/Reports/UserAccountByRegion.aspx" title="Количество пользователей ФБС по регионам"  />-->
+        <!--<siteMapNode url="/Administration/Reports/UserAccountActivityByRegion.aspx" title="Динамика обращений к ФБС по регионам" />-->
+        <!--    <siteMapNode url="/Administration/Reports/RequestReports.aspx" title="Заказ отчетов"  />-->
+        <!--<siteMapNode url="/Administration/Reports/ExcelTemplates.aspx" title="Шаблоны Excel" />-->
+      </siteMapNode>
+
+      <siteMapNode title="Справочники" roles="EditMinimalMarksDictionary,EditExpireDatesDictionary">
+        <siteMapNode url="/Administration/Dictionaries/MinimalMarks/List.aspx" title="Минимальные баллы"  roles="EditMinimalMarksDictionary"/>
+        <siteMapNode url="/Administration/Dictionaries/ExpireDates/List.aspx" title="Сроки действия свидетельств" roles="EditExpireDatesDictionary" />
+        <!--<siteMapNode url="/Administration/Dictionaries/Groups/List.aspx" title="Группы пользователей" />
+        <siteMapNode url="/Administration/Dictionaries/Roles/List.aspx" title="Роли пользователей" />-->
+      </siteMapNode>
+
+    </siteMapNode>
+   
+    <siteMapNode title="Свидетельства" resourceKey="certificates" roles="ViewCertificateSection">
+      <!--Разкомментировать для проверки обезличенных св-в-->
+    
+      <!--Разкомментировать для проверки обезличенных св-в END-->
+      <!--Разкомментировать для проверки свидетельств-->
+      <siteMapNode title="Свидетельства ЕГЭ" roles="ViewCertificateSection">
+        
+        <siteMapNode url="/Certificates/CommonNationalCertificates/Check.aspx" title="Запрос по регистрационному номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/CheckResult.aspx" title="Результат запроса по регистрационному номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" >
+            <siteMapNode url="/Certificates/CommonNationalCertificates/CheckHistory.aspx" showinleftmenu="false" title="История проверок свидетельства" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          </siteMapNode>
+          <siteMapNode url="/Certificates/CommonNationalCertificates/CheckResultCommon.aspx" title="Результат запроса по регистрационному номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/CheckHistoryResultCommon.aspx" title="История проверки по регистрационному номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false">
+            <siteMapNode url="/Certificates/CommonNationalCertificates/CheckHistoryResultCommonDetails.aspx" title="Результат проверки по регистрационному номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />  
+          </siteMapNode>
+        </siteMapNode>
+
+
+
+        <siteMapNode url="/Certificates/CommonNationalCertificates/BatchCheck.aspx" title="Запрос по регистрационному номеру и ФИО (пакетный)" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchCheckResult.aspx" title="Результат запроса по регистрационному номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchCheckResultCommon.aspx" title="Результат запроса по регистрационному номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchCheckResultCommonDetails.aspx" title="Результат запроса по регистрационному номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+        </siteMapNode>
+        
+        <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByMarks.aspx" title="Запрос по ФИО и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByMarksResult.aspx" title="Результат запроса по ФИО и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByMarksResultCommon.aspx" title="Результат запроса по ФИО и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByMarksHistoryResultCommon.aspx" title="История проверки по ФИО и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false">
+            <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByMarksHistoryResultCommonDetails.aspx" title="Результат проверки по ФИО и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          </siteMapNode>
+        </siteMapNode>
+        <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByPassport.aspx" title="Запрос по ФИО, номеру и серии документа" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByPassportResult.aspx" title="Результат запроса по ФИО, номеру и серии документа" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByPassportResultCommon.aspx" title="Результат запроса по ФИО, номеру и серии документа" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByPassportHistoryResultCommon.aspx" title="История проверки по ФИО, номеру и серии документа" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false">
+            <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByPassportHistoryResultCommonDetails.aspx" title="Результат проверки по ФИО, номеру и серии документа" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          </siteMapNode>
+        </siteMapNode>
+        <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByPassport.aspx" title="Запрос по ФИО, номеру и серии документа (пакетный, старый формат)" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByPassportResult.aspx" title="Результат запроса по ФИО, номеру и серии документа (старый формат)" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByPassportResultObsolete.aspx" title="Результат запроса по ФИО, номеру и серии документа (старый формат)" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByPassportResultObsoleteDetails.aspx" title="Результат запроса по ФИО, номеру и серии документа (старый формат)" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+        </siteMapNode>
+
+        <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByPassportNew.aspx" title="Запрос по ФИО, номеру и серии документа (пакетный)" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByPassportNewResultCommon.aspx" title="Результат запроса по ФИО, номеру и серии документа" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByPassportNewResultCommonDetails.aspx" title="Результат запроса по ФИО, номеру и серии документа" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+        </siteMapNode>
+        
+        <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByTypographicNumber.aspx" title="Запрос по типографскому номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByTypographicNumberResult.aspx" title="Результат запроса по типографскому номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByTypographicNumberResultCommon.aspx" title="Результат запроса по типографскому номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByTypographicNumberHistoryResultCommon.aspx" title="История проверки по типографскому номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false">
+            <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByTypographicNumberHistoryResultCommonDetails.aspx" title="Результат проверки по типографскому номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          </siteMapNode>
+        </siteMapNode>
+        <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByTypographicNumber.aspx" title="Запрос по типографскому номеру и ФИО (пакетный)" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByTypographicNumberResult.aspx" title="Результат запроса по типографскому номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByTypographicNumberResultCommon.aspx" title="Результат запроса по типографскому номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchRequestByTypographicNumberResultCommonDetails.aspx" title="Результат запроса по типографскому номеру и ФИО" roles="CheckCommonNationalCertificate" showinclosedfbs="true" showinopenedfbs="false" />
+        </siteMapNode>
+        <siteMapNode url="/Certificates/CommonNationalCertificates/WildcardRequest.aspx" title="Запрос по неполным данным" roles="CheckCommonNationalCertificateWildcard" showinclosedfbs="true" showinopenedfbs="false" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/WildcardRequestResult.aspx" title="Результат запроса по неполным данным" roles="CheckCommonNationalCertificateWildcard" showinclosedfbs="true" showinopenedfbs="false" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/WildcardRequestResultCommon.aspx" title="Результат запроса по неполным данным" roles="CheckCommonNationalCertificateWildcard" showinclosedfbs="true" showinopenedfbs="false" />
+        </siteMapNode>
+        <siteMapNode url="/Certificates/CommonNationalCertificates/CheckForOpenedFbs.aspx" title="Запрос по регистрационному номеру и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/CheckResultForOpenedFbs.aspx" title="Результат запроса по регистрационному номеру и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" />
+            <siteMapNode url="/Certificates/CommonNationalCertificates/CheckHistoryForOpenedFbs.aspx" showinleftmenu="false" title="История проверок свидетельства" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" />          
+        </siteMapNode>
+
+        <siteMapNode url="/Certificates/CommonNationalCertificates/BatchCheckByNumber.aspx" title="Запрос по регистрационному номеру и баллам по предметам (пакетный)" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchCheckByNumberResult.aspx" title="Результат запроса по регистрационному номеру и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" />
+        </siteMapNode>
+
+        <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByPassportForOpenedFbs.aspx" title="Запрос по номеру и серии документа, и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/RequestByPassportResultForOpenedFbs.aspx" title="Результат запроса по номеру и серии документа, и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/CheckResultByPassportForOpenedFbs.aspx" title="Результат запроса по номеру и серии документа и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" />
+          <siteMapNode url="/Certificates/CommonNationalCertificates/CheckHistoryByPassportForOpenedFbs.aspx" showinleftmenu="false" title="История проверок свидетельства" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" />
+        </siteMapNode>
+
+        <siteMapNode url="/Certificates/CommonNationalCertificates/BatchCheckByPassportNumber.aspx" title="Запрос по номеру и серии документа и баллам по предметам (пакетный)" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" >
+          <siteMapNode url="/Certificates/CommonNationalCertificates/BatchCheckByPassportNumberResult.aspx" title="Результат запроса по номеру и серии документа и баллам по предметам" roles="CheckCommonNationalCertificate" showinclosedfbs="false" showinopenedfbs="true" />
+        </siteMapNode>
+        <siteMapNode url="/Certificates/CommonNationalCertificates/CheckBanPage.aspx" title="Ошибка" showinleftmenu="false" />
+      </siteMapNode>
+      
+      <!--<siteMapNode title="Обезличенные свидетельства" resourceKey="HashedCNE">
+          <siteMapNode url="/Certificates/CommonNationalCertificates/HashedCheck/CheckByMarkSum.aspx" title="Проверка по сумме баллов" ></siteMapNode>
+          <siteMapNode url="/Certificates/CommonNationalCertificates/HashedCheck/BatchCheckByMarkSum.aspx"  roles="ViewAdministrationSection" title="Пакетная проверка по сумме баллов" showinopenedfbs="false"></siteMapNode>
+      </siteMapNode>-->
+      <siteMapNode title="Тестирование пакетной проверки" resourceKey="certificates2">
+        <siteMapNode title="Свидетельства ЕГЭ">
+          <siteMapNode url="/AllUsers/BatchCheckFileFormatByNumber.aspx" title="Тестирование формата файла для пакетной проверки по регистрационному номеру"  showinclosedfbs="false" showinopenedfbs="true" >
+            <siteMapNode url="/AllUsers/BatchCheckFileFormatByNumberResult.aspx" title="Результат"/>
+            <siteMapNode url="/AllUsers/BatchCheckFileFormatByNumberExportCsv.aspx.aspx" title="Результат"/>
+          </siteMapNode>
+
+          <siteMapNode url="/AllUsers/BatchCheckFileFormatByPassport.aspx" title="Тестирование формата файла для пакетной проверки серии и номеру документа"  showinclosedfbs="false" showinopenedfbs="true" >
+            <siteMapNode url="/AllUsers/BatchCheckFileFormatByPassportResult.aspx" title="Результат"/>
+            <siteMapNode url="/AllUsers/BatchCheckFileFormatByPassportResultCsv.aspx.aspx" title="Результат"/>
+          </siteMapNode>
+
+          <siteMapNode url="/AllUsers/BatchCheckFileFormat.aspx" title="Тестирование формата файла для пакетной проверки по регистрационному номеру и ФИО"  showinclosedfbs="true" showinopenedfbs="false" >
+            <siteMapNode url="/AllUsers/BatchCheckFileFormatResult.aspx" title="Результат"/>
+            <siteMapNode url="/AllUsers/BatchCheckFileFormatExportCsv.aspx.aspx" title="Результат"/>
+          </siteMapNode>
+
+          <siteMapNode url="/AllUsers/BatchCheckPassport.aspx" title="Тестирование формата файла для пакетной проверки по ФИО, серии и номеру документа"  showinclosedfbs="true" showinopenedfbs="false" >
+            <siteMapNode url="/AllUsers/BatchCheckPassportResult.aspx" title="Результат"/>
+            <siteMapNode url="/AllUsers/BatchCheckPassportExportCsv.aspx" title="Результат"/>
+          </siteMapNode>
+
+          <siteMapNode url="/AllUsers/BatchCheckTypeNumber.aspx" title="Тестирование формата файла для пакетной проверки по типографскому номеру и ФИО"  showinclosedfbs="true" showinopenedfbs="false" >
+            <siteMapNode url="/AllUsers/BatchCheckTypeNumberResult.aspx" title="Результат"/>
+            <siteMapNode url="/AllUsers/BatchCheckTypeNumResultExportCsv.aspx" title="Результат"/>
+          </siteMapNode>
+        </siteMapNode>
+      </siteMapNode>
+      <!--Закомментировать для обезличенных проверок END-->
+      <!--
+
+      <siteMapNode title="Абитуриенты" roles="LoadEntrant">
+        <siteMapNode url="/Certificates/Entrants/LoadEntrants.aspx" title="Дополнение списка поступивших"  roles="LoadEntrant">
+          <siteMapNode url="/Certificates/Entrants/LoadEntrantsSuccess.aspx" title="Пакет добавлен" roles="LoadEntrant" />
+        </siteMapNode>
+        <siteMapNode url="/Certificates/Entrants/LoadEntrantRenunciations.aspx" title="Дополнение списка забравших документы"  roles="LoadEntrant">
+          <siteMapNode url="/Certificates/Entrants/LoadEntrantRenunciationsSuccess.aspx" title="Пакет добавлен" roles="LoadEntrant" />
+        </siteMapNode>
+        
+        <siteMapNode url="/Certificates/Entrants/Check.aspx" title="Запрос о поступивших по свидетельству ЕГЭ"  roles="CheckEntrant">
+          <siteMapNode url="/Certificates/Entrants/CheckResult.aspx" title="Результат" roles="CheckEntrant" />
+        </siteMapNode>  
+        <siteMapNode url="/Certificates/Entrants/BatchCheck.aspx" title="Запрос о поступивших по свидетельству ЕГЭ (пакетная)"  roles="CheckEntrant">
+          <siteMapNode url="/Certificates/Entrants/BatchCheckResult.aspx" title="Результат" roles="CheckEntrant" />
+          <siteMapNode url="/Certificates/Entrants/BatchCheckSuccess.aspx" title="Пакет добавлен" roles="CheckEntrant" />
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="Аттестаты" roles="CheckSchoolLeavingCertificate">
+        <siteMapNode url="/Certificates/SchoolLeavingCertificates/Check.aspx" title="Проверка по номеру" roles="CheckSchoolLeavingCertificate">
+          <siteMapNode url="/Certificates/SchoolLeavingCertificates/CheckResult.aspx" title="Результат" roles="CheckSchoolLeavingCertificate" />
+        </siteMapNode>
+        <siteMapNode url="/Certificates/SchoolLeavingCertificates/BatchCheck.aspx" title=" Проверка по номеру (пакетная)" roles="CheckSchoolLeavingCertificate">
+          <siteMapNode url="/Certificates/SchoolLeavingCertificates/BatchCheckResult.aspx" title="Результат" roles="CheckSchoolLeavingCertificate" />
+          <siteMapNode url="/Certificates/SchoolLeavingCertificates/BatchCheckSuccess.aspx" title="Пакет загружен" roles="CheckSchoolLeavingCertificate" />
+        </siteMapNode>        
+      </siteMapNode>
+
+      <siteMapNode title="Олимпиады" roles="CheckSchoolCompetitionCertificate">
+        <siteMapNode url="/Certificates/CompetitionCertificates/Request.aspx" title="Запрос по ФИО" roles="CheckSchoolCompetitionCertificate">
+          <siteMapNode url="/Certificates/CompetitionCertificates/RequestResult.aspx" title="Результат" roles="CheckSchoolCompetitionCertificate" />
+        </siteMapNode>
+        <siteMapNode url="/Certificates/CompetitionCertificates/BatchRequest.aspx" title="Запрос по ФИО (пакетный)" roles="CheckSchoolCompetitionCertificate">
+          <siteMapNode url="/Certificates/CompetitionCertificates/BatchRequestResult.aspx" title="Результат" roles="CheckSchoolCompetitionCertificate" />
+          <siteMapNode url="/Certificates/CompetitionCertificates/BatchRequestSuccess.aspx" title="Пакет загружен" roles="CheckSchoolCompetitionCertificate" />
+        </siteMapNode>
+      </siteMapNode>
+      -->
+      <siteMapNode title="Отчеты" roles="ViewCommonNationalCertificateReport">
+        <siteMapNode url="/Certificates/Report/CommonNationalCertificateLoading.aspx" title="Статистика загруженных в ФБС из ФЦТ свидетельств по регионам"  roles="ViewCommonNationalCertificateReport" showinclosedfbs="true" showinopenedfbs="true"/>
+      </siteMapNode>
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

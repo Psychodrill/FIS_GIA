@@ -1,0 +1,1 @@
+SELECT EducationFormFlag FROM Campaign WHERE CampaignID = @campaignID

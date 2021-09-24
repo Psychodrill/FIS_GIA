@@ -1,0 +1,367 @@
+-- =========================================================================
+-- Запись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (20, '020__2011_10_15__AlterFunctionReportOrgsRegistrationV2')
+-- =========================================================================
+GO
+
+
+alter function ReportOrgsRegistration(@currentDate datetime)
+RETURNS @report TABLE 
+(
+	[Тип ОУ] nvarchar(500) null, 
+	[Правовая форма] nvarchar(50) null, 
+	[Филиал] nvarchar(50) null,
+	[В БД] int null,
+	[Из них действующих] int null,
+	[Процент] varchar(10) null
+)
+AS
+BEGIN
+
+declare @ActivatedUsers table
+(
+OrgId int,
+ActivatedUsers int
+)
+insert into @ActivatedUsers
+select
+	O.OrgId,
+    coalesce(PA.ActivatedAccounts, 0) ActivatedUsers
+from
+	Organizations O
+    left join 
+    (
+    select 
+    	PA.OrgId,
+        PA.ActivatedAccounts
+    from
+	    ByPeriodOrgAggregates PA
+	    inner join 
+	    (
+		select
+			PA.OrgId,
+		    max(PA.FactDate) FactDate
+		from
+			ByPeriodOrgAggregates PA
+		where
+			PA.FactDate between  (select top 1 P.PeriodDate
+											from Periods P
+											where YEAR(@currentDate) = P.PeriodYear) and @currentDate
+		group by
+			PA.OrgId
+	    ) A on A.OrgId = PA.OrgId and A.FactDate = PA.FactDate
+    ) PA on PA.OrgId = O.OrgId
+
+	
+declare @ActivatedUsersOld table
+(
+OrgId int,
+ActivatedUsersOld int
+)
+insert into @ActivatedUsersOld
+select
+	O.OrgId,
+    coalesce(PA.ActivatedAccounts, 0) ActivatedUsersOld
+from
+	Organizations O
+    left join 
+    (
+    select 
+    	PA.OrgId,
+        PA.ActivatedAccounts
+    from
+	    ByPeriodOrgAggregates PA
+	    inner join 
+	    (
+		select
+			PA.OrgId,
+		    max(PA.FactDate) FactDate
+		from
+			ByPeriodOrgAggregates PA
+		where
+			PA.FactDate between  (select top 1 P.PeriodDate
+											from Periods P
+											where YEAR(DATEADD(YEAR, -1, @currentDate)) = P.PeriodYear) and DATEADD(YEAR, -1, @currentDate)
+		group by
+			PA.OrgId
+	    ) A on A.OrgId = PA.OrgId and A.FactDate = PA.FactDate
+    ) PA on PA.OrgId = O.OrgId
+
+declare @activUsers table
+(
+OrgId int,
+ActivatedUsers int,
+ActivatedUsersOld int
+)
+
+insert into @activUsers
+select
+'OrgId'=
+	case 
+		when
+		AU.OrgId is null then UO.OrgId 
+		else AU.OrgId
+	end,
+	isnull(AU.ActivatedUsers, 0) ActivatedUsers,
+	isnull(UO.ActivatedUsersOld, 0) ActivatedUsersOld
+from 
+	@ActivatedUsers AU full outer join @ActivatedUsersOld UO on AU.OrgId = UO.OrgId
+
+DECLARE @PreReport TABLE
+(
+	[Тип ОУ] nvarchar(500) null, 
+	[Правовая форма] nvarchar(50) null, 
+	[Филиал] nvarchar(50) null,
+	[Аккредитация] nvarchar(50) null,
+	[В БД] int null,
+	[Из них действующих] int null,
+	[Прошлый год] int null
+)
+INSERT INTO @PreReport
+SELECT 
+OrgInfo.TypeName as [Тип],
+OrgInfo.OPF as [ОПФ],
+OrgInfo.Filial as [Филиал],
+OrgInfo.Accreditation as[Аккредитация по факту] ,
+COUNT(*),
+COUNT(CASE WHEN OrgInfo.[ActivatedUsers]>0 THEN 1 ELSE null END),
+COUNT(CASE WHEN OrgInfo.[ActivatedUsersOld] >0 THEN 1 ELSE null END)
+FROM
+(
+ select
+	O.OrgId,
+	O.OrgTypeName as TypeName,
+	REPLACE(REPLACE(O.IsPrivate,1,'Частный'),0,'Гос-ный') AS OPF,
+	'Filial' = 
+	case 
+		when
+		O.MainId is null then 'Нет' 
+		else 'Да'
+	end,
+	CASE 
+		WHEN (O.IsAccredited=1 OR (O.AccreditationSertificate IS NOT NULL AND O.AccreditationSertificate!= ''))
+		THEN 'Есть'
+		ELSE 'Нет'
+	END AS [Accreditation],
+	isnull(AU.ActivatedUsers, 0) ActivatedUsers,
+	isnull(AU.ActivatedUsersOld, 0) ActivatedUsersOld
+from
+	Organizations O
+	left join @activUsers AU on AU.OrgId = O.OrgId
+	) AS OrgInfo
+GROUP BY 
+OrgInfo.TypeName,
+OrgInfo.OPF,
+OrgInfo.Filial,
+OrgInfo.Accreditation
+
+INSERT INTO @Report
+SELECT 'Всего, в т.ч.:','-','-',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport
+
+INSERT INTO @Report
+SELECT 'ВУЗ','Всего','-',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' 
+
+INSERT INTO @Report
+SELECT 'ВУЗ','Государственный','Всего',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' AND [Правовая форма]='Гос-ный'
+UNION ALL
+SELECT [Тип ОУ],'Государственный',[Филиал],SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' AND [Правовая форма]='Гос-ный'
+GROUP BY [Тип ОУ],[Правовая форма],[Филиал]
+
+INSERT INTO @Report
+SELECT 'ВУЗ','Негосударственный','Всего',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' AND [Правовая форма]='Частный'
+UNION ALL
+SELECT [Тип ОУ],'Негосударственный',[Филиал],SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' AND [Правовая форма]='Частный'
+GROUP BY [Тип ОУ],[Правовая форма],[Филиал]
+
+INSERT INTO @Report
+SELECT 'ССУЗ','Всего','-',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ССУЗ' 
+
+INSERT INTO @Report
+SELECT [Тип ОУ],'Государственный','-',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ССУЗ' AND [Правовая форма]='Гос-ный'
+GROUP BY [Тип ОУ],[Правовая форма]
+
+INSERT INTO @Report
+SELECT [Тип ОУ],'Негосударственный','-',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ССУЗ' AND [Правовая форма]='Частный'
+GROUP BY [Тип ОУ],[Правовая форма]
+
+INSERT INTO @Report
+SELECT NULL, NULL, NULL, NULL, NULL, NULL
+
+INSERT INTO @Report
+SELECT [Тип ОУ],'-','-',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]<>'ССУЗ'  AND [Тип ОУ]<>'ВУЗ'
+GROUP BY [Тип ОУ]
+
+
+INSERT INTO @Report
+SELECT NULL, NULL, NULL, NULL, NULL, NULL
+INSERT INTO @Report
+SELECT NULL, NULL, NULL, NULL, NULL, NULL
+INSERT INTO @Report
+SELECT 'В разрезе наличия аккредитации', NULL, NULL, NULL, NULL, NULL
+
+INSERT INTO @Report
+SELECT 'Тип ОУ','Правовая форма','Аккредитация',NULL, NULL, NULL
+
+INSERT INTO @Report
+SELECT 'Всего','-','-',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport 
+WHERE  [Тип ОУ]='ССУЗ' OR [Тип ОУ]='ВУЗ'
+
+INSERT INTO @Report
+SELECT 'ВУЗ','Всего','-',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' 
+
+INSERT INTO @Report
+SELECT 'ВУЗ','Государственный','Всего',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' AND [Правовая форма]='Гос-ный'
+UNION ALL
+SELECT [Тип ОУ],'Государственный',[Аккредитация],SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' AND [Правовая форма]='Гос-ный'
+GROUP BY [Тип ОУ],[Правовая форма],[Аккредитация]
+
+INSERT INTO @Report
+SELECT 'ВУЗ','Негосударственный','Всего',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' AND [Правовая форма]='Частный'
+UNION ALL
+SELECT [Тип ОУ],'Негосударственный',[Аккредитация],SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ВУЗ' AND [Правовая форма]='Частный'
+GROUP BY [Тип ОУ],[Правовая форма],[Аккредитация]
+
+INSERT INTO @Report
+SELECT 'ССУЗ','Всего','-',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ССУЗ'  
+
+INSERT INTO @Report
+SELECT 'ССУЗ','Государственный','Всего',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ССУЗ' AND [Правовая форма]='Гос-ный'
+UNION ALL
+SELECT [Тип ОУ],'Государственный',[Аккредитация],SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ССУЗ' AND [Правовая форма]='Гос-ный'
+GROUP BY [Тип ОУ],[Правовая форма],[Аккредитация]
+
+INSERT INTO @Report
+SELECT 'ССУЗ','Негосударственный','Всего',SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ССУЗ' AND [Правовая форма]='Частный'
+UNION ALL
+SELECT [Тип ОУ],'Негосударственный',[Аккредитация],SUM([В БД]),SUM([Из них действующих]),
+	CASE 
+		WHEN SUM([Прошлый год]) > 0
+		THEN cast(round((SUM(cast([Из них действующих] as float))/SUM(cast([Прошлый год] as float)))*100, 1) as varchar(10))+'%' 
+		ELSE '-'
+	END
+FROM @PreReport WHERE [Тип ОУ]='ССУЗ' AND [Правовая форма]='Частный'
+GROUP BY [Тип ОУ],[Правовая форма],[Аккредитация]
+
+RETURN
+END
+GO

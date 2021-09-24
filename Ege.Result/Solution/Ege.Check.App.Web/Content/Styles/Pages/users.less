@@ -1,0 +1,33 @@
+@import "../Core/core.less";
+@import "../Components/account.less";
+@import "../Components/menu.less";
+@import "../Components/message-popup.less";
+@import "../Components/table.less";
+@import "../Components/table-pagination.less";
+@import "../Components/add-to-table-form.less";
+@import "../Components/dialog.less";
+@import "../Mixins/form.less";
+
+.icon {
+	width: 16px;
+	height: 16px;
+	opacity: .6;
+}
+
+.icon-pencil:extend(.icon) {
+	background: url('../../Images/pencil.png') no-repeat;
+}
+
+.icon-close:extend(.icon) {
+	background: url('../../Images/cross_b.png') no-repeat;	
+}
+
+.table button {
+	padding: 5px 7px;
+}
+
+.dialog {
+	.form {
+		.form-grid();
+	}
+}

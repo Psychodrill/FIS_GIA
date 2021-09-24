@@ -1,0 +1,2276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InsitutionsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="InsitutionsModelStoreContainer">
+          <EntitySet Name="AdmissionItemType" EntityType="InsitutionsModel.Store.AdmissionItemType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AdmissionVolume" EntityType="InsitutionsModel.Store.AdmissionVolume" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AllowedDirections" EntityType="InsitutionsModel.Store.AllowedDirections" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Attachment" EntityType="InsitutionsModel.Store.Attachment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Direction" EntityType="InsitutionsModel.Store.Direction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FormOfLaw" EntityType="InsitutionsModel.Store.FormOfLaw" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Institution" EntityType="InsitutionsModel.Store.Institution" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InstitutionAccreditation" EntityType="InsitutionsModel.Store.InstitutionAccreditation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InstitutionHistory" EntityType="InsitutionsModel.Store.InstitutionHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InstitutionItem" EntityType="InsitutionsModel.Store.InstitutionItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InstitutionLicense" EntityType="InsitutionsModel.Store.InstitutionLicense" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InstitutionStructure" EntityType="InsitutionsModel.Store.InstitutionStructure" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ParentDirection" EntityType="InsitutionsModel.Store.ParentDirection" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RegionType" EntityType="InsitutionsModel.Store.RegionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RequestComments" EntityType="InsitutionsModel.Store.RequestComments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RequestDirection" EntityType="InsitutionsModel.Store.RequestDirection" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserPolicy" EntityType="InsitutionsModel.Store.UserPolicy" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AdmissionVolume_AdmissionItemType" Association="InsitutionsModel.Store.FK_AdmissionVolume_AdmissionItemType">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="AdmissionVolume" EntitySet="AdmissionVolume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionVolume_Direction" Association="InsitutionsModel.Store.FK_AdmissionVolume_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="AdmissionVolume" EntitySet="AdmissionVolume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionVolume_Institution" Association="InsitutionsModel.Store.FK_AdmissionVolume_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="AdmissionVolume" EntitySet="AdmissionVolume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AllowedDirections_AdmissionItemType" Association="InsitutionsModel.Store.FK_AllowedDirections_AdmissionItemType">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="AllowedDirections" EntitySet="AllowedDirections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AllowedDirections_Direction" Association="InsitutionsModel.Store.FK_AllowedDirections_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="AllowedDirections" EntitySet="AllowedDirections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AllowedDirections_Institution" Association="InsitutionsModel.Store.FK_AllowedDirections_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="AllowedDirections" EntitySet="AllowedDirections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Direction_ParentDirection" Association="InsitutionsModel.Store.FK_Direction_ParentDirection">
+            <End Role="ParentDirection" EntitySet="ParentDirection" />
+            <End Role="Direction" EntitySet="Direction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Institution_Attachment" Association="InsitutionsModel.Store.FK_Institution_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="Institution" EntitySet="Institution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Institution_FormOfLaw" Association="InsitutionsModel.Store.FK_Institution_FormOfLaw">
+            <End Role="FormOfLaw" EntitySet="FormOfLaw" />
+            <End Role="Institution" EntitySet="Institution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Institution_RegionType" Association="InsitutionsModel.Store.FK_Institution_RegionType">
+            <End Role="RegionType" EntitySet="RegionType" />
+            <End Role="Institution" EntitySet="Institution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionAccreditation_Attachment" Association="InsitutionsModel.Store.FK_InstitutionAccreditation_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionAccreditation" EntitySet="InstitutionAccreditation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionAccreditation_Institution" Association="InsitutionsModel.Store.FK_InstitutionAccreditation_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="InstitutionAccreditation" EntitySet="InstitutionAccreditation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionHistory_AccreditationAttachment" Association="InsitutionsModel.Store.FK_InstitutionHistory_AccreditationAttachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionHistory_FormOfLaw" Association="InsitutionsModel.Store.FK_InstitutionHistory_FormOfLaw">
+            <End Role="FormOfLaw" EntitySet="FormOfLaw" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionHistory_HostelAttachment" Association="InsitutionsModel.Store.FK_InstitutionHistory_HostelAttachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionHistory_LicenseAttachment" Association="InsitutionsModel.Store.FK_InstitutionHistory_LicenseAttachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionHistory_RegionType" Association="InsitutionsModel.Store.FK_InstitutionHistory_RegionType">
+            <End Role="RegionType" EntitySet="RegionType" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionItem_Direction" Association="InsitutionsModel.Store.FK_InstitutionItem_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="InstitutionItem" EntitySet="InstitutionItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionItem_Institution" Association="InsitutionsModel.Store.FK_InstitutionItem_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="InstitutionItem" EntitySet="InstitutionItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionItem_ParentInstitutionItem" Association="InsitutionsModel.Store.FK_InstitutionItem_ParentInstitutionItem">
+            <End Role="InstitutionItem" EntitySet="InstitutionItem" />
+            <End Role="InstitutionItem1" EntitySet="InstitutionItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionLicense_Attachment" Association="InsitutionsModel.Store.FK_InstitutionLicense_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionLicense" EntitySet="InstitutionLicense" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionLicense_Institution" Association="InsitutionsModel.Store.FK_InstitutionLicense_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="InstitutionLicense" EntitySet="InstitutionLicense" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionStructure_InstitutionItem" Association="InsitutionsModel.Store.FK_InstitutionStructure_InstitutionItem">
+            <End Role="InstitutionItem" EntitySet="InstitutionItem" />
+            <End Role="InstitutionStructure" EntitySet="InstitutionStructure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionStructure_InstitutionStructure" Association="InsitutionsModel.Store.FK_InstitutionStructure_InstitutionStructure">
+            <End Role="InstitutionStructure" EntitySet="InstitutionStructure" />
+            <End Role="InstitutionStructure1" EntitySet="InstitutionStructure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequestComments_RequestDirection" Association="InsitutionsModel.Store.FK_RequestComments_RequestDirection">
+            <End Role="RequestDirection" EntitySet="RequestDirection" />
+            <End Role="RequestComments" EntitySet="RequestComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequestDirection_Request" Association="InsitutionsModel.Store.FK_RequestDirection_Request">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="RequestDirection" EntitySet="RequestDirection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPolicy_Institution" Association="InsitutionsModel.Store.FK_UserPolicy_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="UserPolicy" EntitySet="UserPolicy" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdmissionItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Name="ItemTypeID" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ItemLevel" Type="smallint" Nullable="false" />
+          <Property Name="CanBeSkipped" Type="bit" Nullable="false" />
+          <Property Name="AutoCopyName" Type="bit" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AdmissionVolume">
+          <Key>
+            <PropertyRef Name="AdmissionVolumeID" />
+          </Key>
+          <Property Name="AdmissionVolumeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="AdmissionItemTypeID" Type="smallint" Nullable="false" />
+          <Property Name="DirectionID" Type="int" Nullable="false" />
+          <Property Name="NumberBudgetO" Type="int" Nullable="false" />
+          <Property Name="NumberBudgetOZ" Type="int" Nullable="false" />
+          <Property Name="NumberBudgetZ" Type="int" Nullable="false" />
+          <Property Name="NumberPaidO" Type="int" Nullable="false" />
+          <Property Name="NumberPaidOZ" Type="int" Nullable="false" />
+          <Property Name="NumberPaidZ" Type="int" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Course" Type="int" />
+          <Property Name="CampaignID" Type="int" />
+          <Property Name="NumberTargetO" Type="int" Nullable="false" />
+          <Property Name="NumberTargetOZ" Type="int" Nullable="false" />
+          <Property Name="NumberTargetZ" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AllowedDirections">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+            <PropertyRef Name="DirectionID" />
+            <PropertyRef Name="AdmissionItemTypeID" />
+          </Key>
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="DirectionID" Type="int" Nullable="false" />
+          <Property Name="AdmissionItemTypeID" Type="smallint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Attachment">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MimeType" Type="varchar" Nullable="false" MaxLength="512" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="512" />
+          <Property Name="Body" Type="varbinary(max)" Nullable="false" />
+          <Property Name="FileID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Direction">
+          <Key>
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Name="DirectionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="char" MaxLength="8" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="SYS_GUID" Type="varchar" MaxLength="50" />
+          <Property Name="EDULEVEL" Type="varchar" MaxLength="500" />
+          <Property Name="EDUPROGRAMTYPE" Type="varchar" MaxLength="500" />
+          <Property Name="UGSCODE" Type="char" MaxLength="8" />
+          <Property Name="UGSNAME" Type="varchar" MaxLength="500" />
+          <Property Name="QUALIFICATIONCODE" Type="char" MaxLength="10" />
+          <Property Name="QUALIFICATIONNAME" Type="varchar" MaxLength="500" />
+          <Property Name="PERIOD" Type="varchar" MaxLength="50" />
+          <Property Name="EDU_DIRECTORY" Type="varchar" MaxLength="500" />
+          <Property Name="EDUPR_ADDITIONAL" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="NewCode" Type="char" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="FormOfLaw">
+          <Key>
+            <PropertyRef Name="FormOfLawID" />
+          </Key>
+          <Property Name="FormOfLawID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="Code" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Institution">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Name="InstitutionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionTypeID" Type="smallint" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="1000" />
+          <Property Name="BriefName" Type="varchar" MaxLength="500" />
+          <Property Name="FormOfLawID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="Site" Type="varchar" MaxLength="255" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="HasMilitaryDepartment" Type="bit" Nullable="false" />
+          <Property Name="HasHostel" Type="bit" Nullable="false" />
+          <Property Name="HostelCapacity" Type="int" />
+          <Property Name="HasHostelForEntrants" Type="bit" Nullable="false" />
+          <Property Name="HostelAttachmentID" Type="int" />
+          <Property Name="INN" Type="char" MaxLength="10" />
+          <Property Name="OGRN" Type="char" Nullable="false" MaxLength="13" />
+          <Property Name="AdmissionStructurePublishDate" Type="datetime" />
+          <Property Name="ReceivingApplicationDate" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="EsrpOrgID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="OwnerDepartment" Type="varchar" MaxLength="255" />
+          <Property Name="MainEsrpOrgId" Type="int" />
+          <Property Name="FounderEsrpOrgId" Type="int" />
+          <Property Name="StatusId" Type="int" />
+        </EntityType>
+        <EntityType Name="InstitutionAccreditation">
+          <Key>
+            <PropertyRef Name="AccreditationID" />
+          </Key>
+          <Property Name="AccreditationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="Accreditation" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="AttachmentID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InstitutionHistory">
+          <Key>
+            <PropertyRef Name="InstitutionHistoryID" />
+          </Key>
+          <Property Name="InstitutionHistoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionTypeID" Type="smallint" Nullable="false" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="1000" />
+          <Property Name="BriefName" Type="varchar" MaxLength="500" />
+          <Property Name="FormOfLawID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="Site" Type="varchar" MaxLength="255" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="HasMilitaryDepartment" Type="bit" Nullable="false" />
+          <Property Name="HasHostel" Type="bit" Nullable="false" />
+          <Property Name="HostelCapacity" Type="int" />
+          <Property Name="HasHostelForEntrants" Type="bit" Nullable="false" />
+          <Property Name="HostelAttachmentID" Type="int" />
+          <Property Name="INN" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="OGRN" Type="char" Nullable="false" MaxLength="13" />
+          <Property Name="AdmissionStructurePublishDate" Type="datetime" />
+          <Property Name="ReceivingApplicationDate" Type="datetime" />
+          <Property Name="EsrpOrgID" Type="int" />
+          <Property Name="OwnerDepartment" Type="varchar" MaxLength="255" />
+          <Property Name="Accreditation" Type="varchar" MaxLength="500" />
+          <Property Name="AccreditationAttachmentID" Type="int" />
+          <Property Name="LicenseNumber" Type="varchar" MaxLength="50" />
+          <Property Name="LicenseDate" Type="datetime" />
+          <Property Name="LicenseAttachmentID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstitutionItem">
+          <Key>
+            <PropertyRef Name="InstitutionItemID" />
+          </Key>
+          <Property Name="InstitutionItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="ItemTypeID" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="BriefName" Type="varchar" MaxLength="50" />
+          <Property Name="DirectionID" Type="int" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="Site" Type="varchar" MaxLength="255" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InstitutionLicense">
+          <Key>
+            <PropertyRef Name="LicenseID" />
+          </Key>
+          <Property Name="LicenseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="LicenseNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="LicenseDate" Type="datetime" Nullable="false" />
+          <Property Name="AttachmentID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InstitutionStructure">
+          <Key>
+            <PropertyRef Name="InstitutionStructureID" />
+          </Key>
+          <Property Name="InstitutionStructureID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionItemID" Type="int" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="Depth" Type="smallint" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="Lineage" Type="varchar" Nullable="false" MaxLength="76" StoreGeneratedPattern="Computed" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ParentDirection">
+          <Key>
+            <PropertyRef Name="ParentDirectionID" />
+          </Key>
+          <Property Name="ParentDirectionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="char" MaxLength="8" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RegionType">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="OkatoCode" Type="varchar" MaxLength="16" />
+          <Property Name="OkatoModified" Type="datetime" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="EsrpCode" Type="varchar" MaxLength="5" />
+          <Property Name="RegionId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RequestComments">
+          <Key>
+            <PropertyRef Name="Comment ID" />
+          </Key>
+          <Property Name="Comment ID" Type="int" Nullable="false" />
+          <Property Name="Commentor" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="DirectionID" Type="int" Nullable="false" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequestDirection">
+          <Key>
+            <PropertyRef Name="Direction ID" />
+            <PropertyRef Name="Request ID" />
+          </Key>
+          <Property Name="Direction ID" Type="int" Nullable="false" />
+          <Property Name="Request ID" Type="int" Nullable="false" />
+          <Property Name="Activity" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Action" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="AdmissionItemType" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ChangeDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserPolicy">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InstitutionID" Type="int" />
+          <Property Name="IsMainAdmin" Type="bit" Nullable="false" />
+          <Property Name="FullName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Position" Type="varchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Comment" Type="varchar" MaxLength="3000" />
+          <Property Name="AvailableEgeCheckCount" Type="int" Nullable="false" />
+          <Property Name="PinCode" Type="varchar" MaxLength="100" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="IsReadOnly" Type="bit" Nullable="false" />
+          <Property Name="Subrole" Type="int" Nullable="false" />
+          <Property Name="FilialID" Type="int" />
+          <Property Name="IsDeactivated" Type="bit" />
+        </EntityType>
+        <Association Name="FK_AdmissionVolume_AdmissionItemType">
+          <End Role="AdmissionItemType" Type="InsitutionsModel.Store.AdmissionItemType" Multiplicity="1" />
+          <End Role="AdmissionVolume" Type="InsitutionsModel.Store.AdmissionVolume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="AdmissionVolume">
+              <PropertyRef Name="AdmissionItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionVolume_Direction">
+          <End Role="Direction" Type="InsitutionsModel.Store.Direction" Multiplicity="1" />
+          <End Role="AdmissionVolume" Type="InsitutionsModel.Store.AdmissionVolume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="AdmissionVolume">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionVolume_Institution">
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="1" />
+          <End Role="AdmissionVolume" Type="InsitutionsModel.Store.AdmissionVolume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="AdmissionVolume">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AllowedDirections_AdmissionItemType">
+          <End Role="AdmissionItemType" Type="InsitutionsModel.Store.AdmissionItemType" Multiplicity="1" />
+          <End Role="AllowedDirections" Type="InsitutionsModel.Store.AllowedDirections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="AllowedDirections">
+              <PropertyRef Name="AdmissionItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AllowedDirections_Direction">
+          <End Role="Direction" Type="InsitutionsModel.Store.Direction" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AllowedDirections" Type="InsitutionsModel.Store.AllowedDirections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="AllowedDirections">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AllowedDirections_Institution">
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AllowedDirections" Type="InsitutionsModel.Store.AllowedDirections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="AllowedDirections">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Direction_ParentDirection">
+          <End Role="ParentDirection" Type="InsitutionsModel.Store.ParentDirection" Multiplicity="0..1" />
+          <End Role="Direction" Type="InsitutionsModel.Store.Direction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParentDirection">
+              <PropertyRef Name="ParentDirectionID" />
+            </Principal>
+            <Dependent Role="Direction">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Institution_Attachment">
+          <End Role="Attachment" Type="InsitutionsModel.Store.Attachment" Multiplicity="0..1" />
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="Institution">
+              <PropertyRef Name="HostelAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Institution_FormOfLaw">
+          <End Role="FormOfLaw" Type="InsitutionsModel.Store.FormOfLaw" Multiplicity="0..1" />
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormOfLaw">
+              <PropertyRef Name="FormOfLawID" />
+            </Principal>
+            <Dependent Role="Institution">
+              <PropertyRef Name="FormOfLawID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Institution_RegionType">
+          <End Role="RegionType" Type="InsitutionsModel.Store.RegionType" Multiplicity="0..1" />
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionType">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Institution">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionAccreditation_Attachment">
+          <End Role="Attachment" Type="InsitutionsModel.Store.Attachment" Multiplicity="0..1" />
+          <End Role="InstitutionAccreditation" Type="InsitutionsModel.Store.InstitutionAccreditation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionAccreditation">
+              <PropertyRef Name="AttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionAccreditation_Institution">
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InstitutionAccreditation" Type="InsitutionsModel.Store.InstitutionAccreditation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="InstitutionAccreditation">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionHistory_AccreditationAttachment">
+          <End Role="Attachment" Type="InsitutionsModel.Store.Attachment" Multiplicity="0..1" />
+          <End Role="InstitutionHistory" Type="InsitutionsModel.Store.InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="AccreditationAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionHistory_FormOfLaw">
+          <End Role="FormOfLaw" Type="InsitutionsModel.Store.FormOfLaw" Multiplicity="0..1" />
+          <End Role="InstitutionHistory" Type="InsitutionsModel.Store.InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormOfLaw">
+              <PropertyRef Name="FormOfLawID" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="FormOfLawID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionHistory_HostelAttachment">
+          <End Role="Attachment" Type="InsitutionsModel.Store.Attachment" Multiplicity="0..1" />
+          <End Role="InstitutionHistory" Type="InsitutionsModel.Store.InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="HostelAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionHistory_LicenseAttachment">
+          <End Role="Attachment" Type="InsitutionsModel.Store.Attachment" Multiplicity="0..1" />
+          <End Role="InstitutionHistory" Type="InsitutionsModel.Store.InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="LicenseAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionHistory_RegionType">
+          <End Role="RegionType" Type="InsitutionsModel.Store.RegionType" Multiplicity="0..1" />
+          <End Role="InstitutionHistory" Type="InsitutionsModel.Store.InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionType">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionItem_Direction">
+          <End Role="Direction" Type="InsitutionsModel.Store.Direction" Multiplicity="0..1" />
+          <End Role="InstitutionItem" Type="InsitutionsModel.Store.InstitutionItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="InstitutionItem">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionItem_Institution">
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="1" />
+          <End Role="InstitutionItem" Type="InsitutionsModel.Store.InstitutionItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="InstitutionItem">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionItem_ParentInstitutionItem">
+          <End Role="InstitutionItem" Type="InsitutionsModel.Store.InstitutionItem" Multiplicity="0..1" />
+          <End Role="InstitutionItem1" Type="InsitutionsModel.Store.InstitutionItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstitutionItem">
+              <PropertyRef Name="InstitutionItemID" />
+            </Principal>
+            <Dependent Role="InstitutionItem1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionLicense_Attachment">
+          <End Role="Attachment" Type="InsitutionsModel.Store.Attachment" Multiplicity="0..1" />
+          <End Role="InstitutionLicense" Type="InsitutionsModel.Store.InstitutionLicense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionLicense">
+              <PropertyRef Name="AttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionLicense_Institution">
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InstitutionLicense" Type="InsitutionsModel.Store.InstitutionLicense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="InstitutionLicense">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionStructure_InstitutionItem">
+          <End Role="InstitutionItem" Type="InsitutionsModel.Store.InstitutionItem" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InstitutionStructure" Type="InsitutionsModel.Store.InstitutionStructure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstitutionItem">
+              <PropertyRef Name="InstitutionItemID" />
+            </Principal>
+            <Dependent Role="InstitutionStructure">
+              <PropertyRef Name="InstitutionItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionStructure_InstitutionStructure">
+          <End Role="InstitutionStructure" Type="InsitutionsModel.Store.InstitutionStructure" Multiplicity="0..1" />
+          <End Role="InstitutionStructure1" Type="InsitutionsModel.Store.InstitutionStructure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstitutionStructure">
+              <PropertyRef Name="InstitutionStructureID" />
+            </Principal>
+            <Dependent Role="InstitutionStructure1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequestComments_RequestDirection">
+          <End Role="RequestDirection" Type="InsitutionsModel.Store.RequestDirection" Multiplicity="1" />
+          <End Role="RequestComments" Type="InsitutionsModel.Store.RequestComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestDirection">
+              <PropertyRef Name="Direction ID" />
+              <PropertyRef Name="Request ID" />
+            </Principal>
+            <Dependent Role="RequestComments">
+              <PropertyRef Name="DirectionID" />
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequestDirection_Request">
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="1" />
+          <End Role="RequestDirection" Type="InsitutionsModel.Store.RequestDirection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="RequestDirection">
+              <PropertyRef Name="Request ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPolicy_Institution">
+          <End Role="Institution" Type="InsitutionsModel.Store.Institution" Multiplicity="0..1" />
+          <End Role="UserPolicy" Type="InsitutionsModel.Store.UserPolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="UserPolicy">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CopyStructureToAdmission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EducationLevelID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PerformSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IsVUZ" Type="bit" Mode="In" />
+          <Parameter Name="IsSSUZ" Type="bit" Mode="In" />
+          <Parameter Name="NamePart" Type="varchar" Mode="In" />
+          <Parameter Name="DirectionName" Type="varchar" Mode="In" />
+          <Parameter Name="DirectionCode" Type="varchar" Mode="In" />
+          <Parameter Name="RegionName" Type="varchar" Mode="In" />
+          <Parameter Name="FormOfLawID" Type="int" Mode="In" />
+          <Parameter Name="EducationLevelID" Type="smallint" Mode="In" />
+          <Parameter Name="StudyID" Type="smallint" Mode="In" />
+          <Parameter Name="AdmissionTypeID" Type="smallint" Mode="In" />
+          <Parameter Name="HasMilitaryDepartment" Type="bit" Mode="In" />
+          <Parameter Name="HasPreparatoryCourses" Type="bit" Mode="In" />
+          <Parameter Name="HasOlympics" Type="bit" Mode="In" />
+          <Parameter Name="DepthLimit" Type="smallint" Mode="In" />
+          <Parameter Name="ParentStructureID" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="PageNumber" Type="int" Mode="In" />
+          <Parameter Name="Snils" Type="varchar" Mode="In" />
+          <Parameter Name="TotalPageCount" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="PublishAdmissionStructure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="institutionID" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InsitutionsModel" Alias="Self"
+              xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+              xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="InstitutionsEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="FormOfLaw" EntityType="InsitutionsModel.FormOfLaw" />
+          <EntitySet Name="Institution" EntityType="InsitutionsModel.Institution" />
+          <EntitySet Name="InstitutionAccreditation" EntityType="InsitutionsModel.InstitutionAccreditation" />
+          <EntitySet Name="InstitutionLicense" EntityType="InsitutionsModel.InstitutionLicense" />
+          <AssociationSet Name="FK_Institution_FormOfLaw" Association="InsitutionsModel.FK_Institution_FormOfLaw">
+            <End Role="FormOfLaw" EntitySet="FormOfLaw" />
+            <End Role="Institution" EntitySet="Institution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionAccreditation_Institution"
+                          Association="InsitutionsModel.FK_InstitutionAccreditation_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="InstitutionAccreditation" EntitySet="InstitutionAccreditation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionLicense_Institution"
+                          Association="InsitutionsModel.FK_InstitutionLicense_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="InstitutionLicense" EntitySet="InstitutionLicense" />
+          </AssociationSet>
+          <EntitySet Name="Direction" EntityType="InsitutionsModel.Direction" />
+          <EntitySet Name="InstitutionItem" EntityType="InsitutionsModel.InstitutionItem" />
+          <EntitySet Name="InstitutionStructure" EntityType="InsitutionsModel.InstitutionStructure" />
+          <AssociationSet Name="FK_InstitutionItem_Direction"
+                          Association="InsitutionsModel.FK_InstitutionItem_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="InstitutionItem" EntitySet="InstitutionItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionItem_Institution"
+                          Association="InsitutionsModel.FK_InstitutionItem_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="InstitutionItem" EntitySet="InstitutionItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionStructure_InstitutionItem"
+                          Association="InsitutionsModel.FK_InstitutionStructure_InstitutionItem">
+            <End Role="InstitutionItem" EntitySet="InstitutionItem" />
+            <End Role="InstitutionStructure" EntitySet="InstitutionStructure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionStructure_InstitutionStructure"
+                          Association="InsitutionsModel.FK_InstitutionStructure_InstitutionStructure">
+            <End Role="Child" EntitySet="InstitutionStructure" />
+            <End Role="Parent" EntitySet="InstitutionStructure" />
+          </AssociationSet>
+          <EntitySet Name="AdmissionItemType" EntityType="InsitutionsModel.AdmissionItemType" />
+          <FunctionImport Name="PerformSearch" ReturnType="Collection(InsitutionsModel.InstitutionSearchResult)"
+                          a:MethodAccess="Protected" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+            <Parameter Name="IsVUZ" Mode="In" Type="Boolean" />
+            <Parameter Name="IsSSUZ" Mode="In" Type="Boolean" />
+            <Parameter Name="NamePart" Mode="In" Type="String" />
+            <Parameter Name="DirectionName" Mode="In" Type="String" />
+            <Parameter Name="DirectionCode" Mode="In" Type="String" />
+            <Parameter Name="RegionName" Mode="In" Type="String" />
+            <Parameter Name="FormOfLawID" Mode="In" Type="Int32" />
+            <Parameter Name="EducationLevelID" Mode="In" Type="Int16" />
+            <Parameter Name="StudyID" Mode="In" Type="Int16" />
+            <Parameter Name="AdmissionTypeID" Mode="In" Type="Int16" />
+            <Parameter Name="HasMilitaryDepartment" Mode="In" Type="Boolean" />
+            <Parameter Name="HasPreparatoryCourses" Mode="In" Type="Boolean" />
+            <Parameter Name="HasOlympics" Mode="In" Type="Boolean" />
+            <Parameter Name="DepthLimit" Mode="In" Type="Int16" />
+            <Parameter Name="ParentStructureID" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+            <Parameter Name="Snils" Mode="In" Type="String" />
+            <Parameter Name="TotalPageCount" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CopyStructureToAdmission">
+          <Parameter Name="EducationLevelID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_InstitutionItem_ParentInstitutionItem"
+                          Association="InsitutionsModel.FK_InstitutionItem_ParentInstitutionItem">
+            <End Role="Child" EntitySet="InstitutionItem" />
+            <End Role="Parent" EntitySet="InstitutionItem" />
+          </AssociationSet>
+          <EntitySet Name="Attachment" EntityType="InsitutionsModel.Attachment" />
+          <AssociationSet Name="FK_Institution_Attachment" Association="InsitutionsModel.FK_Institution_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="Institution" EntitySet="Institution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionAccreditation_Attachment"
+                          Association="InsitutionsModel.FK_InstitutionAccreditation_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionAccreditation" EntitySet="InstitutionAccreditation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionLicense_Attachment"
+                          Association="InsitutionsModel.FK_InstitutionLicense_Attachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionLicense" EntitySet="InstitutionLicense" />
+          </AssociationSet>
+          <EntitySet Name="UserPolicy" EntityType="InsitutionsModel.UserPolicy" />
+          <AssociationSet Name="FK_UserPolicy_Institution" Association="InsitutionsModel.FK_UserPolicy_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="UserPolicy" EntitySet="UserPolicy" />
+          </AssociationSet>
+          <FunctionImport Name="PublishAdmissionStructure">
+          <Parameter Name="institutionID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="AllowedDirections" EntityType="InsitutionsModel.AllowedDirections" />
+          <AssociationSet Name="FK_AllowedDirections_AdmissionItemType"
+                          Association="InsitutionsModel.FK_AllowedDirections_AdmissionItemType">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="AllowedDirections" EntitySet="AllowedDirections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AllowedDirections_Direction"
+                          Association="InsitutionsModel.FK_AllowedDirections_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="AllowedDirections" EntitySet="AllowedDirections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AllowedDirections_Institution"
+                          Association="InsitutionsModel.FK_AllowedDirections_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="AllowedDirections" EntitySet="AllowedDirections" />
+          </AssociationSet>
+          <EntitySet Name="AdmissionVolume" EntityType="InsitutionsModel.AdmissionVolume" />
+          <AssociationSet Name="FK_AdmissionVolume_AdmissionItemType"
+                          Association="InsitutionsModel.FK_AdmissionVolume_AdmissionItemType">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="AdmissionVolume" EntitySet="AdmissionVolume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionVolume_Direction"
+                          Association="InsitutionsModel.FK_AdmissionVolume_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="AdmissionVolume" EntitySet="AdmissionVolume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionVolume_Institution"
+                          Association="InsitutionsModel.FK_AdmissionVolume_Institution">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="AdmissionVolume" EntitySet="AdmissionVolume" />
+          </AssociationSet>
+          <EntitySet Name="ParentDirection" EntityType="InsitutionsModel.ParentDirection" />
+          <AssociationSet Name="FK_Direction_ParentDirection"
+                          Association="InsitutionsModel.FK_Direction_ParentDirection">
+            <End Role="ParentDirection" EntitySet="ParentDirection" />
+            <End Role="Direction" EntitySet="Direction" />
+          </AssociationSet>
+          <EntitySet Name="InstitutionHistory" EntityType="InsitutionsModel.InstitutionHistory" />
+          <AssociationSet Name="FK_InstitutionHistory_AccreditationAttachment"
+                          Association="InsitutionsModel.FK_InstitutionHistory_AccreditationAttachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionHistory_HostelAttachment"
+                          Association="InsitutionsModel.FK_InstitutionHistory_HostelAttachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionHistory_LicenseAttachment"
+                          Association="InsitutionsModel.FK_InstitutionHistory_LicenseAttachment">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionHistory_FormOfLaw"
+                          Association="InsitutionsModel.FK_InstitutionHistory_FormOfLaw">
+            <End Role="FormOfLaw" EntitySet="FormOfLaw" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <EntitySet Name="RegionType" EntityType="InsitutionsModel.RegionType" />
+          <AssociationSet Name="FK_Institution_RegionType" Association="InsitutionsModel.FK_Institution_RegionType">
+            <End Role="RegionType" EntitySet="RegionType" />
+            <End Role="Institution" EntitySet="Institution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstitutionHistory_RegionType"
+                          Association="InsitutionsModel.FK_InstitutionHistory_RegionType">
+            <End Role="RegionType" EntitySet="RegionType" />
+            <End Role="InstitutionHistory" EntitySet="InstitutionHistory" />
+          </AssociationSet>
+          <EntitySet Name="RequestComments" EntityType="InsitutionsModel.RequestComments" />
+          <EntitySet Name="RequestDirection" EntityType="InsitutionsModel.RequestDirection" />
+          <AssociationSet Name="FK_RequestDirection_Request" Association="InsitutionsModel.FK_RequestDirection_Request">
+            <End Role="Institution" EntitySet="Institution" />
+            <End Role="RequestDirection" EntitySet="RequestDirection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequestComments_RequestDirection"
+                          Association="InsitutionsModel.FK_RequestComments_RequestDirection">
+            <End Role="RequestDirection" EntitySet="RequestDirection" />
+            <End Role="RequestComments" EntitySet="RequestComments" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FormOfLaw">
+          <Key>
+            <PropertyRef Name="FormOfLawID" />
+          </Key>
+          <Property Name="FormOfLawID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Institution" Relationship="InsitutionsModel.FK_Institution_FormOfLaw"
+                              FromRole="FormOfLaw" ToRole="Institution" />
+          <Property Type="Int32" Name="Code" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+          <NavigationProperty Name="InstitutionHistory" Relationship="InsitutionsModel.FK_InstitutionHistory_FormOfLaw"
+                              FromRole="FormOfLaw" ToRole="InstitutionHistory" />
+        </EntityType>
+        <EntityType Name="Institution">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="BriefName" Type="String" Nullable="true" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="FormOfLawID" Type="Int32" Nullable="true" />
+          <Property Name="RegionID" Type="Int32" Nullable="true" />
+          <Property Name="Site" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="HasMilitaryDepartment" Type="Boolean" Nullable="false" />
+          <Property Name="HasHostel" Type="Boolean" Nullable="false" />
+          <Property Name="HostelCapacity" Type="Int32" />
+          <Property Name="HasHostelForEntrants" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FormOfLaw" Relationship="InsitutionsModel.FK_Institution_FormOfLaw"
+                              FromRole="Institution" ToRole="FormOfLaw" />
+          <NavigationProperty Name="InstitutionAccreditation"
+                              Relationship="InsitutionsModel.FK_InstitutionAccreditation_Institution"
+                              FromRole="Institution" ToRole="InstitutionAccreditation" />
+          <NavigationProperty Name="InstitutionLicense"
+                              Relationship="InsitutionsModel.FK_InstitutionLicense_Institution" FromRole="Institution"
+                              ToRole="InstitutionLicense" />
+          <NavigationProperty Name="InstitutionItem" Relationship="InsitutionsModel.FK_InstitutionItem_Institution"
+                              FromRole="Institution" ToRole="InstitutionItem" />
+          <Property Type="Int16" Name="InstitutionTypeID" Nullable="false" />
+          <Property Type="Int32" Name="HostelAttachmentID" />
+          <NavigationProperty Name="HostelAttachment" Relationship="InsitutionsModel.FK_Institution_Attachment"
+                              FromRole="Institution" ToRole="Attachment" />
+          <Property Type="String" Name="INN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="OGRN" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="UserPolicy" Relationship="InsitutionsModel.FK_UserPolicy_Institution"
+                              FromRole="Institution" ToRole="UserPolicy" />
+          <Property Type="DateTime" Name="AdmissionStructurePublishDate" Precision="3" />
+          <Property Type="DateTime" Name="ReceivingApplicationDate" Precision="3" />
+          <NavigationProperty Name="AllowedDirections" Relationship="InsitutionsModel.FK_AllowedDirections_Institution"
+                              FromRole="Institution" ToRole="AllowedDirections" />
+          <NavigationProperty Name="AdmissionVolume" Relationship="InsitutionsModel.FK_AdmissionVolume_Institution"
+                              FromRole="Institution" ToRole="AdmissionVolume" />
+          <Property Type="DateTime" Name="DateUpdated" Precision="3" />
+          <Property Type="Int32" Name="EsrpOrgID" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+          <Property Type="String" Name="OwnerDepartment" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MainEsrpOrgId" />
+          <Property Type="Int32" Name="FounderEsrpOrgId" />
+          <NavigationProperty Name="RegionType" Relationship="InsitutionsModel.FK_Institution_RegionType"
+                              FromRole="Institution" ToRole="RegionType" />
+          <NavigationProperty Name="RequestDirection" Relationship="InsitutionsModel.FK_RequestDirection_Request"
+                              FromRole="Institution" ToRole="RequestDirection" />
+          <Property Type="Int32" Name="StatusId" />
+        </EntityType>
+        <EntityType Name="InstitutionAccreditation">
+          <Key>
+            <PropertyRef Name="AccreditationID" />
+          </Key>
+          <Property Name="AccreditationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+          <Property Name="Accreditation" Type="String" Nullable="false" MaxLength="500" Unicode="false"
+                    FixedLength="false" />
+          <NavigationProperty Name="Institution"
+                              Relationship="InsitutionsModel.FK_InstitutionAccreditation_Institution"
+                              FromRole="InstitutionAccreditation" ToRole="Institution" />
+          <Property Type="Int32" Name="AttachmentID" Nullable="true" />
+          <NavigationProperty Name="Attachment" Relationship="InsitutionsModel.FK_InstitutionAccreditation_Attachment"
+                              FromRole="InstitutionAccreditation" ToRole="Attachment" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="InstitutionLicense">
+          <Key>
+            <PropertyRef Name="LicenseID" />
+          </Key>
+          <Property Name="LicenseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+          <Property Name="LicenseNumber" Type="String" Nullable="false" MaxLength="50" Unicode="false"
+                    FixedLength="false" />
+          <Property Name="LicenseDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Institution" Relationship="InsitutionsModel.FK_InstitutionLicense_Institution"
+                              FromRole="InstitutionLicense" ToRole="Institution" />
+          <Property Type="Int32" Name="AttachmentID" Nullable="true" />
+          <NavigationProperty Name="Attachment" Relationship="InsitutionsModel.FK_InstitutionLicense_Attachment"
+                              FromRole="InstitutionLicense" ToRole="Attachment" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Institution_FormOfLaw">
+          <End Role="FormOfLaw" Type="InsitutionsModel.FormOfLaw" Multiplicity="0..1" />
+          <End Role="Institution" Type="InsitutionsModel.Institution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormOfLaw">
+              <PropertyRef Name="FormOfLawID" />
+            </Principal>
+            <Dependent Role="Institution">
+              <PropertyRef Name="FormOfLawID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionAccreditation_Institution">
+          <End Role="Institution" Type="InsitutionsModel.Institution" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InstitutionAccreditation" Type="InsitutionsModel.InstitutionAccreditation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="InstitutionAccreditation">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionLicense_Institution">
+          <End Role="Institution" Type="InsitutionsModel.Institution" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InstitutionLicense" Type="InsitutionsModel.InstitutionLicense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="InstitutionLicense">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Direction">
+          <Key>
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Type="Int32" Name="DirectionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" MaxLength="8" FixedLength="true" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InstitutionItem" Relationship="InsitutionsModel.FK_InstitutionItem_Direction"
+                              FromRole="Direction" ToRole="InstitutionItem" />
+          <NavigationProperty Name="AllowedDirections" Relationship="InsitutionsModel.FK_AllowedDirections_Direction"
+                              FromRole="Direction" ToRole="AllowedDirections" />
+          <NavigationProperty Name="AdmissionVolume" Relationship="InsitutionsModel.FK_AdmissionVolume_Direction"
+                              FromRole="Direction" ToRole="AdmissionVolume" />
+          <Property Type="Int32" Name="ParentID" />
+          <NavigationProperty Name="ParentDirection" Relationship="InsitutionsModel.FK_Direction_ParentDirection"
+                              FromRole="Direction" ToRole="ParentDirection" />
+          <Property Type="String" Name="QUALIFICATIONCODE" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="PERIOD" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+          <Property Type="String" Name="SYS_GUID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EDULEVEL" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EDUPROGRAMTYPE" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UGSCODE" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="UGSNAME" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="QUALIFICATIONNAME" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EDU_DIRECTORY" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EDUPR_ADDITIONAL" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NewCode" MaxLength="8" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="InstitutionItem">
+          <Key>
+            <PropertyRef Name="InstitutionItemID" />
+          </Key>
+          <Property Type="Int32" Name="InstitutionItemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <Property Type="Int16" Name="ItemTypeID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BriefName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="DirectionID" />
+          <NavigationProperty Name="Direction" Relationship="InsitutionsModel.FK_InstitutionItem_Direction"
+                              FromRole="InstitutionItem" ToRole="Direction" />
+          <NavigationProperty Name="Institution" Relationship="InsitutionsModel.FK_InstitutionItem_Institution"
+                              FromRole="InstitutionItem" ToRole="Institution" />
+          <NavigationProperty Name="InstitutionStructure"
+                              Relationship="InsitutionsModel.FK_InstitutionStructure_InstitutionItem"
+                              FromRole="InstitutionItem" ToRole="InstitutionStructure" />
+          <Property Type="Int32" Name="ParentID" />
+          <NavigationProperty Name="Children" Relationship="InsitutionsModel.FK_InstitutionItem_ParentInstitutionItem"
+                              FromRole="Child" ToRole="Parent" />
+          <NavigationProperty Name="Parent" Relationship="InsitutionsModel.FK_InstitutionItem_ParentInstitutionItem"
+                              FromRole="Parent" ToRole="Child" />
+          <Property Type="String" Name="Site" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UID" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="InstitutionStructure">
+          <Key>
+            <PropertyRef Name="InstitutionStructureID" />
+          </Key>
+          <Property Type="Int32" Name="InstitutionStructureID" Nullable="false"
+                    annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="InstitutionItemID" Nullable="false" />
+          <Property Type="Int32" Name="ParentID" />
+          <Property Type="Int16" Name="Depth" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="String" Name="Lineage" Nullable="false" MaxLength="76" FixedLength="false" Unicode="false"
+                    annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="InstitutionItem"
+                              Relationship="InsitutionsModel.FK_InstitutionStructure_InstitutionItem"
+                              FromRole="InstitutionStructure" ToRole="InstitutionItem" />
+          <NavigationProperty Name="Children"
+                              Relationship="InsitutionsModel.FK_InstitutionStructure_InstitutionStructure"
+                              FromRole="Child" ToRole="Parent" />
+          <NavigationProperty Name="Parent"
+                              Relationship="InsitutionsModel.FK_InstitutionStructure_InstitutionStructure"
+                              FromRole="Parent" ToRole="Child" />
+          <Property Type="String" Name="UID" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+        </EntityType>
+        <Association Name="FK_InstitutionItem_Direction">
+          <End Type="InsitutionsModel.Direction" Role="Direction" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionItem" Role="InstitutionItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="InstitutionItem">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionItem_Institution">
+          <End Type="InsitutionsModel.Institution" Role="Institution" Multiplicity="1" />
+          <End Type="InsitutionsModel.InstitutionItem" Role="InstitutionItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="InstitutionItem">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionStructure_InstitutionItem">
+          <End Type="InsitutionsModel.InstitutionItem" Role="InstitutionItem" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="InsitutionsModel.InstitutionStructure" Role="InstitutionStructure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstitutionItem">
+              <PropertyRef Name="InstitutionItemID" />
+            </Principal>
+            <Dependent Role="InstitutionStructure">
+              <PropertyRef Name="InstitutionItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionStructure_InstitutionStructure">
+          <End Type="InsitutionsModel.InstitutionStructure" Role="Child" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionStructure" Role="Parent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="InstitutionStructureID" />
+            </Principal>
+            <Dependent Role="Parent">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AdmissionItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Type="Int16" Name="ItemTypeID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="ItemLevel" Nullable="false" />
+          <Property Type="Boolean" Name="CanBeSkipped" Nullable="false" />
+          <Property Type="Boolean" Name="AutoCopyName" Nullable="false" />
+          <NavigationProperty Name="AllowedDirections"
+                              Relationship="InsitutionsModel.FK_AllowedDirections_AdmissionItemType"
+                              FromRole="AdmissionItemType" ToRole="AllowedDirections" />
+          <NavigationProperty Name="AdmissionVolume"
+                              Relationship="InsitutionsModel.FK_AdmissionVolume_AdmissionItemType"
+                              FromRole="AdmissionItemType" ToRole="AdmissionVolume" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+        </EntityType>
+        <ComplexType Name="InstitutionSearchResult">
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <Property Type="Int32" Name="AdmissionStructureID" Nullable="false" />
+          <Property Type="Int32" Name="AdmissionItemID" Nullable="false" />
+          <Property Type="Int16" Name="ItemLevel" Nullable="false" />
+          <Property Type="Int32" Name="ParentID" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="PlaceCount" Nullable="true" />
+          <Property Type="Int32" Name="ApplicationCount" Nullable="true" />
+          <Property Type="Boolean" Name="HasOlympics" Nullable="true" />
+          <Property Type="Boolean" Name="HasPreparatoryCourses" Nullable="true" />
+          <Property Type="Boolean" Name="HasMilitaryDepartment" Nullable="true" />
+          <Property Type="Boolean" Name="Applicable" Nullable="true" />
+          <Property Type="Boolean" Name="CanBeChecked" Nullable="true" />
+          <Property Type="Int32" Name="ApplicationStatusID" Nullable="true" />
+          <Property Type="String" Name="ApplicationStatus" Nullable="true" />
+          <Property Type="Int32" Name="ApplicationID" Nullable="true" />
+          <Property Type="Int32" Name="EntrantApplicationCount" Nullable="true" />
+          <Property Type="Boolean" Name="IsLeaf" Nullable="true" />
+        </ComplexType>
+        <Association Name="FK_InstitutionItem_ParentInstitutionItem">
+          <End Type="InsitutionsModel.InstitutionItem" Role="Child" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionItem" Role="Parent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="InstitutionItemID" />
+            </Principal>
+            <Dependent Role="Parent">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Attachment">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Type="Int32" Name="AttachmentID" Nullable="false" />
+          <Property Type="String" Name="MimeType" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Institution" Relationship="InsitutionsModel.FK_Institution_Attachment"
+                              FromRole="Attachment" ToRole="Institution" />
+          <NavigationProperty Name="InstitutionAccreditation"
+                              Relationship="InsitutionsModel.FK_InstitutionAccreditation_Attachment"
+                              FromRole="Attachment" ToRole="InstitutionAccreditation" />
+          <NavigationProperty Name="InstitutionLicense"
+                              Relationship="InsitutionsModel.FK_InstitutionLicense_Attachment" FromRole="Attachment"
+                              ToRole="InstitutionLicense" />
+          <Property Type="Guid" Name="FileID" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+          <NavigationProperty Name="InstitutionHistory"
+                              Relationship="InsitutionsModel.FK_InstitutionHistory_AccreditationAttachment"
+                              FromRole="Attachment" ToRole="InstitutionHistory" />
+          <NavigationProperty Name="InstitutionHistory1"
+                              Relationship="InsitutionsModel.FK_InstitutionHistory_HostelAttachment"
+                              FromRole="Attachment" ToRole="InstitutionHistory" />
+          <NavigationProperty Name="InstitutionHistory2"
+                              Relationship="InsitutionsModel.FK_InstitutionHistory_LicenseAttachment"
+                              FromRole="Attachment" ToRole="InstitutionHistory" />
+          <Property Type="Binary" Name="Body" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Institution_Attachment">
+          <End Type="InsitutionsModel.Attachment" Role="Attachment" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.Institution" Role="Institution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="Institution">
+              <PropertyRef Name="HostelAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionAccreditation_Attachment">
+          <End Type="InsitutionsModel.Attachment" Role="Attachment" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionAccreditation" Role="InstitutionAccreditation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionAccreditation">
+              <PropertyRef Name="AttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionLicense_Attachment">
+          <End Type="InsitutionsModel.Attachment" Role="Attachment" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionLicense" Role="InstitutionLicense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionLicense">
+              <PropertyRef Name="AttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserPolicy">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Type="Guid" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="InstitutionID" Nullable="true" />
+          <Property Type="Boolean" Name="IsMainAdmin" Nullable="false" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Institution" Relationship="InsitutionsModel.FK_UserPolicy_Institution"
+                              FromRole="UserPolicy" ToRole="Institution" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Position" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Comment" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="AvailableEgeCheckCount" Nullable="false" />
+          <Property Type="String" Name="PinCode" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateUpdated" Precision="3" />
+          <Property Type="Boolean" Name="IsReadOnly" Nullable="false" />
+          <Property Type="Int32" Name="Subrole" Nullable="false" />
+          <Property Type="Int32" Name="FilialID" />
+          <Property Type="Boolean" Name="IsDeactivated" />
+        </EntityType>
+        <Association Name="FK_UserPolicy_Institution">
+          <End Type="InsitutionsModel.Institution" Role="Institution" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.UserPolicy" Role="UserPolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="UserPolicy">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AllowedDirections">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+            <PropertyRef Name="DirectionID" />
+            <PropertyRef Name="AdmissionItemTypeID" />
+          </Key>
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <Property Type="Int32" Name="DirectionID" Nullable="false" />
+          <Property Type="Int16" Name="AdmissionItemTypeID" Nullable="false" />
+          <NavigationProperty Name="AdmissionItemType"
+                              Relationship="InsitutionsModel.FK_AllowedDirections_AdmissionItemType"
+                              FromRole="AllowedDirections" ToRole="AdmissionItemType" />
+          <NavigationProperty Name="Direction" Relationship="InsitutionsModel.FK_AllowedDirections_Direction"
+                              FromRole="AllowedDirections" ToRole="Direction" />
+          <NavigationProperty Name="Institution" Relationship="InsitutionsModel.FK_AllowedDirections_Institution"
+                              FromRole="AllowedDirections" ToRole="Institution" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+        </EntityType>
+        <Association Name="FK_AllowedDirections_AdmissionItemType">
+          <End Type="InsitutionsModel.AdmissionItemType" Role="AdmissionItemType" Multiplicity="1" />
+          <End Type="InsitutionsModel.AllowedDirections" Role="AllowedDirections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="AllowedDirections">
+              <PropertyRef Name="AdmissionItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AllowedDirections_Direction">
+          <End Type="InsitutionsModel.Direction" Role="Direction" Multiplicity="1" />
+          <End Type="InsitutionsModel.AllowedDirections" Role="AllowedDirections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="AllowedDirections">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AllowedDirections_Institution">
+          <End Type="InsitutionsModel.Institution" Role="Institution" Multiplicity="1" />
+          <End Type="InsitutionsModel.AllowedDirections" Role="AllowedDirections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="AllowedDirections">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AdmissionVolume">
+          <Key>
+            <PropertyRef Name="AdmissionVolumeID" />
+          </Key>
+          <Property Type="Int32" Name="AdmissionVolumeID" Nullable="false" />
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <Property Type="Int16" Name="AdmissionItemTypeID" Nullable="false" />
+          <Property Type="Int32" Name="DirectionID" Nullable="false" />
+          <Property Type="Int32" Name="NumberBudgetO" Nullable="false" />
+          <Property Type="Int32" Name="NumberBudgetOZ" Nullable="false" />
+          <Property Type="Int32" Name="NumberBudgetZ" Nullable="false" />
+          <Property Type="Int32" Name="NumberPaidO" Nullable="false" />
+          <Property Type="Int32" Name="NumberPaidOZ" Nullable="false" />
+          <Property Type="Int32" Name="NumberPaidZ" Nullable="false" />
+          <NavigationProperty Name="AdmissionItemType"
+                              Relationship="InsitutionsModel.FK_AdmissionVolume_AdmissionItemType"
+                              FromRole="AdmissionVolume" ToRole="AdmissionItemType" />
+          <NavigationProperty Name="Direction" Relationship="InsitutionsModel.FK_AdmissionVolume_Direction"
+                              FromRole="AdmissionVolume" ToRole="Direction" />
+          <NavigationProperty Name="Institution" Relationship="InsitutionsModel.FK_AdmissionVolume_Institution"
+                              FromRole="AdmissionVolume" ToRole="Institution" />
+          <Property Type="String" Name="UID" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+          <Property Type="Int32" Name="CampaignID" />
+          <Property Type="Int32" Name="Course" />
+          <Property Type="Int32" Name="NumberTargetO" Nullable="false" />
+          <Property Type="Int32" Name="NumberTargetOZ" Nullable="false" />
+          <Property Type="Int32" Name="NumberTargetZ" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AdmissionVolume_AdmissionItemType">
+          <End Type="InsitutionsModel.AdmissionItemType" Role="AdmissionItemType" Multiplicity="1" />
+          <End Type="InsitutionsModel.AdmissionVolume" Role="AdmissionVolume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="AdmissionVolume">
+              <PropertyRef Name="AdmissionItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionVolume_Direction">
+          <End Type="InsitutionsModel.Direction" Role="Direction" Multiplicity="1" />
+          <End Type="InsitutionsModel.AdmissionVolume" Role="AdmissionVolume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="AdmissionVolume">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionVolume_Institution">
+          <End Type="InsitutionsModel.Institution" Role="Institution" Multiplicity="1" />
+          <End Type="InsitutionsModel.AdmissionVolume" Role="AdmissionVolume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="AdmissionVolume">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ParentDirection">
+          <Key>
+            <PropertyRef Name="ParentDirectionID" />
+          </Key>
+          <Property Type="Int32" Name="ParentDirectionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Direction" Relationship="InsitutionsModel.FK_Direction_ParentDirection"
+                              FromRole="ParentDirection" ToRole="Direction" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Direction_ParentDirection">
+          <End Type="InsitutionsModel.ParentDirection" Role="ParentDirection" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.Direction" Role="Direction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParentDirection">
+              <PropertyRef Name="ParentDirectionID" />
+            </Principal>
+            <Dependent Role="Direction">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="InstitutionHistory">
+          <Key>
+            <PropertyRef Name="InstitutionHistoryID" />
+          </Key>
+          <Property Type="Int32" Name="InstitutionHistoryID" Nullable="false"
+                    annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="InstitutionTypeID" Nullable="false" />
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <Property Type="String" Name="FullName" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BriefName" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="FormOfLawID" />
+          <Property Type="Int32" Name="RegionID" />
+          <Property Type="String" Name="Site" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="HasMilitaryDepartment" Nullable="false" />
+          <Property Type="Boolean" Name="HasHostel" Nullable="false" />
+          <Property Type="Int32" Name="HostelCapacity" />
+          <Property Type="Boolean" Name="HasHostelForEntrants" Nullable="false" />
+          <Property Type="Int32" Name="HostelAttachmentID" />
+          <Property Type="String" Name="INN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="OGRN" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="AdmissionStructurePublishDate" Precision="3" />
+          <Property Type="DateTime" Name="ReceivingApplicationDate" Precision="3" />
+          <Property Type="Int32" Name="EsrpOrgID" />
+          <Property Type="String" Name="OwnerDepartment" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Accreditation" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="AccreditationAttachmentID" />
+          <Property Type="String" Name="LicenseNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LicenseDate" Precision="3" />
+          <Property Type="Int32" Name="LicenseAttachmentID" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AccreditationAttachment"
+                              Relationship="InsitutionsModel.FK_InstitutionHistory_AccreditationAttachment"
+                              FromRole="InstitutionHistory" ToRole="Attachment" />
+          <NavigationProperty Name="HostelAttachment"
+                              Relationship="InsitutionsModel.FK_InstitutionHistory_HostelAttachment"
+                              FromRole="InstitutionHistory" ToRole="Attachment" />
+          <NavigationProperty Name="LicenseAttachment"
+                              Relationship="InsitutionsModel.FK_InstitutionHistory_LicenseAttachment"
+                              FromRole="InstitutionHistory" ToRole="Attachment" />
+          <NavigationProperty Name="FormOfLaw" Relationship="InsitutionsModel.FK_InstitutionHistory_FormOfLaw"
+                              FromRole="InstitutionHistory" ToRole="FormOfLaw" />
+          <NavigationProperty Name="RegionType" Relationship="InsitutionsModel.FK_InstitutionHistory_RegionType"
+                              FromRole="InstitutionHistory" ToRole="RegionType" />
+        </EntityType>
+        <Association Name="FK_InstitutionHistory_AccreditationAttachment">
+          <End Type="InsitutionsModel.Attachment" Role="Attachment" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionHistory" Role="InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="AccreditationAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionHistory_HostelAttachment">
+          <End Type="InsitutionsModel.Attachment" Role="Attachment" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionHistory" Role="InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="HostelAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionHistory_LicenseAttachment">
+          <End Type="InsitutionsModel.Attachment" Role="Attachment" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionHistory" Role="InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="AttachmentID" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="LicenseAttachmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionHistory_FormOfLaw">
+          <End Type="InsitutionsModel.FormOfLaw" Role="FormOfLaw" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionHistory" Role="InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormOfLaw">
+              <PropertyRef Name="FormOfLawID" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="FormOfLawID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RegionType">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Type="Int32" Name="CountryID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OkatoCode" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="OkatoModified" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+          <Property Type="String" Name="EsrpCode" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="RegionId" Nullable="false" a:SetterAccess="Public"
+                    xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Public" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <NavigationProperty Name="Institution" Relationship="InsitutionsModel.FK_Institution_RegionType"
+                              FromRole="RegionType" ToRole="Institution" />
+          <NavigationProperty Name="InstitutionHistory"
+                              Relationship="InsitutionsModel.FK_InstitutionHistory_RegionType" FromRole="RegionType"
+                              ToRole="InstitutionHistory" />
+        </EntityType>
+        <Association Name="FK_Institution_RegionType">
+          <End Type="InsitutionsModel.RegionType" Role="RegionType" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.Institution" Role="Institution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionType">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Institution">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstitutionHistory_RegionType">
+          <End Type="InsitutionsModel.RegionType" Role="RegionType" Multiplicity="0..1" />
+          <End Type="InsitutionsModel.InstitutionHistory" Role="InstitutionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionType">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="InstitutionHistory">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RequestComments">
+          <Key>
+            <PropertyRef Name="Comment_ID" />
+          </Key>
+          <Property Type="Int32" Name="Comment_ID" Nullable="false" />
+          <Property Type="String" Name="Commentor" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Date" />
+          <Property Type="Int32" Name="DirectionID" Nullable="false" />
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <NavigationProperty Name="RequestDirection"
+                              Relationship="InsitutionsModel.FK_RequestComments_RequestDirection"
+                              FromRole="RequestComments" ToRole="RequestDirection" />
+        </EntityType>
+        <EntityType Name="RequestDirection">
+          <Key>
+            <PropertyRef Name="Direction_ID" />
+            <PropertyRef Name="Request_ID" />
+          </Key>
+          <Property Type="Int32" Name="Direction_ID" Nullable="false" />
+          <Property Type="Int32" Name="Request_ID" Nullable="false" />
+          <Property Type="String" Name="Activity" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="AdmissionItemType" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" />
+          <Property Type="DateTime" Name="ChangeDate" />
+          <NavigationProperty Name="Institution" Relationship="InsitutionsModel.FK_RequestDirection_Request"
+                              FromRole="RequestDirection" ToRole="Institution" />
+          <NavigationProperty Name="RequestComments"
+                              Relationship="InsitutionsModel.FK_RequestComments_RequestDirection"
+                              FromRole="RequestDirection" ToRole="RequestComments" />
+        </EntityType>
+        <Association Name="FK_RequestDirection_Request">
+          <End Type="InsitutionsModel.Institution" Role="Institution" Multiplicity="1" />
+          <End Type="InsitutionsModel.RequestDirection" Role="RequestDirection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="RequestDirection">
+              <PropertyRef Name="Request_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequestComments_RequestDirection">
+          <End Type="InsitutionsModel.RequestDirection" Role="RequestDirection" Multiplicity="1" />
+          <End Type="InsitutionsModel.RequestComments" Role="RequestComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestDirection">
+              <PropertyRef Name="Direction_ID" />
+              <PropertyRef Name="Request_ID" />
+            </Principal>
+            <Dependent Role="RequestComments">
+              <PropertyRef Name="DirectionID" />
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InsitutionsModelStoreContainer"
+                                CdmEntityContainer="InstitutionsEntities">
+          <EntitySetMapping Name="FormOfLaw">
+            <EntityTypeMapping TypeName="InsitutionsModel.FormOfLaw">
+              <MappingFragment StoreEntitySet="FormOfLaw">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="FormOfLawID" ColumnName="FormOfLawID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Institution">
+            <EntityTypeMapping TypeName="InsitutionsModel.Institution">
+              <MappingFragment StoreEntitySet="Institution">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="FounderEsrpOrgId" ColumnName="FounderEsrpOrgId" />
+                <ScalarProperty Name="MainEsrpOrgId" ColumnName="MainEsrpOrgId" />
+                <ScalarProperty Name="OwnerDepartment" ColumnName="OwnerDepartment" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="EsrpOrgID" ColumnName="EsrpOrgID" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="ReceivingApplicationDate" ColumnName="ReceivingApplicationDate" />
+                <ScalarProperty Name="AdmissionStructurePublishDate" ColumnName="AdmissionStructurePublishDate" />
+                <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="HostelAttachmentID" ColumnName="HostelAttachmentID" />
+                <ScalarProperty Name="InstitutionTypeID" ColumnName="InstitutionTypeID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="BriefName" ColumnName="BriefName" />
+                <ScalarProperty Name="FormOfLawID" ColumnName="FormOfLawID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="HasMilitaryDepartment" ColumnName="HasMilitaryDepartment" />
+                <ScalarProperty Name="HasHostel" ColumnName="HasHostel" />
+                <ScalarProperty Name="HostelCapacity" ColumnName="HostelCapacity" />
+                <ScalarProperty Name="HasHostelForEntrants" ColumnName="HasHostelForEntrants" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstitutionAccreditation">
+            <EntityTypeMapping TypeName="InsitutionsModel.InstitutionAccreditation">
+              <MappingFragment StoreEntitySet="InstitutionAccreditation">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+                <ScalarProperty Name="AccreditationID" ColumnName="AccreditationID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="Accreditation" ColumnName="Accreditation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstitutionLicense">
+            <EntityTypeMapping TypeName="InsitutionsModel.InstitutionLicense">
+              <MappingFragment StoreEntitySet="InstitutionLicense">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+                <ScalarProperty Name="LicenseDate" ColumnName="LicenseDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Direction">
+            <EntityTypeMapping TypeName="InsitutionsModel.Direction">
+              <MappingFragment StoreEntitySet="Direction">
+                <ScalarProperty Name="NewCode" ColumnName="NewCode" />
+                <ScalarProperty Name="EDUPR_ADDITIONAL" ColumnName="EDUPR_ADDITIONAL" />
+                <ScalarProperty Name="EDU_DIRECTORY" ColumnName="EDU_DIRECTORY" />
+                <ScalarProperty Name="QUALIFICATIONNAME" ColumnName="QUALIFICATIONNAME" />
+                <ScalarProperty Name="UGSNAME" ColumnName="UGSNAME" />
+                <ScalarProperty Name="UGSCODE" ColumnName="UGSCODE" />
+                <ScalarProperty Name="EDUPROGRAMTYPE" ColumnName="EDUPROGRAMTYPE" />
+                <ScalarProperty Name="EDULEVEL" ColumnName="EDULEVEL" />
+                <ScalarProperty Name="SYS_GUID" ColumnName="SYS_GUID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PERIOD" ColumnName="PERIOD" />
+                <ScalarProperty Name="QUALIFICATIONCODE" ColumnName="QUALIFICATIONCODE" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstitutionItem">
+            <EntityTypeMapping TypeName="InsitutionsModel.InstitutionItem">
+              <MappingFragment StoreEntitySet="InstitutionItem">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+                <ScalarProperty Name="BriefName" ColumnName="BriefName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="InstitutionItemID" ColumnName="InstitutionItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstitutionStructure">
+            <EntityTypeMapping TypeName="InsitutionsModel.InstitutionStructure">
+              <MappingFragment StoreEntitySet="InstitutionStructure">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Lineage" ColumnName="Lineage" />
+                <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="InstitutionItemID" ColumnName="InstitutionItemID" />
+                <ScalarProperty Name="InstitutionStructureID" ColumnName="InstitutionStructureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdmissionItemType">
+            <EntityTypeMapping TypeName="InsitutionsModel.AdmissionItemType">
+              <MappingFragment StoreEntitySet="AdmissionItemType">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="AutoCopyName" ColumnName="AutoCopyName" />
+                <ScalarProperty Name="CanBeSkipped" ColumnName="CanBeSkipped" />
+                <ScalarProperty Name="ItemLevel" ColumnName="ItemLevel" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PerformSearch" FunctionName="InsitutionsModel.Store.PerformSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="InsitutionsModel.InstitutionSearchResult">
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="AdmissionStructureID" ColumnName="AdmissionStructureID" />
+                <ScalarProperty Name="AdmissionItemID" ColumnName="AdmissionItemID" />
+                <ScalarProperty Name="ItemLevel" ColumnName="ItemLevel" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PlaceCount" ColumnName="PlaceCount" />
+                <ScalarProperty Name="HasOlympics" ColumnName="HasOlympics" />
+                <ScalarProperty Name="HasPreparatoryCourses" ColumnName="HasPreparatoryCourses" />
+                <ScalarProperty Name="HasMilitaryDepartment" ColumnName="HasMilitaryDepartment" />
+                <ScalarProperty Name="Applicable" ColumnName="Applicable" />
+                <ScalarProperty Name="CanBeChecked" ColumnName="CanBeChecked" />
+                <ScalarProperty Name="ApplicationStatusID" ColumnName="ApplicationStatusID" />
+                <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="EntrantApplicationCount" ColumnName="EntrantApplicationCount" />
+                <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CopyStructureToAdmission"
+                                 FunctionName="InsitutionsModel.Store.CopyStructureToAdmission" />
+          <EntitySetMapping Name="Attachment">
+            <EntityTypeMapping TypeName="InsitutionsModel.Attachment">
+              <MappingFragment StoreEntitySet="Attachment">
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+                <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPolicy">
+            <EntityTypeMapping TypeName="InsitutionsModel.UserPolicy">
+              <MappingFragment StoreEntitySet="UserPolicy">
+                <ScalarProperty Name="IsDeactivated" ColumnName="IsDeactivated" />
+                <ScalarProperty Name="FilialID" ColumnName="FilialID" />
+                <ScalarProperty Name="Subrole" ColumnName="Subrole" />
+                <ScalarProperty Name="IsReadOnly" ColumnName="IsReadOnly" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="AvailableEgeCheckCount" ColumnName="AvailableEgeCheckCount" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="IsMainAdmin" ColumnName="IsMainAdmin" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PublishAdmissionStructure"
+                                 FunctionName="InsitutionsModel.Store.PublishAdmissionStructure" />
+          <EntitySetMapping Name="AllowedDirections">
+            <EntityTypeMapping TypeName="InsitutionsModel.AllowedDirections">
+              <MappingFragment StoreEntitySet="AllowedDirections">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AdmissionItemTypeID" ColumnName="AdmissionItemTypeID" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdmissionVolume">
+            <EntityTypeMapping TypeName="InsitutionsModel.AdmissionVolume">
+              <MappingFragment StoreEntitySet="AdmissionVolume">
+                <ScalarProperty Name="NumberTargetZ" ColumnName="NumberTargetZ" />
+                <ScalarProperty Name="NumberTargetOZ" ColumnName="NumberTargetOZ" />
+                <ScalarProperty Name="NumberTargetO" ColumnName="NumberTargetO" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="NumberPaidZ" ColumnName="NumberPaidZ" />
+                <ScalarProperty Name="NumberPaidOZ" ColumnName="NumberPaidOZ" />
+                <ScalarProperty Name="NumberPaidO" ColumnName="NumberPaidO" />
+                <ScalarProperty Name="NumberBudgetZ" ColumnName="NumberBudgetZ" />
+                <ScalarProperty Name="NumberBudgetOZ" ColumnName="NumberBudgetOZ" />
+                <ScalarProperty Name="NumberBudgetO" ColumnName="NumberBudgetO" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+                <ScalarProperty Name="AdmissionItemTypeID" ColumnName="AdmissionItemTypeID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="AdmissionVolumeID" ColumnName="AdmissionVolumeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParentDirection">
+            <EntityTypeMapping TypeName="InsitutionsModel.ParentDirection">
+              <MappingFragment StoreEntitySet="ParentDirection">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ParentDirectionID" ColumnName="ParentDirectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstitutionHistory">
+            <EntityTypeMapping TypeName="InsitutionsModel.InstitutionHistory">
+              <MappingFragment StoreEntitySet="InstitutionHistory">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="LicenseAttachmentID" ColumnName="LicenseAttachmentID" />
+                <ScalarProperty Name="LicenseDate" ColumnName="LicenseDate" />
+                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+                <ScalarProperty Name="AccreditationAttachmentID" ColumnName="AccreditationAttachmentID" />
+                <ScalarProperty Name="Accreditation" ColumnName="Accreditation" />
+                <ScalarProperty Name="OwnerDepartment" ColumnName="OwnerDepartment" />
+                <ScalarProperty Name="EsrpOrgID" ColumnName="EsrpOrgID" />
+                <ScalarProperty Name="ReceivingApplicationDate" ColumnName="ReceivingApplicationDate" />
+                <ScalarProperty Name="AdmissionStructurePublishDate" ColumnName="AdmissionStructurePublishDate" />
+                <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="HostelAttachmentID" ColumnName="HostelAttachmentID" />
+                <ScalarProperty Name="HasHostelForEntrants" ColumnName="HasHostelForEntrants" />
+                <ScalarProperty Name="HostelCapacity" ColumnName="HostelCapacity" />
+                <ScalarProperty Name="HasHostel" ColumnName="HasHostel" />
+                <ScalarProperty Name="HasMilitaryDepartment" ColumnName="HasMilitaryDepartment" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="FormOfLawID" ColumnName="FormOfLawID" />
+                <ScalarProperty Name="BriefName" ColumnName="BriefName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="InstitutionTypeID" ColumnName="InstitutionTypeID" />
+                <ScalarProperty Name="InstitutionHistoryID" ColumnName="InstitutionHistoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegionType">
+            <EntityTypeMapping TypeName="InsitutionsModel.RegionType">
+              <MappingFragment StoreEntitySet="RegionType">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="EsrpCode" ColumnName="EsrpCode" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="OkatoModified" ColumnName="OkatoModified" />
+                <ScalarProperty Name="OkatoCode" ColumnName="OkatoCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestComments">
+            <EntityTypeMapping TypeName="InsitutionsModel.RequestComments">
+              <MappingFragment StoreEntitySet="RequestComments">
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Commentor" ColumnName="Commentor" />
+                <ScalarProperty Name="Comment_ID" ColumnName="Comment ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestDirection">
+            <EntityTypeMapping TypeName="InsitutionsModel.RequestDirection">
+              <MappingFragment StoreEntitySet="RequestDirection">
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="AdmissionItemType" ColumnName="AdmissionItemType" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Activity" ColumnName="Activity" />
+                <ScalarProperty Name="Request_ID" ColumnName="Request ID" />
+                <ScalarProperty Name="Direction_ID" ColumnName="Direction ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Institution" ZoomLevel="100">
+        <EntityTypeShape EntityType="InsitutionsModel.FormOfLaw" Width="1.5" PointX="2.875" PointY="2.75"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="InsitutionsModel.Institution" Width="1.875" PointX="5.125" PointY="5.375"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="InsitutionsModel.InstitutionAccreditation" Width="2.125" PointX="7.75"
+                         PointY="6.375" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="InsitutionsModel.InstitutionLicense" Width="1.875" PointX="10.75" PointY="3.375"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_Institution_FormOfLaw" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.375" PointY="2.9187474999999994" />
+          <ConnectorPoint PointX="6.8124975" PointY="2.9187474999999994" />
+          <ConnectorPoint PointX="6.8124975" PointY="5.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionAccreditation_Institution"
+                              ManuallyRouted="false">
+          <ConnectorPoint PointX="7" PointY="5.7749999999999986" />
+          <ConnectorPoint PointX="7.434927599213081" PointY="6.1229420793704632" />
+          <ConnectorPoint PointX="7.565072400786919" PointY="6.2270579206295347" />
+          <ConnectorPoint PointX="7.75" PointY="6.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionLicense_Institution" ManuallyRouted="false">
+          <ConnectorPoint PointX="7" PointY="5.5437474999999985" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="5.5437474999999976" />
+          <ConnectorPoint PointX="7.677083333333333" PointY="5.5437474999999985" />
+          <ConnectorPoint PointX="12.09375" PointY="5.5437474999999985" />
+          <ConnectorPoint PointX="12.09375" PointY="3.7749999999999986" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.Direction" Width="2.125" PointX="4.875" PointY="6.875"
+                         Height="4.8648079427083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsitutionsModel.InstitutionItem" Width="1.5" PointX="7.75" PointY="8.375"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="InsitutionsModel.InstitutionStructure" Width="1.5" PointX="10" PointY="8.375"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionItem_Direction">
+          <ConnectorPoint PointX="7" PointY="8.575" />
+          <ConnectorPoint PointX="7.291666666666667" PointY="8.575" />
+          <ConnectorPoint PointX="7.458333333333333" PointY="8.575" />
+          <ConnectorPoint PointX="7.75" PointY="8.575" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionItem_Institution">
+          <ConnectorPoint PointX="7" PointY="5.7553066923076912" />
+          <ConnectorPoint PointX="7.40625" PointY="6.0856405673076921" />
+          <ConnectorPoint PointX="7.40625" PointY="8.03125" />
+          <ConnectorPoint PointX="7.75" PointY="8.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionStructure_InstitutionItem">
+          <ConnectorPoint PointX="9.25" PointY="8.575" />
+          <ConnectorPoint PointX="10" PointY="8.575" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionStructure_InstitutionStructure">
+          <ConnectorPoint PointX="10.514153846153846" PointY="8.7749999999999986" />
+          <ConnectorPoint PointX="10.514153846153846" PointY="9.0249999999999986" />
+          <ConnectorPoint PointX="10.997076923076923" PointY="9.0249999999999986" />
+          <ConnectorPoint PointX="10.997076923076923" PointY="8.7749999999999986" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.AdmissionItemType" Width="2.125" PointX="4.875" PointY="0.75"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionItem_ParentInstitutionItem">
+          <ConnectorPoint PointX="8.264153846153846" PointY="8.7749999999999986" />
+          <ConnectorPoint PointX="8.264153846153846" PointY="9.0249999999999986" />
+          <ConnectorPoint PointX="8.7470769230769232" PointY="9.0249999999999986" />
+          <ConnectorPoint PointX="8.7470769230769232" PointY="8.7749999999999986" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.Attachment" Width="3.625" PointX="0.75" PointY="5.375"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_Institution_Attachment">
+          <ConnectorPoint PointX="4.375" PointY="5.5749999999999993" />
+          <ConnectorPoint PointX="5.125" PointY="5.5749999999999993" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionAccreditation_Attachment">
+          <ConnectorPoint PointX="2.5625" PointY="5.7749999999999986" />
+          <ConnectorPoint PointX="2.5625" PointY="6.6062525" />
+          <ConnectorPoint PointX="7.2475285512820511" PointY="6.6062524999999992" />
+          <ConnectorPoint PointX="7.489583333333333" PointY="6.6062525" />
+          <ConnectorPoint PointX="7.75" PointY="6.6062525" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionLicense_Attachment">
+          <ConnectorPoint PointX="4.375" PointY="5.375" />
+          <ConnectorPoint PointX="4.75" PointY="5" />
+          <ConnectorPoint PointX="4.75" PointY="4.1499999999999986" />
+          <ConnectorPoint PointX="5.8541629166666675" PointY="4.1499999999999977" />
+          <ConnectorPoint PointX="6.0208295833333336" PointY="4.1499999999999986" />
+          <ConnectorPoint PointX="6.7291641666666671" PointY="4.1499999999999977" />
+          <ConnectorPoint PointX="6.8958308333333331" PointY="4.1499999999999986" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="4.1499999999999977" />
+          <ConnectorPoint PointX="7.677083333333333" PointY="4.1499999999999986" />
+          <ConnectorPoint PointX="9.3229166666666661" PointY="4.1499999999999977" />
+          <ConnectorPoint PointX="9.4895833333333339" PointY="4.1499999999999986" />
+          <ConnectorPoint PointX="10.375" PointY="4.1499999999999986" />
+          <ConnectorPoint PointX="10.75" PointY="3.7749999999999986" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.UserPolicy" Width="1.5" PointX="7.75" PointY="11.625"
+                         Height="3.9033007812499996" IsExpanded="true" />
+        <AssociationConnector Association="InsitutionsModel.FK_UserPolicy_Institution">
+          <ConnectorPoint PointX="6.9901538461538459" PointY="5.7749999999999986" />
+          <ConnectorPoint PointX="7.375" PointY="6.0879297754556205" />
+          <ConnectorPoint PointX="7.375" PointY="11.248847153846153" />
+          <ConnectorPoint PointX="7.7511528461538459" PointY="11.625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.AllowedDirections" Width="1.75" PointX="7.75" PointY="3.375"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_AllowedDirections_AdmissionItemType">
+          <ConnectorPoint PointX="7" PointY="0.95000000000000018" />
+          <ConnectorPoint PointX="8.625" PointY="0.95000000000000018" />
+          <ConnectorPoint PointX="8.625" PointY="3.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_AllowedDirections_Direction">
+          <ConnectorPoint PointX="7" PointY="6.9371143846153842" />
+          <ConnectorPoint PointX="7.3160744349011209" PointY="6.6210399497142625" />
+          <ConnectorPoint PointX="7.4651755650988791" PointY="6.4719388195165051" />
+          <ConnectorPoint PointX="7.5" PointY="6.4371143846153842" />
+          <ConnectorPoint PointX="7.5" PointY="3.5749999999999993" />
+          <ConnectorPoint PointX="7.510416666666667" PointY="3.5749999999999988" />
+          <ConnectorPoint PointX="7.677083333333333" PointY="3.5749999999999993" />
+          <ConnectorPoint PointX="7.75" PointY="3.5749999999999993" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_AllowedDirections_Institution">
+          <ConnectorPoint PointX="7" PointY="5.4281212499999985" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="5.4281212499999976" />
+          <ConnectorPoint PointX="7.677083333333333" PointY="5.4281212499999985" />
+          <ConnectorPoint PointX="9.40625" PointY="5.4281212499999985" />
+          <ConnectorPoint PointX="9.40625" PointY="3.7749999999999986" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.AdmissionVolume" Width="1.5" PointX="10.75" PointY="6.375"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_AdmissionVolume_AdmissionItemType">
+          <ConnectorPoint PointX="7" PointY="1.1299990000000006" />
+          <ConnectorPoint PointX="7.59375" PointY="1.7237490000000006" />
+          <ConnectorPoint PointX="7.59375" PointY="6" />
+          <ConnectorPoint PointX="10.375" PointY="6" />
+          <ConnectorPoint PointX="10.75" PointY="6.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_AdmissionVolume_Direction">
+          <ConnectorPoint PointX="7" PointY="10.29375" />
+          <ConnectorPoint PointX="7.291666666666667" PointY="10.29375" />
+          <ConnectorPoint PointX="7.458333333333333" PointY="10.29375" />
+          <ConnectorPoint PointX="11.90625" PointY="10.29375" />
+          <ConnectorPoint PointX="11.90625" PointY="6.7749999999999986" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_AdmissionVolume_Institution">
+          <ConnectorPoint PointX="7" PointY="5.6495270961538449" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="5.649527096153844" />
+          <ConnectorPoint PointX="7.677083333333333" PointY="5.6495270961538449" />
+          <ConnectorPoint PointX="11.4531275" PointY="5.6495270961538449" />
+          <ConnectorPoint PointX="11.4531275" PointY="6.375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.ParentDirection" Width="1.5" PointX="2.625" PointY="6.875"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_Direction_ParentDirection">
+          <ConnectorPoint PointX="4.125" PointY="7.0749999999999993" />
+          <ConnectorPoint PointX="4.875" PointY="7.0749999999999993" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.InstitutionHistory" Width="1.5" PointX="5.125" PointY="3.375"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionHistory_AccreditationAttachment">
+          <ConnectorPoint PointX="1.78125" PointY="5.375" />
+          <ConnectorPoint PointX="1.78125" PointY="3.5749999999999993" />
+          <ConnectorPoint PointX="5.125" PointY="3.5749999999999993" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionHistory_HostelAttachment">
+          <ConnectorPoint PointX="2.3281275" PointY="5.375" />
+          <ConnectorPoint PointX="2.3281275" PointY="3.7062524999999926" />
+          <ConnectorPoint PointX="5.125" PointY="3.7062524999999926" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionHistory_LicenseAttachment">
+          <ConnectorPoint PointX="1.2343725" PointY="5.375" />
+          <ConnectorPoint PointX="1.2343725" PointY="3.443747500000006" />
+          <ConnectorPoint PointX="5.125" PointY="3.443747500000006" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionHistory_FormOfLaw">
+          <ConnectorPoint PointX="4.375" PointY="3.1499999999999986" />
+          <ConnectorPoint PointX="5.125" PointY="3.375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.RegionType" Width="1.5" PointX="2.875" PointY="3.875"
+                         Height="0.39999999999999858" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_Institution_RegionType">
+          <ConnectorPoint PointX="4.375" PointY="4.043752499999993" />
+          <ConnectorPoint PointX="5.9374962500000006" PointY="4.043752499999993" />
+          <ConnectorPoint PointX="5.9374962500000006" PointY="5.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_InstitutionHistory_RegionType">
+          <ConnectorPoint PointX="4.375" PointY="3.875" />
+          <ConnectorPoint PointX="5.125" PointY="3.7749999999999986" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="InsitutionsModel.RequestComments" Width="1.5" PointX="10" PointY="4.75"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="InsitutionsModel.RequestDirection" Width="1.5" PointX="7.75" PointY="4.75"
+                         Height="0.40000000000000036" IsExpanded="false" />
+        <AssociationConnector Association="InsitutionsModel.FK_RequestDirection_Request">
+          <ConnectorPoint PointX="7" PointY="5.375" />
+          <ConnectorPoint PointX="7.4201811428982367" PointY="5.2489456571305277" />
+          <ConnectorPoint PointX="7.6735688571017624" PointY="5.1729293428694714" />
+          <ConnectorPoint PointX="7.7500000000000027" PointY="5.15" />
+        </AssociationConnector>
+        <AssociationConnector Association="InsitutionsModel.FK_RequestComments_RequestDirection">
+          <ConnectorPoint PointX="9.25" PointY="4.95" />
+          <ConnectorPoint PointX="9.3229166666666661" PointY="4.9499999999999993" />
+          <ConnectorPoint PointX="9.4895833333333339" PointY="4.95" />
+          <ConnectorPoint PointX="10" PointY="4.95" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

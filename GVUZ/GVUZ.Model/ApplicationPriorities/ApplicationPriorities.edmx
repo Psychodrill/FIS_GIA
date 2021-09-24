@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ApplicationPriorities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ApplicationPrioritiesStoreContainer">
+          <EntitySet Name="AdmissionItemType" EntityType="ApplicationPriorities.Store.AdmissionItemType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationCompetitiveGroupItem" EntityType="ApplicationPriorities.Store.ApplicationCompetitiveGroupItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationSelectedCompetitiveGroup" EntityType="ApplicationPriorities.Store.ApplicationSelectedCompetitiveGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationSelectedCompetitiveGroupItem" EntityType="ApplicationPriorities.Store.ApplicationSelectedCompetitiveGroupItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationSelectedCompetitiveGroupTarget" EntityType="ApplicationPriorities.Store.ApplicationSelectedCompetitiveGroupTarget" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Campaign" EntityType="ApplicationPriorities.Store.Campaign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CompetitiveGroup" EntityType="ApplicationPriorities.Store.CompetitiveGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CompetitiveGroupItem" EntityType="ApplicationPriorities.Store.CompetitiveGroupItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CompetitiveGroupTarget" EntityType="ApplicationPriorities.Store.CompetitiveGroupTarget" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Direction" EntityType="ApplicationPriorities.Store.Direction" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" Association="ApplicationPriorities.Store.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" Association="ApplicationPriorities.Store.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem">
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" Association="ApplicationPriorities.Store.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="ApplicationSelectedCompetitiveGroup" EntitySet="ApplicationSelectedCompetitiveGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem" Association="ApplicationPriorities.Store.FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem">
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+            <End Role="ApplicationSelectedCompetitiveGroupItem" EntitySet="ApplicationSelectedCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget" Association="ApplicationPriorities.Store.FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget">
+            <End Role="CompetitiveGroupTarget" EntitySet="CompetitiveGroupTarget" />
+            <End Role="ApplicationSelectedCompetitiveGroupTarget" EntitySet="ApplicationSelectedCompetitiveGroupTarget" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroup_Campaign" Association="ApplicationPriorities.Store.FK_CompetitiveGroup_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_CompetitiveGroup" Association="ApplicationPriorities.Store.FK_CompetitiveGroupItem_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_Direction" Association="ApplicationPriorities.Store.FK_CompetitiveGroupItem_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_EducationLevelID" Association="ApplicationPriorities.Store.FK_CompetitiveGroupItem_EducationLevelID">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdmissionItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Name="ItemTypeID" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ItemLevel" Type="smallint" Nullable="false" />
+          <Property Name="CanBeSkipped" Type="bit" Nullable="false" />
+          <Property Name="AutoCopyName" Type="bit" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ApplicationCompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationId" Type="int" Nullable="false" />
+          <Property Name="CompetitiveGroupId" Type="int" Nullable="false" />
+          <Property Name="CompetitiveGroupItemId" Type="int" Nullable="false" />
+          <Property Name="EducationFormId" Type="int" Nullable="false" />
+          <Property Name="EducationSourceId" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="CompetitiveGroupTargetId" Type="int" />
+        </EntityType>
+        <EntityType Name="ApplicationSelectedCompetitiveGroup">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="int" Nullable="false" />
+          <Property Name="CompetitiveGroupID" Type="int" Nullable="false" />
+          <Property Name="CalculatedBenefitID" Type="smallint" />
+          <Property Name="CalculatedRating" Type="decimal" Precision="10" Scale="4" />
+        </EntityType>
+        <EntityType Name="ApplicationSelectedCompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="int" Nullable="false" />
+          <Property Name="CompetitiveGroupItemID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApplicationSelectedCompetitiveGroupTarget">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="int" Nullable="false" />
+          <Property Name="CompetitiveGroupTargetID" Type="int" Nullable="false" />
+          <Property Name="IsForO" Type="bit" Nullable="false" />
+          <Property Name="IsForOZ" Type="bit" Nullable="false" />
+          <Property Name="IsForZ" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="CampaignID" />
+          </Key>
+          <Property Name="CampaignID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="YearStart" Type="int" Nullable="false" />
+          <Property Name="YearEnd" Type="int" Nullable="false" />
+          <Property Name="EducationFormFlag" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Additional" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroup">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupID" />
+          </Key>
+          <Property Name="CompetitiveGroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Course" Type="smallint" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="CampaignID" Type="int" />
+          <Property Name="DirectionFilterType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupItemID" />
+          </Key>
+          <Property Name="CompetitiveGroupItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CompetitiveGroupID" Type="int" Nullable="false" />
+          <Property Name="DirectionID" Type="int" Nullable="false" />
+          <Property Name="NumberBudgetO" Type="int" Nullable="false" />
+          <Property Name="NumberBudgetOZ" Type="int" Nullable="false" />
+          <Property Name="NumberBudgetZ" Type="int" Nullable="false" />
+          <Property Name="NumberPaidO" Type="int" Nullable="false" />
+          <Property Name="NumberPaidOZ" Type="int" Nullable="false" />
+          <Property Name="NumberPaidZ" Type="int" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="EducationLevelID" Type="smallint" Nullable="false" />
+          <Property Name="NumberQuotaO" Type="int" />
+          <Property Name="NumberQuotaOZ" Type="int" />
+          <Property Name="NumberQuotaZ" Type="int" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroupTarget">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupTargetID" />
+          </Key>
+          <Property Name="CompetitiveGroupTargetID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Direction">
+          <Key>
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Name="DirectionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="char" MaxLength="8" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="SYS_GUID" Type="varchar" MaxLength="50" />
+          <Property Name="EDULEVEL" Type="varchar" MaxLength="500" />
+          <Property Name="EDUPROGRAMTYPE" Type="varchar" MaxLength="500" />
+          <Property Name="UGSCODE" Type="char" MaxLength="8" />
+          <Property Name="UGSNAME" Type="varchar" MaxLength="500" />
+          <Property Name="QUALIFICATIONCODE" Type="char" MaxLength="10" />
+          <Property Name="QUALIFICATIONNAME" Type="varchar" MaxLength="500" />
+          <Property Name="PERIOD" Type="varchar" MaxLength="50" />
+          <Property Name="EDU_DIRECTORY" Type="varchar" MaxLength="500" />
+          <Property Name="EDUPR_ADDITIONAL" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="NewCode" Type="char" MaxLength="8" />
+        </EntityType>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroup">
+          <End Role="CompetitiveGroup" Type="ApplicationPriorities.Store.CompetitiveGroup" Multiplicity="1" />
+          <End Role="ApplicationCompetitiveGroupItem" Type="ApplicationPriorities.Store.ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem">
+          <End Role="CompetitiveGroupItem" Type="ApplicationPriorities.Store.CompetitiveGroupItem" Multiplicity="1" />
+          <End Role="ApplicationCompetitiveGroupItem" Type="ApplicationPriorities.Store.ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup">
+          <End Role="CompetitiveGroup" Type="ApplicationPriorities.Store.CompetitiveGroup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ApplicationSelectedCompetitiveGroup" Type="ApplicationPriorities.Store.ApplicationSelectedCompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem">
+          <End Role="CompetitiveGroupItem" Type="ApplicationPriorities.Store.CompetitiveGroupItem" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ApplicationSelectedCompetitiveGroupItem" Type="ApplicationPriorities.Store.ApplicationSelectedCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget">
+          <End Role="CompetitiveGroupTarget" Type="ApplicationPriorities.Store.CompetitiveGroupTarget" Multiplicity="1" />
+          <End Role="ApplicationSelectedCompetitiveGroupTarget" Type="ApplicationPriorities.Store.ApplicationSelectedCompetitiveGroupTarget" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupTarget">
+              <PropertyRef Name="CompetitiveGroupTargetID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroupTarget">
+              <PropertyRef Name="CompetitiveGroupTargetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroup_Campaign">
+          <End Role="Campaign" Type="ApplicationPriorities.Store.Campaign" Multiplicity="0..1" />
+          <End Role="CompetitiveGroup" Type="ApplicationPriorities.Store.CompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroup">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_CompetitiveGroup">
+          <End Role="CompetitiveGroup" Type="ApplicationPriorities.Store.CompetitiveGroup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CompetitiveGroupItem" Type="ApplicationPriorities.Store.CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_Direction">
+          <End Role="Direction" Type="ApplicationPriorities.Store.Direction" Multiplicity="1" />
+          <End Role="CompetitiveGroupItem" Type="ApplicationPriorities.Store.CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_EducationLevelID">
+          <End Role="AdmissionItemType" Type="ApplicationPriorities.Store.AdmissionItemType" Multiplicity="1" />
+          <End Role="CompetitiveGroupItem" Type="ApplicationPriorities.Store.CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="EducationLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="UpdateSelectedData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="appId" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ApplicationPriorities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ApplicationPrioritiesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ApplicationCompetitiveGroupItem" EntityType="ApplicationPriorities.ApplicationCompetitiveGroupItem" />
+          <EntitySet Name="AdmissionItemType" EntityType="ApplicationPriorities.AdmissionItemType" />
+          <EntitySet Name="CompetitiveGroup" EntityType="ApplicationPriorities.CompetitiveGroup" />
+          <EntitySet Name="CompetitiveGroupItem" EntityType="ApplicationPriorities.CompetitiveGroupItem" />
+          <EntitySet Name="CompetitiveGroupTarget" EntityType="ApplicationPriorities.CompetitiveGroupTarget" />
+          <AssociationSet Name="FK_CompetitiveGroupItem_EducationLevelID" Association="ApplicationPriorities.FK_CompetitiveGroupItem_EducationLevelID">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" Association="ApplicationPriorities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" Association="ApplicationPriorities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem">
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_CompetitiveGroup" Association="ApplicationPriorities.FK_CompetitiveGroupItem_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <EntitySet Name="Direction" EntityType="ApplicationPriorities.Direction" />
+          <AssociationSet Name="FK_CompetitiveGroupItem_Direction" Association="ApplicationPriorities.FK_CompetitiveGroupItem_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <EntitySet Name="Campaign" EntityType="ApplicationPriorities.Campaign" />
+          <AssociationSet Name="FK_CompetitiveGroup_Campaign" Association="ApplicationPriorities.FK_CompetitiveGroup_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+          </AssociationSet>
+          <EntitySet Name="ApplicationSelectedCompetitiveGroup" EntityType="ApplicationPriorities.ApplicationSelectedCompetitiveGroup" />
+          <EntitySet Name="ApplicationSelectedCompetitiveGroupItem" EntityType="ApplicationPriorities.ApplicationSelectedCompetitiveGroupItem" />
+          <EntitySet Name="ApplicationSelectedCompetitiveGroupTarget" EntityType="ApplicationPriorities.ApplicationSelectedCompetitiveGroupTarget" />
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" Association="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="ApplicationSelectedCompetitiveGroup" EntitySet="ApplicationSelectedCompetitiveGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem" Association="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem">
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+            <End Role="ApplicationSelectedCompetitiveGroupItem" EntitySet="ApplicationSelectedCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget" Association="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget">
+            <End Role="CompetitiveGroupTarget" EntitySet="CompetitiveGroupTarget" />
+            <End Role="ApplicationSelectedCompetitiveGroupTarget" EntitySet="ApplicationSelectedCompetitiveGroupTarget" />
+          </AssociationSet>
+          <FunctionImport Name="UpdateSelectedData">
+            <Parameter Name="appId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="ApplicationCompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" >
+            <Documentation>
+              <LongDescription>Идентификатор сущности</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="ApplicationId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <LongDescription>Идентификатор заявления</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CompetitiveGroupId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <LongDescription>Идентифиактор конкурсной группы</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CompetitiveGroupItemId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <LongDescription>Идентификатор элемента конкурсной группы</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="EducationFormId" Type="Int32" Nullable="false" a:SetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" >
+            <Documentation>
+              <LongDescription>Идентифиактор формы обучения</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="EducationSourceId" Type="Int32" Nullable="false" >
+            <Documentation>
+              <LongDescription>Идентифиактор источника финансирования</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Priority" Type="Int32" >
+            <Documentation>
+              <LongDescription>Приоритет поступления на указанную специальность по указанной форме обучения с указанным источником финансирования</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CompetitiveGroupTargetId" Type="Int32" >
+            <Documentation>
+              <LongDescription>Идентифиактор организации целевого приёма</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="CompetitiveGroup" Relationship="ApplicationPriorities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" FromRole="ApplicationCompetitiveGroupItem" ToRole="CompetitiveGroup" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="ApplicationPriorities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" FromRole="ApplicationCompetitiveGroupItem" ToRole="CompetitiveGroupItem" />
+        </EntityType>
+        <EntityType Name="AdmissionItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Type="Int16" Name="ItemTypeID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="ItemLevel" Nullable="false" />
+          <Property Type="Boolean" Name="CanBeSkipped" Nullable="false" />
+          <Property Type="Boolean" Name="AutoCopyName" Nullable="false" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="ApplicationPriorities.FK_CompetitiveGroupItem_EducationLevelID" FromRole="AdmissionItemType" ToRole="CompetitiveGroupItem" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroup">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupID" />
+          </Key>
+          <Property Type="Int32" Name="CompetitiveGroupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="Course" Nullable="false" />
+          <Property Type="String" Name="UID" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="CampaignID" />
+          <Property Type="Int32" Name="DirectionFilterType" Nullable="false" />
+          <NavigationProperty Name="ApplicationCompetitiveGroupItem" Relationship="ApplicationPriorities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" FromRole="CompetitiveGroup" ToRole="ApplicationCompetitiveGroupItem" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="ApplicationPriorities.FK_CompetitiveGroupItem_CompetitiveGroup" FromRole="CompetitiveGroup" ToRole="CompetitiveGroupItem" />
+          <NavigationProperty Name="Campaign" Relationship="ApplicationPriorities.FK_CompetitiveGroup_Campaign" FromRole="CompetitiveGroup" ToRole="Campaign" />
+          <NavigationProperty Name="ApplicationSelectedCompetitiveGroup" Relationship="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" FromRole="CompetitiveGroup" ToRole="ApplicationSelectedCompetitiveGroup" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupItemID" />
+          </Key>
+          <Property Type="Int32" Name="CompetitiveGroupItemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CompetitiveGroupID" Nullable="false" />
+          <Property Type="Int32" Name="DirectionID" Nullable="false" />
+          <Property Type="Int32" Name="NumberBudgetO" Nullable="false" />
+          <Property Type="Int32" Name="NumberBudgetOZ" Nullable="false" />
+          <Property Type="Int32" Name="NumberBudgetZ" Nullable="false" />
+          <Property Type="Int32" Name="NumberPaidO" Nullable="false" />
+          <Property Type="Int32" Name="NumberPaidOZ" Nullable="false" />
+          <Property Type="Int32" Name="NumberPaidZ" Nullable="false" />
+          <Property Type="String" Name="UID" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int16" Name="EducationLevelID" Nullable="false" />
+          <Property Type="Int32" Name="NumberQuotaO" />
+          <Property Type="Int32" Name="NumberQuotaOZ" />
+          <Property Type="Int32" Name="NumberQuotaZ" />
+          <NavigationProperty Name="AdmissionItemType" Relationship="ApplicationPriorities.FK_CompetitiveGroupItem_EducationLevelID" FromRole="CompetitiveGroupItem" ToRole="AdmissionItemType" />
+          <NavigationProperty Name="ApplicationCompetitiveGroupItem" Relationship="ApplicationPriorities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" FromRole="CompetitiveGroupItem" ToRole="ApplicationCompetitiveGroupItem" />
+          <NavigationProperty Name="CompetitiveGroup" Relationship="ApplicationPriorities.FK_CompetitiveGroupItem_CompetitiveGroup" FromRole="CompetitiveGroupItem" ToRole="CompetitiveGroup" />
+          <NavigationProperty Name="Direction" Relationship="ApplicationPriorities.FK_CompetitiveGroupItem_Direction" FromRole="CompetitiveGroupItem" ToRole="Direction" />
+          <NavigationProperty Name="ApplicationSelectedCompetitiveGroupItem" Relationship="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem" FromRole="CompetitiveGroupItem" ToRole="ApplicationSelectedCompetitiveGroupItem" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroupTarget">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupTargetID" />
+          </Key>
+          <Property Type="Int32" Name="CompetitiveGroupTargetID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UID" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <NavigationProperty Name="ApplicationSelectedCompetitiveGroupTarget" Relationship="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget" FromRole="CompetitiveGroupTarget" ToRole="ApplicationSelectedCompetitiveGroupTarget" />
+        </EntityType>
+        <Association Name="FK_CompetitiveGroupItem_EducationLevelID">
+          <End Type="ApplicationPriorities.AdmissionItemType" Role="AdmissionItemType" Multiplicity="1" />
+          <End Type="ApplicationPriorities.CompetitiveGroupItem" Role="CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="EducationLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroup">
+          <End Type="ApplicationPriorities.CompetitiveGroup" Role="CompetitiveGroup" Multiplicity="1" />
+          <End Type="ApplicationPriorities.ApplicationCompetitiveGroupItem" Role="ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem">
+          <End Type="ApplicationPriorities.CompetitiveGroupItem" Role="CompetitiveGroupItem" Multiplicity="1" />
+          <End Type="ApplicationPriorities.ApplicationCompetitiveGroupItem" Role="ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_CompetitiveGroup">
+          <End Type="ApplicationPriorities.CompetitiveGroup" Role="CompetitiveGroup" Multiplicity="1" />
+          <End Type="ApplicationPriorities.CompetitiveGroupItem" Role="CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Direction">
+          <Key>
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Type="Int32" Name="DirectionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ParentID" />
+          <Property Type="String" Name="SYS_GUID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EDULEVEL" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EDUPROGRAMTYPE" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UGSCODE" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="UGSNAME" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="QUALIFICATIONCODE" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="QUALIFICATIONNAME" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PERIOD" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EDU_DIRECTORY" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EDUPR_ADDITIONAL" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="String" Name="NewCode" MaxLength="8" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="ApplicationPriorities.FK_CompetitiveGroupItem_Direction" FromRole="Direction" ToRole="CompetitiveGroupItem" />
+        </EntityType>
+        <Association Name="FK_CompetitiveGroupItem_Direction">
+          <End Type="ApplicationPriorities.Direction" Role="Direction" Multiplicity="1" />
+          <End Type="ApplicationPriorities.CompetitiveGroupItem" Role="CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="CampaignID" />
+          </Key>
+          <Property Type="Int32" Name="CampaignID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="InstitutionID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="YearStart" Nullable="false" />
+          <Property Type="Int32" Name="YearEnd" Nullable="false" />
+          <Property Type="Int32" Name="EducationFormFlag" Nullable="false" />
+          <Property Type="Int32" Name="StatusID" Nullable="false" />
+          <Property Type="String" Name="UID" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Boolean" Name="Additional" Nullable="false" />
+          <NavigationProperty Name="CompetitiveGroup" Relationship="ApplicationPriorities.FK_CompetitiveGroup_Campaign" FromRole="Campaign" ToRole="CompetitiveGroup" />
+        </EntityType>
+        <Association Name="FK_CompetitiveGroup_Campaign">
+          <End Type="ApplicationPriorities.Campaign" Role="Campaign" Multiplicity="0..1" />
+          <End Type="ApplicationPriorities.CompetitiveGroup" Role="CompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroup">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ApplicationSelectedCompetitiveGroup">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Type="Int32" Name="ItemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApplicationID" Nullable="false" />
+          <Property Type="Int32" Name="CompetitiveGroupID" Nullable="false" />
+          <Property Type="Int16" Name="CalculatedBenefitID" />
+          <Property Type="Decimal" Name="CalculatedRating" Precision="10" Scale="4" />
+          <NavigationProperty Name="CompetitiveGroup" Relationship="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" FromRole="ApplicationSelectedCompetitiveGroup" ToRole="CompetitiveGroup" />
+        </EntityType>
+        <EntityType Name="ApplicationSelectedCompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Type="Int32" Name="ItemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApplicationID" Nullable="false" />
+          <Property Type="Int32" Name="CompetitiveGroupItemID" Nullable="false" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem" FromRole="ApplicationSelectedCompetitiveGroupItem" ToRole="CompetitiveGroupItem" />
+        </EntityType>
+        <EntityType Name="ApplicationSelectedCompetitiveGroupTarget">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApplicationID" Nullable="false" />
+          <Property Type="Int32" Name="CompetitiveGroupTargetID" Nullable="false" />
+          <Property Type="Boolean" Name="IsForO" Nullable="false" />
+          <Property Type="Boolean" Name="IsForOZ" Nullable="false" />
+          <Property Type="Boolean" Name="IsForZ" Nullable="false" />
+          <NavigationProperty Name="CompetitiveGroupTarget" Relationship="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget" FromRole="ApplicationSelectedCompetitiveGroupTarget" ToRole="CompetitiveGroupTarget" />
+        </EntityType>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup">
+          <End Type="ApplicationPriorities.CompetitiveGroup" Role="CompetitiveGroup" Multiplicity="1" />
+          <End Type="ApplicationPriorities.ApplicationSelectedCompetitiveGroup" Role="ApplicationSelectedCompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem">
+          <End Type="ApplicationPriorities.CompetitiveGroupItem" Role="CompetitiveGroupItem" Multiplicity="1" />
+          <End Type="ApplicationPriorities.ApplicationSelectedCompetitiveGroupItem" Role="ApplicationSelectedCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget">
+          <End Type="ApplicationPriorities.CompetitiveGroupTarget" Role="CompetitiveGroupTarget" Multiplicity="1" />
+          <End Type="ApplicationPriorities.ApplicationSelectedCompetitiveGroupTarget" Role="ApplicationSelectedCompetitiveGroupTarget" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupTarget">
+              <PropertyRef Name="CompetitiveGroupTargetID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroupTarget">
+              <PropertyRef Name="CompetitiveGroupTargetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApplicationPrioritiesStoreContainer" CdmEntityContainer="ApplicationPrioritiesEntities">
+          <EntitySetMapping Name="ApplicationCompetitiveGroupItem">
+            <EntityTypeMapping TypeName="ApplicationPriorities.ApplicationCompetitiveGroupItem">
+              <MappingFragment StoreEntitySet="ApplicationCompetitiveGroupItem">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="CompetitiveGroupId" ColumnName="CompetitiveGroupId" />
+                <ScalarProperty Name="CompetitiveGroupItemId" ColumnName="CompetitiveGroupItemId" />
+                <ScalarProperty Name="EducationFormId" ColumnName="EducationFormId" />
+                <ScalarProperty Name="EducationSourceId" ColumnName="EducationSourceId" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="CompetitiveGroupTargetId" ColumnName="CompetitiveGroupTargetId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdmissionItemType">
+            <EntityTypeMapping TypeName="ApplicationPriorities.AdmissionItemType">
+              <MappingFragment StoreEntitySet="AdmissionItemType">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="AutoCopyName" ColumnName="AutoCopyName" />
+                <ScalarProperty Name="CanBeSkipped" ColumnName="CanBeSkipped" />
+                <ScalarProperty Name="ItemLevel" ColumnName="ItemLevel" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetitiveGroup">
+            <EntityTypeMapping TypeName="ApplicationPriorities.CompetitiveGroup">
+              <MappingFragment StoreEntitySet="CompetitiveGroup">
+                <ScalarProperty Name="DirectionFilterType" ColumnName="DirectionFilterType" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="CompetitiveGroupID" ColumnName="CompetitiveGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetitiveGroupItem">
+            <EntityTypeMapping TypeName="ApplicationPriorities.CompetitiveGroupItem">
+              <MappingFragment StoreEntitySet="CompetitiveGroupItem">
+                <ScalarProperty Name="NumberQuotaZ" ColumnName="NumberQuotaZ" />
+                <ScalarProperty Name="NumberQuotaOZ" ColumnName="NumberQuotaOZ" />
+                <ScalarProperty Name="NumberQuotaO" ColumnName="NumberQuotaO" />
+                <ScalarProperty Name="EducationLevelID" ColumnName="EducationLevelID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="NumberPaidZ" ColumnName="NumberPaidZ" />
+                <ScalarProperty Name="NumberPaidOZ" ColumnName="NumberPaidOZ" />
+                <ScalarProperty Name="NumberPaidO" ColumnName="NumberPaidO" />
+                <ScalarProperty Name="NumberBudgetZ" ColumnName="NumberBudgetZ" />
+                <ScalarProperty Name="NumberBudgetOZ" ColumnName="NumberBudgetOZ" />
+                <ScalarProperty Name="NumberBudgetO" ColumnName="NumberBudgetO" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+                <ScalarProperty Name="CompetitiveGroupID" ColumnName="CompetitiveGroupID" />
+                <ScalarProperty Name="CompetitiveGroupItemID" ColumnName="CompetitiveGroupItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetitiveGroupTarget">
+            <EntityTypeMapping TypeName="ApplicationPriorities.CompetitiveGroupTarget">
+              <MappingFragment StoreEntitySet="CompetitiveGroupTarget">
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CompetitiveGroupTargetID" ColumnName="CompetitiveGroupTargetID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Direction">
+            <EntityTypeMapping TypeName="ApplicationPriorities.Direction">
+              <MappingFragment StoreEntitySet="Direction">
+                <ScalarProperty Name="NewCode" ColumnName="NewCode" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="EDUPR_ADDITIONAL" ColumnName="EDUPR_ADDITIONAL" />
+                <ScalarProperty Name="EDU_DIRECTORY" ColumnName="EDU_DIRECTORY" />
+                <ScalarProperty Name="PERIOD" ColumnName="PERIOD" />
+                <ScalarProperty Name="QUALIFICATIONNAME" ColumnName="QUALIFICATIONNAME" />
+                <ScalarProperty Name="QUALIFICATIONCODE" ColumnName="QUALIFICATIONCODE" />
+                <ScalarProperty Name="UGSNAME" ColumnName="UGSNAME" />
+                <ScalarProperty Name="UGSCODE" ColumnName="UGSCODE" />
+                <ScalarProperty Name="EDUPROGRAMTYPE" ColumnName="EDUPROGRAMTYPE" />
+                <ScalarProperty Name="EDULEVEL" ColumnName="EDULEVEL" />
+                <ScalarProperty Name="SYS_GUID" ColumnName="SYS_GUID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Campaign">
+            <EntityTypeMapping TypeName="ApplicationPriorities.Campaign">
+              <MappingFragment StoreEntitySet="Campaign">
+                <ScalarProperty Name="Additional" ColumnName="Additional" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="EducationFormFlag" ColumnName="EducationFormFlag" />
+                <ScalarProperty Name="YearEnd" ColumnName="YearEnd" />
+                <ScalarProperty Name="YearStart" ColumnName="YearStart" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationSelectedCompetitiveGroup">
+            <EntityTypeMapping TypeName="ApplicationPriorities.ApplicationSelectedCompetitiveGroup">
+              <MappingFragment StoreEntitySet="ApplicationSelectedCompetitiveGroup">
+                <ScalarProperty Name="CalculatedRating" ColumnName="CalculatedRating" />
+                <ScalarProperty Name="CalculatedBenefitID" ColumnName="CalculatedBenefitID" />
+                <ScalarProperty Name="CompetitiveGroupID" ColumnName="CompetitiveGroupID" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationSelectedCompetitiveGroupItem">
+            <EntityTypeMapping TypeName="ApplicationPriorities.ApplicationSelectedCompetitiveGroupItem">
+              <MappingFragment StoreEntitySet="ApplicationSelectedCompetitiveGroupItem">
+                <ScalarProperty Name="CompetitiveGroupItemID" ColumnName="CompetitiveGroupItemID" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationSelectedCompetitiveGroupTarget">
+            <EntityTypeMapping TypeName="ApplicationPriorities.ApplicationSelectedCompetitiveGroupTarget">
+              <MappingFragment StoreEntitySet="ApplicationSelectedCompetitiveGroupTarget">
+                <ScalarProperty Name="IsForZ" ColumnName="IsForZ" />
+                <ScalarProperty Name="IsForOZ" ColumnName="IsForOZ" />
+                <ScalarProperty Name="IsForO" ColumnName="IsForO" />
+                <ScalarProperty Name="CompetitiveGroupTargetID" ColumnName="CompetitiveGroupTargetID" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UpdateSelectedData" FunctionName="ApplicationPriorities.Store.UpdateSelectedData" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ApplicationPriorities">
+        <EntityTypeShape EntityType="ApplicationPriorities.ApplicationCompetitiveGroupItem" Width="2.375" PointX="0.75" PointY="0.75" Height="2.9417936197916661" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApplicationPriorities.AdmissionItemType" Width="2.375" PointX="5.25" PointY="4" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="ApplicationPriorities.CompetitiveGroup" Width="2.375" PointX="0.75" PointY="6.875" Height="3.1340950520833326" />
+        <EntityTypeShape EntityType="ApplicationPriorities.CompetitiveGroupItem" Width="2.375" PointX="3" PointY="11.5" Height="4.6725065104166674" />
+        <EntityTypeShape EntityType="ApplicationPriorities.CompetitiveGroupTarget" Width="2.375" PointX="5.625" PointY="0.75" Height="2.1925878906250005" />
+        <AssociationConnector Association="ApplicationPriorities.FK_CompetitiveGroupItem_EducationLevelID" >
+          <ConnectorPoint PointX="5.25" PointY="5.37474609375" />
+          <ConnectorPoint PointX="4.6054703125" PointY="5.37474609375" />
+          <ConnectorPoint PointX="4.6054703125" PointY="11.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="ApplicationPriorities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" >
+          <ConnectorPoint PointX="1.9375" PointY="6.875" />
+          <ConnectorPoint PointX="1.9375" PointY="3.6917936197916661" />
+        </AssociationConnector>
+        <AssociationConnector Association="ApplicationPriorities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" >
+          <ConnectorPoint PointX="3.83398315625" PointY="11.5" />
+          <ConnectorPoint PointX="3.83398315625" PointY="2.2208968098958328" />
+          <ConnectorPoint PointX="3.125" PointY="2.2208968098958328" />
+        </AssociationConnector>
+        <AssociationConnector Association="ApplicationPriorities.FK_CompetitiveGroupItem_CompetitiveGroup" >
+          <ConnectorPoint PointX="2.6562495" PointY="10.393697916666666" />
+          <ConnectorPoint PointX="2.6562495" PointY="15.9105029296875" />
+          <ConnectorPoint PointX="3" PointY="15.9105029296875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ApplicationPriorities.Direction" Width="3" PointX="5.75" PointY="8" Height="4.4802050781250031" />
+        <AssociationConnector Association="ApplicationPriorities.FK_CompetitiveGroupItem_Direction" >
+          <ConnectorPoint PointX="5.75" PointY="11.990102539062502" />
+          <ConnectorPoint PointX="5.375" PointY="11.990102539062502" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ApplicationPriorities.Campaign" Width="1.5" PointX="0.75" PointY="11.875" Height="3.3263964843749996" />
+        <AssociationConnector Association="ApplicationPriorities.FK_CompetitiveGroup_Campaign" >
+          <ConnectorPoint PointX="1.5" PointY="11.875" />
+          <ConnectorPoint PointX="1.5" PointY="10.393697916666666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ApplicationPriorities.ApplicationSelectedCompetitiveGroup" Width="3.25" PointX="6.75" PointY="14.875" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="ApplicationPriorities.ApplicationSelectedCompetitiveGroupItem" Width="3.25" PointX="9" PointY="11.5" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="ApplicationPriorities.ApplicationSelectedCompetitiveGroupTarget" Width="3.25" PointX="11.625" PointY="1.375" Height="2.3648893229166674" />
+        <AssociationConnector Association="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" >
+          <ConnectorPoint PointX="2.45312225" PointY="10.393697916666666" />
+          <ConnectorPoint PointX="2.45312225" PointY="16.833598632812496" />
+          <ConnectorPoint PointX="6.75" PointY="16.833598632812496" />
+        </AssociationConnector>
+        <AssociationConnector Association="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem" >
+          <ConnectorPoint PointX="5.375" PointY="12.915345052083335" />
+          <ConnectorPoint PointX="9" PointY="12.915345052083335" />
+        </AssociationConnector>
+        <AssociationConnector Association="ApplicationPriorities.FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget" >
+          <ConnectorPoint PointX="8" PointY="2.2449446614583333" />
+          <ConnectorPoint PointX="11.625" PointY="2.2449446614583333" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

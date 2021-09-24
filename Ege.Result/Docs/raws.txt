@@ -1,0 +1,47 @@
+GET http://check.ege.test/api/exam HTTP/1.1
+Host: check.ege.test
+Connection: keep-alive
+Accept: */*
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36
+Referer: http://check.ege.test/exams
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4
+Cookie: Participant=0A4AE285AFBCFC2C900988A8BA11418B480CE95BC30A7EBED7FBAF1AEE52424973604052913706390025440B2E2887E6BCB7AC8468F8548A7F97DB8BD0A120E976052921874986F2AF0BE3478894F059D24D08D183B41482DD468F6440EE813D76F4B419521162B672CFE0AD15457B0970CC736A6CE76AC6020420685684E3BD975B42593DC5DACAD58FDFAF78A0DB4B73214BB37875B8BF363FE878C0589521
+
+GET http://check.ege.test/api/region HTTP/1.1
+Host: check.ege.test
+Connection: keep-alive
+Accept: */*
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36
+Referer: http://check.ege.test/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4
+
+GET http://check.ege.test/api/captcha HTTP/1.1
+Host: check.ege.test
+Connection: keep-alive
+Accept: */*
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36
+Referer: http://check.ege.test/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4
+
+POST http://check.ege.test/api/participant/login HTTP/1.1
+Host: check.ege.test
+Connection: keep-alive
+Content-Length: 119
+Pragma: no-cache
+Cache-Control: no-cache
+Accept: */*
+Origin: http://check.ege.test
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Referer: http://check.ege.test/
+Accept-Encoding: gzip, deflate
+Accept-Language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4
+
+Hash=805f6a91f58481c048d801782b24b355&Code=&Document=111111&Region=61&Captcha=670598

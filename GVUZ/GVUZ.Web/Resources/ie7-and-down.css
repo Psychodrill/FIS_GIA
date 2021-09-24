@@ -1,0 +1,32 @@
+﻿.gvuz-calendar-icon
+{  
+  margin-bottom: 5px !important;
+}
+
+.tableAdmin td
+{
+  padding-right: 30px;
+}
+
+.tableApp2 span.caption label
+{
+	text-align: right !important;
+	color: #0A4B9C;
+	font-family: Tahoma;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 5px;
+	margin: 5px 10px !important;	
+}
+
+.tableApp2 span.caption
+{
+	display: inline-block; 
+	vertical-align: top; 
+	margin-top: 8px;
+}
+
+span.licenseDateCaption
+{
+	vertical-align: top;
+}

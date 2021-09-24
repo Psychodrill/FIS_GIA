@@ -1,0 +1,6 @@
+﻿SELECT [ItemTypeID]
+      ,[Name]
+      ,[ItemLevel]
+      ,[CanBeSkipped]
+      ,[DisplayOrder]
+  FROM [AdmissionItemType]

@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8C47203-A8CE-4324-A977-B5FA991E6418}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ege.Check.Dal.Store.Tests</RootNamespace>
+    <AssemblyName>Ege.Check.Dal.Store.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.1.0\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.1.0\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.NLog31, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.NLog31.3.1.0\lib\net40\Common.Logging.NLog31.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=7.1.0.0, Culture=neutral, PublicKeyToken=db26512813023263, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.Redist.7.1\lib\net40\JetBrains.Annotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="NDbUnit.Core">
+      <HintPath>..\packages\NDbUnit.Core.1.6.8.0\lib\Net35\NDbUnit.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NDbUnit.SqlClient">
+      <HintPath>..\packages\NDbUnit.SqlClient.1.6.8.0\lib\Net35\NDbUnit.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=3.2.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Bulk\TableSqlGeneratorTests.cs" />
+    <Compile Include="Bulk\EgeTempTableIntegrationTests.cs" />
+    <Compile Include="Factory\ConfigConnectionStringProviderTest.cs" />
+    <Compile Include="Factory\SqlConnectionFactoryTest.cs" />
+    <Compile Include="Mappers\AvailableRegionMapperTests.cs" />
+    <Compile Include="Mappers\ClosureIterator.cs" />
+    <Compile Include="Mappers\ExamCollectionMapperTests.cs" />
+    <Compile Include="Mappers\ParticipantCollectionMapperTest.cs" />
+    <Compile Include="Mappers\RegionSettingsMapperTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Answers\AnswerRepositoryIntegrationTest.cs" />
+    <Compile Include="Repositories\Answers\AnswerCriteriaRepositoryIntegrationTest.cs" />
+    <Compile Include="Repositories\Appeals\AppealRepositoryIntegrationTest.cs" />
+    <Compile Include="Repositories\Documents\DocumentUrlRepositoryIntegrationTest.cs" />
+    <Compile Include="Repositories\ExamCancellation\ExamCancellationRepositoryIntegrationTest.cs" />
+    <Compile Include="Repositories\Exams\ExamRepositoryIntegrationTest.cs" />
+    <Compile Include="Repositories\Participants\ParticipantRepositoryIntegrationTest.cs" />
+    <Compile Include="Repositories\Regions\RegionSettingsRepositoryIntegrationTest.cs" />
+    <Compile Include="Repositories\Regions\RegionRepositoryIntegrationTest.cs" />
+    <Compile Include="TestDataSet.cs">
+      <DependentUpon>TestDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TestDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDataSet.xsd</DependentUpon>
+    </Compile>
+    <Content Include="TestData\Tables\ap_BlankInfo\BlankInfoTestData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestData\Tables\ap_DocumentUrls\DocumentUrlsTestData.xml" />
+    <Content Include="TestData\Tables\ap_GekDocuments\GekDocumentsTestData.xml" />
+    <Content Include="TestData\Tables\ap_RegionInfo\RegionInfoTestData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestData\Tables\ap_Answers\AnswersTestData.xml" />
+    <Content Include="TestData\Tables\ap_Appeals\AppealsTestData.xml" />
+    <Content Include="TestData\Tables\ap_BallSettings\BallSettingsTestData.xml" />
+    <Content Include="TestData\Tables\ap_ExamSettings\ExamSettingsTestData.xml" />
+    <Content Include="TestData\Tables\ap_TaskSettings\TaskSettingsTestData.xml" />
+    <Content Include="TestData\Tables\Regions\RegionsTestData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="TestDataSet.xsc">
+      <DependentUpon>TestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TestDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestDataSet.xss">
+      <DependentUpon>TestDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\Tables\ap_ParticipantExams\ParticipantExamsTestData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestData\Tables\ap_Participants\ParticipantsTestData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestData\Tables\dat_Exams\ExamsTestData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestData\Tables\dat_Subjects\SubjectsTestData.xml" />
+    <Content Include="TestData\Tables\rbdc_Regions\RegionsTestData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ege.Check.Common\Ege.Check.Common.csproj">
+      <Project>{5DEE1362-7ED0-4A8D-BAB0-211DA7AD3C04}</Project>
+      <Name>Ege.Check.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Dal.Blanks\Ege.Check.Dal.Blanks.csproj">
+      <Project>{F9E98331-CDC2-4D2D-BD74-6D3A9C1A29DF}</Project>
+      <Name>Ege.Check.Dal.Blanks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Dal.Store\Ege.Check.Dal.Store.csproj">
+      <Project>{6284F453-A392-4456-8B41-21C648EC3BD8}</Project>
+      <Name>Ege.Check.Dal.Store</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Logic.Models\Ege.Check.Logic.Models.csproj">
+      <Project>{FC3A4FFE-EAEC-40F5-92EE-ACC13D0C224C}</Project>
+      <Name>Ege.Check.Logic.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Check.Logic.Services.Dtos\Ege.Check.Logic.Services.Dtos.csproj">
+      <Project>{7A24D66C-AF06-4CCB-B843-CDD6B5A7DA35}</Project>
+      <Name>Ege.Check.Logic.Services.Dtos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Dal.BaseTests\Ege.Dal.BaseTests.csproj">
+      <Project>{6F60F7BE-99A4-42BC-A5BA-16C4B4ECF51D}</Project>
+      <Name>Ege.Dal.BaseTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ege.Dal.Common\Ege.Dal.Common.csproj">
+      <Project>{410C7C9C-CDD7-4018-8526-3B9A207CDD89}</Project>
+      <Name>Ege.Dal.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

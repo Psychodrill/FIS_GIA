@@ -1,0 +1,333 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="TestDataSet" targetNamespace="http://tempuri.org/TestDataSet.xsd" xmlns:mstns="http://tempuri.org/TestDataSet.xsd" xmlns="http://tempuri.org/TestDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="TestDataSet" msdata:IsDataSet="true" msdata:Locale="">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AnswerDto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RbdId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="TaskTypeCode" type="xs:int" minOccurs="0" />
+              <xs:element name="TaskNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="AnswerValue" type="xs:string" minOccurs="0" />
+              <xs:element name="Mark" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_Answers">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ParticipantExamId" type="xs:int" minOccurs="0" />
+              <xs:element name="TaskTypeCode" type="xs:int" minOccurs="0" />
+              <xs:element name="TaskNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="AnswerValue" type="xs:string" minOccurs="0" />
+              <xs:element name="Mark" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_Appeals">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="ParticipantExamId" type="xs:int" minOccurs="0" />
+              <xs:element name="Status" type="xs:int" minOccurs="0" />
+              <xs:element name="CreateDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_BallSettings">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="SubjectCode" type="xs:int" minOccurs="0" />
+              <xs:element name="TaskNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="MaxValue" type="xs:int" minOccurs="0" />
+              <xs:element name="TaskTypeCode" type="xs:int" minOccurs="0" />
+              <xs:element name="LegalSymbols" type="xs:string" minOccurs="0" />
+              <xs:element name="DisplayNumber" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_BlankInfo">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="ParticipantExamId" type="xs:int" minOccurs="0" />
+              <xs:element name="BlankType" type="xs:int" minOccurs="0" />
+              <xs:element name="Answer" type="xs:string" minOccurs="0" />
+              <xs:element name="PrimaryMark" type="xs:int" minOccurs="0" />
+              <xs:element name="Barcode" type="xs:string" minOccurs="0" />
+              <xs:element name="PageCount" type="xs:int" minOccurs="0" />
+              <xs:element name="CreateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ProjectBatchId" type="xs:int" minOccurs="0" />
+              <xs:element name="ProjectName" type="xs:string" minOccurs="0" />
+              <xs:element name="CompositionPageCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_DocumentUrls">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Url" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_ExamSettings">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="ShowResult" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ShowBlanks" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_GekDocuments">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="Number" type="xs:string" minOccurs="0" />
+              <xs:element name="CreateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Url" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_ParticipantExamLinks">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="ParticipantExamId" type="xs:int" minOccurs="0" />
+              <xs:element name="OralParticipantExamId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_ParticipantExams">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="ParticipantId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="PrimaryMark" type="xs:int" minOccurs="0" />
+              <xs:element name="TestMark" type="xs:int" minOccurs="0" />
+              <xs:element name="Mark5" type="xs:int" minOccurs="0" />
+              <xs:element name="ProcessCondition" type="xs:int" minOccurs="0" />
+              <xs:element name="CreateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IsHidden" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_Participants">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="ParticipantRbdId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="ParticipantCode" type="xs:string" minOccurs="0" />
+              <xs:element name="ParticipantHash" type="xs:string" minOccurs="0" />
+              <xs:element name="DocumentNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_RegionInfo">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="Fio" type="xs:string" minOccurs="0" />
+              <xs:element name="Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="Email" type="xs:string" minOccurs="0" />
+              <xs:element name="HotLineData" type="xs:string" minOccurs="0" />
+              <xs:element name="BlanksServer" type="xs:string" minOccurs="0" />
+              <xs:element name="CompositionBlanksServer" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ap_TaskSettings">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="ParentTask" type="xs:int" minOccurs="0" />
+              <xs:element name="SubjectCode" type="xs:int" minOccurs="0" />
+              <xs:element name="TaskTypeCode" type="xs:int" minOccurs="0" />
+              <xs:element name="TaskNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="MaxValue" type="xs:int" minOccurs="0" />
+              <xs:element name="CriteriaName" type="xs:string" minOccurs="0" />
+              <xs:element name="DisplayNumber" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AppealDto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RbdId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="Status" type="xs:int" minOccurs="0" />
+              <xs:element name="CreateDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AppealStatuses">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Status" type="xs:int" minOccurs="0" />
+              <xs:element name="Description" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BlankInfoDto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RbdId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="BlankType" type="xs:int" minOccurs="0" />
+              <xs:element name="Answer" type="xs:string" minOccurs="0" />
+              <xs:element name="PrimaryMark" type="xs:int" minOccurs="0" />
+              <xs:element name="Barcode" type="xs:string" minOccurs="0" />
+              <xs:element name="PageCount" type="xs:int" minOccurs="0" />
+              <xs:element name="CreateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ProjectBatchId" type="xs:int" minOccurs="0" />
+              <xs:element name="ProjectName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dat_Exams">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="WaveCode" type="xs:int" minOccurs="0" />
+              <xs:element name="SubjectCode" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dat_Subjects">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SubjectCode" type="xs:int" minOccurs="0" />
+              <xs:element name="SubjectName" type="xs:string" minOccurs="0" />
+              <xs:element name="MinValue" type="xs:int" minOccurs="0" />
+              <xs:element name="IsComposition" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsBasicMath" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsForeignLanguage" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsCompositionWithLoadableBlanks" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsOral" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SubjectDisplayName" type="xs:string" minOccurs="0" />
+              <xs:element name="WrittenSubjectCode" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ExamDto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="WaveCode" type="xs:int" minOccurs="0" />
+              <xs:element name="SubjectCode" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ParticipantDto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RbdId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="Hash" type="xs:string" minOccurs="0" />
+              <xs:element name="Document" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="IsDeleted" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ParticipantExamDto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RbdId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="PrimaryMark" type="xs:int" minOccurs="0" />
+              <xs:element name="TestMark" type="xs:int" minOccurs="0" />
+              <xs:element name="Mark5" type="xs:int" minOccurs="0" />
+              <xs:element name="ProcessCondition" type="xs:int" minOccurs="0" />
+              <xs:element name="CreateDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ParticipantExamLinkDto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RbdId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="ExamGlobalId" type="xs:int" minOccurs="0" />
+              <xs:element name="OralExamGlobalId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="rbdc_Regions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="REGION" type="xs:int" minOccurs="0" />
+              <xs:element name="RegionName" type="xs:string" minOccurs="0" />
+              <xs:element name="Enable" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RegionDto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SubjectDto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="MinValue" type="xs:int" minOccurs="0" />
+              <xs:element name="IsComposition" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UserRoles">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="UserId" type="xs:int" minOccurs="0" />
+              <xs:element name="Role" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Users">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserId" type="xs:int" minOccurs="0" msdata:AutoIncrement="true" />
+              <xs:element name="RegionId" type="xs:int" minOccurs="0" />
+              <xs:element name="LoginName" type="xs:string" minOccurs="0" />
+              <xs:element name="Password" type="xs:string" minOccurs="0" />
+              <xs:element name="IsEnabled" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsDeleted" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

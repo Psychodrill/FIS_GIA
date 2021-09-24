@@ -1,0 +1,36 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/login.css")"/>
+}
+@section scripts {
+	<script src="@Url.Content("~/Content/Build/js/login.js")"></script>
+}
+@{
+	ViewBag.Title = "Вход в систему";
+    var esrpLoginUrl = !string.IsNullOrWhiteSpace(Request.Params["ReturnUrl"])
+        ? "/auth/login?returnUrl=" + HttpUtility.UrlEncode(Request.Params["ReturnUrl"])
+        : "/auth/login";
+}
+
+<h2>@ViewBag.Title</h2>
+<form class="form">
+	<div id="notice-container"></div>
+	<div class="form_label">
+		Логин
+	</div>
+	<div class="form_input">
+		<input type="text" name="Login">
+	</div>
+	<div class="form_label">
+		Пароль
+	</div>
+	<div class="form_input">
+		<input type="password" name="Password">
+	</div>
+	<div>
+		<button>
+			Войти
+		</button>
+	    или
+		<a href="@esrpLoginUrl">Войти через ЕСРП</a>
+	</div>
+</form>

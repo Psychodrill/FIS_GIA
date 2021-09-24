@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://priem.edu.ru/auth/CheckAuth.asmx?wsdl" docRef="http://priem.edu.ru/auth/CheckAuth.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://priem.edu.ru/auth/CheckAuth.asmx" xmlns:q1="urn:ersp:v1" binding="q1:CheckAuthSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://priem.edu.ru/auth/CheckAuth.asmx" xmlns:q2="urn:ersp:v1" binding="q2:CheckAuthSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,97 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/settings.css")"/>
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/settings.js")"> </script>
+}
+@{
+    ViewBag.Title = "Настройки экзаменов";
+}
+
+@Html.Partial("Menu")
+
+<input type="hidden" value="@User.IsInRole("fct").ToString()" id="is-fct" />
+
+<div class="account-block">
+    <a href="#" id="logout">Выход</a>
+</div>
+
+<h2>@ViewBag.Title</h2>
+
+<select id="wave" class="mb-15">
+    <option value="0">Досрочный февральский этап</option>
+    <option value="1">Досрочный этап</option>
+    <option value="2">Основной этап</option>
+    <option value="3">Дополнительный этап</option>
+    <option value="1024">Сочинение (изложение)</option>
+</select>
+
+<button class="c-save fl-right mb-10" disabled>
+    <span>Сохранить изменения</span>    
+    @RawHtml("~/Content/Pages/Partials/loader.html")
+</button>
+
+<div id="table-container" class="table-container mb-10">
+    <table class="table" id="settings-table">
+        <thead>
+            <tr>
+                <th>Экзамен</th>
+                <th class="width-180">Дата</th>
+                <th class="hidden"></th>
+                <th class="width-110">
+                    Публиковать результаты <br>
+                                           <a href="#" class="c-check-all">Отметить все</a>
+                                           <a href="#" class="c-uncheck-all">Сбросить все</a>
+                </th>
+                <th class="width-110">
+                    Публиковать бланки <br>
+                                       <a href="#" class="c-check-all">Отметить все</a>
+                                       <a href="#" class="c-uncheck-all">Сбросить все</a>
+                </th>
+                <th class="width-80">Протокол ГЭК</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td colspan="5">Нет данных</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="mb-20">
+    <button class="c-save fl-right" disabled>
+        <span>Сохранить изменения</span>    
+        @RawHtml("~/Content/Pages/Partials/loader.html")
+    </button>    
+</div>
+
+<script type="text/html" id="gek-dialog">
+    {{#SubjectName}}{{#ExamDate}}
+    <div class="row text-row">
+        {{#SubjectName}}{{SubjectName}}{{/SubjectName}}
+        {{#ExamDate}}{{ExamDate}}{{/ExamDate}}
+    </div>
+    {{/ExamDate}}{{/SubjectName}}
+    <form>
+        <div class="row">
+            <div class="label">Номер протокола</div>
+            <div class="input">
+                <input type="text" class="width-100" id="gek-doc-number" value="{{Number}}" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label">Дата подписания</div>
+            <div class="input">
+                <input type="text" class="width-100" id="gek-doc-date" value="{{CreateDate}}" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label">Ссылка на документы</div>
+            <div class="input">
+                <input type="text" id="gek-doc-link" value="{{Url}}">
+            </div>
+        </div>
+        <button class="hidden"></button>
+    </form>
+</script>

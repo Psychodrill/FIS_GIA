@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0">
+    <Entities>
+        <Entity id="RootMenuItems" groupId="Navigation">
+            <CommonSettings allowEdit="true" allowCreate="true" allowDelete="true" newIdMode="UserInput" />
+            <DataSettings   baseTableName="MenuItems" >
+                <WhereExpression>MENUITEMS.PARENTMENUITEMID is NULL </WhereExpression>
+            </DataSettings>
+            <ListSettings pageSize="20" headerText="Разделы 1-го уровня" />
+            <FormSettings>
+                <FieldGroups>
+                    <FieldGroup caption="Раздел" id="1" order="1" />
+                    <FieldGroup caption="Подразделы" id="2" order="2" />
+                </FieldGroups>
+            </FormSettings>
+            <Fields>
+                <Field>
+                    <DataSettings fieldName="Id" isPrimaryKey="true" fieldType="Integer" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <Filter caption="Идентификатор" order="1" lineBreakAfterInput="true" input="Text" size="Short" visible="true"></Filter>
+                        <View visibility="Visible" order="1" caption="Идентификатор" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Идентификатор" editMode="ReadOnlyText" input="Text" isRequired="true" size="Normal" order="1" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Code" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Код" order="10" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="10" caption="Код" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Код" input="Text" isRequired="true" size="Normal" order="10" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <CommonSettings isNameField="true" />
+                    <DataSettings fieldName="Text" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <Filter caption="Надпись" order="20" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+                        <View visibility="Visible" formatSchema="" order="20" caption="Надпись" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Надпись" input="LongText" isRequired="true" size="Long" order="20" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>
+                <Field>
+                    <DataSettings fieldName="Published" fieldType="Boolean" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <Filter caption="Опубликован" order="40" lineBreakAfterInput="true" input="Boolean" size="Short" visible="true"></Filter>
+                        <View visibility="Visible" order="40" caption="Опубликован" >
+                        </View>
+                    </ListSettings>
+                    <FormSettings lineBreakAfterInput="true" caption="Опубликован" editMode="Control" input="Boolean" isRequired="true" size="Normal" order="40" visible="true" groupId="1">
+                    </FormSettings>
+                </Field>
+
+                <Field>
+                    <DataSettings fieldName="MenuItemsSubgrid" fieldType="String" filterMode="Equals" isPrimaryKey="false">
+                        <SqlExpression>MenuItems.Id</SqlExpression>
+                    </DataSettings>
+                    <FormSettings addMode="NotVisible" editMode="ReadOnlyText" caption="" groupId="2" input="SubGrid" lineBreakAfterInput="true" visible="true">
+                        <SubGrid allowUnlink="false" entityId="MenuItemsSubgrid" filterFieldName="MenuItems.PARENTMENUITEMID"/>
+                    </FormSettings>
+                </Field>
+                
+            </Fields>
+        </Entity>
+    </Entities>
+</Metadata>

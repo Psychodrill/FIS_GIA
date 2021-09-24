@@ -1,0 +1,13 @@
+.visualizeme td, .visualizeme th {text-align: center; border: 1px solid #ddd;  height: 1.5em; padding: 4px;}
+.visualizeme td.hover { color: orange; }
+.visualizeme td.input { padding: 0; }
+.visualizeme td input, .visualizeme td input:focus { border: 1px solid orange; outline: none; padding: 2px; margin: 1px; width: 20px; }
+.visualizeme caption {margin: 0 0 .5em; font-size: 1.3em;  text-align: left;   }
+.visualize { margin: 30px 0 60px 20px; }
+
+.editableNote { background: #FEFBE2; border: 1px solid #8CC264; padding: 10px; margin: 1.5em 0; font-size: 1.2em; }
+
+/*sample alternate styling for info block on Pie Chart */
+.visualize-pie .visualize-info { top: 10px; border: 0; right: auto; left: 10px; padding: 0; background: none; }
+.visualize-pie ul.visualize-title { font-weight: bold; border: 0; }
+.visualize-pie ul.visualize-key li { float: none; }

@@ -1,0 +1,21 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/Common/Templates/Administration.Master" 
+    CodeBehind="ChangePassword.aspx.cs"
+    Inherits="Esrp.Web.Administration.Accounts.SupportUsers.ChangePassword" %>
+
+<asp:Content runat="server" ContentPlaceHolderID="cphContent">
+<form runat="server">
+
+    <asp:Panel runat="server" ID="pwdChangePanel">
+        <p>
+            <span style="color:red">Внимание</span> вы собираетесь сменить пароль для данного пользователя!!!
+        </p>
+	    <asp:Button runat="server" ID="btnUpdate" Text="Сохранить" CssClass="bt" 
+			        onclick="btnUpdate_Click" />
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pwdChangeSuccessPanel" Visible="false">
+        <p>
+            Смена пароля для данного пользователя была инициированна.
+        </p>
+    </asp:Panel>
+</form>
+</asp:Content>

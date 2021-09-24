@@ -1,0 +1,28 @@
+﻿<!-- @@master = Partials/master.html -->
+
+<!-- @@block = content-->
+
+<!--uncache-->
+<link rel="stylesheet" href="/Content/Build/css/stub.css">
+<!--enduncache-->
+
+<div class="page">
+    <!-- @@include = Partials/header.html -->
+
+    <div class="content">
+        <div class="notice">
+        	Уважаемые участники ЕГЭ!<br/>
+			В настоящий момент на сайте проводятся регламентные работы. 
+			Работоспособность сервиса будет восстановлена в ближайшее время
+        </div>
+    </div>
+
+    <!-- @@include = Partials/footer.html -->
+
+</div>
+
+<script>
+	document.getElementsByTagName('body')[0].removeAttribute('class');
+</script>
+
+<!-- @@close-->

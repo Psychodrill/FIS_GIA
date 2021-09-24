@@ -1,0 +1,89 @@
+@button-color: #0071bb;
+@button-color-gray: #E4E4E4;
+@link-color: #0071bb;
+@red-border-color: #ED3520;
+
+input[type="text"],
+input[type="password"],
+input[type="search"],
+select,
+textarea,
+.input-clone {
+	margin: 0;
+	padding: 4px 6px;
+	font-size: 18px;
+	border: 1px solid #c7c8ca;
+	background: #fcfcfc;
+	box-sizing: border-box;
+	font-family: inherit;
+
+	&.error {
+		box-shadow: 0 0 1px 1px lighten(@red-border-color, 10%);
+		border-color: @red-border-color;
+		outline-color: @red-border-color;
+	}
+
+	&[disabled] {
+		background: #D8D8D8;
+	}
+}
+
+button {
+	border: none;
+	background: @button-color;
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 14px 20px;
+	outline: none;
+	cursor: pointer;
+
+	&[disabled] {
+		cursor: default;
+		background: fadeout(@button-color, 30%);
+		color: fadeout(#fff, 30%);
+	}
+
+	&:hover:not([disabled]) {
+		background: lighten(@button-color, 5%);
+	}
+
+	&:active:not([disabled]) {
+		background: darken(@button-color, 5%);
+	}
+
+	&.btn-small {
+		font-size: 11px;
+		padding: 8px 10px;
+	}
+
+	&.btn-m {
+		font-size: 12px;
+		padding: 9px 14px;
+	}
+
+	&.btn-light {
+		color: #585858;
+		background: @button-color-gray;
+
+		&:hover:not([disabled]) {
+			background: lighten(@button-color-gray, 5%);
+		}
+
+		&:active:not([disabled]) {
+			background: darken(@button-color-gray, 5%);
+		}
+	}
+}
+
+a {
+	color: @link-color;
+	font-size: 12px;
+
+	&:hover {
+		color: darken(@link-color, 15%)
+	}
+}
+
+

@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="fbs_db" Class="PressContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=wales;Failover Partner=zubrus.rbc.ru;Initial Catalog=esrp;User ID=fbs" SettingsObjectName="Esrp.Core.Properties.Settings" SettingsPropertyName="EsrpConnectionString" Provider="System.Data.SqlClient" />
+  <!--<Connection Mode="AppSettings" ConnectionString="Data Source=wales;Failover Partner=zubrus.rbc.ru;Initial Catalog=esrp;User ID=fbs" SettingsObjectName="Esrp.Core.Properties.Settings" SettingsPropertyName="EsrpConnectionString" Provider="System.Data.SqlClient" />-->
+  <Table Name="" Member="Documents">
+    <Type Name="Document" Id="ID2">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Content" Member="InternalContent" Storage="_Content" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ContentSize" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContentType" Member="InternalContentType" Storage="_ContentType" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ActivateDate" Type="System.DateTime" DbType="DateTime" IsReadOnly="true" CanBeNull="true" />
+      <Column Name="ContextCodes" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="EditorLogin" AccessModifier="Internal" Type="System.String" DbType="NVarChar(50)" CanBeNull="false" />
+      <Column Name="EditorIp" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+      <Column Name="RelativeUrl" Member="InternalRelativeUrl" Storage="_RelativeUrl" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId1">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="description" Member="Description" />
+      <Argument Parameter="content" Member="InternalContent" />
+      <Argument Parameter="contentSize" Member="ContentSize" />
+      <Argument Parameter="contentType" Member="InternalContentType" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="contextCodes" Member="ContextCodes" />
+      <Argument Parameter="relativeUrl" Member="InternalRelativeUrl" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId1">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="description" Member="Description" />
+      <Argument Parameter="content" Member="InternalContent" />
+      <Argument Parameter="contentSize" Member="ContentSize" />
+      <Argument Parameter="contentType" Member="InternalContentType" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="contextCodes" Member="ContextCodes" />
+      <Argument Parameter="relativeUrl" Member="InternalRelativeUrl" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+    </UpdateFunction>
+  </Table>
+  <Table Name="dbo.News" Member="News">
+    <Type Name="News" Id="ID1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Text" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EditorLogin" AccessModifier="Internal" Type="System.String" DbType="NVarChar(50)" CanBeNull="false" />
+      <Column Name="EditorIp" AccessModifier="Internal" Type="System.String" DbType="NVarChar(255)" CanBeNull="false" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId2">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="date" Member="Date" />
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="description" Member="Description" />
+      <Argument Parameter="text" Member="Text" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId2">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="date" Member="Date" />
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="description" Member="Description" />
+      <Argument Parameter="text" Member="Text" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+    </UpdateFunction>
+  </Table>
+  <Table Name="dbo.AskedQuestion" Member="AskedQuestions">
+    <Type Name="AskedQuestion" Id="ID3">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="EditorAccountId" Member="EditorLogin" Type="System.String" DbType="NVarChar(50)" CanBeNull="false" />
+      <Column Name="EditorIp" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Answer" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ViewCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Popularity" Type="System.Decimal" DbType="Decimal(18,4) NOT NULL" CanBeNull="false" />
+      <Column Name="ContextCodes" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId3">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="question" Member="Question" />
+      <Argument Parameter="answer" Member="Answer" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="contextCodes" Member="ContextCodes" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId3">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="question" Member="Question" />
+      <Argument Parameter="answer" Member="Answer" />
+      <Argument Parameter="isActive" Member="IsActive" />
+      <Argument Parameter="contextCodes" Member="ContextCodes" />
+      <Argument Parameter="editorLogin" Member="EditorLogin" />
+      <Argument Parameter="editorIp" Member="EditorIp" />
+    </UpdateFunction>
+  </Table>
+  <Function Name="dbo.DeleteDocument" Method="DeleteDocument" AccessModifier="Internal">
+    <Parameter Name="ids" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.UpdateNews" Method="UpdateNews" AccessModifier="Internal">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="description" Type="System.String" DbType="NText" />
+    <Parameter Name="text" Type="System.String" DbType="NText" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SetActiveDocument" Method="SetActiveDocument" AccessModifier="Internal">
+    <Parameter Name="ids" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetNews" Method="GetNews" AccessModifier="Internal">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.SetActiveNews" Method="SetActiveNews" AccessModifier="Internal">
+    <Parameter Name="ids" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteNews" Method="DeleteNews" AccessModifier="Internal">
+    <Parameter Name="ids" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetDocument" Method="GetDocument" AccessModifier="Internal">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Id="FunctionId1" Name="dbo.UpdateDocument" Method="UpdateDocument" AccessModifier="Internal">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="description" Type="System.String" DbType="NText" />
+    <Parameter Name="content" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="contentSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="contentType" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="contextCodes" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="relativeUrl" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteAskedQuestion" Method="DeleteAskedQuestion" AccessModifier="Internal">
+    <Parameter Name="ids" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SetActiveAskedQuestion" Method="SetActiveAskedQuestion" AccessModifier="Internal">
+    <Parameter Name="ids" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetAskedQuestion" Method="GetAskedQuestion" AccessModifier="Internal">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="isViewCount" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Id="FunctionId3" Name="dbo.UpdateAskedQuestion" Method="UpdateAskedQuestion" AccessModifier="Internal">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="question" Type="System.String" DbType="NText" />
+    <Parameter Name="answer" Type="System.String" DbType="NText" />
+    <Parameter Name="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="contextCodes" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="editorLogin" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="editorIp" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetDocumentByUrl" Method="GetDocumentByUrl" AccessModifier="Internal">
+    <Parameter Name="relativeUrl" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="GetDocumentByUrlResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

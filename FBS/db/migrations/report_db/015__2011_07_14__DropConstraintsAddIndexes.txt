@@ -1,0 +1,31 @@
+-- =========================================================================
+-- Запись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (15, '015__2011_07_14__DropConstraintsAddIndexes')
+-- =========================================================================
+GO
+
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('CheckLog') and o.name = 'FK_CHECKLOG_REFERENCE_CERTIFIC')
+alter table CheckLog
+   drop constraint FK_CHECKLOG_REFERENCE_CERTIFIC
+go
+
+
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('CheckLog') and o.name = 'FK_CHECKLOG_REFERENCE_ORGANIZA')
+alter table CheckLog
+   drop constraint FK_CHECKLOG_REFERENCE_ORGANIZA
+go
+
+
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('RegistrationLog') and o.name = 'FK_REGISTRA_REFERENCE_ORGANIZA')
+alter table RegistrationLog
+   drop constraint FK_REGISTRA_REFERENCE_ORGANIZA
+go

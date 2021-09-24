@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81997E99-A894-46B0-A5E1-25E71BE6A24E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GVUZ.AppExport</RootNamespace>
+    <AssemblyName>GVUZ.AppExport</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApplicationExportDto.cs" />
+    <Compile Include="Services\ApplicationExportEntranceTestDto.cs" />
+    <Compile Include="Services\ApplicationExportEventArgs.cs" />
+    <Compile Include="Services\ApplicationExportFinSourceDto.cs" />
+    <Compile Include="Services\ApplicationExportLoader.cs" />
+    <Compile Include="Services\ApplicationExportLoaderHelper.cs" />
+    <Compile Include="Services\ApplicationExportRequest.cs" />
+    <Compile Include="Services\ApplicationExportRequestMonitor.cs" />
+    <Compile Include="Services\ApplicationExportRequestMonitorEventArgs.cs" />
+    <Compile Include="Services\ApplicationExportRequestStatus.cs" />
+    <Compile Include="Services\ApplicationXmlExporter.cs" />
+    <Compile Include="Services\DataSetApplicationExport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetApplicationExport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DbApplicationExportLoader.cs" />
+    <Compile Include="Services\DbApplicationExportLoaderHelper.cs" />
+    <Compile Include="Services\ExportProcessor.cs" />
+    <Compile Include="Services\IApplicationExportLoader.cs" />
+    <Compile Include="Services\IApplicationExportRequestRepository.cs" />
+    <Compile Include="Services\NullLogger.cs" />
+    <Compile Include="Services\SqlApplicationExportRequestRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GVUZ.Model\GVUZ.Model.csproj">
+      <Project>{BF47ACA9-1DC7-4A28-BAE8-378421D198B3}</Project>
+      <Name>GVUZ.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Services\DataSetApplicationExport.xsc">
+      <DependentUpon>DataSetApplicationExport.xsd</DependentUpon>
+    </None>
+    <None Include="Services\DataSetApplicationExport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetApplicationExport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Services\DataSetApplicationExport.xss">
+      <DependentUpon>DataSetApplicationExport.xsd</DependentUpon>
+    </None>
+    <None Include="Выгрузка заявлений ГЗГУ v4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

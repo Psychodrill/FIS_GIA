@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{461DD23C-AA0B-44BE-BB7B-1E949F24CD57}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GVUZ.DAL</RootNamespace>
+    <AssemblyName>GVUZ.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Platform)\$(SolutionName)\</OutputPath>
+    <BaseIntermediateOutputPath>..\objects\$(Platform)\$(SolutionName)\</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GVUZ.Helper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GVUZ.Web\bin\GVUZ.Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="GVUZ.Web">
+      <HintPath>..\GVUZ.Web\bin\GVUZ.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dapper\Model\AdmissionVolumes\AdmissionVolume.cs" />
+    <Compile Include="Dapper\Model\AllowedDirections\AllowedDirection.cs" />
+    <Compile Include="Dapper\Model\Benefit\BenefitItemC.cs" />
+    <Compile Include="Dapper\Model\Benefit\BenefitItemCOlympicType.cs" />
+    <Compile Include="Dapper\Model\CompetitiveGroups\CompetitiveGroupProgram.cs" />
+    <Compile Include="Dapper\Model\Dictionary\GlobalMinEge.cs" />
+    <Compile Include="Dapper\Model\Dictionary\Subject.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\Admission\IVolumeTransferRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\Admission\IPlanAdmissionVolumeRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\AutoOrder\IAutoOrderRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\Structure\IStructureRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\InstitutionProgram\IInstitutionProgramRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\Admission\VolumeTransferRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\Admission\PlanAdmissionVolumeRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\Structures\StructuresRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\ApplicationRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\AutoOrder\AutoOrderRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\OlympicDiplomant\OlympicDiplomantRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\OrderOfAdmissionRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\InstitutionProgram\InstitutionProgramRepository.cs" />
+    <Compile Include="Dapper\ViewModel\AutoOrder\AutoOrderCheckBoxModel.cs" />
+    <Compile Include="Dapper\ViewModel\Common\SPResult.cs" />
+    <Compile Include="Dapper\ViewModel\CompetitiveGroups\CompetitiveGroupCopyModel.cs" />
+    <Compile Include="Dapper\ViewModel\CompetitiveGroups\CompetitiveGroupProperty.cs" />
+    <Compile Include="Dapper\ViewModel\institutionProgram\InstitutionProgramModel.cs" />
+    <Compile Include="Dto\DistributedPlanAdmissionVolumeSaveDto.cs" />
+    <Compile Include="Dto\TransferCheckDto.cs" />
+    <Compile Include="Dto\StructureInfoDto.cs" />
+    <Compile Include="Helpers\AutoCompete.cs" />
+    <Compile Include="Helpers\OlympicTypeEnum.cs" />
+    <Compile Include="Helpers\GroupedSelectListItem.cs" />
+    <Compile Include="Helpers\StringValueAttribute.cs" />
+    <Compile Include="Helpers\FindPerson.cs" />
+    <Compile Include="Helpers\PagedList\AsyncPagedList.cs" />
+    <Compile Include="Helpers\PagedList\AsyncPagedListExtensions.cs" />
+    <Compile Include="Helpers\PagedList\BasePagedList.cs" />
+    <Compile Include="Helpers\PagedList\IPagedList.cs" />
+    <Compile Include="Helpers\PagedList\PagedList.cs" />
+    <Compile Include="Helpers\PagedList\PagedListExtensions.cs" />
+    <Compile Include="Helpers\PagedList\PagedListForEntityFramework .cs" />
+    <Compile Include="Helpers\PagedList\PagedListMetaData.cs" />
+    <Compile Include="Helpers\PagedList\Paging.cs" />
+    <Compile Include="Helpers\PagedList\StaticPagedList.cs" />
+    <Compile Include="Helpers\FindPersonResultModel.cs" />
+    <Compile Include="Helpers\ValidateINNHelper.cs" />
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\AdmissionData.cs" />
+    <Compile Include="Model\AdmissionItemType.cs" />
+    <Compile Include="Model\AdmissionRules.cs" />
+    <Compile Include="Model\AdmissionVolume.cs" />
+    <Compile Include="Model\AllowedDirections.cs" />
+    <Compile Include="Model\AppealStatus.cs" />
+    <Compile Include="Model\Application.cs" />
+    <Compile Include="Model\ApplicationCheckStatus.cs" />
+    <Compile Include="Model\ApplicationCompetitiveGroupItem.cs" />
+    <Compile Include="Model\ApplicationCompositionResults.cs" />
+    <Compile Include="Model\ApplicationCompositionResults_Approb.cs" />
+    <Compile Include="Model\ApplicationConsidered.cs" />
+    <Compile Include="Model\ApplicationEntranceTestDocument.cs" />
+    <Compile Include="Model\ApplicationEntrantDocument.cs" />
+    <Compile Include="Model\ApplicationExportRequest.cs" />
+    <Compile Include="Model\ApplicationExtra.cs" />
+    <Compile Include="Model\ApplicationExtraDefinition.cs" />
+    <Compile Include="Model\ApplicationForcedAdmissionReasons.cs" />
+    <Compile Include="Model\ApplicationSelectedCompetitiveGroup.cs" />
+    <Compile Include="Model\ApplicationSelectedCompetitiveGroupItem.cs" />
+    <Compile Include="Model\ApplicationSelectedCompetitiveGroupTarget.cs" />
+    <Compile Include="Model\ApplicationStatusType.cs" />
+    <Compile Include="Model\aspnet_Applications.cs" />
+    <Compile Include="Model\aspnet_Membership.cs" />
+    <Compile Include="Model\aspnet_Paths.cs" />
+    <Compile Include="Model\aspnet_PersonalizationAllUsers.cs" />
+    <Compile Include="Model\aspnet_PersonalizationPerUser.cs" />
+    <Compile Include="Model\aspnet_Profile.cs" />
+    <Compile Include="Model\aspnet_Roles.cs" />
+    <Compile Include="Model\aspnet_SchemaVersions.cs" />
+    <Compile Include="Model\aspnet_Users.cs" />
+    <Compile Include="Model\aspnet_WebEvent_Events.cs" />
+    <Compile Include="Model\Attachment.cs" />
+    <Compile Include="Model\Benefit.cs" />
+    <Compile Include="Model\BenefitItemC.cs" />
+    <Compile Include="Model\BenefitItemCOlympicType.cs" />
+    <Compile Include="Model\BenefitItemCOlympicTypeProfile.cs" />
+    <Compile Include="Model\BenefitItemCProfile.cs" />
+    <Compile Include="Model\BenefitItemSubject.cs" />
+    <Compile Include="Model\bulk_AdmissionVolume.cs" />
+    <Compile Include="Model\bulk_Application.cs" />
+    <Compile Include="Model\bulk_ApplicationCompetitiveGroupItem.cs" />
+    <Compile Include="Model\bulk_ApplicationEntranceTestDocument.cs" />
+    <Compile Include="Model\bulk_ApplicationIndividualAchievements.cs" />
+    <Compile Include="Model\bulk_ApplicationSelectedCompetitiveGroup.cs" />
+    <Compile Include="Model\bulk_ApplicationSelectedCompetitiveGroupItem.cs" />
+    <Compile Include="Model\bulk_ApplicationSelectedCompetitiveGroupTarget.cs" />
+    <Compile Include="Model\bulk_BenefitItemC.cs" />
+    <Compile Include="Model\bulk_BenefitItemData.cs" />
+    <Compile Include="Model\bulk_Campaign.cs" />
+    <Compile Include="Model\bulk_CampaignDate.cs" />
+    <Compile Include="Model\bulk_CompetitiveGroup.cs" />
+    <Compile Include="Model\bulk_CompetitiveGroupItem.cs" />
+    <Compile Include="Model\bulk_CompetitiveGroupTarget.cs" />
+    <Compile Include="Model\bulk_CompetitiveGroupTargetItem.cs" />
+    <Compile Include="Model\bulk_Delete.cs" />
+    <Compile Include="Model\bulk_DistributedAdmissionVolume.cs" />
+    <Compile Include="Model\bulk_EntranceTestItemC.cs" />
+    <Compile Include="Model\bulk_Entrant.cs" />
+    <Compile Include="Model\bulk_EntrantDocument.cs" />
+    <Compile Include="Model\bulk_EntrantDocumentSubject.cs" />
+    <Compile Include="Model\bulk_InstitutionAchievements.cs" />
+    <Compile Include="Model\bulk_OrderOfAdmission.cs" />
+    <Compile Include="Model\Campaign.cs" />
+    <Compile Include="Model\CampaignEducationLevel.cs" />
+    <Compile Include="Model\CampaignOrderDateCatalog.cs" />
+    <Compile Include="Model\CampaignStatus.cs" />
+    <Compile Include="Model\CampaignTypes.cs" />
+    <Compile Include="Model\CityType.cs" />
+    <Compile Include="Dapper\Model\DistributedAdmissionVolumes\DistributedPlanAdmissionVolume.cs" />
+    <Compile Include="Dapper\Model\AdmissionVolumes\PlanAdmissionVolume.cs" />
+    <Compile Include="Model\EducationForm.cs" />
+    <Compile Include="Model\StateEmployeeCategory.cs" />
+    <Compile Include="Model\RadiationWorkCategory.cs" />
+    <Compile Include="Model\ParentsLostCategory.cs" />
+    <Compile Include="Model\VeteranCategory.cs" />
+    <Compile Include="Model\OrderOfAdmissionStatus.cs" />
+    <Compile Include="Model\IdNameModel.cs" />
+    <Compile Include="Model\TownType.cs" />
+    <Compile Include="Model\OrphanCategory.cs" />
+    <Compile Include="Model\CompatriotCategory.cs" />
+    <Compile Include="Model\CompetitiveGroup.cs" />
+    <Compile Include="Model\CompetitiveGroupItem.cs" />
+    <Compile Include="Model\CompetitiveGroupProgram.cs" />
+    <Compile Include="Model\CompetitiveGroupTarget.cs" />
+    <Compile Include="Model\CompetitiveGroupTargetItem.cs" />
+    <Compile Include="Model\CompositionThemes.cs" />
+    <Compile Include="Model\CompositionThemes_Approb.cs" />
+    <Compile Include="Model\CountryType.cs" />
+    <Compile Include="Model\CourseSubject.cs" />
+    <Compile Include="Model\CourseType.cs" />
+    <Compile Include="Model\C_A.cs" />
+    <Compile Include="Model\C_C.cs" />
+    <Compile Include="Model\C__MigrationHistory.cs" />
+    <Compile Include="Model\dba_indexDefragLog.cs" />
+    <Compile Include="Model\Direction.cs" />
+    <Compile Include="Model\DirectionSubjectLink.cs" />
+    <Compile Include="Model\DirectionSubjectLinkDirection.cs" />
+    <Compile Include="Model\DirectionSubjectLinkSubject.cs" />
+    <Compile Include="Model\Direction_old.cs" />
+    <Compile Include="Model\Direction_tmp.cs" />
+    <Compile Include="Model\DisabilityType.cs" />
+    <Compile Include="Model\DistributedAdmissionVolume.cs" />
+    <Compile Include="Model\DocumentCategory.cs" />
+    <Compile Include="Model\DocumentCheckStatus.cs" />
+    <Compile Include="Model\DocumentType.cs" />
+    <Compile Include="Model\EduLevelDocumentType.cs" />
+    <Compile Include="Model\EduLevels.cs" />
+    <Compile Include="Model\EduLevelsToUgsCode.cs" />
+    <Compile Include="Model\EDU_PROGRAM_TYPES.cs" />
+    <Compile Include="Model\EntranceTestCreativeDirection.cs" />
+    <Compile Include="Model\EntranceTestItemC.cs" />
+    <Compile Include="Model\EntranceTestProfileDirection.cs" />
+    <Compile Include="Model\EntranceTestResultSource.cs" />
+    <Compile Include="Model\EntranceTestType.cs" />
+    <Compile Include="Model\Entrant.cs" />
+    <Compile Include="Model\EntrantDocument.cs" />
+    <Compile Include="Model\EntrantDocumentCustom.cs" />
+    <Compile Include="Model\EntrantDocumentDisability.cs" />
+    <Compile Include="Model\EntrantDocumentEdu.cs" />
+    <Compile Include="Model\EntrantDocumentEge.cs" />
+    <Compile Include="Model\EntrantDocumentEgeAndOlympicSubject.cs" />
+    <Compile Include="Model\EntrantDocumentIdentity.cs" />
+    <Compile Include="Model\EntrantDocumentIdentity_tmp.cs" />
+    <Compile Include="Model\EntrantDocumentMarks.cs" />
+    <Compile Include="Model\EntrantDocumentOlympic.cs" />
+    <Compile Include="Model\EntrantLanguage.cs" />
+    <Compile Include="Model\FbsToFisMap.cs" />
+    <Compile Include="Model\findPathTable.cs" />
+    <Compile Include="Model\findPathTable_short.cs" />
+    <Compile Include="Model\ForeignLanguageType.cs" />
+    <Compile Include="Model\FormOfLaw.cs" />
+    <Compile Include="Model\GenderType.cs" />
+    <Compile Include="Model\GlobalMinEge.cs" />
+    <Compile Include="Model\IdentityDocumentType.cs" />
+    <Compile Include="Model\ImportPackage.cs" />
+    <Compile Include="Model\ImportPackageParsed.cs" />
+    <Compile Include="Model\ImportPackageParsed_back.cs" />
+    <Compile Include="Model\ImportPackageStatus.cs" />
+    <Compile Include="Model\ImportPackageType.cs" />
+    <Compile Include="Model\IndividualAchievementsCategory.cs" />
+    <Compile Include="Model\IndividualAchivement.cs" />
+    <Compile Include="Model\Institution.cs" />
+    <Compile Include="Model\InstitutionAccreditation.cs" />
+    <Compile Include="Model\InstitutionAchievements.cs" />
+    <Compile Include="Model\InstitutionDirectionRequest.cs" />
+    <Compile Include="Model\InstitutionDocuments.cs" />
+    <Compile Include="Model\InstitutionDocumentType.cs" />
+    <Compile Include="Model\InstitutionHistory.cs" />
+    <Compile Include="Model\InstitutionItem.cs" />
+    <Compile Include="Model\InstitutionItemType.cs" />
+    <Compile Include="Model\InstitutionLicense.cs" />
+    <Compile Include="Model\InstitutionStructure.cs" />
+    <Compile Include="Model\InstitutionType.cs" />
+    <Compile Include="Model\LevelBudget.cs" />
+    <Compile Include="Model\map_AdmissionData.cs" />
+    <Compile Include="Model\map_AdmissionVolume.cs" />
+    <Compile Include="Model\map_Application.cs" />
+    <Compile Include="Model\map_ApplicationSelectedCompetitiveGroupItem.cs" />
+    <Compile Include="Model\map_CompetitiveGroupItem.cs" />
+    <Compile Include="Model\map_CompetitiveGroupTargetItem.cs" />
+    <Compile Include="Model\map_Directions.cs" />
+    <Compile Include="Model\map_EntranceTestProfileDirection.cs" />
+    <Compile Include="Model\map_InstitutionItem.cs" />
+    <Compile Include="Model\map_InstitutionStructure.cs" />
+    <Compile Include="Model\Migrations.cs" />
+    <Compile Include="Model\MinScoreByRON.cs" />
+    <Compile Include="Model\NationalityType.cs" />
+    <Compile Include="Model\NormativeDictionary.cs" />
+    <Compile Include="Model\NormativeVersionState.cs" />
+    <Compile Include="Model\OlympicDiplomant.cs" />
+    <Compile Include="Model\OlympicDiplomantDocument.cs" />
+    <Compile Include="Model\OlympicDiplomantStatus.cs" />
+    <Compile Include="Model\OlympicDiplomType.cs" />
+    <Compile Include="Model\OlympicLevel.cs" />
+    <Compile Include="Model\OlympicProfile.cs" />
+    <Compile Include="Model\OlympicSubject.cs" />
+    <Compile Include="Model\OlympicType.cs" />
+    <Compile Include="Model\OlympicTypeProfile.cs" />
+    <Compile Include="Model\OlympicType_copy.cs" />
+    <Compile Include="Model\OrderOfAdmission.cs" />
+    <Compile Include="Model\OrderOfAdmissionHistory.cs" />
+    <Compile Include="Model\OrderOfAdmissionType.cs" />
+    <Compile Include="Model\ParentDirection.cs" />
+    <Compile Include="Model\ParentDirection_old.cs" />
+    <Compile Include="Model\PersonalDataAccessLog.cs" />
+    <Compile Include="Model\PreparatoryCourse.cs" />
+    <Compile Include="Model\RecomendedLists.cs" />
+    <Compile Include="Model\RecomendedListsHistory.cs" />
+    <Compile Include="Model\RegionType.cs" />
+    <Compile Include="Model\RequestComments.cs" />
+    <Compile Include="Model\RequestDirection.cs" />
+    <Compile Include="Model\RVIDocumentTypes.cs" />
+    <Compile Include="Model\RVIPersonIdentDocs.cs" />
+    <Compile Include="Model\RVIPersons.cs" />
+    <Compile Include="Model\SearchTMP.cs" />
+    <Compile Include="Model\Subject.cs" />
+    <Compile Include="Model\SubjectEgeMinValue.cs" />
+    <Compile Include="Model\SubjectEgeMinValue_copy.cs" />
+    <Compile Include="Model\TEMP1.cs" />
+    <Compile Include="Model\TEMP2.cs" />
+    <Compile Include="Model\Temp_GGV.cs" />
+    <Compile Include="Model\TEMP_HighMarks_2015.cs" />
+    <Compile Include="Model\Translation_RVIDT_IdentityDT.cs" />
+    <Compile Include="Model\UserPolicy.cs" />
+    <Compile Include="Model\ViolationType.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\AllowedDirections\IAllowedDirectionsRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\Olympics\IOlympicsRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\AllowedDirections\AllowedDirectionsRepository.cs" />
+    <Compile Include="Dapper\ViewModel\Common\UidViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\CompetitiveGroups\BenefitItemViewModel.cs" />
+    <Compile Include="Dapper\Repository\Model\Olympics\OlympicsRepository.cs" />
+    <Compile Include="Dapper\ViewModel\CompetitiveGroups\CampaignWithTypeViewModel.cs" />
+    <Compile Include="Dapper\DapperHelper.cs" />
+    <Compile Include="Dapper\Model\Dictionary\AdmissionItemType.cs" />
+    <Compile Include="Dapper\Model\DistributedAdmissionVolumes\DistributedAdmissionVolume.cs" />
+    <Compile Include="Dapper\Model\LevelBudgets\LevelBudget.cs" />
+    <Compile Include="Dapper\ViewModel\CompetitiveGroups\CompetitiveGroupTargetItemViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\CompetitiveGroups\DirectionViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\CompetitiveGroups\EntranceTestItemDataViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\Dictionary\AdmissionItemTypeView.cs" />
+    <Compile Include="Dapper\Model\Campaigns\Campaign.cs" />
+    <Compile Include="Dapper\Model\Campaigns\CampaignEducationLevel.cs" />
+    <Compile Include="Dapper\Model\CompetitiveGroups\CompetitiveGroup.cs" />
+    <Compile Include="Dapper\ViewModel\Dictionary\BenefitViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\Dictionary\CampaignStatusView.cs" />
+    <Compile Include="Dapper\ViewModel\Dictionary\CampaignTypesView.cs" />
+    <Compile Include="Dapper\ViewModel\Dictionary\EduLevelsToCampaignTypesView.cs" />
+    <Compile Include="Dapper\Model\Directions\Direction.cs" />
+    <Compile Include="Dapper\Model\Institutions\Institution.cs" />
+    <Compile Include="Dapper\Model\ParentDirections\ParentDirection.cs" />
+    <Compile Include="Dapper\Model\TargetOrganizations\CompetitiveGroupTarget.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\Admission\IAdmissionVolumeRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\Campaign\ICampaignRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\CompetitiveGroups\ICompetitiveGroupRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\Dictionary\IDictionaryRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\Institution\IInstitutionRepository.cs" />
+    <Compile Include="Dapper\Repository\Interfaces\TargetOrganization\ICompetitiveGroupTargetRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\Admission\AdmissionVolumeRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\BaseRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\Campaigns\CampaignRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\CompetitiveGroups\CompetitiveGroupRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\Dictionary\DictionaryContext.cs" />
+    <Compile Include="Dapper\Repository\Model\Dictionary\DictionaryRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\Institution\InstitutionRepository.cs" />
+    <Compile Include="Dapper\Repository\Model\TargetOrganization\CompetitiveGroupTargetRepository.cs" />
+    <Compile Include="Dapper\ViewModel\Admission\AdmissionVolumeViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\Campaign\CampaignViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\Common\SelectListItemViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\Common\SelectListViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\CompetitiveGroups\CompetitiveGroupViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\Dictionary\SubjectView.cs" />
+    <Compile Include="Dapper\ViewModel\Olympic\OlympicLevelViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\Olympic\OlympicTypeViewModel.cs" />
+    <Compile Include="Dto\AllowedDirectionCreateDto.cs" />
+    <Compile Include="Dapper\ViewModel\Olympics\OlympicsCatalogAddViewModel.cs" />
+    <Compile Include="Dapper\ViewModel\Olympics\OlympicsListViewModel.cs" />
+    <Compile Include="Dto\AttachmentCreateDto.cs" />
+    <Compile Include="Dto\AttachmentDto.cs" />
+    <Compile Include="Dapper\Model\AllowedDirections\InstitutionDirectionRequestType.cs" />
+    <Compile Include="Dto\DirectionDto.cs" />
+    <Compile Include="Dto\IDirectionDescription.cs" />
+    <Compile Include="Dto\InstitutionDirectionRequestDto.cs" />
+    <Compile Include="Dto\InstitutionDirectionRequestSummaryDto.cs" />
+    <Compile Include="Dto\InstitutionDirectionSearchCommand.cs" />
+    <Compile Include="Dto\InstitutionDirectionSearchType.cs" />
+    <Compile Include="Dto\InstitutionInfoDocumentDto.cs" />
+    <Compile Include="Dto\InstitutionInfoDto.cs" />
+    <Compile Include="Dto\InstitutionInfoUpdateDto.cs" />
+    <Compile Include="Dto\InstitutionInfoYearDocumentDto.cs" />
+    <Compile Include="Dto\IPageable.cs" />
+    <Compile Include="Dto\ISortable.cs" />
+    <Compile Include="Dto\SimpleDto.cs" />
+    <Compile Include="Dto\SimpleDtoBase.cs" />
+    <Compile Include="Dto\SubmitDirectionRequestDto.cs" />
+    <Compile Include="Helpers\LinqHelper.cs" />
+    <Compile Include="Helpers\SelectorItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLQuery.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQLQuery.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\DocumentInfoViewModel.cs" />
+    <Compile Include="ViewModel\CompositionExportViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dapper\ViewModel\Institutions\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SQLQuery.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SQLQuery.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQLQuery\Campaign\GetCampaignList.sql" />
+    <None Include="SQLQuery\Campaign\GetCampaign.sql" />
+    <None Include="SQLQuery\Dictionary\GetCampaignStatus.sql" />
+    <None Include="SQLQuery\Dictionary\GetCampaignTypes.sql" />
+    <None Include="SQLQuery\Campaign\GetCampaignEducationLevel.sql" />
+    <None Include="SQLQuery\Campaign\GetLevelsEducation.sql" />
+    <None Include="SQLQuery\Campaign\UpdateCampaign.sql" />
+    <None Include="SQLQuery\Campaign\GetEduLevelsToCampaignTypes.sql" />
+    <None Include="SQLQuery\Campaign\UpdateCampaignEducationLevel.sql" />
+    <None Include="SQLQuery\Campaign\GetCampaignById.sql" />
+    <None Include="SQLQuery\Campaign\GetEditCampaignTypes.sql" />
+    <None Include="SQLQuery\Admission\AdmissionVolume\AllowedDirection.sql" />
+    <None Include="SQLQuery\Admission\AdmissionVolume\AllowedCampaigns.sql" />
+    <None Include="SQLQuery\Admission\AdmissionVolume\GetAdmissionVolume.sql" />
+    <None Include="SQLQuery\Admission\AdmissionVolume\GetDistributedAdmissionVolume.sql" />
+    <None Include="SQLQuery\Admission\AdmissionVolume\DirectionsInfo.sql" />
+    <None Include="SQLQuery\Admission\AdmissionVolume\SaveAdmissionVolume.sql" />
+    <None Include="SQLQuery\Admission\AdmissionVolume\UpdateAdmissionVolume.sql" />
+    <None Include="SQLQuery\CompetitiveGroup\ParentDirectionCheckKCP.sql" />
+    <Content Include="SQLQuery\Admission\AdmissionVolume\AdmissionVolumeByCampaign.sql" />
+    <Content Include="SQLQuery\Admission\AdmissionVolume\DistributedAdmissionVolumeCheckKCP.sql" />
+    <Content Include="SQLQuery\Admission\AdmissionVolume\DistributedAdmissionVolumeByCampaign.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\DeleteDistributedPlanAdmissionVolumeByPlanAdmissionVolumeId.sql" />
+    <Content Include="SQLQuery\Admission\VolumeTransfer\CheckIfTransferHasBenefit.sql" />
+    <Content Include="SQLQuery\Admission\VolumeTransfer\CheckTransferVolume.sql" />
+    <Content Include="SQLQuery\Admission\VolumeTransfer\VolumeTransferByCampaign.sql" />
+    <Content Include="SQLQuery\Campaign\GetCampaignFormFlags.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\CreateDistributedPlanAdmissionVolume.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\CreatePlanAdmissionVolume.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\DeleteDistributedPlanAdmissionVolume.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\DeletePlanAdmissionVolume.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\DistributedPlanAdmissionVolumeByCampaign.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\PlanAdmissionVolumeByCampaign.sql" />
+    <Content Include="SQLQuery\Admission\AdmissionVolume\AdmissionVolumeCheckKCP.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\PlanAdmissionVolumeDirectionGroupsByCampaign.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\PlanAdmissionVolumeDirectionsByCampaign.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\UpdateDistributedPlanAdmissionVolume.sql" />
+    <Content Include="SQLQuery\Admission\PlanAdmissionVolume\UpdatePlanAdmissionVolume.sql" />
+    <Content Include="SQLQuery\AllowedDirections\AddAllowedDirection.sql" />
+    <Content Include="SQLQuery\AllowedDirections\AddAllowedProfDirection.sql" />
+    <Content Include="SQLQuery\AllowedDirections\DeleteAllowedDirection.sql" />
+    <Content Include="SQLQuery\AllowedDirections\DeleteDeniedInstitutionRequests.sql" />
+    <Content Include="SQLQuery\AllowedDirections\DenyInstitutionDirectionRequest.sql" />
+    <Content Include="SQLQuery\AllowedDirections\InsertAllowedDirection.sql" />
+    <Content Include="SQLQuery\AllowedDirections\InsertInstitutionDirectionRequest.sql" />
+    <Content Include="SQLQuery\AllowedDirections\FindDirectionsToExclude.sql" />
+    <Content Include="SQLQuery\AllowedDirections\FindDirectionsToIncludeAdmin.sql" />
+    <Content Include="SQLQuery\AllowedDirections\FindDirectionsToInclude.sql" />
+    <Content Include="SQLQuery\AllowedDirections\FindDirectionsToIncludeProf.sql" />
+    <Content Include="SQLQuery\AllowedDirections\GetInstitutionDirectionRequestById.sql" />
+    <Content Include="SQLQuery\AllowedDirections\DeleteInstitutionRequestById.sql" />
+    <Content Include="SQLQuery\AllowedDirections\GetInstitutionDirectionRequestByTypes.sql" />
+    <Content Include="SQLQuery\AllowedDirections\InstitutionDirectionRequestDetails.sql" />
+    <Content Include="SQLQuery\AllowedDirections\InstitutionDirectionRequestListCount.sql" />
+    <Content Include="SQLQuery\AllowedDirections\InstitutionDirectionRequestListPaged.sql" />
+    <Content Include="SQLQuery\Campaign\GetCampaignUsedEducationForms.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\CheckCompetitiveGroupCanBeEdited.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\CheckKCP.sql" />
+    <Content Include="SQLQuery\Admission\VolumeTransfer\BeginVolumeTransfer.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\DeleteCompetitiveGroup.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetBenefitItemCs.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetBenefitUIDs.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetCampaignStartYears.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetCampaignWithTypes.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetCompetitiveGroupById.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetCompetitiveGroupList.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetCompetitiveGroupProgramsByOO.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetCompetitiveGroupProgramsByCompetitiveGroup.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetCompetitiveGroupTargetItemsByCG.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetCompetitiveGroupUIDs.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetDirectionsByInstitutionAndEducationLevel.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetEntranceTestItemCUids.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\GetEntranceTestsByCompetitiveGroup.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\UpdateCompetitiveGroupProperties.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\UpdateMultiProfileCG.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\UpdateCompetitiveGroup.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\UpdateCompetitiveGroupProgram.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\UpdateCompetitiveGroupTargetItem.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\UpdateEntranceTestItem.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\CopyCompetitiveGroup.sql" />
+    <Content Include="SQLQuery\CompetitiveGroup\ValidateCompetitiveGroup.sql" />
+    <Content Include="SQLQuery\Dictionary\GetAdmissionItemType.sql" />
+    <Content Include="SQLQuery\Dictionary\GetBenefits.sql" />
+    <Content Include="SQLQuery\Dictionary\GetGlobalMinEge.sql" />
+    <Content Include="SQLQuery\Dictionary\GetInstitutionFounderEsrpOrgId.sql" />
+    <Content Include="SQLQuery\Dictionary\GetOlympicDiplomTypes.sql" />
+    <Content Include="SQLQuery\Dictionary\GetOlympicLevels.sql" />
+    <Content Include="SQLQuery\Dictionary\GetOlympicProfiles.sql" />
+    <Content Include="SQLQuery\InstitutionProgram\UpdateInstitutionProgram.sql" />
+    <Content Include="SQLQuery\InstitutionProgram\DeleteInstitutionProgram.sql" />
+    <Content Include="SQLQuery\InstitutionProgram\FindInstitutionProgram.sql" />
+    <Content Include="SQLQuery\InstitutionProgram\GetInstitutionProgram.sql" />
+    <Content Include="SQLQuery\Institution\GetInstitutionStructureDto.sql" />
+    <Content Include="SQLQuery\Olympic\GetOlympicTypes.sql" />
+    <Content Include="SQLQuery\Dictionary\GetSimpleEduLevelsList.sql" />
+    <Content Include="SQLQuery\Dictionary\GetSimpleUgsList.sql" />
+    <Content Include="SQLQuery\Dictionary\GetSubjectsWithMinValue.sql" />
+    <Content Include="SQLQuery\Institution\GetInstitutionSimpleDto.sql" />
+    <Content Include="SQLQuery\Institution\DeleteInstitutionDocument.sql" />
+    <Content Include="SQLQuery\Institution\DeleteInstitutionHostelFile.sql" />
+    <Content Include="SQLQuery\Institution\DeleteInstitutionAccreditationFile.sql" />
+    <Content Include="SQLQuery\Institution\UpdateInstitutionAccreditationNumber.sql" />
+    <Content Include="SQLQuery\Institution\UpdateInstitutionHostelFile.sql" />
+    <Content Include="SQLQuery\Institution\UpdateInstitutionAccreditationFile.sql" />
+    <Content Include="SQLQuery\Institution\UpdateInstitutionDocument.sql" />
+    <Content Include="SQLQuery\Institution\UpdateInstitutionLicenseFile.sql" />
+    <Content Include="SQLQuery\Institution\DeleteInstitutionLicenseFile.sql" />
+    <Content Include="SQLQuery\Institution\InsertAttachment.sql" />
+    <Content Include="SQLQuery\Institution\GetInstitutionAccreditationDocumentDto.sql" />
+    <Content Include="SQLQuery\Institution\GetInstitutionDocuments.sql" />
+    <Content Include="SQLQuery\Institution\GetInstitutionHostelDocumentDto.sql" />
+    <Content Include="SQLQuery\Institution\GetInstitutionInfoDto.sql" />
+    <Content Include="SQLQuery\Institution\GetInstitutionLicenseDocumentDto.sql" />
+    <Content Include="SQLQuery\Institution\UpdateInstitutionInfo.sql" />
+    <Content Include="SQLQuery\Olympics\InsertOlympic.sql" />
+    <Content Include="SQLQuery\Olympics\DeleteOlympic.sql" />
+    <Content Include="SQLQuery\Olympics\UpdateOlympic.sql" />
+    <Content Include="SQLQuery\Olympics\GetOlympicsSubjects.sql" />
+    <Content Include="SQLQuery\Olympics\GetOlympicsList.sql" />
+    <Content Include="SQLQuery\TargetOrganization\DeleteCompetitiveGroupTarget.sql" />
+    <Content Include="SQLQuery\TargetOrganization\FindCompetitiveGroupTarget.sql" />
+    <Content Include="SQLQuery\TargetOrganization\GetCompetitiveGroupTargets.sql" />
+    <Content Include="SQLQuery\TargetOrganization\UpdateCompetitiveGroupTarget.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GVUZ.CompositionExportModel\GVUZ.CompositionExportModel.csproj">
+      <Project>{1B20E4D0-2ACD-4065-8CE9-F4949C54DBBA}</Project>
+      <Name>GVUZ.CompositionExportModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

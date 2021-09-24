@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NormativeDictionaries.Store" Alias="Self" Provider="System.Data.SqlClient"
+              ProviderManifestToken="2008"
+              xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"
+              xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="NormativeDictionariesStoreContainer">
+          <EntitySet Name="NormativeDictionary" EntityType="NormativeDictionaries.Store.NormativeDictionary"
+                     store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NormativeVersionState" EntityType="NormativeDictionaries.Store.NormativeVersionState"
+                     store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_NormativeDictionary_NormativeVersionState"
+                          Association="NormativeDictionaries.Store.FK_NormativeDictionary_NormativeVersionState">
+            <End Role="NormativeVersionState" EntitySet="NormativeVersionState" />
+            <End Role="NormativeDictionary" EntitySet="NormativeDictionary" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="NormativeDictionary">
+          <Key>
+            <PropertyRef Name="DictionaryID" />
+          </Key>
+          <Property Name="DictionaryID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="VersionID" Type="int" Nullable="false" />
+          <Property Name="ActivationDate" Type="datetime" />
+          <Property Name="VersionStateID" Type="tinyint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NormativeVersionState">
+          <Key>
+            <PropertyRef Name="VersionStateID" />
+          </Key>
+          <Property Name="VersionStateID" Type="tinyint" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_NormativeDictionary_NormativeVersionState">
+          <End Role="NormativeVersionState" Type="NormativeDictionaries.Store.NormativeVersionState" Multiplicity="1" />
+          <End Role="NormativeDictionary" Type="NormativeDictionaries.Store.NormativeDictionary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NormativeVersionState">
+              <PropertyRef Name="VersionStateID" />
+            </Principal>
+            <Dependent Role="NormativeDictionary">
+              <PropertyRef Name="VersionStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NormativeDictionaries" Alias="Self"
+              xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+              xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="NormativeDictionaryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NormativeDictionary" EntityType="NormativeDictionaries.NormativeDictionary" />
+          <EntitySet Name="NormativeVersionState" EntityType="NormativeDictionaries.NormativeVersionState" />
+          <AssociationSet Name="FK_NormativeDictionary_NormativeVersionState"
+                          Association="NormativeDictionaries.FK_NormativeDictionary_NormativeVersionState">
+            <End Role="NormativeVersionState" EntitySet="NormativeVersionState" />
+            <End Role="NormativeDictionary" EntitySet="NormativeDictionary" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="NormativeDictionary">
+          <Key>
+            <PropertyRef Name="DictionaryID" />
+          </Key>
+          <Property Name="DictionaryID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VersionID" Type="Int32" Nullable="false" />
+          <Property Name="ActivationDate" Type="DateTime" Nullable="true" />
+          <Property Type="Byte" Name="VersionStateID" Nullable="false" />
+          <NavigationProperty Name="NormativeVersionState"
+                              Relationship="NormativeDictionaries.FK_NormativeDictionary_NormativeVersionState"
+                              FromRole="NormativeDictionary" ToRole="NormativeVersionState" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+        </EntityType>
+        <EntityType Name="NormativeVersionState">
+          <Key>
+            <PropertyRef Name="VersionStateID" />
+          </Key>
+          <Property Type="Byte" Name="VersionStateID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NormativeDictionary"
+                              Relationship="NormativeDictionaries.FK_NormativeDictionary_NormativeVersionState"
+                              FromRole="NormativeVersionState" ToRole="NormativeDictionary" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+        </EntityType>
+        <Association Name="FK_NormativeDictionary_NormativeVersionState">
+          <End Type="NormativeDictionaries.NormativeVersionState" Role="NormativeVersionState" Multiplicity="1" />
+          <End Type="NormativeDictionaries.NormativeDictionary" Role="NormativeDictionary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NormativeVersionState">
+              <PropertyRef Name="VersionStateID" />
+            </Principal>
+            <Dependent Role="NormativeDictionary">
+              <PropertyRef Name="VersionStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NormativeDictionariesStoreContainer"
+                                CdmEntityContainer="NormativeDictionaryEntities">
+          <EntitySetMapping Name="NormativeDictionary">
+            <EntityTypeMapping TypeName="NormativeDictionaries.NormativeDictionary">
+              <MappingFragment StoreEntitySet="NormativeDictionary">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="VersionStateID" ColumnName="VersionStateID" />
+                <ScalarProperty Name="DictionaryID" ColumnName="DictionaryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="VersionID" ColumnName="VersionID" />
+                <ScalarProperty Name="ActivationDate" ColumnName="ActivationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NormativeVersionState">
+            <EntityTypeMapping TypeName="NormativeDictionaries.NormativeVersionState">
+              <MappingFragment StoreEntitySet="NormativeVersionState">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="VersionStateID" ColumnName="VersionStateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="NormativeDictionaries">
+        <EntityTypeShape EntityType="NormativeDictionaries.NormativeDictionary" Width="1.875" PointX="0.75"
+                         PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NormativeDictionaries.NormativeVersionState" Width="2" PointX="3.875"
+                         PointY="0.875" Height="1.5956835937499996" />
+        <AssociationConnector Association="NormativeDictionaries.FK_NormativeDictionary_NormativeVersionState">
+          <ConnectorPoint PointX="3.875" PointY="1.6728417968749998" />
+          <ConnectorPoint PointX="2.625" PointY="1.6728417968749998" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

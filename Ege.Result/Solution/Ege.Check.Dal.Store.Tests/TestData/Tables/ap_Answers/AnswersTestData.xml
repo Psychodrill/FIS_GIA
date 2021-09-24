@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<TestDataSet xmlns="http://tempuri.org/TestDataSet.xsd">
+  <ap_Answers>
+    <Id>1</Id>
+    <RegionId>61</RegionId>
+    <ParticipantExamId>2</ParticipantExamId>
+    <TaskTypeCode>0</TaskTypeCode>
+    <TaskNumber>1</TaskNumber>
+    <AnswerValue>Тестовый ответ</AnswerValue>
+    <Mark>1</Mark>
+  </ap_Answers>
+  <ap_Answers>
+    <Id>2</Id>
+    <RegionId>61</RegionId>
+    <ParticipantExamId>2</ParticipantExamId>
+    <TaskTypeCode>0</TaskTypeCode>
+    <TaskNumber>2</TaskNumber>
+    <AnswerValue>Тестовый ответ1</AnswerValue>
+    <Mark>0</Mark>
+  </ap_Answers>
+  <ap_Answers>
+    <Id>3</Id>
+    <RegionId>61</RegionId>
+    <ParticipantExamId>2</ParticipantExamId>
+    <TaskTypeCode>0</TaskTypeCode>
+    <TaskNumber>3</TaskNumber>
+    <AnswerValue>Тестовый ответ3</AnswerValue>
+    <Mark>3</Mark>
+  </ap_Answers>
+</TestDataSet>

@@ -1,0 +1,24 @@
+.form-grid(@label-width: 20%) {
+	
+	.row {
+		.clearfix;
+		margin-bottom: 10px;
+	}
+
+	.label, .input {
+		float: left;
+	}
+
+	.label {
+		width: @label-width;
+	}
+
+	.input {
+		width: 100% - @label-width;
+
+		input, select {
+			width: 100%;
+			font-size: 16px;
+		}
+	}
+}

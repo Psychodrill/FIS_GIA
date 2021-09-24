@@ -1,0 +1,602 @@
+﻿table.gvuzData {
+    width: 100%;
+    border-spacing: 2px 2px;
+    border-collapse: separate !important;
+    display: table;
+}
+
+    table.gvuzData th.caption {
+        width: 300px;
+    }
+
+    table.gvuzData td.caption {
+        text-align: right;
+    }
+
+    table.gvuzData td.caption-top {
+        text-align: right;
+        vertical-align: top;
+        padding-top: 4px;
+    }
+
+/* table for administration institute */
+.tableAdmin {
+    border-collapse: collapse;
+    width: 99%;
+}
+
+    .tableAdmin tr.separat {
+        border-bottom: 1px dotted #b2c5dc;
+    }
+
+    .tableAdmin td.caption {
+        padding: 5px 10px;
+        text-align: right;
+        color: #212121;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+
+/* table for applications step 2 */
+.tableApp2 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tableApp2 {
+    margin-bottom: 25px;
+}
+
+    /*.tableApp2 td 
+{
+	padding-top: 5px;	
+}*/
+
+    .tableApp2 td.caption {
+        text-align: right !important;
+    }
+
+
+        .tableApp2 td.caption label {
+            text-align: right !important;
+            display: inline-block;
+            vertical-align: top;
+            margin: 5px 10px !important;
+            padding: 5px;
+            color: #212121;
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: 400;
+            width: 200px;
+        }
+
+    .tableApp2 span.caption label {
+        text-align: right !important;
+        color: #212121;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 5px;
+        margin: 5px 10px !important;
+    }
+
+/* //-- */
+
+.wideInput {
+    width: 500px !important;
+}
+
+span.required {
+    font-family: Roboto;
+    color: #d24a43;
+    font-weight: 500;
+}
+
+.shortInput {
+    width: 100px !important;
+}
+
+.readOnlyControl {
+    background-color: #eee;
+    color: #666;
+}
+
+.rightAlign {
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* institution  */
+.multyRowContent {
+    vertical-align: top;
+    padding-top: 5px;
+}
+
+/* Menu control */
+.menuNoWrap {
+    margin-top: 7px;
+    white-space: nowrap;
+}
+
+div.spacer {
+    clear: both;
+}
+
+div.busy {
+    border: none;
+    margin: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.blockMsg {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+}
+
+a.busy {
+    padding-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    cursor: default;
+}
+
+a.delete {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+.gvuzDataGrid td input {
+    width: 90%;
+    height: 18px;
+}
+
+    .gvuzDataGrid td input[type='file'] {
+        width: 90%;
+        height: auto;
+    }
+
+    .gvuzDataGrid td input[type='button'] {
+        width: auto;
+        height: auto;
+    }
+
+    .gvuzDataGrid td input[type='radio'] {
+        width: 18px;
+        height: 18px;
+    }
+
+
+.gvuzDataGrid td select {
+    width: 90%;
+    /*	height:22px;*/
+}
+
+.gvuzDataGrid td .numeric {
+    text-align: right;
+}
+
+
+/*.gvuzDataGrid th
+{
+	padding: 3px 3px 10px 3px;
+	font-weight:bold;
+	border:1px solid gray;
+	text-align:center;
+}*/
+
+.gvuzDataGrid td.imageBtn {
+    width: 30px;
+    text-align: center;
+}
+
+/*.gvuzDataGrid td
+{
+	padding: 3px;
+	height: 22px;
+	border:1px solid gray;
+}*/
+
+.gvuzDataGrid td.noBottomBorder {
+    border-bottom: 1px solid white;
+}
+
+.gvuzDataGrid a img {
+    border: 0;
+}
+
+/*.gvuzDataGrid
+{
+	background-color:white;
+	border:1px solid gray;
+	width:100%;
+	border-collapse: collapse;
+}*/
+
+.linkSumulatorGray {
+    cursor: pointer;
+    color: red;
+}
+
+
+.linkSumulator {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+    .linkSumulator:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .linkSumulator:active {
+        text-decoration: none;
+    }
+
+.gvuzDataGrid th .linkSumulator {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a.add {
+
+}
+
+div.gvuzMenu {
+    margin-bottom: 20px;
+}
+
+div.infoBlock {
+    width: 120px;
+    height: 70px;
+    margin: 3px;
+    padding: 5px;
+    float: left;
+    line-height: 1.5em;
+}
+
+#ajax-status-message {
+    padding: 8px;
+    margin-top: 128px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    z-index: 1001;
+    position: fixed;
+    width: 30%;
+    left: 35%;
+    top: 0px;
+}
+
+.ajax-error-message {
+    background-color: #f2baba;
+    color: #990000;
+    border: 2px solid #b81616;
+}
+
+.ajax-warning-message {
+    background-color: #ffe2ae;
+    color: #8B5F00;
+    border: 2px solid #8B5F00;
+}
+
+.ajax-success-message {
+    background-color: #baf2bb;
+    color: #049900;
+    border: 2px solid #15a612;
+}
+
+select.roles {
+    width: 200px;
+    height: 300px;
+}
+
+.alignLeft {
+    text-align: left;
+}
+
+.w500px {
+    width: 500px !important;
+}
+
+.w250px {
+    width: 250px !important;
+}
+
+
+.w200px {
+    width: 200px !important;
+}
+
+.w150px {
+    width: 150px !important;
+}
+
+.w100px {
+    width: 100px !important;
+}
+
+.left10 {
+    margin-left: 10px;
+}
+
+.fieldsets {
+    border: 1px solid #b1c5ec;
+    margin: 20px 0px 20px 0px;
+    padding: 10px;
+    position: relative;
+}
+
+    .fieldsets legend, .fieldsets div {
+        color: #0a4b9c;
+        font-family: "Tahoma";
+        font-size: 12px;
+        font-weight: bold;
+        margin-top: 12px;
+    }
+
+.superscript {
+    vertical-align: super;
+    font-family: "Tahoma";
+    font-size: 8px important !;
+    font-weight: normal;
+}
+
+/* calendar jQuery control customization */
+
+.gvuz-calendar-icon {
+    margin-left: -20px;
+    margin-bottom: -6px;
+}
+
+.gvuz-ui-widget-header {
+    background: url(images/calendar/c_bg.png) repeat-x;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    color: white;
+    font-weight: bold;
+}
+
+div.ui-datepicker-title {
+    height: 34px;
+    padding: 0px;
+}
+
+
+    div.ui-datepicker-title select {
+        width: 70px !important;
+        padding: 0px;
+        height: 22px;
+        margin-top: 3px !important;
+    }
+
+        div.ui-datepicker-title select option {
+            margin: 0px;
+            padding: 1px;
+            height: 20px;
+        }
+
+        div.ui-datepicker-title select.ui-datepicker-month {
+            margin-right: 20px !important;
+        }
+
+.gvuz-ui-datepicker-prev-icon {
+    background: url(images/calendar/c_left.png);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 26px;
+    height: 34px;
+    cursor: pointer;
+}
+
+.gvuz-ui-datepicker-next-icon {
+    background: url(images/calendar/c_right.png);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 26px;
+    height: 34px;
+    cursor: pointer;
+}
+
+.gvuz-ui-widget-content {
+    border-width: 0px;
+    background: #eeeeee;
+    color: #333333;
+}
+
+    .gvuz-ui-widget-content .ui-state-active a,
+    .gvuz-ui-widget-content .ui-state-active a:link,
+    .gvuz-ui-widget-content .ui-state-active a:visited {
+        color: #fff;
+        text-decoration: none;
+    }
+
+.gvuz-ct {
+    background: url(images/calendar/n_bg.png) left top repeat-x;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0px;
+    padding: 1px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Myriad Pro, arial;
+    width: 30px;
+    height: 24px;
+}
+
+
+.gvuz-cn {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
+    background: #ffffff;
+    border: 1px solid #999999;
+    color: #636363;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Myriad Pro, arial;
+    width: 30px;
+    height: 24px;
+}
+
+    .gvuz-cn a {
+        text-align: center !important;
+    }
+
+.gvuz-c1 {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
+    background: #e66100;
+    border: 1px solid #e66100;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Myriad Pro, arial;
+    width: 30px;
+    height: 24px;
+}
+
+.gvuz-c0 {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
+    background: #eeeeee;
+    border: 1px solid #eeeeee;
+    color: #eeeeee;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Myriad Pro, arial;
+    width: 30px;
+    height: 24px;
+}
+
+.ui-datepicker th {
+    padding: 0px !important;
+    text-align: center !important;
+    font-weight: normal !important;
+    border: 0 !important;
+}
+
+.ui-datepicker td {
+    border-width: 1px !important;
+    padding: 0px !important;
+    text-align: center !important;
+}
+
+
+.ui-datepicker table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: separate !important;
+    margin: 0 0 .4em;
+}
+
+/* ----------- calendar jQuery control customization */
+
+.outershadow {
+    box-shadow: #666666 0px 0px 6px;
+}
+
+.gvuzDataGrid.reportsMenu {
+    width: 30%;
+    display: inline-table;
+}
+
+.gvuzDataGrid.reportForm {
+    width: 60%;
+    display: inline-table;
+}
+
+    .gvuzDataGrid.reportForm th {
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .gvuzDataGrid.reportForm input[type=submit] {
+        height: unset !important;
+        width: unset !important;
+    }
+
+.reportHtml {
+    max-width: 800px;
+    overflow-x: scroll;
+}
+
+.reportParameterInput.year {
+    width: 200px;
+}
+
+.reportParameterInput.format {
+    width: 200px;
+}
+
+.autoTable {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 0;
+    color: #2a2a2a;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    font-size: 14px;
+}
+
+    .autoTable td {
+        height: 50px;
+        padding: 0 20px;
+        box-shadow: 0 1px 0 white;
+        -moz-box-shadow: 0 1px 0 white;
+        -webkit-box-shadow: 0 1px 0 white;
+        text-align: left;
+        vertical-align: middle;
+        display: table-cell;
+    }
+
+        .autoTable td:first-child {
+            width: 30%;
+        }
+
+    .autoTable input[type="checkbox"] {
+        content: "";
+        display: inline-block;
+        height: 18px;
+        width: 18px;
+        margin: 0 5px 0 0;
+    }
+
+    .autoTable.reportsMenu {
+        width: 30%;
+        display: inline-table;
+    }
+
+    .autoTable.reportForm {
+        width: 60%;
+        display: inline-table;
+    }
+
+        .autoTable.reportForm input[type=submit] {
+            height: 25px;
+            width: 120px;
+        }

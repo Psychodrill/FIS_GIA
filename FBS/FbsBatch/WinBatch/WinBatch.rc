@@ -1,0 +1,405 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_WINBATCH            ICON                    "WinBatch.ico"
+IDI_SMALL               ICON                    "small.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_WINBATCH MENU 
+BEGIN
+    POPUP "&Действие"
+    BEGIN
+        MENUITEM "Ручной ввод данных сертификатов...", ID_FILE_INPUTCERTIFICATE
+        MENUITEM "Ручной ввод данных абитуриентов...", ID_FILE_INPUTENTRANT
+        MENUITEM SEPARATOR
+        MENUITEM "Импорт сертификатов...",      ID_FILE_IMPORTCERTIFICATE
+        MENUITEM "Импорт абитуриентов...",      ID_FILE_ENTRANTIMPORT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "Настройка"
+    BEGIN
+        MENUITEM "Рабочая папка...",            ID_SETTINGS_WORKDIR
+    END
+    POPUP "Справка"
+    BEGIN
+        MENUITEM "О программе...",              ID_ABOUT_PROGRAMM
+    END
+END
+
+IDC_WINBATCH_SHORT MENU 
+BEGIN
+    POPUP "&Действие"
+    BEGIN
+        MENUITEM "Ручной ввод данных сертификатов...", ID_FILE_INPUTCERTIFICATE
+        MENUITEM SEPARATOR
+        MENUITEM "Импорт сертификатов...",      ID_FILE_IMPORTCERTIFICATE
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "Настройка"
+    BEGIN
+        MENUITEM "Рабочая папка...",            ID_SETTINGS_WORKDIR
+    END
+    POPUP "Справка"
+    BEGIN
+        MENUITEM "О программе...",              ID_ABOUT_PROGRAMM
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDC_WINBATCH ACCELERATORS 
+BEGIN
+    "?",            IDM_ABOUT,              ASCII,  ALT
+    "/",            IDM_ABOUT,              ASCII,  ALT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 244, 53
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "О программе"
+FONT 8, "System", 0, 0, 0x0
+BEGIN
+    LTEXT           "Генератор файлов для пакетной обработки в ФБС",IDC_STATIC,35,3,173,8,SS_NOPREFIX
+    LTEXT           "(C) 2008 Рособразование, Рособрнадзор",IDC_STATIC,49,21,144,8
+    DEFPUSHBUTTON   "OK",IDOK,209,37,30,11,WS_GROUP
+    ICON            IDI_WINBATCH,IDC_MYICON,6,6,20,20
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 304, 103
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Рабочая папка..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Принять",IDOK,191,81,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,245,81,50,14
+    GROUPBOX        "Укажите путь к рабочей дирректории:",IDC_STATIC,7,7,288,36
+    EDITTEXT        IDC_EDIT1,19,19,210,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Обзор...",IDBROWSE,235,17,50,14
+    LTEXT           "Static",IDC_STATIC2,19,57,265,8
+    GROUPBOX        "Текущее значение рабочей дирректории:",IDC_STATIC,7,45,288,28
+END
+
+IDD_DIALOG2 DIALOGEX 0, 0, 304, 103
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Импорт сертификатов"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Выполнить",IDOK,191,81,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,245,81,50,14
+    GROUPBOX        "Укажите путь к файлу импорта:",IDC_STATIC,7,7,288,36
+    EDITTEXT        IDC_EDIT1,19,19,210,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Обзор...",IDBROWSE,235,17,50,14
+    LTEXT           "Static",IDC_STATIC3,19,57,265,8
+    GROUPBOX        "Данные сохраняются в файл:",IDC_STATIC,7,45,288,28
+END
+
+IDD_DIALOG3 DIALOGEX 0, 0, 304, 103
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Импорт абитуриентов"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Выполнить",IDOK,191,81,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,245,81,50,14
+    GROUPBOX        "Укажите путь к файлу импорта:",IDC_STATIC,7,7,288,36
+    EDITTEXT        IDC_EDIT1,19,19,210,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Обзор...",IDBROWSE,235,17,50,14
+    LTEXT           "Static",IDC_STATIC3,19,57,265,8
+    GROUPBOX        "Данные сохраняются в файл:",IDC_STATIC,7,45,288,28
+END
+
+IDD_DIALOG4 DIALOGEX 0, 0, 304, 364
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Ручной ввод данных сертификатов"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Добавить",IDOK,193,340,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,247,340,50,14
+    GROUPBOX        "Абитуриент:",IDC_STATIC,7,7,290,49
+    LTEXT           "*Фамилия:",IDC_STATIC,14,22,42,8
+    LTEXT           "*Имя:",IDC_STATIC,169,22,24,8
+    LTEXT           "Отчество:",IDC_STATIC,16,38,36,8
+    EDITTEXT        IDC_EDIT1,58,19,96,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,193,19,96,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,58,36,96,14,ES_AUTOHSCROLL
+    GROUPBOX        "Свидетельство:",IDC_STATIC,7,58,290,33
+    LTEXT           "*Номер:",IDC_STATIC,16,73,42,8
+    EDITTEXT        IDC_EDIT4,58,70,96,14,ES_AUTOHSCROLL
+    CONTROL         "Предъявлен оригинал",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,169,73,91,10
+    GROUPBOX        "Баллы по предметам:",IDC_STATIC,7,94,290,207
+    LTEXT           "Русский язык:",IDC_STATIC,16,109,60,8
+    EDITTEXT        IDC_EDIT5,83,106,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Математика:",IDC_STATIC,16,126,60,8
+    EDITTEXT        IDC_EDIT6,83,123,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Физика:",IDC_STATIC,16,143,60,8
+    EDITTEXT        IDC_EDIT7,83,141,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Химия:",IDC_STATIC,16,179,60,8
+    EDITTEXT        IDC_EDIT8,83,175,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Биология:",IDC_STATIC,16,196,60,8
+    EDITTEXT        IDC_EDIT9,83,192,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "История России:",IDC_STATIC,16,230,60,8
+    EDITTEXT        IDC_EDIT10,83,226,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Обществознание:",IDC_STATIC,16,247,66,8
+    EDITTEXT        IDC_EDIT11,83,243,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Литература:",IDC_STATIC,16,264,66,8
+    EDITTEXT        IDC_EDIT12,83,261,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "География:",IDC_STATIC,16,281,66,8
+    EDITTEXT        IDC_EDIT13,83,278,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT14,257,106,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Английский язык:",IDC_STATIC,187,109,69,8
+    LTEXT           "Французский язык:",IDC_STATIC,187,126,71,8
+    EDITTEXT        IDC_EDIT15,257,123,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Немецкий язык:",IDC_STATIC,187,143,71,8
+    EDITTEXT        IDC_EDIT16,257,141,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Испанский язык:",IDC_STATIC,187,162,71,8
+    EDITTEXT        IDC_EDIT17,257,158,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Информатика:",IDC_STATIC,187,196,71,8
+    EDITTEXT        IDC_EDIT18,257,192,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Static",IDC_STATIC4,16,315,265,8
+    GROUPBOX        "Данные сохраняются в файл:",IDC_STATIC,7,303,290,30
+END
+
+IDD_DIALOG5 DIALOGEX 0, 0, 322, 252
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Ручной ввод данных абитуриентов"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Добавить",IDOK,209,230,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,263,230,50,14
+    GROUPBOX        "Абитуриент:",IDC_STATIC,7,7,306,53
+    LTEXT           "*Фамилия:",IDC_STATIC,14,22,42,8
+    LTEXT           "*Имя:",IDC_STATIC,174,22,24,8
+    LTEXT           "Отчество:",IDC_STATIC,16,39,36,8
+    EDITTEXT        IDC_EDIT1,58,19,96,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,209,19,96,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,58,37,96,14,ES_AUTOHSCROLL
+    GROUPBOX        "Свидетельство:",IDC_STATIC,7,62,306,36
+    LTEXT           "*Номер:",IDC_STATIC,16,77,42,8
+    EDITTEXT        IDC_EDIT4,58,74,96,14,ES_AUTOHSCROLL
+    GROUPBOX        "Паспортные даные:",IDC_STATIC,7,100,306,37
+    EDITTEXT        IDC_EDIT5,58,112,96,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,209,112,96,14,ES_AUTOHSCROLL
+    LTEXT           "Код напраления:",IDC_STATIC,16,155,60,8
+    EDITTEXT        IDC_EDIT7,88,151,96,14,ES_AUTOHSCROLL
+    LTEXT           "Код специальности:",IDC_STATIC,16,172,72,8
+    LTEXT           "*Номер:",IDC_STATIC,16,116,42,8
+    LTEXT           "*Серия:",IDC_STATIC,174,116,35,8
+    GROUPBOX        "Специальность и направление:",IDC_STATIC,7,139,306,53
+    LTEXT           "Static",IDC_STATIC3,19,206,265,8
+    GROUPBOX        "Данные сохраняются в файл:",IDC_STATIC,7,194,306,29
+    EDITTEXT        IDC_EDIT8,88,169,96,14,ES_AUTOHSCROLL
+END
+
+IDD_ABOUTBOX_SHORT DIALOGEX 0, 0, 244, 53
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "О программе"
+FONT 8, "System", 0, 0, 0x0
+BEGIN
+    LTEXT           "Генератор файлов для пакетной обработки",IDC_STATIC,47,3,150,8,SS_NOPREFIX
+    LTEXT           "(C) 2008 Рособразование, Рособрнадзор",IDC_STATIC,51,21,141,8
+    DEFPUSHBUTTON   "OK",IDOK,209,37,30,11,WS_GROUP
+    ICON            IDI_WINBATCH,IDC_MYICON,6,6,20,20
+END
+
+IDD_DIALOG6 DIALOGEX 0, 0, 274, 74
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "О программе"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,217,53,50,14
+    LTEXT           "Генератор файлов для пакетной обработки в ФБС",IDC_STATIC,49,15,176,8
+    LTEXT           "© 2008 Рособразование, Рособрнадзор",IDC_STATIC,69,32,136,8
+END
+
+IDD_DIALOG7 DIALOGEX 0, 0, 274, 74
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "О программе"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,217,53,50,14
+    LTEXT           "Генератор файлов для пакетной обработки",IDC_STATIC,59,15,154,8
+    LTEXT           "© 2008 Рособразование, Рособрнадзор",IDC_STATIC,69,32,136,8
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        RIGHTMARGIN, 243
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 297
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 297
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_DIALOG3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 297
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_DIALOG4, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 297
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 357
+    END
+
+    IDD_DIALOG5, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 315
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 245
+    END
+
+    IDD_ABOUTBOX_SHORT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 243
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DIALOG6, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 267
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+
+    IDD_DIALOG7, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 267
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_APP_TITLE           "Генератор файлов для пакетной обработки в ФБС"
+    IDC_WINBATCH            "WINBATCH"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

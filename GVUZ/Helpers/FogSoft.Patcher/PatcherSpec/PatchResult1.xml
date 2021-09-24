@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<bookstore xmlns:todel="http://4g-soft.com/XmlPatcherTest">
+  <book category="CHILDREN" todel:newYear="2005">
+    <title lang="en">Гарри Поттер</title>
+    <author>J K. Rowling</author>
+    <price>29.99</price>
+  </book>
+
+  <book category="COOKING">
+    <title>Everyday Italian</title>
+    <author>Giada De Laurentiis</author>
+    <year>2005</year>
+    <price>30.00</price>
+  </book>
+</bookstore>

@@ -1,0 +1,39 @@
+﻿
+@model Admin.ViewModels.LoginModel
+
+@{
+    ViewData["Title"] = "Вход";
+}
+    <br />
+<h1>@ViewData["Title"]</h1>
+
+<!--<a asp-action="Register" asp-controller="Account">Регистрация</a>-->
+
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Login">Логин</label>
+                    <input asp-for="Login" class="form-control" />
+                    <span asp-validation-for="Login" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password">Пароль</label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Войти</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

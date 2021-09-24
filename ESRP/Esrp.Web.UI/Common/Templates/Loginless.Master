@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Loginless.master.cs" Inherits="Esrp.Web.Common.Templates.Loginless" %>
+
+<%@ Register TagPrefix="web" Namespace="WebControls" Assembly="WebControls" %>
+<%@ Register TagPrefix="esrp" Namespace="Esrp.Web.Controls" Assembly="Esrp.Web.UI" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+    <head runat="server">
+        <title>ЕСРП</title>
+        <link media="all" rel="stylesheet" href="/Common/Styles/style.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="/Common/Styles/cusel.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="/Common/Styles/fonts.css" type="text/css" />
+        <asp:ContentPlaceHolder ID="cphHead" runat="server" />
+
+        <script type="text/javascript">
+    <!--
+            function back() {
+                if (window.history.current == window.history.previous) {
+                    window.history.go(-2);
+                } else
+                    window.history.back();
+            }
+        -->
+    </script>
+
+    </head>
+    <body>
+        <web:UINavigation ID="UINavigation" runat="server" NavigationGraph="/Web.navigation" />
+        <div class="root">
+            <asp:ContentPlaceHolder ID="cphContentModalDialog" runat="server" />
+            <div class="head">
+                <div class="top_line">
+                    <div class="max_width">
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <LoggedInTemplate>
+                                <p class="log">
+                                    <a href="/Profile/View.aspx" class="un"><asp:LoginName CssClass="name_user" ID="LoginName1" runat="server" /></a>
+                                    <a href="/Logout.aspx" class="un">Выйти</a>
+                                    <%--<asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Выйти" LoginText="" LogoutPageUrl="~/Logout.aspx"   />--%>
+                                </p>
+                            </LoggedInTemplate>
+                            <AnonymousTemplate>
+                            </AnonymousTemplate>
+                        </asp:LoginView>
+                        <p class="logo"><a href="#">Единая система регистрации пользователей</a></p>
+                        <div class="clear"></div>
+                    </div>
+                </div><!--top_line-->
+                <div class="middle_line">
+                    <div class="max_width">
+                        <esrp:TopMenu runat="server" RootResourceKey="topLevelMenu" HeaderTemplate="<ul>" 
+                                     FooterTemplate="</ul>" />          
+                        <div class="clear"></div>
+                    </div>
+                </div><!--middle_line-->
+                <asp:ContentPlaceHolder ID="cphSecondLevelMenu" runat="server" />
+                <asp:ContentPlaceHolder ID="cphThirdLevelMenu" runat="server" />
+            </div><!--head-->
+
+            <div class="max_width">
+                <div class="main">
+                    <asp:ContentPlaceHolder ID="cphContent" runat="server" />             
+                    <div class="clear"></div>
+                </div><!--main-->
+            </div>
+            <div class="vote"></div>
+        </div><!--root-->
+        <!-- footer -->
+        <div class="footer">
+            <div class="max_width">
+                <div class="left_foot">
+                    <div class="col_in">
+                        <p class="copy">© Рособрнадзор, <%=DateTime.Now.Year %></p>
+                    </div>
+                </div><!--left_foot-->
+                <div class="right_foot">
+                    <div class="col_in">
+                        <p><span class="tel">Телефон горячей линии: <%=Esrp.Web.Config.SupportPhone %></span>      Электронная почта: <a href="#" class="un"><%=Esrp.Web.Config.SupportMail %></a></p>
+                    </div>
+                </div><!--right_foot-->
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- /footer -->
+
+        <div id="busy-layer"></div>
+        <!-- Гугл аналитика должна быть здесь, сразу же перед </body>: -->
+
+    </body>
+</html>

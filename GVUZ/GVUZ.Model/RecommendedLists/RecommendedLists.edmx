@@ -1,0 +1,1826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RecListEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="RecListEntitiesStoreContainer">
+          <EntitySet Name="AdmissionItemType" EntityType="RecListEntities.Store.AdmissionItemType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Application" EntityType="RecListEntities.Store.Application" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationCompetitiveGroupItem" EntityType="RecListEntities.Store.ApplicationCompetitiveGroupItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationSelectedCompetitiveGroup" EntityType="RecListEntities.Store.ApplicationSelectedCompetitiveGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Campaign" EntityType="RecListEntities.Store.Campaign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CompetitiveGroup" EntityType="RecListEntities.Store.CompetitiveGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CompetitiveGroupItem" EntityType="RecListEntities.Store.CompetitiveGroupItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Direction" EntityType="RecListEntities.Store.Direction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Entrant" EntityType="RecListEntities.Store.Entrant" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EntrantDocument" EntityType="RecListEntities.Store.EntrantDocument" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EntrantDocumentIdentity" EntityType="RecListEntities.Store.EntrantDocumentIdentity" store:Type="Tables" store:Schema="dbo" store:Name="EntrantDocumentIdentity">
+            <DefiningQuery>SELECT 
+      [EntrantDocumentIdentity].[EntrantDocumentID] AS [EntrantDocumentID], 
+      [EntrantDocumentIdentity].[IdentityDocumentTypeID] AS [IdentityDocumentTypeID], 
+      [EntrantDocumentIdentity].[GenderTypeID] AS [GenderTypeID], 
+      [EntrantDocumentIdentity].[NationalityTypeID] AS [NationalityTypeID], 
+      [EntrantDocumentIdentity].[BirthDate] AS [BirthDate], 
+      [EntrantDocumentIdentity].[BirthPlace] AS [BirthPlace], 
+      [EntrantDocumentIdentity].[SubdivisionCode] AS [SubdivisionCode]
+      FROM [dbo].[EntrantDocumentIdentity] AS [EntrantDocumentIdentity]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="IdentityDocumentType" EntityType="RecListEntities.Store.IdentityDocumentType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RecomendedLists" EntityType="RecListEntities.Store.RecomendedLists" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RecomendedListsHistory" EntityType="RecListEntities.Store.RecomendedListsHistory" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Application_AdmissionItemTypeForm" Association="RecListEntities.Store.FK_Application_AdmissionItemTypeForm">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_AdmissionItemTypeSource" Association="RecListEntities.Store.FK_Application_AdmissionItemTypeSource">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_CompetitiveGroup" Association="RecListEntities.Store.FK_Application_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_CompetitiveGroupItem" Association="RecListEntities.Store.FK_Application_CompetitiveGroupItem">
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Entrant" Association="RecListEntities.Store.FK_Application_Entrant">
+            <End Role="Entrant" EntitySet="Entrant" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_Application" Association="RecListEntities.Store.FK_ApplicationCompetitiveGroupItem_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" Association="RecListEntities.Store.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" Association="RecListEntities.Store.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem">
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroup_Application" Association="RecListEntities.Store.FK_ApplicationSelectedCompetitiveGroup_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ApplicationSelectedCompetitiveGroup" EntitySet="ApplicationSelectedCompetitiveGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" Association="RecListEntities.Store.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="ApplicationSelectedCompetitiveGroup" EntitySet="ApplicationSelectedCompetitiveGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroup_Campaign" Association="RecListEntities.Store.FK_CompetitiveGroup_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_CompetitiveGroup" Association="RecListEntities.Store.FK_CompetitiveGroupItem_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_Direction" Association="RecListEntities.Store.FK_CompetitiveGroupItem_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_EducationLevelID" Association="RecListEntities.Store.FK_CompetitiveGroupItem_EducationLevelID">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entrant_EntrantDocument" Association="RecListEntities.Store.FK_Entrant_EntrantDocument">
+            <End Role="EntrantDocument" EntitySet="EntrantDocument" />
+            <End Role="Entrant" EntitySet="Entrant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrantDocument_Entrant" Association="RecListEntities.Store.FK_EntrantDocument_Entrant">
+            <End Role="Entrant" EntitySet="Entrant" />
+            <End Role="EntrantDocument" EntitySet="EntrantDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrantDocumentIdentity_EntrantDocument" Association="RecListEntities.Store.FK_EntrantDocumentIdentity_EntrantDocument">
+            <End Role="EntrantDocument" EntitySet="EntrantDocument" />
+            <End Role="EntrantDocumentIdentity" EntitySet="EntrantDocumentIdentity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrantDocumentIdentity_IdentityDocumentType" Association="RecListEntities.Store.FK_EntrantDocumentIdentity_IdentityDocumentType">
+            <End Role="IdentityDocumentType" EntitySet="IdentityDocumentType" />
+            <End Role="EntrantDocumentIdentity" EntitySet="EntrantDocumentIdentity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedLists_Application1" Association="RecListEntities.Store.FK_RecomendedLists_Application1">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedLists_Campaign1" Association="RecListEntities.Store.FK_RecomendedLists_Campaign1">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedLists_CompetitiveGroup1" Association="RecListEntities.Store.FK_RecomendedLists_CompetitiveGroup1">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedLists_Direction1" Association="RecListEntities.Store.FK_RecomendedLists_Direction1">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedListsHistory_RecomendedLists1" Association="RecListEntities.Store.FK_RecomendedListsHistory_RecomendedLists1">
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+            <End Role="RecomendedListsHistory" EntitySet="RecomendedListsHistory" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdmissionItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Name="ItemTypeID" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ItemLevel" Type="smallint" Nullable="false" />
+          <Property Name="CanBeSkipped" Type="bit" Nullable="false" />
+          <Property Name="AutoCopyName" Type="bit" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EntrantID" Type="int" Nullable="false" />
+          <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="ApproveInstitutionCount" Type="bit" />
+          <Property Name="NeedHostel" Type="bit" />
+          <Property Name="FirstHigherEducation" Type="bit" />
+          <Property Name="ApprovePersonalData" Type="bit" />
+          <Property Name="FamiliarWithLicenseAndRules" Type="bit" />
+          <Property Name="FamiliarWithAdmissionType" Type="bit" />
+          <Property Name="FamiliarWithOriginalDocumentDeliveryDate" Type="bit" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="WizardStepID" Type="int" Nullable="false" />
+          <Property Name="ViolationID" Type="int" Nullable="false" />
+          <Property Name="StatusDecision" Type="varchar(max)" />
+          <Property Name="LastCheckDate" Type="datetime" />
+          <Property Name="ViolationErrors" Type="varchar(max)" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="SourceID" Type="tinyint" Nullable="false" />
+          <Property Name="ApplicationNumber" Type="varchar" MaxLength="50" />
+          <Property Name="OriginalDocumentsReceived" Type="bit" Nullable="false" />
+          <Property Name="OrderCompetitiveGroupID" Type="int" />
+          <Property Name="OrderOfAdmissionID" Type="int" />
+          <Property Name="OrderCompetitiveGroupItemID" Type="int" />
+          <Property Name="OrderCalculatedRating" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="OrderCalculatedBenefitID" Type="smallint" />
+          <Property Name="OrderEducationFormID" Type="smallint" />
+          <Property Name="OrderEducationSourceID" Type="smallint" />
+          <Property Name="LastDenyDate" Type="datetime" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="IsRequiresBudgetO" Type="bit" Nullable="false" />
+          <Property Name="IsRequiresBudgetOZ" Type="bit" Nullable="false" />
+          <Property Name="IsRequiresBudgetZ" Type="bit" Nullable="false" />
+          <Property Name="IsRequiresPaidO" Type="bit" Nullable="false" />
+          <Property Name="IsRequiresPaidOZ" Type="bit" Nullable="false" />
+          <Property Name="IsRequiresPaidZ" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="OriginalDocumentsReceivedDate" Type="datetime" />
+          <Property Name="LastEgeDocumentsCheckDate" Type="datetime" />
+          <Property Name="OrderCompetitiveGroupTargetID" Type="int" />
+          <Property Name="IsRequiresTargetO" Type="bit" Nullable="false" />
+          <Property Name="IsRequiresTargetOZ" Type="bit" Nullable="false" />
+          <Property Name="IsRequiresTargetZ" Type="bit" Nullable="false" />
+          <Property Name="ApplicationGUID" Type="uniqueidentifier" />
+          <Property Name="Priority" Type="int" />
+        </EntityType>
+        <EntityType Name="ApplicationCompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationId" Type="int" Nullable="false" />
+          <Property Name="CompetitiveGroupId" Type="int" Nullable="false" />
+          <Property Name="CompetitiveGroupItemId" Type="int" Nullable="false" />
+          <Property Name="EducationFormId" Type="int" Nullable="false" />
+          <Property Name="EducationSourceId" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="CompetitiveGroupTargetId" Type="int" />
+        </EntityType>
+        <EntityType Name="ApplicationSelectedCompetitiveGroup">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="int" Nullable="false" />
+          <Property Name="CompetitiveGroupID" Type="int" Nullable="false" />
+          <Property Name="CalculatedBenefitID" Type="smallint" />
+          <Property Name="CalculatedRating" Type="decimal" Precision="10" Scale="4" />
+        </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="CampaignID" />
+          </Key>
+          <Property Name="CampaignID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="YearStart" Type="int" Nullable="false" />
+          <Property Name="YearEnd" Type="int" Nullable="false" />
+          <Property Name="EducationFormFlag" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Additional" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroup">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupID" />
+          </Key>
+          <Property Name="CompetitiveGroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Course" Type="smallint" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="CampaignID" Type="int" />
+          <Property Name="DirectionFilterType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupItemID" />
+          </Key>
+          <Property Name="CompetitiveGroupItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CompetitiveGroupID" Type="int" Nullable="false" />
+          <Property Name="DirectionID" Type="int" Nullable="false" />
+          <Property Name="NumberBudgetO" Type="int" Nullable="false" />
+          <Property Name="NumberBudgetOZ" Type="int" Nullable="false" />
+          <Property Name="NumberBudgetZ" Type="int" Nullable="false" />
+          <Property Name="NumberPaidO" Type="int" Nullable="false" />
+          <Property Name="NumberPaidOZ" Type="int" Nullable="false" />
+          <Property Name="NumberPaidZ" Type="int" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="EducationLevelID" Type="smallint" Nullable="false" />
+          <Property Name="NumberQuotaO" Type="int" />
+          <Property Name="NumberQuotaOZ" Type="int" />
+          <Property Name="NumberQuotaZ" Type="int" />
+        </EntityType>
+        <EntityType Name="Direction">
+          <Key>
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Name="DirectionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="char" MaxLength="8" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="SYS_GUID" Type="varchar" MaxLength="50" />
+          <Property Name="EDULEVEL" Type="varchar" MaxLength="500" />
+          <Property Name="EDUPROGRAMTYPE" Type="varchar" MaxLength="500" />
+          <Property Name="UGSCODE" Type="char" MaxLength="8" />
+          <Property Name="UGSNAME" Type="varchar" MaxLength="500" />
+          <Property Name="QUALIFICATIONCODE" Type="char" MaxLength="10" />
+          <Property Name="QUALIFICATIONNAME" Type="varchar" MaxLength="500" />
+          <Property Name="PERIOD" Type="varchar" MaxLength="50" />
+          <Property Name="EDU_DIRECTORY" Type="varchar" MaxLength="500" />
+          <Property Name="EDUPR_ADDITIONAL" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="NewCode" Type="char" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="Entrant">
+          <Key>
+            <PropertyRef Name="EntrantID" />
+          </Key>
+          <Property Name="EntrantID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdentityDocumentID" Type="int" />
+          <Property Name="CustomInformation" Type="varchar(max)" />
+          <Property Name="SNILS" Type="char" MaxLength="14" />
+          <Property Name="RegistrationAddressID" Type="int" />
+          <Property Name="FactAddressID" Type="int" />
+          <Property Name="MobilePhone" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="InstitutionID" Type="int" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="255" />
+          <Property Name="GenderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EntrantDocument">
+          <Key>
+            <PropertyRef Name="EntrantDocumentID" />
+          </Key>
+          <Property Name="EntrantDocumentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EntrantID" Type="int" Nullable="false" />
+          <Property Name="DocumentTypeID" Type="int" Nullable="false" />
+          <Property Name="DocumentSeries" Type="varchar" MaxLength="20" />
+          <Property Name="DocumentNumber" Type="varchar" MaxLength="100" />
+          <Property Name="DocumentDate" Type="datetime" />
+          <Property Name="DocumentOrganization" Type="varchar" MaxLength="500" />
+          <Property Name="DocumentSpecificData" Type="varchar(max)" Nullable="false" />
+          <Property Name="AttachmentID" Type="int" />
+          <Property Name="UID" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="EntrantDocumentGUID" Type="uniqueidentifier" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+      предупреждение 6002: В таблице или представлении "gvuz_tags.dbo.EntrantDocumentIdentity" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.
+      -->
+        <EntityType Name="EntrantDocumentIdentity">
+          <Key>
+            <PropertyRef Name="EntrantDocumentID" />
+          </Key>
+          <Property Name="EntrantDocumentID" Type="int" Nullable="false" />
+          <Property Name="IdentityDocumentTypeID" Type="int" />
+          <Property Name="GenderTypeID" Type="int" />
+          <Property Name="NationalityTypeID" Type="int" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="BirthPlace" Type="varchar" MaxLength="255" />
+          <Property Name="SubdivisionCode" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="IdentityDocumentType">
+          <Key>
+            <PropertyRef Name="IdentityDocumentTypeID" />
+          </Key>
+          <Property Name="IdentityDocumentTypeID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsRussianNationality" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecomendedLists">
+          <Key>
+            <PropertyRef Name="RecListID" />
+          </Key>
+          <Property Name="RecListID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="CampaignID" Type="int" Nullable="false" />
+          <Property Name="EduLevelID" Type="int" Nullable="false" />
+          <Property Name="EduFormID" Type="int" Nullable="false" />
+          <Property Name="CompetitiveGroupID" Type="int" Nullable="false" />
+          <Property Name="DirectionID" Type="int" Nullable="false" />
+          <Property Name="Stage" Type="tinyint" Nullable="false" />
+          <Property Name="ApplicationID" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="7" Scale="4" />
+        </EntityType>
+        <EntityType Name="RecomendedListsHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RecListID" Type="int" Nullable="false" />
+          <Property Name="DateAdd" Type="datetime" Nullable="false" />
+          <Property Name="DateDelete" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Application_AdmissionItemTypeForm">
+          <End Role="AdmissionItemType" Type="RecListEntities.Store.AdmissionItemType" Multiplicity="0..1" />
+          <End Role="Application" Type="RecListEntities.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="OrderEducationFormID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_AdmissionItemTypeSource">
+          <End Role="AdmissionItemType" Type="RecListEntities.Store.AdmissionItemType" Multiplicity="0..1" />
+          <End Role="Application" Type="RecListEntities.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="OrderEducationSourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_CompetitiveGroup">
+          <End Role="CompetitiveGroup" Type="RecListEntities.Store.CompetitiveGroup" Multiplicity="0..1" />
+          <End Role="Application" Type="RecListEntities.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="OrderCompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_CompetitiveGroupItem">
+          <End Role="CompetitiveGroupItem" Type="RecListEntities.Store.CompetitiveGroupItem" Multiplicity="0..1" />
+          <End Role="Application" Type="RecListEntities.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="OrderCompetitiveGroupItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Entrant">
+          <End Role="Entrant" Type="RecListEntities.Store.Entrant" Multiplicity="1" />
+          <End Role="Application" Type="RecListEntities.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrant">
+              <PropertyRef Name="EntrantID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="EntrantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_Application">
+          <End Role="Application" Type="RecListEntities.Store.Application" Multiplicity="1" />
+          <End Role="ApplicationCompetitiveGroupItem" Type="RecListEntities.Store.ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroup">
+          <End Role="CompetitiveGroup" Type="RecListEntities.Store.CompetitiveGroup" Multiplicity="1" />
+          <End Role="ApplicationCompetitiveGroupItem" Type="RecListEntities.Store.ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem">
+          <End Role="CompetitiveGroupItem" Type="RecListEntities.Store.CompetitiveGroupItem" Multiplicity="1" />
+          <End Role="ApplicationCompetitiveGroupItem" Type="RecListEntities.Store.ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroup_Application">
+          <End Role="Application" Type="RecListEntities.Store.Application" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ApplicationSelectedCompetitiveGroup" Type="RecListEntities.Store.ApplicationSelectedCompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroup">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup">
+          <End Role="CompetitiveGroup" Type="RecListEntities.Store.CompetitiveGroup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ApplicationSelectedCompetitiveGroup" Type="RecListEntities.Store.ApplicationSelectedCompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroup_Campaign">
+          <End Role="Campaign" Type="RecListEntities.Store.Campaign" Multiplicity="0..1" />
+          <End Role="CompetitiveGroup" Type="RecListEntities.Store.CompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroup">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_CompetitiveGroup">
+          <End Role="CompetitiveGroup" Type="RecListEntities.Store.CompetitiveGroup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CompetitiveGroupItem" Type="RecListEntities.Store.CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_Direction">
+          <End Role="Direction" Type="RecListEntities.Store.Direction" Multiplicity="1" />
+          <End Role="CompetitiveGroupItem" Type="RecListEntities.Store.CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_EducationLevelID">
+          <End Role="AdmissionItemType" Type="RecListEntities.Store.AdmissionItemType" Multiplicity="1" />
+          <End Role="CompetitiveGroupItem" Type="RecListEntities.Store.CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="EducationLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entrant_EntrantDocument">
+          <End Role="EntrantDocument" Type="RecListEntities.Store.EntrantDocument" Multiplicity="0..1" />
+          <End Role="Entrant" Type="RecListEntities.Store.Entrant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntrantDocument">
+              <PropertyRef Name="EntrantDocumentID" />
+            </Principal>
+            <Dependent Role="Entrant">
+              <PropertyRef Name="IdentityDocumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrantDocument_Entrant">
+          <End Role="Entrant" Type="RecListEntities.Store.Entrant" Multiplicity="1" />
+          <End Role="EntrantDocument" Type="RecListEntities.Store.EntrantDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrant">
+              <PropertyRef Name="EntrantID" />
+            </Principal>
+            <Dependent Role="EntrantDocument">
+              <PropertyRef Name="EntrantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrantDocumentIdentity_EntrantDocument">
+          <End Role="EntrantDocument" Type="RecListEntities.Store.EntrantDocument" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EntrantDocumentIdentity" Type="RecListEntities.Store.EntrantDocumentIdentity" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EntrantDocument">
+              <PropertyRef Name="EntrantDocumentID" />
+            </Principal>
+            <Dependent Role="EntrantDocumentIdentity">
+              <PropertyRef Name="EntrantDocumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrantDocumentIdentity_IdentityDocumentType">
+          <End Role="IdentityDocumentType" Type="RecListEntities.Store.IdentityDocumentType" Multiplicity="0..1" />
+          <End Role="EntrantDocumentIdentity" Type="RecListEntities.Store.EntrantDocumentIdentity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityDocumentType">
+              <PropertyRef Name="IdentityDocumentTypeID" />
+            </Principal>
+            <Dependent Role="EntrantDocumentIdentity">
+              <PropertyRef Name="IdentityDocumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedLists_Application1">
+          <End Role="Application" Type="RecListEntities.Store.Application" Multiplicity="1" />
+          <End Role="RecomendedLists" Type="RecListEntities.Store.RecomendedLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="RecomendedLists">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedLists_Campaign1">
+          <End Role="Campaign" Type="RecListEntities.Store.Campaign" Multiplicity="1" />
+          <End Role="RecomendedLists" Type="RecListEntities.Store.RecomendedLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="RecomendedLists">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedLists_CompetitiveGroup1">
+          <End Role="CompetitiveGroup" Type="RecListEntities.Store.CompetitiveGroup" Multiplicity="1" />
+          <End Role="RecomendedLists" Type="RecListEntities.Store.RecomendedLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="RecomendedLists">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedLists_Direction1">
+          <End Role="Direction" Type="RecListEntities.Store.Direction" Multiplicity="1" />
+          <End Role="RecomendedLists" Type="RecListEntities.Store.RecomendedLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="RecomendedLists">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedListsHistory_RecomendedLists1">
+          <End Role="RecomendedLists" Type="RecListEntities.Store.RecomendedLists" Multiplicity="1" />
+          <End Role="RecomendedListsHistory" Type="RecListEntities.Store.RecomendedListsHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecomendedLists">
+              <PropertyRef Name="RecListID" />
+            </Principal>
+            <Dependent Role="RecomendedListsHistory">
+              <PropertyRef Name="RecListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CalculateAppRating" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="appId" Type="int" Mode="In" />
+          <Parameter Name="cgId" Type="int" Mode="In" />
+          <Parameter Name="rating" Type="decimal" Mode="InOut" />
+        </Function>
+        <Function Name="CalculateRating" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="appId" Type="int" Mode="In" />
+          <Parameter Name="cgId" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RecListEntities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="RecommendedListsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Application" EntityType="RecListEntities.Application" />
+          <EntitySet Name="Campaign" EntityType="RecListEntities.Campaign" />
+          <EntitySet Name="CompetitiveGroup" EntityType="RecListEntities.CompetitiveGroup" />
+          <EntitySet Name="CompetitiveGroupItem" EntityType="RecListEntities.CompetitiveGroupItem" />
+          <EntitySet Name="Direction" EntityType="RecListEntities.Direction" />
+          <EntitySet Name="RecomendedLists" EntityType="RecListEntities.RecomendedLists" />
+          <EntitySet Name="RecomendedListsHistory" EntityType="RecListEntities.RecomendedListsHistory" />
+          <AssociationSet Name="FK_Application_CompetitiveGroup" Association="RecListEntities.FK_Application_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_CompetitiveGroupItem" Association="RecListEntities.FK_Application_CompetitiveGroupItem">
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedLists_Application1" Association="RecListEntities.FK_RecomendedLists_Application1">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroup_Campaign" Association="RecListEntities.FK_CompetitiveGroup_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedLists_Campaign1" Association="RecListEntities.FK_RecomendedLists_Campaign1">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_CompetitiveGroup" Association="RecListEntities.FK_CompetitiveGroupItem_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedLists_CompetitiveGroup1" Association="RecListEntities.FK_RecomendedLists_CompetitiveGroup1">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_Direction" Association="RecListEntities.FK_CompetitiveGroupItem_Direction">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedLists_Direction1" Association="RecListEntities.FK_RecomendedLists_Direction1">
+            <End Role="Direction" EntitySet="Direction" />
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecomendedListsHistory_RecomendedLists1" Association="RecListEntities.FK_RecomendedListsHistory_RecomendedLists1">
+            <End Role="RecomendedLists" EntitySet="RecomendedLists" />
+            <End Role="RecomendedListsHistory" EntitySet="RecomendedListsHistory" />
+          </AssociationSet>
+          <EntitySet Name="AdmissionItemType" EntityType="RecListEntities.AdmissionItemType" />
+          <AssociationSet Name="FK_Application_AdmissionItemTypeForm" Association="RecListEntities.FK_Application_AdmissionItemTypeForm">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_AdmissionItemTypeSource" Association="RecListEntities.FK_Application_AdmissionItemTypeSource">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetitiveGroupItem_EducationLevelID" Association="RecListEntities.FK_CompetitiveGroupItem_EducationLevelID">
+            <End Role="AdmissionItemType" EntitySet="AdmissionItemType" />
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+          </AssociationSet>
+          <EntitySet Name="Entrant" EntityType="RecListEntities.Entrant" />
+          <AssociationSet Name="FK_Application_Entrant" Association="RecListEntities.FK_Application_Entrant">
+            <End Role="Entrant" EntitySet="Entrant" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <EntitySet Name="EntrantDocumentIdentity" EntityType="RecListEntities.EntrantDocumentIdentity" />
+          <EntitySet Name="EntrantDocument" EntityType="RecListEntities.EntrantDocument" />
+          <AssociationSet Name="FK_Entrant_EntrantDocument" Association="RecListEntities.FK_Entrant_EntrantDocument">
+            <End Role="EntrantDocument" EntitySet="EntrantDocument" />
+            <End Role="Entrant" EntitySet="Entrant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrantDocument_Entrant" Association="RecListEntities.FK_EntrantDocument_Entrant">
+            <End Role="Entrant" EntitySet="Entrant" />
+            <End Role="EntrantDocument" EntitySet="EntrantDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrantDocumentIdentity_EntrantDocument" Association="RecListEntities.FK_EntrantDocumentIdentity_EntrantDocument">
+            <End Role="EntrantDocument" EntitySet="EntrantDocument" />
+            <End Role="EntrantDocumentIdentity" EntitySet="EntrantDocumentIdentity" />
+          </AssociationSet>
+          <EntitySet Name="IdentityDocumentType" EntityType="RecListEntities.IdentityDocumentType" />
+          <AssociationSet Name="FK_EntrantDocumentIdentity_IdentityDocumentType" Association="RecListEntities.FK_EntrantDocumentIdentity_IdentityDocumentType">
+            <End Role="IdentityDocumentType" EntitySet="IdentityDocumentType" />
+            <End Role="EntrantDocumentIdentity" EntitySet="EntrantDocumentIdentity" />
+          </AssociationSet>
+          <EntitySet Name="ApplicationCompetitiveGroupItem" EntityType="RecListEntities.ApplicationCompetitiveGroupItem" />
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_Application" Association="RecListEntities.FK_ApplicationCompetitiveGroupItem_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" Association="RecListEntities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" Association="RecListEntities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem">
+            <End Role="CompetitiveGroupItem" EntitySet="CompetitiveGroupItem" />
+            <End Role="ApplicationCompetitiveGroupItem" EntitySet="ApplicationCompetitiveGroupItem" />
+          </AssociationSet>
+          <FunctionImport Name="CalculateAppRating">
+            <Parameter Name="appId" Mode="In" Type="Int32" />
+            <Parameter Name="cgId" Mode="In" Type="Int32" />
+            <Parameter Name="rating" Mode="InOut" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="ApplicationSelectedCompetitiveGroup" EntityType="RecListEntities.ApplicationSelectedCompetitiveGroup" />
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroup_Application" Association="RecListEntities.FK_ApplicationSelectedCompetitiveGroup_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ApplicationSelectedCompetitiveGroup" EntitySet="ApplicationSelectedCompetitiveGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" Association="RecListEntities.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup">
+            <End Role="CompetitiveGroup" EntitySet="CompetitiveGroup" />
+            <End Role="ApplicationSelectedCompetitiveGroup" EntitySet="ApplicationSelectedCompetitiveGroup" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntrantID" Type="Int32" Nullable="false" />
+          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+          <Property Name="ApproveInstitutionCount" Type="Boolean" />
+          <Property Name="NeedHostel" Type="Boolean" />
+          <Property Name="FirstHigherEducation" Type="Boolean" />
+          <Property Name="ApprovePersonalData" Type="Boolean" />
+          <Property Name="FamiliarWithLicenseAndRules" Type="Boolean" />
+          <Property Name="FamiliarWithAdmissionType" Type="Boolean" />
+          <Property Name="FamiliarWithOriginalDocumentDeliveryDate" Type="Boolean" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="WizardStepID" Type="Int32" Nullable="false" />
+          <Property Name="ViolationID" Type="Int32" Nullable="false" />
+          <Property Name="StatusDecision" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="LastCheckDate" Type="DateTime" />
+          <Property Name="ViolationErrors" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="PublishDate" Type="DateTime" />
+          <Property Name="SourceID" Type="Byte" Nullable="false" />
+          <Property Name="ApplicationNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OriginalDocumentsReceived" Type="Boolean" Nullable="false" />
+          <Property Name="OrderCompetitiveGroupID" Type="Int32" />
+          <Property Name="OrderOfAdmissionID" Type="Int32" />
+          <Property Name="OrderCompetitiveGroupItemID" Type="Int32" />
+          <Property Name="OrderCalculatedRating" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="OrderCalculatedBenefitID" Type="Int16" />
+          <Property Name="OrderEducationFormID" Type="Int16" />
+          <Property Name="OrderEducationSourceID" Type="Int16" />
+          <Property Name="LastDenyDate" Type="DateTime" />
+          <Property Name="UID" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="IsRequiresBudgetO" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiresBudgetOZ" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiresBudgetZ" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiresPaidO" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiresPaidOZ" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiresPaidZ" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="OriginalDocumentsReceivedDate" Type="DateTime" />
+          <Property Name="LastEgeDocumentsCheckDate" Type="DateTime" />
+          <Property Name="OrderCompetitiveGroupTargetID" Type="Int32" />
+          <Property Name="IsRequiresTargetO" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiresTargetOZ" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiresTargetZ" Type="Boolean" Nullable="false" />
+          <Property Name="ApplicationGUID" Type="Guid" />
+          <Property Name="Priority" Type="Int32" />
+          <NavigationProperty Name="CompetitiveGroup" Relationship="RecListEntities.FK_Application_CompetitiveGroup" FromRole="Application" ToRole="CompetitiveGroup" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="RecListEntities.FK_Application_CompetitiveGroupItem" FromRole="Application" ToRole="CompetitiveGroupItem" />
+          <NavigationProperty Name="RecomendedLists" Relationship="RecListEntities.FK_RecomendedLists_Application1" FromRole="Application" ToRole="RecomendedLists" />
+          <NavigationProperty Name="AdmissionItemType" Relationship="RecListEntities.FK_Application_AdmissionItemTypeForm" FromRole="Application" ToRole="AdmissionItemType" />
+          <NavigationProperty Name="AdmissionItemType1" Relationship="RecListEntities.FK_Application_AdmissionItemTypeSource" FromRole="Application" ToRole="AdmissionItemType" />
+          <NavigationProperty Name="Entrant" Relationship="RecListEntities.FK_Application_Entrant" FromRole="Application" ToRole="Entrant" />
+          <NavigationProperty Name="ApplicationCompetitiveGroupItem" Relationship="RecListEntities.FK_ApplicationCompetitiveGroupItem_Application" FromRole="Application" ToRole="ApplicationCompetitiveGroupItem" />
+          <NavigationProperty Name="ApplicationSelectedCompetitiveGroup" Relationship="RecListEntities.FK_ApplicationSelectedCompetitiveGroup_Application" FromRole="Application" ToRole="ApplicationSelectedCompetitiveGroup" />
+        </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="CampaignID" />
+          </Key>
+          <Property Name="CampaignID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="YearStart" Type="Int32" Nullable="false" />
+          <Property Name="YearEnd" Type="Int32" Nullable="false" />
+          <Property Name="EducationFormFlag" Type="Int32" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="UID" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="Additional" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CompetitiveGroup" Relationship="RecListEntities.FK_CompetitiveGroup_Campaign" FromRole="Campaign" ToRole="CompetitiveGroup" />
+          <NavigationProperty Name="RecomendedLists" Relationship="RecListEntities.FK_RecomendedLists_Campaign1" FromRole="Campaign" ToRole="RecomendedLists" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroup">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupID" />
+          </Key>
+          <Property Name="CompetitiveGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Course" Type="Int16" Nullable="false" />
+          <Property Name="UID" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="CampaignID" Type="Int32" />
+          <Property Name="DirectionFilterType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="RecListEntities.FK_Application_CompetitiveGroup" FromRole="CompetitiveGroup" ToRole="Application" />
+          <NavigationProperty Name="Campaign" Relationship="RecListEntities.FK_CompetitiveGroup_Campaign" FromRole="CompetitiveGroup" ToRole="Campaign" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="RecListEntities.FK_CompetitiveGroupItem_CompetitiveGroup" FromRole="CompetitiveGroup" ToRole="CompetitiveGroupItem" />
+          <NavigationProperty Name="RecomendedLists" Relationship="RecListEntities.FK_RecomendedLists_CompetitiveGroup1" FromRole="CompetitiveGroup" ToRole="RecomendedLists" />
+          <NavigationProperty Name="ApplicationCompetitiveGroupItem" Relationship="RecListEntities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" FromRole="CompetitiveGroup" ToRole="ApplicationCompetitiveGroupItem" />
+          <NavigationProperty Name="ApplicationSelectedCompetitiveGroup" Relationship="RecListEntities.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" FromRole="CompetitiveGroup" ToRole="ApplicationSelectedCompetitiveGroup" />
+        </EntityType>
+        <EntityType Name="CompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="CompetitiveGroupItemID" />
+          </Key>
+          <Property Name="CompetitiveGroupItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompetitiveGroupID" Type="Int32" Nullable="false" />
+          <Property Name="DirectionID" Type="Int32" Nullable="false" />
+          <Property Name="NumberBudgetO" Type="Int32" Nullable="false" />
+          <Property Name="NumberBudgetOZ" Type="Int32" Nullable="false" />
+          <Property Name="NumberBudgetZ" Type="Int32" Nullable="false" />
+          <Property Name="NumberPaidO" Type="Int32" Nullable="false" />
+          <Property Name="NumberPaidOZ" Type="Int32" Nullable="false" />
+          <Property Name="NumberPaidZ" Type="Int32" Nullable="false" />
+          <Property Name="UID" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="EducationLevelID" Type="Int16" Nullable="false" />
+          <Property Name="NumberQuotaO" Type="Int32" />
+          <Property Name="NumberQuotaOZ" Type="Int32" />
+          <Property Name="NumberQuotaZ" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="RecListEntities.FK_Application_CompetitiveGroupItem" FromRole="CompetitiveGroupItem" ToRole="Application" />
+          <NavigationProperty Name="CompetitiveGroup" Relationship="RecListEntities.FK_CompetitiveGroupItem_CompetitiveGroup" FromRole="CompetitiveGroupItem" ToRole="CompetitiveGroup" />
+          <NavigationProperty Name="Direction" Relationship="RecListEntities.FK_CompetitiveGroupItem_Direction" FromRole="CompetitiveGroupItem" ToRole="Direction" />
+          <NavigationProperty Name="AdmissionItemType" Relationship="RecListEntities.FK_CompetitiveGroupItem_EducationLevelID" FromRole="CompetitiveGroupItem" ToRole="AdmissionItemType" />
+          <NavigationProperty Name="ApplicationCompetitiveGroupItem" Relationship="RecListEntities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" FromRole="CompetitiveGroupItem" ToRole="ApplicationCompetitiveGroupItem" />
+        </EntityType>
+        <EntityType Name="Direction">
+          <Key>
+            <PropertyRef Name="DirectionID" />
+          </Key>
+          <Property Name="DirectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="SYS_GUID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EDULEVEL" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="EDUPROGRAMTYPE" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="UGSCODE" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <Property Name="UGSNAME" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="QUALIFICATIONCODE" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="QUALIFICATIONNAME" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="PERIOD" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EDU_DIRECTORY" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="EDUPR_ADDITIONAL" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="NewCode" Type="String" MaxLength="8" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="RecListEntities.FK_CompetitiveGroupItem_Direction" FromRole="Direction" ToRole="CompetitiveGroupItem" />
+          <NavigationProperty Name="RecomendedLists" Relationship="RecListEntities.FK_RecomendedLists_Direction1" FromRole="Direction" ToRole="RecomendedLists" />
+        </EntityType>
+        <EntityType Name="RecomendedLists">
+          <Key>
+            <PropertyRef Name="RecListID" />
+          </Key>
+          <Property Name="RecListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+          <Property Name="CampaignID" Type="Int32" Nullable="false" />
+          <Property Name="EduLevelID" Type="Int32" Nullable="false" />
+          <Property Name="EduFormID" Type="Int32" Nullable="false" />
+          <Property Name="CompetitiveGroupID" Type="Int32" Nullable="false" />
+          <Property Name="DirectionID" Type="Int32" Nullable="false" />
+          <Property Name="Stage" Type="Byte" Nullable="false" />
+          <Property Name="ApplicationID" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="7" Scale="4" Nullable="true" />
+          <NavigationProperty Name="Application" Relationship="RecListEntities.FK_RecomendedLists_Application1" FromRole="RecomendedLists" ToRole="Application" />
+          <NavigationProperty Name="Campaign" Relationship="RecListEntities.FK_RecomendedLists_Campaign1" FromRole="RecomendedLists" ToRole="Campaign" />
+          <NavigationProperty Name="CompetitiveGroup" Relationship="RecListEntities.FK_RecomendedLists_CompetitiveGroup1" FromRole="RecomendedLists" ToRole="CompetitiveGroup" />
+          <NavigationProperty Name="Direction" Relationship="RecListEntities.FK_RecomendedLists_Direction1" FromRole="RecomendedLists" ToRole="Direction" />
+          <NavigationProperty Name="RecomendedListsHistory" Relationship="RecListEntities.FK_RecomendedListsHistory_RecomendedLists1" FromRole="RecomendedLists" ToRole="RecomendedListsHistory" />
+        </EntityType>
+        <EntityType Name="RecomendedListsHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecListID" Type="Int32" Nullable="false" />
+          <Property Name="DateAdd" Type="DateTime" Nullable="false" />
+          <Property Name="DateDelete" Type="DateTime" />
+          <NavigationProperty Name="RecomendedLists" Relationship="RecListEntities.FK_RecomendedListsHistory_RecomendedLists1" FromRole="RecomendedListsHistory" ToRole="RecomendedLists" />
+        </EntityType>
+        <Association Name="FK_Application_CompetitiveGroup">
+          <End Role="CompetitiveGroup" Type="RecListEntities.CompetitiveGroup" Multiplicity="0..1" />
+          <End Role="Application" Type="RecListEntities.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="OrderCompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_CompetitiveGroupItem">
+          <End Role="CompetitiveGroupItem" Type="RecListEntities.CompetitiveGroupItem" Multiplicity="0..1" />
+          <End Role="Application" Type="RecListEntities.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="OrderCompetitiveGroupItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedLists_Application1">
+          <End Role="Application" Type="RecListEntities.Application" Multiplicity="1" />
+          <End Role="RecomendedLists" Type="RecListEntities.RecomendedLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="RecomendedLists">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroup_Campaign">
+          <End Role="Campaign" Type="RecListEntities.Campaign" Multiplicity="0..1" />
+          <End Role="CompetitiveGroup" Type="RecListEntities.CompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroup">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedLists_Campaign1">
+          <End Role="Campaign" Type="RecListEntities.Campaign" Multiplicity="1" />
+          <End Role="RecomendedLists" Type="RecListEntities.RecomendedLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="RecomendedLists">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_CompetitiveGroup">
+          <End Role="CompetitiveGroup" Type="RecListEntities.CompetitiveGroup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CompetitiveGroupItem" Type="RecListEntities.CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedLists_CompetitiveGroup1">
+          <End Role="CompetitiveGroup" Type="RecListEntities.CompetitiveGroup" Multiplicity="1" />
+          <End Role="RecomendedLists" Type="RecListEntities.RecomendedLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="RecomendedLists">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_Direction">
+          <End Role="Direction" Type="RecListEntities.Direction" Multiplicity="1" />
+          <End Role="CompetitiveGroupItem" Type="RecListEntities.CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedLists_Direction1">
+          <End Role="Direction" Type="RecListEntities.Direction" Multiplicity="1" />
+          <End Role="RecomendedLists" Type="RecListEntities.RecomendedLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direction">
+              <PropertyRef Name="DirectionID" />
+            </Principal>
+            <Dependent Role="RecomendedLists">
+              <PropertyRef Name="DirectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecomendedListsHistory_RecomendedLists1">
+          <End Role="RecomendedLists" Type="RecListEntities.RecomendedLists" Multiplicity="1" />
+          <End Role="RecomendedListsHistory" Type="RecListEntities.RecomendedListsHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecomendedLists">
+              <PropertyRef Name="RecListID" />
+            </Principal>
+            <Dependent Role="RecomendedListsHistory">
+              <PropertyRef Name="RecListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AdmissionItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Type="Int16" Name="ItemTypeID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="ItemLevel" Nullable="false" />
+          <Property Type="Boolean" Name="CanBeSkipped" Nullable="false" />
+          <Property Type="Boolean" Name="AutoCopyName" Nullable="false" />
+          <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <NavigationProperty Name="Application" Relationship="RecListEntities.FK_Application_AdmissionItemTypeForm" FromRole="AdmissionItemType" ToRole="Application" />
+          <NavigationProperty Name="Application1" Relationship="RecListEntities.FK_Application_AdmissionItemTypeSource" FromRole="AdmissionItemType" ToRole="Application" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="RecListEntities.FK_CompetitiveGroupItem_EducationLevelID" FromRole="AdmissionItemType" ToRole="CompetitiveGroupItem" />
+        </EntityType>
+        <Association Name="FK_Application_AdmissionItemTypeForm">
+          <End Type="RecListEntities.AdmissionItemType" Role="AdmissionItemType" Multiplicity="0..1" />
+          <End Type="RecListEntities.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="OrderEducationFormID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_AdmissionItemTypeSource">
+          <End Type="RecListEntities.AdmissionItemType" Role="AdmissionItemType" Multiplicity="0..1" />
+          <End Type="RecListEntities.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="OrderEducationSourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetitiveGroupItem_EducationLevelID">
+          <End Type="RecListEntities.AdmissionItemType" Role="AdmissionItemType" Multiplicity="1" />
+          <End Type="RecListEntities.CompetitiveGroupItem" Role="CompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="CompetitiveGroupItem">
+              <PropertyRef Name="EducationLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Entrant">
+          <Key>
+            <PropertyRef Name="EntrantID" />
+          </Key>
+          <Property Type="Int32" Name="EntrantID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdentityDocumentID" />
+          <Property Type="String" Name="CustomInformation" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SNILS" MaxLength="14" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="RegistrationAddressID" />
+          <Property Type="Int32" Name="FactAddressID" />
+          <Property Type="String" Name="MobilePhone" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UID" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Int32" Name="InstitutionID" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MiddleName" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="GenderID" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="RecListEntities.FK_Application_Entrant" FromRole="Entrant" ToRole="Application" />
+          <NavigationProperty Name="EntrantIdentityDocument" Relationship="RecListEntities.FK_Entrant_EntrantDocument" FromRole="Entrant" ToRole="EntrantDocument" />
+          <NavigationProperty Name="EntrantDocument1" Relationship="RecListEntities.FK_EntrantDocument_Entrant" FromRole="Entrant" ToRole="EntrantDocument" />
+        </EntityType>
+        <Association Name="FK_Application_Entrant">
+          <End Type="RecListEntities.Entrant" Role="Entrant" Multiplicity="1" />
+          <End Type="RecListEntities.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrant">
+              <PropertyRef Name="EntrantID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="EntrantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EntrantDocumentIdentity">
+          <Key>
+            <PropertyRef Name="EntrantDocumentID" />
+          </Key>
+          <Property Type="Int32" Name="EntrantDocumentID" Nullable="false" />
+          <Property Type="Int32" Name="IdentityDocumentTypeID" />
+          <Property Type="Int32" Name="GenderTypeID" />
+          <Property Type="Int32" Name="NationalityTypeID" />
+          <Property Type="DateTime" Name="BirthDate" />
+          <Property Type="String" Name="BirthPlace" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SubdivisionCode" MaxLength="7" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EntrantDocument" Relationship="RecListEntities.FK_EntrantDocumentIdentity_EntrantDocument" FromRole="EntrantDocumentIdentity" ToRole="EntrantDocument" />
+          <NavigationProperty Name="IdentityDocumentType" Relationship="RecListEntities.FK_EntrantDocumentIdentity_IdentityDocumentType" FromRole="EntrantDocumentIdentity" ToRole="IdentityDocumentType" />
+        </EntityType>
+        <EntityType Name="EntrantDocument">
+          <Key>
+            <PropertyRef Name="EntrantDocumentID" />
+          </Key>
+          <Property Type="Int32" Name="EntrantDocumentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EntrantID" Nullable="false" />
+          <Property Type="Int32" Name="DocumentTypeID" Nullable="false" />
+          <Property Type="String" Name="DocumentSeries" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DocumentNumber" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DocumentDate" />
+          <Property Type="String" Name="DocumentOrganization" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DocumentSpecificData" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="AttachmentID" />
+          <Property Type="String" Name="UID" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Guid" Name="EntrantDocumentGUID" />
+          <NavigationProperty Name="Entrant" Relationship="RecListEntities.FK_Entrant_EntrantDocument" FromRole="EntrantDocument" ToRole="Entrant" />
+          <NavigationProperty Name="Entrant1" Relationship="RecListEntities.FK_EntrantDocument_Entrant" FromRole="EntrantDocument" ToRole="Entrant" />
+          <NavigationProperty Name="EntrantDocumentIdentity" Relationship="RecListEntities.FK_EntrantDocumentIdentity_EntrantDocument" FromRole="EntrantDocument" ToRole="EntrantDocumentIdentity" />
+        </EntityType>
+        <Association Name="FK_Entrant_EntrantDocument">
+          <End Type="RecListEntities.EntrantDocument" Role="EntrantDocument" Multiplicity="0..1" />
+          <End Type="RecListEntities.Entrant" Role="Entrant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntrantDocument">
+              <PropertyRef Name="EntrantDocumentID" />
+            </Principal>
+            <Dependent Role="Entrant">
+              <PropertyRef Name="IdentityDocumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrantDocument_Entrant">
+          <End Type="RecListEntities.Entrant" Role="Entrant" Multiplicity="1" />
+          <End Type="RecListEntities.EntrantDocument" Role="EntrantDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrant">
+              <PropertyRef Name="EntrantID" />
+            </Principal>
+            <Dependent Role="EntrantDocument">
+              <PropertyRef Name="EntrantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrantDocumentIdentity_EntrantDocument">
+          <End Type="RecListEntities.EntrantDocument" Role="EntrantDocument" Multiplicity="1" />
+          <End Type="RecListEntities.EntrantDocumentIdentity" Role="EntrantDocumentIdentity" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EntrantDocument">
+              <PropertyRef Name="EntrantDocumentID" />
+            </Principal>
+            <Dependent Role="EntrantDocumentIdentity">
+              <PropertyRef Name="EntrantDocumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="IdentityDocumentType">
+          <Key>
+            <PropertyRef Name="IdentityDocumentTypeID" />
+          </Key>
+          <Property Type="Int32" Name="IdentityDocumentTypeID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="DateTime" Name="ModifiedDate" />
+          <Property Type="Boolean" Name="IsRussianNationality" Nullable="false" />
+          <NavigationProperty Name="EntrantDocumentIdentity" Relationship="RecListEntities.FK_EntrantDocumentIdentity_IdentityDocumentType" FromRole="IdentityDocumentType" ToRole="EntrantDocumentIdentity" />
+        </EntityType>
+        <Association Name="FK_EntrantDocumentIdentity_IdentityDocumentType">
+          <End Type="RecListEntities.IdentityDocumentType" Role="IdentityDocumentType" Multiplicity="0..1" />
+          <End Type="RecListEntities.EntrantDocumentIdentity" Role="EntrantDocumentIdentity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityDocumentType">
+              <PropertyRef Name="IdentityDocumentTypeID" />
+            </Principal>
+            <Dependent Role="EntrantDocumentIdentity">
+              <PropertyRef Name="IdentityDocumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ApplicationCompetitiveGroupItem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApplicationId" Nullable="false" />
+          <Property Type="Int32" Name="CompetitiveGroupId" Nullable="false" />
+          <Property Type="Int32" Name="CompetitiveGroupItemId" Nullable="false" />
+          <Property Type="Int32" Name="EducationFormId" Nullable="false" />
+          <Property Type="Int32" Name="EducationSourceId" Nullable="false" />
+          <Property Type="Int32" Name="Priority" />
+          <Property Type="Int32" Name="CompetitiveGroupTargetId" />
+          <NavigationProperty Name="Application" Relationship="RecListEntities.FK_ApplicationCompetitiveGroupItem_Application" FromRole="ApplicationCompetitiveGroupItem" ToRole="Application" />
+          <NavigationProperty Name="CompetitiveGroup" Relationship="RecListEntities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" FromRole="ApplicationCompetitiveGroupItem" ToRole="CompetitiveGroup" />
+          <NavigationProperty Name="CompetitiveGroupItem" Relationship="RecListEntities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" FromRole="ApplicationCompetitiveGroupItem" ToRole="CompetitiveGroupItem" />
+        </EntityType>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_Application">
+          <End Type="RecListEntities.Application" Role="Application" Multiplicity="1" />
+          <End Type="RecListEntities.ApplicationCompetitiveGroupItem" Role="ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroup">
+          <End Type="RecListEntities.CompetitiveGroup" Role="CompetitiveGroup" Multiplicity="1" />
+          <End Type="RecListEntities.ApplicationCompetitiveGroupItem" Role="ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem">
+          <End Type="RecListEntities.CompetitiveGroupItem" Role="CompetitiveGroupItem" Multiplicity="1" />
+          <End Type="RecListEntities.ApplicationCompetitiveGroupItem" Role="ApplicationCompetitiveGroupItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemID" />
+            </Principal>
+            <Dependent Role="ApplicationCompetitiveGroupItem">
+              <PropertyRef Name="CompetitiveGroupItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ApplicationSelectedCompetitiveGroup">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Type="Int32" Name="ItemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApplicationID" Nullable="false" />
+          <Property Type="Int32" Name="CompetitiveGroupID" Nullable="false" />
+          <Property Type="Int16" Name="CalculatedBenefitID" />
+          <Property Type="Decimal" Name="CalculatedRating" Precision="10" Scale="4" />
+          <NavigationProperty Name="Application" Relationship="RecListEntities.FK_ApplicationSelectedCompetitiveGroup_Application" FromRole="ApplicationSelectedCompetitiveGroup" ToRole="Application" />
+          <NavigationProperty Name="CompetitiveGroup" Relationship="RecListEntities.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" FromRole="ApplicationSelectedCompetitiveGroup" ToRole="CompetitiveGroup" />
+        </EntityType>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroup_Application">
+          <End Type="RecListEntities.Application" Role="Application" Multiplicity="1" />
+          <End Type="RecListEntities.ApplicationSelectedCompetitiveGroup" Role="ApplicationSelectedCompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroup">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup">
+          <End Type="RecListEntities.CompetitiveGroup" Role="CompetitiveGroup" Multiplicity="1" />
+          <End Type="RecListEntities.ApplicationSelectedCompetitiveGroup" Role="ApplicationSelectedCompetitiveGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Principal>
+            <Dependent Role="ApplicationSelectedCompetitiveGroup">
+              <PropertyRef Name="CompetitiveGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RecListEntitiesStoreContainer" CdmEntityContainer="RecommendedListsEntities">
+          <EntitySetMapping Name="Application">
+            <EntityTypeMapping TypeName="RecListEntities.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="EntrantID" ColumnName="EntrantID" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="ApproveInstitutionCount" ColumnName="ApproveInstitutionCount" />
+                <ScalarProperty Name="NeedHostel" ColumnName="NeedHostel" />
+                <ScalarProperty Name="FirstHigherEducation" ColumnName="FirstHigherEducation" />
+                <ScalarProperty Name="ApprovePersonalData" ColumnName="ApprovePersonalData" />
+                <ScalarProperty Name="FamiliarWithLicenseAndRules" ColumnName="FamiliarWithLicenseAndRules" />
+                <ScalarProperty Name="FamiliarWithAdmissionType" ColumnName="FamiliarWithAdmissionType" />
+                <ScalarProperty Name="FamiliarWithOriginalDocumentDeliveryDate" ColumnName="FamiliarWithOriginalDocumentDeliveryDate" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="WizardStepID" ColumnName="WizardStepID" />
+                <ScalarProperty Name="ViolationID" ColumnName="ViolationID" />
+                <ScalarProperty Name="StatusDecision" ColumnName="StatusDecision" />
+                <ScalarProperty Name="LastCheckDate" ColumnName="LastCheckDate" />
+                <ScalarProperty Name="ViolationErrors" ColumnName="ViolationErrors" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+                <ScalarProperty Name="ApplicationNumber" ColumnName="ApplicationNumber" />
+                <ScalarProperty Name="OriginalDocumentsReceived" ColumnName="OriginalDocumentsReceived" />
+                <ScalarProperty Name="OrderCompetitiveGroupID" ColumnName="OrderCompetitiveGroupID" />
+                <ScalarProperty Name="OrderOfAdmissionID" ColumnName="OrderOfAdmissionID" />
+                <ScalarProperty Name="OrderCompetitiveGroupItemID" ColumnName="OrderCompetitiveGroupItemID" />
+                <ScalarProperty Name="OrderCalculatedRating" ColumnName="OrderCalculatedRating" />
+                <ScalarProperty Name="OrderCalculatedBenefitID" ColumnName="OrderCalculatedBenefitID" />
+                <ScalarProperty Name="OrderEducationFormID" ColumnName="OrderEducationFormID" />
+                <ScalarProperty Name="OrderEducationSourceID" ColumnName="OrderEducationSourceID" />
+                <ScalarProperty Name="LastDenyDate" ColumnName="LastDenyDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="IsRequiresBudgetO" ColumnName="IsRequiresBudgetO" />
+                <ScalarProperty Name="IsRequiresBudgetOZ" ColumnName="IsRequiresBudgetOZ" />
+                <ScalarProperty Name="IsRequiresBudgetZ" ColumnName="IsRequiresBudgetZ" />
+                <ScalarProperty Name="IsRequiresPaidO" ColumnName="IsRequiresPaidO" />
+                <ScalarProperty Name="IsRequiresPaidOZ" ColumnName="IsRequiresPaidOZ" />
+                <ScalarProperty Name="IsRequiresPaidZ" ColumnName="IsRequiresPaidZ" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="OriginalDocumentsReceivedDate" ColumnName="OriginalDocumentsReceivedDate" />
+                <ScalarProperty Name="LastEgeDocumentsCheckDate" ColumnName="LastEgeDocumentsCheckDate" />
+                <ScalarProperty Name="OrderCompetitiveGroupTargetID" ColumnName="OrderCompetitiveGroupTargetID" />
+                <ScalarProperty Name="IsRequiresTargetO" ColumnName="IsRequiresTargetO" />
+                <ScalarProperty Name="IsRequiresTargetOZ" ColumnName="IsRequiresTargetOZ" />
+                <ScalarProperty Name="IsRequiresTargetZ" ColumnName="IsRequiresTargetZ" />
+                <ScalarProperty Name="ApplicationGUID" ColumnName="ApplicationGUID" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Campaign">
+            <EntityTypeMapping TypeName="RecListEntities.Campaign">
+              <MappingFragment StoreEntitySet="Campaign">
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="YearStart" ColumnName="YearStart" />
+                <ScalarProperty Name="YearEnd" ColumnName="YearEnd" />
+                <ScalarProperty Name="EducationFormFlag" ColumnName="EducationFormFlag" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Additional" ColumnName="Additional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetitiveGroup">
+            <EntityTypeMapping TypeName="RecListEntities.CompetitiveGroup">
+              <MappingFragment StoreEntitySet="CompetitiveGroup">
+                <ScalarProperty Name="CompetitiveGroupID" ColumnName="CompetitiveGroupID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="DirectionFilterType" ColumnName="DirectionFilterType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetitiveGroupItem">
+            <EntityTypeMapping TypeName="RecListEntities.CompetitiveGroupItem">
+              <MappingFragment StoreEntitySet="CompetitiveGroupItem">
+                <ScalarProperty Name="CompetitiveGroupItemID" ColumnName="CompetitiveGroupItemID" />
+                <ScalarProperty Name="CompetitiveGroupID" ColumnName="CompetitiveGroupID" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+                <ScalarProperty Name="NumberBudgetO" ColumnName="NumberBudgetO" />
+                <ScalarProperty Name="NumberBudgetOZ" ColumnName="NumberBudgetOZ" />
+                <ScalarProperty Name="NumberBudgetZ" ColumnName="NumberBudgetZ" />
+                <ScalarProperty Name="NumberPaidO" ColumnName="NumberPaidO" />
+                <ScalarProperty Name="NumberPaidOZ" ColumnName="NumberPaidOZ" />
+                <ScalarProperty Name="NumberPaidZ" ColumnName="NumberPaidZ" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="EducationLevelID" ColumnName="EducationLevelID" />
+                <ScalarProperty Name="NumberQuotaO" ColumnName="NumberQuotaO" />
+                <ScalarProperty Name="NumberQuotaOZ" ColumnName="NumberQuotaOZ" />
+                <ScalarProperty Name="NumberQuotaZ" ColumnName="NumberQuotaZ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Direction">
+            <EntityTypeMapping TypeName="RecListEntities.Direction">
+              <MappingFragment StoreEntitySet="Direction">
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="SYS_GUID" ColumnName="SYS_GUID" />
+                <ScalarProperty Name="EDULEVEL" ColumnName="EDULEVEL" />
+                <ScalarProperty Name="EDUPROGRAMTYPE" ColumnName="EDUPROGRAMTYPE" />
+                <ScalarProperty Name="UGSCODE" ColumnName="UGSCODE" />
+                <ScalarProperty Name="UGSNAME" ColumnName="UGSNAME" />
+                <ScalarProperty Name="QUALIFICATIONCODE" ColumnName="QUALIFICATIONCODE" />
+                <ScalarProperty Name="QUALIFICATIONNAME" ColumnName="QUALIFICATIONNAME" />
+                <ScalarProperty Name="PERIOD" ColumnName="PERIOD" />
+                <ScalarProperty Name="EDU_DIRECTORY" ColumnName="EDU_DIRECTORY" />
+                <ScalarProperty Name="EDUPR_ADDITIONAL" ColumnName="EDUPR_ADDITIONAL" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="NewCode" ColumnName="NewCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecomendedLists">
+            <EntityTypeMapping TypeName="RecListEntities.RecomendedLists">
+              <MappingFragment StoreEntitySet="RecomendedLists">
+                <ScalarProperty Name="RecListID" ColumnName="RecListID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="EduLevelID" ColumnName="EduLevelID" />
+                <ScalarProperty Name="EduFormID" ColumnName="EduFormID" />
+                <ScalarProperty Name="CompetitiveGroupID" ColumnName="CompetitiveGroupID" />
+                <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecomendedListsHistory">
+            <EntityTypeMapping TypeName="RecListEntities.RecomendedListsHistory">
+              <MappingFragment StoreEntitySet="RecomendedListsHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RecListID" ColumnName="RecListID" />
+                <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdmissionItemType">
+            <EntityTypeMapping TypeName="RecListEntities.AdmissionItemType">
+              <MappingFragment StoreEntitySet="AdmissionItemType">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="AutoCopyName" ColumnName="AutoCopyName" />
+                <ScalarProperty Name="CanBeSkipped" ColumnName="CanBeSkipped" />
+                <ScalarProperty Name="ItemLevel" ColumnName="ItemLevel" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entrant">
+            <EntityTypeMapping TypeName="RecListEntities.Entrant">
+              <MappingFragment StoreEntitySet="Entrant">
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="FactAddressID" ColumnName="FactAddressID" />
+                <ScalarProperty Name="RegistrationAddressID" ColumnName="RegistrationAddressID" />
+                <ScalarProperty Name="SNILS" ColumnName="SNILS" />
+                <ScalarProperty Name="CustomInformation" ColumnName="CustomInformation" />
+                <ScalarProperty Name="IdentityDocumentID" ColumnName="IdentityDocumentID" />
+                <ScalarProperty Name="EntrantID" ColumnName="EntrantID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntrantDocumentIdentity">
+            <EntityTypeMapping TypeName="RecListEntities.EntrantDocumentIdentity">
+              <MappingFragment StoreEntitySet="EntrantDocumentIdentity">
+                <ScalarProperty Name="SubdivisionCode" ColumnName="SubdivisionCode" />
+                <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="NationalityTypeID" ColumnName="NationalityTypeID" />
+                <ScalarProperty Name="GenderTypeID" ColumnName="GenderTypeID" />
+                <ScalarProperty Name="IdentityDocumentTypeID" ColumnName="IdentityDocumentTypeID" />
+                <ScalarProperty Name="EntrantDocumentID" ColumnName="EntrantDocumentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntrantDocument">
+            <EntityTypeMapping TypeName="RecListEntities.EntrantDocument">
+              <MappingFragment StoreEntitySet="EntrantDocument">
+                <ScalarProperty Name="EntrantDocumentGUID" ColumnName="EntrantDocumentGUID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+                <ScalarProperty Name="DocumentSpecificData" ColumnName="DocumentSpecificData" />
+                <ScalarProperty Name="DocumentOrganization" ColumnName="DocumentOrganization" />
+                <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="DocumentSeries" ColumnName="DocumentSeries" />
+                <ScalarProperty Name="DocumentTypeID" ColumnName="DocumentTypeID" />
+                <ScalarProperty Name="EntrantID" ColumnName="EntrantID" />
+                <ScalarProperty Name="EntrantDocumentID" ColumnName="EntrantDocumentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdentityDocumentType">
+            <EntityTypeMapping TypeName="RecListEntities.IdentityDocumentType">
+              <MappingFragment StoreEntitySet="IdentityDocumentType">
+                <ScalarProperty Name="IsRussianNationality" ColumnName="IsRussianNationality" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdentityDocumentTypeID" ColumnName="IdentityDocumentTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationCompetitiveGroupItem">
+            <EntityTypeMapping TypeName="RecListEntities.ApplicationCompetitiveGroupItem">
+              <MappingFragment StoreEntitySet="ApplicationCompetitiveGroupItem">
+                <ScalarProperty Name="CompetitiveGroupTargetId" ColumnName="CompetitiveGroupTargetId" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="EducationSourceId" ColumnName="EducationSourceId" />
+                <ScalarProperty Name="EducationFormId" ColumnName="EducationFormId" />
+                <ScalarProperty Name="CompetitiveGroupItemId" ColumnName="CompetitiveGroupItemId" />
+                <ScalarProperty Name="CompetitiveGroupId" ColumnName="CompetitiveGroupId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CalculateAppRating" FunctionName="RecListEntities.Store.CalculateAppRating" />
+          <EntitySetMapping Name="ApplicationSelectedCompetitiveGroup">
+            <EntityTypeMapping TypeName="RecListEntities.ApplicationSelectedCompetitiveGroup">
+              <MappingFragment StoreEntitySet="ApplicationSelectedCompetitiveGroup">
+                <ScalarProperty Name="CalculatedRating" ColumnName="CalculatedRating" />
+                <ScalarProperty Name="CalculatedBenefitID" ColumnName="CalculatedBenefitID" />
+                <ScalarProperty Name="CompetitiveGroupID" ColumnName="CompetitiveGroupID" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="RecommendedLists">
+        <EntityTypeShape EntityType="RecListEntities.Application" Width="1.5" PointX="5.25" PointY="6.875" Height="10.441549479166664" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecListEntities.Campaign" Width="1.5" PointX="0.75" PointY="10.375" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecListEntities.CompetitiveGroup" Width="1.5" PointX="3" PointY="10.375" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecListEntities.CompetitiveGroupItem" Width="1.5" PointX="8.25" PointY="9.75" Height="4.6725065104166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecListEntities.Direction" Width="1.5" PointX="11.125" PointY="0.75" Height="4.6725065104166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecListEntities.RecomendedLists" Width="1.5" PointX="10.5" PointY="10.125" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecListEntities.RecomendedListsHistory" Width="1.5" PointX="12.75" PointY="11.125" Height="1.9802864583333317" IsExpanded="true" />
+        <AssociationConnector Association="RecListEntities.FK_Application_CompetitiveGroup" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="12.207775685966064" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="12.207775685966064" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="12.207775685966064" />
+          <ConnectorPoint PointX="5.25" PointY="12.207775685966064" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_Application_CompetitiveGroupItem" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.25" PointY="12.2785546875" />
+          <ConnectorPoint PointX="6.75" PointY="12.2785546875" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_RecomendedLists_Application1" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="8.28125" />
+          <ConnectorPoint PointX="8.6457000895182272" PointY="8.28125" />
+          <ConnectorPoint PointX="8.8123667561848951" PointY="8.28125" />
+          <ConnectorPoint PointX="10.557288666666667" PointY="8.28125" />
+          <ConnectorPoint PointX="10.723955333333334" PointY="8.28125" />
+          <ConnectorPoint PointX="11.065103916666667" PointY="8.28125" />
+          <ConnectorPoint PointX="11.231770583333335" PointY="8.28125" />
+          <ConnectorPoint PointX="11.6562525" PointY="8.28125" />
+          <ConnectorPoint PointX="11.6562525" PointY="10.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_CompetitiveGroup_Campaign" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="12.621060197916666" />
+          <ConnectorPoint PointX="3" PointY="12.621060197916666" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_RecomendedLists_Campaign1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="11.466778098958333" />
+          <ConnectorPoint PointX="2.75" PointY="11.466778098958333" />
+          <ConnectorPoint PointX="2.75" PointY="10.125" />
+          <ConnectorPoint PointX="4.75" PointY="10.125" />
+          <ConnectorPoint PointX="4.75" PointY="6.625" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="6.6249999999999991" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="6.625" />
+          <ConnectorPoint PointX="11.14843725" PointY="6.625" />
+          <ConnectorPoint PointX="11.14843725" PointY="10.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_CompetitiveGroupItem_CompetitiveGroup" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="11.260135842983031" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="11.260135842983031" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="11.260135842983031" />
+          <ConnectorPoint PointX="5.125" PointY="11.260135842983031" />
+          <ConnectorPoint PointX="5.125" PointY="6.609375" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="6.6093749999999991" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="6.609375" />
+          <ConnectorPoint PointX="8.7290334228515611" PointY="6.609375" />
+          <ConnectorPoint PointX="8.7290334228515611" PointY="9.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_RecomendedLists_CompetitiveGroup1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="13.274290233608033" />
+          <ConnectorPoint PointX="5" PointY="13.274290233608033" />
+          <ConnectorPoint PointX="5" PointY="6.59375" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="6.5937499999999991" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="6.59375" />
+          <ConnectorPoint PointX="10.640622" PointY="6.59375" />
+          <ConnectorPoint PointX="10.640622" PointY="10.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_CompetitiveGroupItem_Direction" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.34375" PointY="5.4225065104166665" />
+          <ConnectorPoint PointX="12.34375" PointY="9.90625" />
+          <ConnectorPoint PointX="11.973959583333334" PointY="9.90625" />
+          <ConnectorPoint PointX="11.807292916666667" PointY="9.90625" />
+          <ConnectorPoint PointX="11.739585833333335" PointY="9.90625" />
+          <ConnectorPoint PointX="11.572919166666667" PointY="9.90625" />
+          <ConnectorPoint PointX="11.231770583333335" PointY="9.90625" />
+          <ConnectorPoint PointX="11.065103916666667" PointY="9.90625" />
+          <ConnectorPoint PointX="10.723955333333334" PointY="9.90625" />
+          <ConnectorPoint PointX="10.557288666666667" PointY="9.90625" />
+          <ConnectorPoint PointX="9.75" PointY="9.90625" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_RecomendedLists_Direction1" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.89062625" PointY="5.4225065104166665" />
+          <ConnectorPoint PointX="11.89062625" PointY="10.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_RecomendedListsHistory_RecomendedLists1" ManuallyRouted="false">
+          <ConnectorPoint PointX="12" PointY="12.115143229166666" />
+          <ConnectorPoint PointX="12.75" PointY="12.115143229166666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RecListEntities.AdmissionItemType" Width="1.5" PointX="3" PointY="14.75" Height="3.1340950520833317" />
+        <AssociationConnector Association="RecListEntities.FK_Application_AdmissionItemTypeForm" >
+          <ConnectorPoint PointX="4.5" PointY="16.562337521766409" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="16.562337521766409" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="16.562337521766409" />
+          <ConnectorPoint PointX="5.25" PointY="16.562337521766409" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_Application_AdmissionItemTypeSource" >
+          <ConnectorPoint PointX="4.5" PointY="15.593668760883205" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="15.593668760883205" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="15.593668760883205" />
+          <ConnectorPoint PointX="5.25" PointY="15.593668760883205" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_CompetitiveGroupItem_EducationLevelID" >
+          <ConnectorPoint PointX="4.5" PointY="17.392737284787245" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="17.392737284787245" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="17.392737284787245" />
+          <ConnectorPoint PointX="5" PointY="17.392737284787245" />
+          <ConnectorPoint PointX="5" PointY="18.335755208333332" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="18.335755208333332" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="18.335755208333332" />
+          <ConnectorPoint PointX="9" PointY="18.335755208333332" />
+          <ConnectorPoint PointX="9" PointY="14.807109375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RecListEntities.Entrant" Width="2.625" PointX="0.75" PointY="1" Height="4.6725065104166656" />
+        <AssociationConnector Association="RecListEntities.FK_Application_Entrant" >
+          <ConnectorPoint PointX="3.375" PointY="5.6725065104166656" />
+          <ConnectorPoint PointX="3.75" PointY="6.0475065104166656" />
+          <ConnectorPoint PointX="6" PointY="6.0475065104166656" />
+          <ConnectorPoint PointX="6" PointY="6.875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RecListEntities.EntrantDocumentIdentity" Width="2.75" PointX="0.75" PointY="6.375" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="RecListEntities.EntrantDocument" Width="2.375" PointX="5.25" PointY="1.125" Height="4.0956022135416674" />
+        <AssociationConnector Association="RecListEntities.FK_Entrant_EntrantDocument" >
+          <ConnectorPoint PointX="5.25" PointY="3.1728011067708337" />
+          <ConnectorPoint PointX="3.375" PointY="3.1728011067708337" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_EntrantDocument_Entrant" >
+          <ConnectorPoint PointX="3.375" PointY="2.0864005533854169" />
+          <ConnectorPoint PointX="5.25" PointY="2.0864005533854169" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_EntrantDocumentIdentity_EntrantDocument" >
+          <ConnectorPoint PointX="7.21875" PointY="5.2206022135416674" />
+          <ConnectorPoint PointX="7.21875" PointY="6.484375" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="6.4843749999999991" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="6.484375" />
+          <ConnectorPoint PointX="3.5" PointY="6.484375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RecListEntities.IdentityDocumentType" Width="1.5" PointX="0.75" PointY="15.625" Height="2.1725878906250031" />
+        <AssociationConnector Association="RecListEntities.FK_EntrantDocumentIdentity_IdentityDocumentType" >
+          <ConnectorPoint PointX="0.75115284615384614" PointY="15.625" />
+          <ConnectorPoint PointX="0.375" PointY="15.248847153846153" />
+          <ConnectorPoint PointX="0.375" PointY="9.5016061814903843" />
+          <ConnectorPoint PointX="0.7521139939903847" PointY="9.1244921875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RecListEntities.ApplicationCompetitiveGroupItem" Width="5.375" PointX="13.5" PointY="13.875" Height="3.1340950520833388" />
+        <AssociationConnector Association="RecListEntities.FK_ApplicationCompetitiveGroupItem_Application" >
+          <ConnectorPoint PointX="6.75" PointY="15.2473046875" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="15.2473046875" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="15.2473046875" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="15.2473046875" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="15.2473046875" />
+          <ConnectorPoint PointX="11.604166666666666" PointY="15.2473046875" />
+          <ConnectorPoint PointX="11.770833333333334" PointY="15.2473046875" />
+          <ConnectorPoint PointX="13.5" PointY="15.2473046875" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" >
+          <ConnectorPoint PointX="3.75" PointY="14.27830078125" />
+          <ConnectorPoint PointX="3.75" PointY="14.52830078125" />
+          <ConnectorPoint PointX="4.9375" PointY="14.52830078125" />
+          <ConnectorPoint PointX="4.9375" PointY="18.778056640625003" />
+          <ConnectorPoint PointX="13.125" PointY="18.778056640625003" />
+          <ConnectorPoint PointX="13.125" PointY="16.159451869791663" />
+          <ConnectorPoint PointX="13.5" PointY="16.159451869791663" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" >
+          <ConnectorPoint PointX="9.75" PointY="14.448955078125" />
+          <ConnectorPoint PointX="13.5" PointY="14.448955078125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RecListEntities.ApplicationSelectedCompetitiveGroup" Width="2.375" PointX="10.5" PointY="15.375" Height="2.3648893229166674" />
+        <AssociationConnector Association="RecListEntities.FK_ApplicationSelectedCompetitiveGroup_Application" >
+          <ConnectorPoint PointX="6.75" PointY="16.557444661458334" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="16.557444661458334" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="16.557444661458334" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="16.557444661458334" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="16.557444661458334" />
+          <ConnectorPoint PointX="10.5" PointY="16.557444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecListEntities.FK_ApplicationSelectedCompetitiveGroup_CompetitiveGroup" >
+          <ConnectorPoint PointX="4.5" PointY="13.807547507429018" />
+          <ConnectorPoint PointX="4.875" PointY="13.807547507429018" />
+          <ConnectorPoint PointX="4.875" PointY="18.528056640625003" />
+          <ConnectorPoint PointX="8" PointY="18.528056640625003" />
+          <ConnectorPoint PointX="8" PointY="15.057109375" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="15.057109375" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="15.057109375" />
+          <ConnectorPoint PointX="11.6875" PointY="15.057109375" />
+          <ConnectorPoint PointX="11.6875" PointY="15.375" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

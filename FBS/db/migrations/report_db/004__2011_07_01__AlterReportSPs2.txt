@@ -1,0 +1,681 @@
+-- =========================================================================
+-- Запись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (4, '004__2011_07_01__AlterReportSPs2')
+-- =========================================================================
+GO
+
+
+ALTER procedure [dbo].[ReportConsolidatedOrg]
+	@ReportType int, -- тип отчета (0 - на дату, 1 - нарастающим итогом)
+	@FactDate datetime, -- дата, на которую формируется отчет
+	@FDId int,
+    @RegionId int,
+    @OrgType int,
+    @OrgKind int,
+    @IsPrivate int,
+    @OrgName nvarchar(1000),
+    @IsFilial int,
+    @IsAccredited int,
+    @DepartmentId int,
+    @INN_OGRN nvarchar(13),
+    @IsRegister int, -- подана ли заявка на регистрацию
+    @AccountsCount nvarchar(10), -- количество пользователей
+    @ActivatedAccounts nvarchar(10), -- пользователей активировано
+    @UniqueChecks nvarchar(10), -- уникальных проверок всего
+    @Incorrect nvarchar(10) -- неправильных проверок
+as
+begin
+
+declare 
+	@sql nvarchar(4000),
+    @daySql nvarchar(4000),
+    @periodSql nvarchar(4000)
+
+set @daySql =
+N'
+select
+	O.FDName,
+    O.RegionName,
+    O.OrgTypeName,
+    O.OrgKindName,
+    O.IsPrivate,
+    O.ShortName,
+    O.FullName,
+    O.MainId,
+    O.IsAccredited,
+    O.DepartmentId,
+    (select ORG.ShortName from Organizations ORG where ORG.OrgId = O.DepartmentId) DepartmentName,
+    O.INN,
+    O.OGRN,
+    O.CNFBFullTime,
+    O.CNFBEvening,
+    O.CNFBPostal,
+    O.CNPayFullTime,
+    O.CNPayEvening,
+    O.CNPayPostal,
+    PA.FirstCheck,
+    PA.LastCheck,
+    coalesce(PA.UniqueByCertNumber, 0) UniqueByCertNumber,
+    coalesce(PA.UniqueByPassport, 0) UniqueByPassport,
+    coalesce(PA.UniqueByTypoNumber, 0) UniqueByTypoNumber,
+    coalesce(PA.UniqueInteractive, 0) UniqueInteractive,
+    coalesce(PA.ByCertNumber, 0) ByCertNumber,
+    coalesce(PA.ByPassport, 0) ByPassport,
+    coalesce(PA.ByTypoNumber, 0) ByTypoNumber,
+    coalesce(PA.[Interactive], 0) [Interactive],
+    PA.FirstActivated,
+    PA.LastActivated,
+    PA.FirstRegistered,
+    PA.LastRegistered,
+    coalesce(PA.AccountsInConsideration, 0) AccountsInConsideration,
+    coalesce(PA.DeactivatedAccounts, 0) DeactivatedAccounts,
+    coalesce(PA.AccountsOnRegistration, 0) AccountsOnRegistration,
+    coalesce(PA.AccountsOnRevision, 0) AccountsOnRevision
+from
+	Organizations O
+    left join ByDayOrgAggregates PA on PA.OrgId = O.OrgId and PA.FactDate = getdate()-- @FactDate 
+where
+	1 = 1
+'
+
+set @periodSql =
+N'
+select
+	O.FDName,
+    O.RegionName,
+    O.OrgTypeName,
+    O.OrgKindName,
+    O.IsPrivate,
+    O.ShortName,
+    O.FullName,
+    O.MainId,
+    O.IsAccredited,
+    O.DepartmentId,
+    (select ORG.ShortName from Organizations ORG where ORG.OrgId = O.DepartmentId) DepartmentName,
+    O.INN,
+    O.OGRN,
+    O.CNFBFullTime,
+    O.CNFBEvening,
+    O.CNFBPostal,
+    O.CNPayFullTime,
+    O.CNPayEvening,
+    O.CNPayPostal,
+    PA.FirstCheck,
+    PA.LastCheck,
+    coalesce(PA.UniqueByCertNumber, 0) UniqueByCertNumber,
+    coalesce(PA.UniqueByPassport, 0) UniqueByPassport,
+    coalesce(PA.UniqueByTypoNumber, 0) UniqueByTypoNumber,
+    coalesce(PA.UniqueInteractive, 0) UniqueInteractive,
+    coalesce(PA.ByCertNumber, 0) ByCertNumber,
+    coalesce(PA.ByPassport, 0) ByPassport,
+    coalesce(PA.ByTypoNumber, 0) ByTypoNumber,
+    coalesce(PA.[Interactive], 0) [Interactive],
+    PA.FirstActivated,
+    PA.LastActivated,
+    PA.FirstRegistered,
+    PA.LastRegistered,
+    coalesce(PA.AccountsInConsideration, 0) AccountsInConsideration,
+    coalesce(PA.DeactivatedAccounts, 0) DeactivatedAccounts,
+    coalesce(PA.AccountsOnRegistration, 0) AccountsOnRegistration,
+    coalesce(PA.AccountsOnRevision, 0) AccountsOnRevision
+from
+	Organizations O
+    left join 
+    (
+    select 
+    	PA.OrgId,
+        PA.FactDate,
+	    PA.FirstCheck,
+	    PA.LastCheck,
+	    PA.UniqueByCertNumber,
+	    PA.UniqueByPassport,
+	    PA.UniqueByTypoNumber,
+	    PA.UniqueInteractive,
+	    PA.ByCertNumber,
+	    PA.ByPassport,
+	    PA.ByTypoNumber,
+	    PA.[Interactive],
+	    PA.FirstActivated,
+	    PA.LastActivated,
+	    PA.FirstRegistered,
+	    PA.LastRegistered,
+	    PA.AccountsInConsideration,
+	    PA.DeactivatedAccounts,
+	    PA.AccountsOnRegistration,
+	    PA.AccountsOnRevision,
+        PA.AccountsCount,
+        PA.ActivatedAccounts,
+        PA.UniqueChecks,
+        PA.Incorrect
+    from
+	    ByPeriodOrgAggregates PA
+	    inner join 
+	    (
+		select
+			PA.OrgId,
+		    max(PA.FactDate) FactDate
+		from
+			ByPeriodOrgAggregates PA
+		where
+			PA.FactDate <= @FactDate and Year(PA.FactDate) = Year(@FactDate)
+		group by
+			PA.OrgId
+	    ) A on A.OrgId = PA.OrgId and A.FactDate = PA.FactDate
+    ) PA on PA.OrgId = O.OrgId
+where
+	1 = 1
+'
+
+if (@ReportType = 0)
+begin
+	set @sql = @daySql
+end
+else begin
+	set @sql = @periodSql
+end
+
+
+-- Федеральный округ
+if (@FDId != -1) 
+begin 
+	set @sql = @sql + ' and O.FDId = @FDId '
+end
+
+-- Субъект РФ
+if (@RegionId != -1) 
+begin 
+	set @sql = @sql + ' and O.RegionId = @RegionId '
+end
+
+-- Тип образовательного учреждения
+if (@OrgType != -1) 
+begin 
+	set @sql = @sql + ' and O.OrgType = @OrgType '
+end
+
+-- Вид образовательного учреждения
+if (@OrgKind != -1) 
+begin 
+	set @sql = @sql + ' and O.OrgKind = @OrgKind '
+end
+
+-- Организационно-правовая форма
+if (@IsPrivate != -1) 
+begin 
+	set @sql = @sql + ' and O.IsPrivate = @IsPrivate '
+end
+
+-- Название организации
+if (@OrgName is not null and LEN(@OrgName) != 0) 
+begin 
+	set @OrgName = '%' + @OrgName + '%'
+	set @sql = @sql + ' and (O.ShortName like @OrgName or O.FullName like @OrgName) '
+end
+
+-- Является ли филиалом
+if (@IsFilial != -1) 
+begin 
+	if (@IsFilial = 1)
+    begin
+		set @sql = @sql + ' and O.MainId is not null '
+    end
+    else begin
+		set @sql = @sql + ' and O.MainId is null '
+    end
+end
+
+-- Признак аккредитации
+if (@IsAccredited != -1) 
+begin 
+	set @sql = @sql + ' and O.IsAccredited = @IsAccredited '
+end
+
+-- Учредитель ОУ
+if (@DepartmentId != -1) 
+begin 
+	set @sql = @sql + ' and O.DepartmentId = @DepartmentId '
+end
+
+-- ИНН/ОГРН
+if (@INN_OGRN is not null and LEN(@INN_OGRN) != 0) 
+begin 
+	set @sql = @sql + ' and (O.INN = @INN_OGRN or O.OGRN = @INN_OGRN) '
+end
+
+-- Подана ли заявка на регистрацию
+if (@IsRegister != -1) 
+begin 
+	if (@IsRegister = 1)
+    begin
+		set @sql = @sql + ' and O.RegisterDate <= @FactDate '
+    end
+    else begin
+		set @sql = @sql + ' and O.RegisterDate is null '
+    end
+end
+
+
+-- Количество пользователей
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@AccountsCount is not null and LEN(@AccountsCount) != 0)
+begin
+	set @sql = @sql + ' and PA.AccountsCount ' + @AccountsCount + ' '
+end
+
+
+-- Пользователей активировано
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@ActivatedAccounts is not null and LEN(@ActivatedAccounts) != 0)
+begin
+	set @sql = @sql + ' and PA.ActivatedAccounts ' + @ActivatedAccounts + ' '
+end
+
+-- Уникальных проверок всего
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@UniqueChecks is not null and LEN(@UniqueChecks) != 0)
+begin
+	set @sql = @sql + ' and PA.UniqueChecks ' + @UniqueChecks + ' '
+end
+
+-- Неправильных проверок
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Incorrect is not null and LEN(@Incorrect) != 0)
+begin
+	set @sql = @sql + ' and PA.Incorrect ' + @Incorrect + ' '
+end
+
+set @sql = @sql + 
+' order by	
+	case when O.MainId is null then O.OrgId else O.MainId end, O.MainId, O.FullName'
+
+execute sp_executesql 
+	@sql,
+    N'
+    @FactDate datetime,
+    @FDId int,
+    @RegionId int,
+    @OrgType int,
+    @OrgKind int,
+    @IsPrivate int,
+    @OrgName nvarchar(1000),
+    @IsFilial int,
+    @IsAccredited int,
+    @DepartmentId int,
+    @INN_OGRN nvarchar(13)
+    ',
+    @FactDate,
+    @FDId,
+    @RegionId,
+    @OrgType,
+    @OrgKind,
+    @IsPrivate,
+    @OrgName,
+    @IsFilial,
+    @IsAccredited,
+    @DepartmentId,
+    @INN_OGRN
+        
+end
+Go
+
+
+ALTER procedure [dbo].[ReportConsolidatedCert]
+	@ReportType int, -- тип отчета (0 - на дату, 1 - нарастающим итогом)
+	@FactDate datetime, -- дата, на которую формируется отчет
+	@CertNumber nvarchar(255), -- номер свидетельства
+	@TypoNumber nvarchar(255), -- типографский номер свидетельства
+	@FIO nvarchar(1000), -- ФИО
+	@PassportSeria nvarchar(255), -- серия паспорта
+	@PassportNumber nvarchar(255), -- номер паспорта
+    @RegionId int, -- регион
+    @CertYear int, -- год выдачи
+    @CertStatus int, -- статус (0 - анулировано, 1 - закончился срок действия)
+	@Russian nvarchar(10),
+	@Mathematics nvarchar(10),
+	@Physics nvarchar(10),
+	@Chemistry nvarchar(10),
+	@Biology nvarchar(10),
+	@RussiaHistory nvarchar(10),
+	@Geography nvarchar(10),
+	@English nvarchar(10),
+	@German nvarchar(10),
+	@Franch nvarchar(10),
+	@SocialScience nvarchar(10),
+	@Literature nvarchar(10),
+	@Spanish nvarchar(10),
+	@InformationScience nvarchar(10),
+    @UniqueChecks nvarchar(10) -- уникальных проверок всего
+as
+begin
+
+declare 
+	@sql nvarchar(4000),
+    @daySql nvarchar(4000),
+    @periodSql nvarchar(4000)
+
+set @daySql =
+N'
+select
+	top 10000
+	C.CertNumber,
+	C.TypoNumber,
+	coalesce(C.LastName + '' '', '''') + coalesce(C.FirstName + '' '', '''') + coalesce(C.PatronymicName, '''') FIO,
+	C.PassportSeria,
+	C.PassportNumber,
+	C.RegionId,
+	C.RegionName,
+	C.CertYear,
+	null CertStatus,
+	C.Russian,
+	C.Mathematics,
+	C.Physics,
+	C.Chemistry,
+	C.Biology,
+	C.RussiaHistory,
+	C.Geography,
+	C.English,
+	C.German,
+	C.Franch,
+	C.SocialScience,
+	C.Literature,
+	C.Spanish,
+	C.InformationScience,
+    CA.UniqueChecks,
+    CA.UniqueIHEaFChecks,
+    CA.UniqueIHEChecks,
+    CA.UniqueIHEFChecks,
+    CA.UniqueTSSaFCheck,
+    CA.UniqueTSSChecks,
+    CA.UniqueTSSFChecks,
+    CA.UniqueRCOIChecks,
+    CA.UniqueOUOChecks,
+    CA.UniqueFounderChecks,
+    CA.UniqueOtherChecks
+from
+	Certificates C
+	inner join ByDayCertAggregates CA on CA.CertId = C.CertId
+where	
+	CA.FactDate = @FactDate 
+'
+
+set @periodSql =
+N'
+select
+	top 10000
+	C.CertNumber,
+	C.TypoNumber,
+	coalesce(C.LastName + '' '', '''') + coalesce(C.FirstName + '' '', '''') + coalesce(C.PatronymicName, '''') FIO,
+	C.PassportSeria,
+	C.PassportNumber,
+	C.RegionId,
+	C.RegionName,
+	C.CertYear,
+	null CertStatus,
+	C.Russian,
+	C.Mathematics,
+	C.Physics,
+	C.Chemistry,
+	C.Biology,
+	C.RussiaHistory,
+	C.Geography,
+	C.English,
+	C.German,
+	C.Franch,
+	C.SocialScience,
+	C.Literature,
+	C.Spanish,
+	C.InformationScience,
+    CA.UniqueChecks,
+    CA.UniqueIHEaFChecks,
+    CA.UniqueIHEChecks,
+    CA.UniqueIHEFChecks,
+    CA.UniqueTSSaFCheck,
+    CA.UniqueTSSChecks,
+    CA.UniqueTSSFChecks,
+    CA.UniqueRCOIChecks,
+    CA.UniqueOUOChecks,
+    CA.UniqueFounderChecks,
+    CA.UniqueOtherChecks
+from
+	Certificates C
+	inner join ByPeriodCertAggregates CA on CA.CertId = C.CertId
+	inner join
+	(
+		select
+			CA.CertId,
+		    max(CA.FactDate) FactDate
+		from
+			ByPeriodCertAggregates CA
+		where
+			CA.FactDate <= @FactDate and Year(CA.FactDate) = Year(@FactDate) 
+		group by
+			CA.CertId
+	) A on A.CertId = CA.CertId and A.FactDate = CA.FactDate
+where	
+	1 = 1
+'
+
+set @FactDate = GETDATE()
+
+if (@ReportType = 0)
+begin
+	set @sql = @daySql
+end
+else begin
+	set @sql = @periodSql
+end
+
+-- Номер сертификата
+if (@CertNumber is not null and LEN(@CertNumber) != 0)
+begin
+	set @CertNumber = '%' + @CertNumber + '%'
+	set @sql = @sql + ' and C.CertNumber like @CertNumber '
+end
+
+-- Типографский номер
+if (@TypoNumber is not null and LEN(@TypoNumber) != 0)
+begin
+	set @TypoNumber = '%' + @TypoNumber + '%'
+	set @sql = @sql + ' and C.TypoNumber like @TypoNumber '
+end
+
+-- ФИО
+if (@FIO is not null and LEN(@FIO) != 0)
+begin
+	set @FIO = '%' + @FIO + '%'
+	set @sql = @sql + ' and upper(coalesce(C.LastName + '' '', '''') + coalesce(C.FirstName + '' '', '''') + coalesce(C.PatronymicName, '''')) like upper(@FIO) '
+end
+
+-- Серия паспорта
+if (@PassportSeria is not null and LEN(@PassportSeria) != 0)
+begin
+	set @PassportSeria = '%' + @PassportSeria + '%'
+	set @sql = @sql + ' and C.PassportSeria like @PassportSeria '
+end
+
+-- Номер паспорта
+if (@PassportNumber is not null and LEN(@PassportNumber) != 0)
+begin
+	set @PassportNumber = '%' + @PassportNumber + '%'
+	set @sql = @sql + ' and C.PassportNumber like @PassportNumber '
+end
+
+-- Субъект РФ
+if (@RegionId != -1) 
+begin 
+	set @sql = @sql + ' and C.RegionId = @RegionId '
+end
+
+-- Год выдачи сертификата
+if (@CertYear != -1) 
+begin 
+	set @sql = @sql + ' and C.CertYear = @CertYear '
+end
+
+-- Статус
+if (@CertStatus != -1) 
+begin 
+	set @sql = @sql + ' and C.CertStatus = @CertStatus '
+end
+
+-- Русский
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Russian is not null and LEN(@Russian) != 0)
+begin
+	set @sql = @sql + ' and C.Russian ' + @Russian + ' '
+end
+
+-- Математика
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Mathematics is not null and LEN(@Mathematics) != 0)
+begin
+	set @sql = @sql + ' and C.Mathematics ' + @Mathematics + ' '
+end
+
+-- Физика
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Physics is not null and LEN(@Physics) != 0)
+begin
+	set @sql = @sql + ' and C.Physics ' + @Physics + ' '
+end
+
+-- Химия
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Chemistry is not null and LEN(@Chemistry) != 0)
+begin
+	set @sql = @sql + ' and C.Chemistry ' + @Chemistry + ' '
+end
+
+-- Биология
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Biology is not null and LEN(@Biology) != 0)
+begin
+	set @sql = @sql + ' and C.Biology ' + @Biology + ' '
+end
+
+-- История
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@RussiaHistory is not null and LEN(@RussiaHistory) != 0)
+begin
+	set @sql = @sql + ' and C.RussiaHistory ' + @RussiaHistory + ' '
+end
+
+-- География
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Geography is not null and LEN(@Geography) != 0)
+begin
+	set @sql = @sql + ' and C.Geography ' + @Geography + ' '
+end
+
+-- Английский
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@English is not null and LEN(@English) != 0)
+begin
+	set @sql = @sql + ' and C.English ' + @English + ' '
+end
+
+-- Немецкий
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@German is not null and LEN(@German) != 0)
+begin
+	set @sql = @sql + ' and C.German ' + @German + ' '
+end
+
+-- Французский
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Franch is not null and LEN(@Franch) != 0)
+begin
+	set @sql = @sql + ' and C.Franch ' + @Franch + ' '
+end
+
+-- Обществознание
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@SocialScience is not null and LEN(@SocialScience) != 0)
+begin
+	set @sql = @sql + ' and C.SocialScience ' + @SocialScience + ' '
+end
+
+-- Литература
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Literature is not null and LEN(@Literature) != 0)
+begin
+	set @sql = @sql + ' and C.Literature ' + @Literature + ' '
+end
+
+-- Испанский
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@Spanish is not null and LEN(@Spanish) != 0)
+begin
+	set @sql = @sql + ' and C.Spanish ' + @Spanish + ' '
+end
+
+-- Информатика
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@InformationScience is not null and LEN(@InformationScience) != 0)
+begin
+	set @sql = @sql + ' and C.InformationScience ' + @InformationScience + ' '
+end
+
+-- Всего уникальных проверок
+-- Это потенциальная дырка для sql injection. Надо проверять строку с выражением
+if (@UniqueChecks is not null and LEN(@UniqueChecks) != 0)
+begin
+	set @sql = @sql + ' and CA.UniqueChecks ' + @UniqueChecks + ' '
+end
+
+
+execute sp_executesql 
+	@sql,
+    N'
+    @FactDate datetime,
+    @CertNumber nvarchar(255),
+    @TypoNumber nvarchar(255),
+    @FIO nvarchar(1000),
+    @PassportSeria nvarchar(255),
+    @PassportNumber nvarchar(255),
+    @RegionId int,
+    @CertYear int,
+    @CertStatus int,
+	@Russian nvarchar(10),
+	@Mathematics nvarchar(10),
+	@Physics nvarchar(10),
+	@Chemistry nvarchar(10),
+	@Biology nvarchar(10),
+	@RussiaHistory nvarchar(10),
+	@Geography nvarchar(10),
+	@English nvarchar(10),
+	@German nvarchar(10),
+	@Franch nvarchar(10),
+	@SocialScience nvarchar(10),
+	@Literature nvarchar(10),
+	@Spanish nvarchar(10),
+	@InformationScience nvarchar(10),
+    @UniqueChecks nvarchar(10)
+    ',
+    @FactDate,
+    @CertNumber,
+    @TypoNumber,
+    @FIO,
+    @PassportSeria,
+    @PassportNumber,
+    @RegionId,
+    @CertYear,
+    @CertStatus,
+	@Russian,
+	@Mathematics,
+	@Physics,
+	@Chemistry,
+	@Biology,
+	@RussiaHistory,
+	@Geography,
+	@English,
+	@German,
+	@Franch,
+	@SocialScience,
+	@Literature,
+	@Spanish,
+	@InformationScience,
+    @UniqueChecks
+        
+end
+

@@ -1,0 +1,28 @@
+SELECT 
+	AdmissionVolumeID
+    ,InstitutionID
+    ,AdmissionItemTypeID
+    ,DirectionID
+    ,NumberBudgetO
+    ,NumberBudgetOZ
+    ,NumberBudgetZ
+    ,NumberPaidO
+    ,NumberPaidOZ
+    ,NumberPaidZ
+    ,UID
+    ,CreatedDate
+    ,ModifiedDate
+    ,Course
+    ,CampaignID
+    ,NumberTargetO
+    ,NumberTargetOZ
+    ,NumberTargetZ
+    ,NumberQuotaO
+    ,NumberQuotaOZ
+    ,NumberQuotaZ
+    ,AdmissionVolumeGUID
+	,ParentDirectionID
+FROM 
+	AdmissionVolume
+WHERE
+	CampaignID = @campaignId

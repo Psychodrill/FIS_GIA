@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="FbsCheckContext">
+  <DataContextMoniker Name="/CheckContext" />
+  <nestedChildShapes>
+    <classShape Id="e689c74b-7ee3-45a8-8d7b-850a249c88b3" absoluteBounds="1, 0.75, 2, 1.26050048828125">
+      <DataClassMoniker Name="/CheckContext/CNECheckBatch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a8f43f1-0ef2-451c-a97d-d7ee61d2695a" absoluteBounds="1.0150000000000001, 1.21, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="083d2dff-bf55-4572-8b8e-9d19b640c056" absoluteBounds="3.75, 0.75, 2, 1.26050048828125">
+      <DataClassMoniker Name="/CheckContext/CNERequestBatch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9ba62c0d-e211-47a6-b0cc-04449a037e72" absoluteBounds="3.7649999999999997, 1.21, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="194dc111-a48f-4316-8840-ff1e9d202299" absoluteBounds="1, 2.25, 2, 1.5891951497395831">
+      <DataClassMoniker Name="/CheckContext/CNEForm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0aa4e383-7325-4608-baec-9a20cd8029c0" absoluteBounds="1.0150000000000001, 2.71, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

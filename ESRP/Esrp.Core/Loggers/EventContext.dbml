@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="esrp" Class="EventContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\;Initial Catalog=esrp;Integrated Security=True" SettingsObjectName="Esrp.Core.Properties.Settings" SettingsPropertyName="esrpConnectionString1" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.RegisterEvent" Method="RegisterEvent">
+    <Parameter Name="accountId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ip" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="eventCode" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="sourceEntityIds" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="eventParams" Type="System.String" DbType="NText" />
+    <Parameter Name="updateId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,2 @@
+net stop AppFabricCachingService
+net start AppFabricCachingService

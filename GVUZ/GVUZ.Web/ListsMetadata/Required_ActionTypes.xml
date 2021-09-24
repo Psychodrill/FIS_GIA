@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0">
+  <Entities>
+    <Entity groupId="Common" id="ActionTypes">
+      <CommonSettings allowCreate="true" allowDelete="false" allowDeleteFromForm="false" allowEdit="true" newIdMode="ServerGuid"/>
+      <DataSettings connectionStringName="Main" baseTableName="ActionTypes"></DataSettings>
+      <FormSettings></FormSettings>
+      <ListSettings pageSize="30" addItemUrl="~/Administration/Catalogs/Add.aspx?EntityId=ActionTypes" editItemUrl="~/Administration/Catalogs/Add.aspx?EntityId=ActionTypes&amp;id={0}" headerText="Типы событий"></ListSettings>
+      <Fields>
+        <Field>
+          <CommonSettings/>
+          <DataSettings fieldName="id" fieldType="Guid" filterMode="None" isPrimaryKey="true"></DataSettings>
+          <FormSettings visible="false"></FormSettings>
+          <ListSettings>
+            <Filter visible="false"></Filter>
+            <View visibility="Never"></View>
+          </ListSettings>
+        </Field>
+        <Field>
+          <CommonSettings/>
+          <DataSettings fieldName="Code" fieldType="String" filterMode="Substring" isPrimaryKey="false"></DataSettings>
+          <FormSettings addMode="Control" editMode="ReadOnlyText" caption="Код:" input="Text" lineBreakAfterInput="true" visible="true" order="1"></FormSettings>
+          <ListSettings>
+            <Filter caption="Код:" input="Text" order="1" lineBreakAfterInput="true" visible="true"></Filter>
+            <View caption="Код" isLink="true" order="1" visibility="Visible"></View>
+          </ListSettings>
+        </Field>
+        <Field>
+          <CommonSettings/>
+          <DataSettings fieldName="Action" fieldType="String" filterMode="Substring" isPrimaryKey="false"></DataSettings>
+          <FormSettings addMode="Control" editMode="ReadOnlyText" caption="Наименование действия:" input="Text" lineBreakAfterInput="true" visible="true" order="2"></FormSettings>
+          <ListSettings>
+            <Filter caption="Наименование действия:" input="Text" order="2" lineBreakAfterInput="true" visible="true"></Filter>
+            <View caption="Наименование действия" isLink="false" order="2" visibility="Visible"></View>
+          </ListSettings>
+        </Field>
+        <Field>
+          <CommonSettings/>
+          <DataSettings fieldName="ActionDescription" fieldType="String" filterMode="Substring" isPrimaryKey="false"></DataSettings>
+          <FormSettings addMode="Control" editMode="Control" caption="Описание действия:" input="LongText" lineBreakAfterInput="true" visible="true" order="3"></FormSettings>
+          <ListSettings>
+            <Filter caption="Описание действия:" input="Text" order="3" lineBreakAfterInput="true" visible="true"></Filter>
+            <View caption="Описание действия" isLink="false" order="3" visibility="Visible"></View>
+          </ListSettings>
+        </Field>
+      </Fields>
+    </Entity>
+  </Entities>
+</Metadata>

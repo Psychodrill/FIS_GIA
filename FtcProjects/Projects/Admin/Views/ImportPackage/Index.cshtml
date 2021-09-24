@@ -1,0 +1,78 @@
+﻿@{ 
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <script>var exports = {};</script>
+    <script src="~/dist/App.js"></script>
+</body>
+</html>
+
+
+    
+
+
+@*<div class="container">
+    <br />
+
+    <h2>Управление пакетами</h2>
+
+    <div>
+        <input type="number" name="packageId" id="packageId" value="0" />
+        <button id="btnPackageSearch" href="ImportPackage/Search">Поиск пакета</button>
+    </div>
+
+    <div>
+        <form class="form-table" id="res-form" method="post" action="ImportPackage/Save">
+        </form>
+    </div>
+
+</div>
+
+<script>
+
+    $(function () {
+        $('#btnPackageSearch').on('click', function (e) {
+            var href = $(e.target).attr('href');
+            $.ajax({
+                type: "POST",
+                data: {
+                    packageId: $('#packageId').val()
+                },
+                url: href,
+                success: function (package) {
+                    //$('#statusId').val(package.statusId);
+                    //$('#institutionId').val(package.institutionId);
+                    //$('#createDate').val(package.createDate);
+                    //$('#lastDateChanged').val(package.lastDateChanged);
+                    //$('#comment').val(package.comment);
+
+                    $('#res-form').empty();
+
+                    for (key in package) {
+                        $('#res-form').append(`<label for="${key}">${key}:</label>`)
+                            .append(`<input type="${getType(jQuery.type(package[key]))}" class="auto-input" name="${key}" id="${key}" value="${htmlEntities(package[key] != null ? package[key] : '')}" /><br />`);
+                    }
+                    $('#res-form').append('<input type="submit" value="Save" />');
+                },
+                error: function (err) {
+                    
+                }
+            });
+        });
+    });
+
+    function getType(type) {
+        if (type === "number")
+            return "number";
+        else return "text";
+    }
+
+    function htmlEntities(str) {
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+</script>*@

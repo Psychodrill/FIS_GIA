@@ -1,0 +1,1 @@
+"c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\NETFX 4.0 Tools\wsdl.exe" /serverInterface /namespace:FogSoft.WSRP /out:..\WSRPv2Intervaces.cs http://docs.oasis-open.org/wsrp/v2/wsrp-2.0-bindings.wsdl

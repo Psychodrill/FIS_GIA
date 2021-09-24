@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="checkResults" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="checkResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="statusCode" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Код результата обработки пакета</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+              <xs:pattern value="0" />
+              <xs:pattern value="1" />
+              <xs:pattern value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="statusMessage" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Результат обработки пакета</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="Не найден" />
+              <xs:pattern value="В обработке" />
+              <xs:pattern value="Обработан" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="certificate" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="patronymicName" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="passportSeria" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="passportNumber" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="certificateNumber" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="typographicNumber" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="year" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="status" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="uniqueIHEaFCheck" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="certificateDeny" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Признак аннулирования свидетельства</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:pattern value="0" />
+                    <xs:pattern value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="certificateNewNumber" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Номер свидетельства взамен аннулированого</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="certificateDenyComment" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Комментарий по аннулированию</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="marks" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="mark" minOccurs="1" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="subjectName" type="xs:string" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="subjectMark" type="xs:string" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="subjectAppeal" minOccurs="0" maxOccurs="1">
+                            <xs:annotation>
+                              <xs:documentation>Признак аппеляции</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:integer">
+                                <xs:pattern value="0" />
+                                <xs:pattern value="1" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="batchId" minOccurs="0" maxOccurs="1" type="xs:string" />
+        <xs:element name="errors" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="error" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

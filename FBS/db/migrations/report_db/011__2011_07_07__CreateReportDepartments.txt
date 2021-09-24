@@ -1,0 +1,191 @@
+-- =========================================================================
+-- Запись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (11, '011__2011_07_07__CreateReportDepartments')
+-- =========================================================================
+GO
+
+if exists (select 1
+          from sysobjects
+          where  id = object_id('ReportDepartments')
+          and type in ('P','PC'))
+   drop procedure ReportDepartments
+go
+
+
+create procedure ReportDepartments(@currentDate datetime)
+as
+begin
+declare @Departments table 
+(
+	DepartmentId int null
+)
+insert into @Departments
+select 
+	distinct O.DepartmentId
+from
+	Organizations O
+where
+	O.CreateDate <=@currentDate
+order by DepartmentId desc
+
+declare @ActivatedUser table
+(
+	OrgId int,
+	ActivatedUsers int
+)
+
+insert into @ActivatedUser
+select
+	O.OrgId,
+	count(RL.AccountId)
+from Organizations O
+	inner join RegistrationLog RL on RL.OrgId = O.OrgId
+where 
+	RL.AccountStatus = 'activated'
+	and RL.UpdateDate between  (select top 1 P.PeriodDate
+								from Periods P
+								where YEAR(@currentDate) = P.PeriodYear) and @currentDate
+group by
+	O.OrgId
+
+declare @DepartmentsAll table
+(
+	DepartmentId int null,
+	FullName varchar(1000),
+	CountOrganizations int,
+	ActivatedOrganizations int,
+	Precent varchar(10)
+)
+
+insert into @DepartmentsAll
+select
+	T.DepartmentId,
+	CASE WHEN T.FullName is null THEN 'ЯЯЯЯ' ELSE T.FullName END as FullName,
+	T.CountOrganizations,
+	T.ActivatedOrganizations,
+	CASE WHEN T.CountOrganizations=0
+	THEN '-'
+	ELSE
+		cast(round((cast(T.ActivatedOrganizations as float)/cast(T.CountOrganizations as float))*100, 2) as varchar(10))+'%'
+	END
+from
+	(
+	select
+		OD.DepartmentId,
+		(select O1.FullName from Organizations O1 where O1.OrgId = OD.DepartmentId) as FullName, 
+		COUNT(O.OrgId) CountOrganizations,
+		COUNT(CASE WHEN AU.[ActivatedUsers]>0 THEN 1 ELSE null END) ActivatedOrganizations
+	from
+		Organizations O
+		left join @Departments OD on O.DepartmentId = OD.DepartmentId
+		left join @ActivatedUser AU on O.OrgId = AU.OrgId
+	where
+		O.CreateDate <= @currentDate
+	group by
+		OD.DepartmentId
+	) T
+	
+declare @Organizations table
+(
+	OrgId int,
+	DepartmentId int null,
+	MainId int null,
+	OrgTypeName varchar(30),
+	FullName varchar(1000),
+	ShortName varchar(500),
+	RegionId int,
+	RegionName varchar(255),
+	DirectorPosition varchar(255),
+	DirectorFullName varchar(255),
+	EMail varchar(100),
+	PhoneCityCode varchar(10),
+	Phone varchar(100)
+)
+
+insert into @Organizations
+select
+	O.OrgId,
+	O.DepartmentId,
+	O.MainId,
+	O.OrgTypeName,
+	O.FullName,
+	O.ShortName,
+	O.RegionId,
+	O.RegionName,
+	O.DirectorPosition,
+	O.DirectorFullName,
+	O.EMail,
+	O.PhoneCityCode,
+	O.Phone
+from Organizations O
+where 
+	O.CreateDate <= @currentDate
+	and O.OrgId not in (select
+							D.DepartmentId
+						from
+							@Departments D
+						where D.DepartmentId is not null
+						)
+order by
+	case when O.MainId is null then O.OrgId else O.MainId end, O.MainId, O.FullName
+	
+	
+declare @Report table
+(
+	DepartmentId int null,
+	DepartmentFullName varchar(1000),
+	CountOrganizations int,
+	ActivatedOrganizations int,
+	Precent varchar(10),
+	OrgId int,
+	OrgMainId int null,
+	OrgTypeName varchar(30),
+	OrgFullName varchar(1000),
+	OrgShortName varchar(500),
+	RegionId int,
+	RegionName varchar(255),
+	OrgDirectorPosition varchar(255),
+	OrgDirectorFullName varchar(255),
+	OrgEMail varchar(100),
+	OrgPhoneCityCode varchar(10),
+	OrgPhone varchar(100)
+)
+
+insert into @Report
+select
+	D.DepartmentId,
+	D.FullName,
+	D.CountOrganizations,
+	D.ActivatedOrganizations,
+	D.Precent,
+	null, null, null,
+	null, null, null,
+	null, null, null,
+	null, null, null
+from @DepartmentsAll D
+
+
+insert into @Report
+select 
+	O.DepartmentId,
+	null, null, null, null,
+	O.OrgId,
+	O.MainId,
+	O.OrgTypeName,
+	O.FullName,
+	O.ShortName,
+	O.RegionId,
+	O.RegionName,
+	O.DirectorPosition,
+	O.DirectorFullName,
+	O.EMail,
+	O.PhoneCityCode,
+	O.Phone
+from @Organizations O
+
+select *
+from @Report
+order by DepartmentId
+
+end
+go

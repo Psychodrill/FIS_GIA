@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AllowedCampaigns" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\AllowedCampaigns.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="AllowedDirection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\AllowedDirection.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteCompetitiveGroupTarget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\TargetOrganization\DeleteCompetitiveGroupTarget.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteInstitutionAccreditationFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\DeleteInstitutionAccreditationFile.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteInstitutionDocument" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\DeleteInstitutionDocument.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteInstitutionHostelFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\DeleteInstitutionHostelFile.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteInstitutionLicenseFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\DeleteInstitutionLicenseFile.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DirectionsInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\DirectionsInfo.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="FindCompetitiveGroupTarget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\TargetOrganization\FindCompetitiveGroupTarget.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetAdmissionItemType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetAdmissionItemType.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\GetAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetCampaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\GetCampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetCampaignById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\GetCampaignById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetCampaignEducationLevel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\GetCampaignEducationLevel.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetCampaignList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\GetCampaignList.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetCampaignStartYears" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetCampaignStartYears.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetCampaignStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetCampaignStatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetCampaignTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetCampaignTypes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetCampaignWithTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetCampaignWithTypes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetCompetitiveGroupById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetCompetitiveGroupById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetCompetitiveGroupList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetCompetitiveGroupList.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetCompetitiveGroupProgramsByCompetitiveGroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetCompetitiveGroupProgramsByCompetitiveGroup.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetCompetitiveGroupTargetItemsByCG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetCompetitiveGroupTargetItemsByCG.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetCompetitiveGroupTargets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\TargetOrganization\GetCompetitiveGroupTargets.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetDirectionsByInstitutionAndEducationLevel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetDirectionsByInstitutionAndEducationLevel.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetDistributedAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\GetDistributedAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetEditCampaignTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\GetEditCampaignTypes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetEduLevelsToCampaignTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\GetEduLevelsToCampaignTypes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetEntranceTestsByCompetitiveGroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetEntranceTestsByCompetitiveGroup.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetInstitutionAccreditationDocumentDto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\GetInstitutionAccreditationDocumentDto.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetInstitutionDocuments" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\GetInstitutionDocuments.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetInstitutionHostelDocumentDto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\GetInstitutionHostelDocumentDto.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetInstitutionInfoDto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\GetInstitutionInfoDto.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetInstitutionLicenseDocumentDto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\GetInstitutionLicenseDocumentDto.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetLevelsEducation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\GetLevelsEducation.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="SaveAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\SaveAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\UpdateAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="InsertAttachment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\InsertAttachment.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateCampaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\UpdateCampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateCampaignEducationLevel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\UpdateCampaignEducationLevel.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateCompetitiveGroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\UpdateCompetitiveGroup.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UpdateCompetitiveGroupProgram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\UpdateCompetitiveGroupProgram.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UpdateCompetitiveGroupTarget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\TargetOrganization\UpdateCompetitiveGroupTarget.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateCompetitiveGroupTargetItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\UpdateCompetitiveGroupTargetItem.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UpdateInstitutionAccreditationFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\UpdateInstitutionAccreditationFile.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateInstitutionDocument" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\UpdateInstitutionDocument.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateInstitutionHostelFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\UpdateInstitutionHostelFile.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateInstitutionInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\UpdateInstitutionInfo.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateInstitutionLicenseFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\UpdateInstitutionLicenseFile.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetSubjectsWithMinValue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetSubjectsWithMinValue.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UpdateEntranceTestItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\UpdateEntranceTestItem.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UpdateInstitutionAccreditationNumber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\UpdateInstitutionAccreditationNumber.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="FindDirectionsToExclude" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\FindDirectionsToExclude.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="FindDirectionsToInclude" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\FindDirectionsToInclude.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="FindDirectionsToIncludeProf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\FindDirectionsToIncludeProf.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetInstitutionDirectionRequestByTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\GetInstitutionDirectionRequestByTypes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetSimpleEduLevelsList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetSimpleEduLevelsList.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetSimpleUgsList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetSimpleUgsList.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteDeniedInstitutionRequests" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\DeleteDeniedInstitutionRequests.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteInstitutionRequestById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\DeleteInstitutionRequestById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DenyInstitutionDirectionRequest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\DenyInstitutionDirectionRequest.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetInstitutionDirectionRequestById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\GetInstitutionDirectionRequestById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="CheckCompetitiveGroupCanBeEdited" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\CheckCompetitiveGroupCanBeEdited.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CheckKCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\CheckKCP.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetBenefitItemCs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetBenefitItemCs.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetCompetitiveGroupUIDs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetCompetitiveGroupUIDs.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetEntranceTestItemCUids" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetEntranceTestItemCUids.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ValidateCompetitiveGroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\ValidateCompetitiveGroup.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="FindDirectionsToIncludeAdmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\FindDirectionsToIncludeAdmin.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="InsertInstitutionDirectionRequest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\InsertInstitutionDirectionRequest.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetOlympicsList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Olympics\GetOlympicsList.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetOlympicsSubjects" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Olympics\GetOlympicsSubjects.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateOlympic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Olympics\UpdateOlympic.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="InsertOlympic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Olympics\InsertOlympic.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteOlympic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Olympics\DeleteOlympic.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="InsertAllowedDirection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\InsertAllowedDirection.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="InstitutionDirectionRequestDetails" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\InstitutionDirectionRequestDetails.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="InstitutionDirectionRequestListPaged" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\InstitutionDirectionRequestListPaged.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetBenefits" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetBenefits.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetOlympicDiplomTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetOlympicDiplomTypes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetOlympicLevels" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetOlympicLevels.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetOlympicProfiles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetOlympicProfiles.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetOlympicTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Olympic\GetOlympicTypes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetInstitutionSimpleDto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Institution\GetInstitutionSimpleDto.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="InstitutionDirectionRequestListCount" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\InstitutionDirectionRequestListCount.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="AddAllowedDirection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\AddAllowedDirection.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="AddAllowedProfDirection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\AddAllowedProfDirection.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteAllowedDirection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\AllowedDirections\DeleteAllowedDirection.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetBenefitUIDs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\GetBenefitUIDs.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DeleteCompetitiveGroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\DeleteCompetitiveGroup.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetGlobalMinEge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetGlobalMinEge.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AdmissionVolumeCheckKCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\AdmissionVolumeCheckKCP.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetCampaignUsedEducationForms" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\GetCampaignUsedEducationForms.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetInstitutionFounderEsrpOrgId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Dictionary\GetInstitutionFounderEsrpOrgId.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetInstitutionStructureDto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\institution\getinstitutionstructuredto.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="CopyCompetitiveGroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\competitivegroup\copycompetitivegroup.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GetInstitutionProgram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\institutionprogram\getinstitutionprogram.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteInstitutionProgram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\institutionprogram\deleteinstitutionprogram.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="FindInstitutionProgram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\institutionprogram\findinstitutionprogram.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateInstitutionProgram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\institutionprogram\updateinstitutionprogram.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetCompetitiveGroupProgramsByOO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\competitivegroup\getcompetitivegroupprogramsbyoo.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="PlanAdmissionVolumeByCampaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\PlanAdmissionVolumeByCampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="AdmissionVolumeByCampaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\AdmissionVolumeByCampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DistributedAdmissionVolumeByCampaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\AdmissionVolume\DistributedAdmissionVolumeByCampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DistributedPlanAdmissionVolumeByCampaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\DistributedPlanAdmissionVolumeByCampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="PlanAdmissionVolumeByCampaign1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\PlanAdmissionVolumeByCampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="PlanAdmissionVolumeDirectionGroupsByCampaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\PlanAdmissionVolumeDirectionGroupsByCampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="PlanAdmissionVolumeDirectionsByCampaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\PlanAdmissionVolumeDirectionsByCampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="CreateDistributedPlanAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\CreateDistributedPlanAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="CreatePlanAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\CreatePlanAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteDistributedPlanAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\DeleteDistributedPlanAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeletePlanAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\DeletePlanAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateDistributedPlanAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\UpdateDistributedPlanAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdatePlanAdmissionVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\UpdatePlanAdmissionVolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="GetCampaignFormFlags" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Campaign\GetCampaignFormFlags.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteDistributedPlanAdmissionVolumeByPlanAdmissionVolumeId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\Admission\PlanAdmissionVolume\DeleteDistributedPlanAdmissionVolumeByPlanAdmissionVolumeId.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DistributedAdmissionVolumeCheckKCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\admission\admissionvolume\distributedadmissionvolumecheckkcp.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="VolumeTransferByCampaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\admission\volumetransfer\volumetransferbycampaign.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="BeginVolumeTransfer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\admission\volumetransfer\beginvolumetransfer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CheckTransferVolume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\admission\volumetransfer\checktransfervolume.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CheckIfTransferHasBenefit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\admission\volumetransfer\checkiftransferhasbenefit.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ParentDirectionCheckKCP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sqlquery\competitivegroup\parentdirectioncheckkcp.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateCompetitiveGroupProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>SQLQuery\CompetitiveGroup\UpdateCompetitiveGroupProperties.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+</root>

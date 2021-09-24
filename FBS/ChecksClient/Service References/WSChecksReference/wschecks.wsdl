@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:fbs:v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:fbs:v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:fbs:v2">
+      <s:element name="BatchCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BatchCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BatchCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserCredentials" type="tns:UserCredentials" />
+      <s:complexType name="UserCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="BatchCheckNN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BatchCheckNNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BatchCheckNNResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchCheckQuerySample">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBatchCheckQuerySampleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatchCheckQuerySampleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchCheckQuerySampleNN">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBatchCheckQuerySampleNNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatchCheckQuerySampleNNResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchCheckResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchCheckResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatchCheckResultResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchCheckResultNN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchCheckResultNNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatchCheckResultNNResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleCheckQuerySample">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSingleCheckQuerySampleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleCheckQuerySampleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleCheckQuerySampleNN">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSingleCheckQuerySampleNNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleCheckQuerySampleNNResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SingleCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SingleCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SingleCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SingleCheckNN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SingleCheckNNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SingleCheckNNResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BatchCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:BatchCheck" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:BatchCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckNNSoapIn">
+    <wsdl:part name="parameters" element="tns:BatchCheckNN" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckNNSoapOut">
+    <wsdl:part name="parameters" element="tns:BatchCheckNNResponse" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckNNUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckQuerySample" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckQuerySampleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleNNSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckQuerySampleNN" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleNNSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckQuerySampleNNResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckResult" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultNNSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckResultNN" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultNNSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBatchCheckResultNNResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultNNUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleCheckQuerySample" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleCheckQuerySampleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleNNSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleCheckQuerySampleNN" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleNNSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleCheckQuerySampleNNResponse" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SingleCheck" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SingleCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckNNSoapIn">
+    <wsdl:part name="parameters" element="tns:SingleCheckNN" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckNNSoapOut">
+    <wsdl:part name="parameters" element="tns:SingleCheckNNResponse" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckNNUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckHttpGetIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckNNHttpGetIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckNNHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleHttpGetIn" />
+  <wsdl:message name="GetBatchCheckQuerySampleHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleNNHttpGetIn" />
+  <wsdl:message name="GetBatchCheckQuerySampleNNHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultHttpGetIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultNNHttpGetIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultNNHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleHttpGetIn" />
+  <wsdl:message name="GetSingleCheckQuerySampleHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleNNHttpGetIn" />
+  <wsdl:message name="GetSingleCheckQuerySampleNNHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckHttpGetIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckNNHttpGetIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckNNHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckHttpPostIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckNNHttpPostIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BatchCheckNNHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleHttpPostIn" />
+  <wsdl:message name="GetBatchCheckQuerySampleHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckQuerySampleNNHttpPostIn" />
+  <wsdl:message name="GetBatchCheckQuerySampleNNHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultHttpPostIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultNNHttpPostIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchCheckResultNNHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleHttpPostIn" />
+  <wsdl:message name="GetSingleCheckQuerySampleHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleCheckQuerySampleNNHttpPostIn" />
+  <wsdl:message name="GetSingleCheckQuerySampleNNHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckHttpPostIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckNNHttpPostIn">
+    <wsdl:part name="queryXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SingleCheckNNHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WSChecksSoap">
+    <wsdl:operation name="BatchCheck">
+      <wsdl:input message="tns:BatchCheckSoapIn" />
+      <wsdl:output message="tns:BatchCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheckNN">
+      <wsdl:input message="tns:BatchCheckNNSoapIn" />
+      <wsdl:output message="tns:BatchCheckNNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <wsdl:input message="tns:GetBatchCheckQuerySampleSoapIn" />
+      <wsdl:output message="tns:GetBatchCheckQuerySampleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySampleNN">
+      <wsdl:input message="tns:GetBatchCheckQuerySampleNNSoapIn" />
+      <wsdl:output message="tns:GetBatchCheckQuerySampleNNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <wsdl:input message="tns:GetBatchCheckResultSoapIn" />
+      <wsdl:output message="tns:GetBatchCheckResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResultNN">
+      <wsdl:input message="tns:GetBatchCheckResultNNSoapIn" />
+      <wsdl:output message="tns:GetBatchCheckResultNNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <wsdl:input message="tns:GetSingleCheckQuerySampleSoapIn" />
+      <wsdl:output message="tns:GetSingleCheckQuerySampleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySampleNN">
+      <wsdl:input message="tns:GetSingleCheckQuerySampleNNSoapIn" />
+      <wsdl:output message="tns:GetSingleCheckQuerySampleNNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheck">
+      <wsdl:input message="tns:SingleCheckSoapIn" />
+      <wsdl:output message="tns:SingleCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheckNN">
+      <wsdl:input message="tns:SingleCheckNNSoapIn" />
+      <wsdl:output message="tns:SingleCheckNNSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSChecksHttpGet">
+    <wsdl:operation name="BatchCheck">
+      <wsdl:input message="tns:BatchCheckHttpGetIn" />
+      <wsdl:output message="tns:BatchCheckHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheckNN">
+      <wsdl:input message="tns:BatchCheckNNHttpGetIn" />
+      <wsdl:output message="tns:BatchCheckNNHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <wsdl:input message="tns:GetBatchCheckQuerySampleHttpGetIn" />
+      <wsdl:output message="tns:GetBatchCheckQuerySampleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySampleNN">
+      <wsdl:input message="tns:GetBatchCheckQuerySampleNNHttpGetIn" />
+      <wsdl:output message="tns:GetBatchCheckQuerySampleNNHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <wsdl:input message="tns:GetBatchCheckResultHttpGetIn" />
+      <wsdl:output message="tns:GetBatchCheckResultHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResultNN">
+      <wsdl:input message="tns:GetBatchCheckResultNNHttpGetIn" />
+      <wsdl:output message="tns:GetBatchCheckResultNNHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <wsdl:input message="tns:GetSingleCheckQuerySampleHttpGetIn" />
+      <wsdl:output message="tns:GetSingleCheckQuerySampleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySampleNN">
+      <wsdl:input message="tns:GetSingleCheckQuerySampleNNHttpGetIn" />
+      <wsdl:output message="tns:GetSingleCheckQuerySampleNNHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheck">
+      <wsdl:input message="tns:SingleCheckHttpGetIn" />
+      <wsdl:output message="tns:SingleCheckHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheckNN">
+      <wsdl:input message="tns:SingleCheckNNHttpGetIn" />
+      <wsdl:output message="tns:SingleCheckNNHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSChecksHttpPost">
+    <wsdl:operation name="BatchCheck">
+      <wsdl:input message="tns:BatchCheckHttpPostIn" />
+      <wsdl:output message="tns:BatchCheckHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheckNN">
+      <wsdl:input message="tns:BatchCheckNNHttpPostIn" />
+      <wsdl:output message="tns:BatchCheckNNHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <wsdl:input message="tns:GetBatchCheckQuerySampleHttpPostIn" />
+      <wsdl:output message="tns:GetBatchCheckQuerySampleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySampleNN">
+      <wsdl:input message="tns:GetBatchCheckQuerySampleNNHttpPostIn" />
+      <wsdl:output message="tns:GetBatchCheckQuerySampleNNHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <wsdl:input message="tns:GetBatchCheckResultHttpPostIn" />
+      <wsdl:output message="tns:GetBatchCheckResultHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResultNN">
+      <wsdl:input message="tns:GetBatchCheckResultNNHttpPostIn" />
+      <wsdl:output message="tns:GetBatchCheckResultNNHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <wsdl:input message="tns:GetSingleCheckQuerySampleHttpPostIn" />
+      <wsdl:output message="tns:GetSingleCheckQuerySampleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySampleNN">
+      <wsdl:input message="tns:GetSingleCheckQuerySampleNNHttpPostIn" />
+      <wsdl:output message="tns:GetSingleCheckQuerySampleNNHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheck">
+      <wsdl:input message="tns:SingleCheckHttpPostIn" />
+      <wsdl:output message="tns:SingleCheckHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheckNN">
+      <wsdl:input message="tns:SingleCheckNNHttpPostIn" />
+      <wsdl:output message="tns:SingleCheckNNHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSChecksSoap" type="tns:WSChecksSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BatchCheck">
+      <soap:operation soapAction="urn:fbs:v2/BatchCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BatchCheckUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheckNN">
+      <soap:operation soapAction="urn:fbs:v2/BatchCheckNN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BatchCheckNNUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <soap:operation soapAction="urn:fbs:v2/GetBatchCheckQuerySample" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySampleNN">
+      <soap:operation soapAction="urn:fbs:v2/GetBatchCheckQuerySampleNN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <soap:operation soapAction="urn:fbs:v2/GetBatchCheckResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBatchCheckResultUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResultNN">
+      <soap:operation soapAction="urn:fbs:v2/GetBatchCheckResultNN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBatchCheckResultNNUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <soap:operation soapAction="urn:fbs:v2/GetSingleCheckQuerySample" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySampleNN">
+      <soap:operation soapAction="urn:fbs:v2/GetSingleCheckQuerySampleNN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheck">
+      <soap:operation soapAction="urn:fbs:v2/SingleCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SingleCheckUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheckNN">
+      <soap:operation soapAction="urn:fbs:v2/SingleCheckNN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SingleCheckNNUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSChecksSoap12" type="tns:WSChecksSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BatchCheck">
+      <soap12:operation soapAction="urn:fbs:v2/BatchCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BatchCheckUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheckNN">
+      <soap12:operation soapAction="urn:fbs:v2/BatchCheckNN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BatchCheckNNUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <soap12:operation soapAction="urn:fbs:v2/GetBatchCheckQuerySample" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySampleNN">
+      <soap12:operation soapAction="urn:fbs:v2/GetBatchCheckQuerySampleNN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <soap12:operation soapAction="urn:fbs:v2/GetBatchCheckResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBatchCheckResultUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResultNN">
+      <soap12:operation soapAction="urn:fbs:v2/GetBatchCheckResultNN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBatchCheckResultNNUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <soap12:operation soapAction="urn:fbs:v2/GetSingleCheckQuerySample" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySampleNN">
+      <soap12:operation soapAction="urn:fbs:v2/GetSingleCheckQuerySampleNN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheck">
+      <soap12:operation soapAction="urn:fbs:v2/SingleCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SingleCheckUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheckNN">
+      <soap12:operation soapAction="urn:fbs:v2/SingleCheckNN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SingleCheckNNUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSChecksHttpGet" type="tns:WSChecksHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="BatchCheck">
+      <http:operation location="/BatchCheck" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheckNN">
+      <http:operation location="/BatchCheckNN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <http:operation location="/GetBatchCheckQuerySample" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySampleNN">
+      <http:operation location="/GetBatchCheckQuerySampleNN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <http:operation location="/GetBatchCheckResult" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResultNN">
+      <http:operation location="/GetBatchCheckResultNN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <http:operation location="/GetSingleCheckQuerySample" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySampleNN">
+      <http:operation location="/GetSingleCheckQuerySampleNN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheck">
+      <http:operation location="/SingleCheck" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheckNN">
+      <http:operation location="/SingleCheckNN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSChecksHttpPost" type="tns:WSChecksHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="BatchCheck">
+      <http:operation location="/BatchCheck" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchCheckNN">
+      <http:operation location="/BatchCheckNN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySample">
+      <http:operation location="/GetBatchCheckQuerySample" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckQuerySampleNN">
+      <http:operation location="/GetBatchCheckQuerySampleNN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResult">
+      <http:operation location="/GetBatchCheckResult" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCheckResultNN">
+      <http:operation location="/GetBatchCheckResultNN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySample">
+      <http:operation location="/GetSingleCheckQuerySample" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleCheckQuerySampleNN">
+      <http:operation location="/GetSingleCheckQuerySampleNN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheck">
+      <http:operation location="/SingleCheck" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingleCheckNN">
+      <http:operation location="/SingleCheckNN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSChecks">
+    <wsdl:port name="WSChecksSoap" binding="tns:WSChecksSoap">
+      <soap:address location="http://localhost:557/wschecks.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSChecksSoap12" binding="tns:WSChecksSoap12">
+      <soap12:address location="http://localhost:557/wschecks.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSChecksHttpGet" binding="tns:WSChecksHttpGet">
+      <http:address location="http://localhost:557/wschecks.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSChecksHttpPost" binding="tns:WSChecksHttpPost">
+      <http:address location="http://localhost:557/wschecks.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

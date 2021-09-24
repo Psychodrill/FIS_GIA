@@ -1,0 +1,710 @@
+﻿
+/*---------- tree control ---------*/
+
+.Tree .ExpandOpen .Expand {
+    background-image: url('Images/minus.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.Tree .ExpandClosed .Expand {
+    background-image: url('Images/plus2.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.Tree .ExpandLeaf .Expand {
+    background-image: url('Images/blackarrow.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+/*.Tree > .Container
+{
+	background-image: url('Images/tree_bkg.png');
+	background-position: top top;
+	background-repeat: repeat-x repeat-y;
+}*/
+
+/*---------- end of tree control ---------*/
+
+/*---------- ui-lightness images ---------*/
+.ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url(themes/ui-lightness/images/ui-icons_222222_256x240.png);
+}
+
+.ui-widget-content .ui-icon {
+    background-image: url(themes/ui-lightness/images/ui-icons_222222_256x240.png);
+}
+
+/*.ui-widget-header .ui-icon {
+    background-image: url(themes/ui-lightness/images/ui-icons_ffffff_256x240.png);
+}*/
+
+.ui-state-default .ui-icon {
+    background-image: url(themes/ui-lightness/images/ui-icons_ef8c08_256x240.png);
+}
+
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+    background-image: url(themes/ui-lightness/images/ui-icons_ef8c08_256x240.png);
+}
+
+.ui-state-active .ui-icon {
+    background-image: url(themes/ui-lightness/images/ui-icons_ef8c08_256x240.png);
+}
+
+.ui-state-highlight .ui-icon {
+    background-image: url(themes/ui-lightness/images/ui-icons_228ef1_256x240.png);
+}
+
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
+    background-image: url(themes/ui-lightness/images/ui-icons_ffd27a_256x240.png);
+}
+
+.ui-widget-content {
+    background-color: white;
+}
+
+.ui-widget-header {
+    font-family: 'Open Sans';
+    background: #90b2b2;
+    color: #212121;
+    font-weight: 600;
+}
+
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+        background-color: #dddddd;
+        font-size: 14px;
+        font-family: Roboto;
+        padding: 8px 12px;
+        margin: 10px 5px;
+        border: none;
+    }
+
+    /*.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover,
+    .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+        border: 1px solid #fbcb09;
+        background: #fdf5ce url(themes/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png) 50% 50% repeat-x;
+        font-weight: bold;
+        color: #c77405;
+    }*/
+
+    .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+        border: 1px solid #fbd850;
+        background: #ffffff url(themes/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+        font-weight: bold;
+        color: #eb8f00;
+    }
+
+    .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+        border: 1px solid #fed22f;
+        background: #ffe45c url(themes/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png) 50% top repeat-x;
+        color: #363636;
+    }
+
+    .ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
+        border: 1px solid #cd0a0a;
+        background: #b81900 url(themes/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png) 50% 50% repeat;
+        color: #ffffff;
+    }
+
+.ui-widget-overlay {
+    background: #666666 url(themes/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% repeat;
+    opacity: .50;
+    filter: Alpha(Opacity=50);
+}
+
+.ui-widget-shadow {
+    margin: -5px 0 0 -5px;
+    padding: 5px;
+    background: #000000 url(themes/ui-lightness/images/ui-bg_flat_10_000000_40x100.png) 50% 50% repeat-x;
+    opacity: .20;
+    filter: Alpha(Opacity=20);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+/*---------- end of ui-lightness images ---------*/
+a.busy {
+    background-image: url('images/busy.gif');
+}
+
+a.delete {
+    background-image: url('icons/delete_active.png');
+}
+
+a.add {
+    background-color: #dddddd;
+    font-size: 14px;
+    font-family: Roboto;
+    padding: 8px 12px;
+    border: none;
+    text-decoration: none;
+
+    /*padding: 8px 15px;
+    border: 1px solid black;
+    padding-left: 20px;
+    vertical-align: middle;
+    background-image: url('icons/add_active.png');
+    background-position: left center;
+    background-repeat: no-repeat;*/
+}
+
+.ui-widget a.add {
+    background-position: left 2px;
+}
+
+
+button.fileDelete {
+    background-image: url('icons/delete_active.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 9px;
+    height: 9px;
+    border: 0;
+    padding: 0px;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+a.btnDelete, a.btnDeleteUS, a.btnDeleteS, a.btnDeleteU {
+    background-image: url('icons/delete_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnRevoke {
+    background-image: url('images/Revoke.jpg');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnRefuseAdmission {
+    background-image: url('icons/exclude_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+ a.btnRefuseAdmissionGray {
+    background-image: url('icons/exclude_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+ }
+
+a.btnCopy {
+    background-image: url('icons/copy_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+ a.btnCopyGray {
+    background-image: url('icons/copy_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+ }
+
+.tableStatement2 a.btnDelete, .tableStatement2 a.btnDeleteUS, .tableStatement2 a.btnDeleteS, .tableStatement2 a.btnDeleteU {
+    background-image: url('icons/delete_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    padding-top: 1px;
+}
+
+.tableStatement2 a.btnRevoke {
+    background-image: url('icons/decline_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    padding-top: 1px;
+}
+
+.tableStatement2 span.btnDeleteGray, .tableStatement2 a.btnDeleteGray {
+    background-image: url('icons/delete_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    padding-top: 1px;
+}
+
+.tableStatement2 span.btnRevokeGray, .tableStatement2 a.btnRevokeGray {
+    background-image: url('icons/decline_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    padding-top: 1px;
+}
+
+a.btnSave, a.btnSaveS {
+    background-image: url('icons/save_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnOpen {
+    background-image: url('icons/open_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+a.btnCancel {
+    background-image: url('icons/cancel_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnEdit, a.btnEditS {
+    background-image: url('icons/edit_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+span.btnDeleteGray, a.btnDeleteGray {
+    background-image: url('icons/delete_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+span.btnRevokeGray, a.btnRevokeGray {
+    background-image: url('images/Revoke_gray.jpg');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+span.btnEditGray {
+    background-image: url('icons/edit_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+span.btnDownGray {
+    background-image: url('icons/unlink_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+.btnEdit,
+.btnEditS,
+.btnEditGray,
+.btnDelete,
+.btnDeleteU,
+.btnDeleteGray,
+.btnRevoke,
+.btnRevokeGray,
+.btnCopy,
+.btnCopyGray,
+.btnOpen,
+.btnOk,
+.btnOkGray,
+.btnView,
+.btnGoStat,
+.btnGoStatGray,
+.btnGoOrder,
+.btnGoOrderGray,
+.btnSave,
+.btnCheck,
+.btnMove,
+.btnMoveGray,
+.btnPublish,
+.btnPublishGray,
+.btnSaveS,
+.btnCheckGray,
+.btnUp,
+.btnDown,
+.btnDownGray,
+.btnCancel {
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+
+a.btnUp {
+    background-image: url('icons/link_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnDown {
+    background-image: url('icons/unlink_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnOk, span.btnOk {
+    background-image: url('images/ok_16.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+span.btnError {
+    background-image: url('images/error_16.gif');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+
+.tableStatement2 a.btnOk {
+    background-image: url('icons/accept_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    padding-top: 1px;
+}
+
+
+/*a.btnOkGray
+{
+	background-image: url('icons/accept_disabled.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	width: 16px; display: inline-block; height: 16px;
+	text-decoration:none;
+}*/
+
+.tableStatement2 a.btnOkGray {
+    background-image: url('icons/accept_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    padding-top: 1px;
+}
+
+.tableStatement2 a.btnRecList {
+    background-image: url('images/star_green_16.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    padding-top: 5px;
+}
+
+.tableStatement2 a.btnRecListGray {
+    background-image: url('images/star_gray_16.gif');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+    padding-top: 5px;
+}
+
+.tableStatement2 a.btnView {
+    background-image: url('icons/view_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+.tableStatement2 a.btnViewGray {
+    background-image: url('icons/view_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+.tableStatement2 a.btnGoStat {
+    background-image: url('icons/go_statement_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+.tableStatement2 a.btnGoStatGray {
+    background-image: url('icons/go_statement_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+
+.tableStatement2 a.btnGoOrder {
+    background-image: url('icons/go_order_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+.tableStatement2 a.btnGoOrderGray {
+    background-image: url('icons/go_order_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+.tableStatement2 a.btnBrowsing {
+    background-image: url('images/browsing.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 15px;
+    display: inline-block;
+    height: 15px;
+    text-decoration: none;
+}
+
+.tableStatement2 a.btnEdit {
+    background-image: url('icons/edit_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+.tableStatement2 a.btnEditGray, .tableStatement2 span.btnEditGray {
+    background-image: url('icons/edit_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+span.sortUp {
+    background-image: url('images/uparrow.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 9px;
+    display: inline-block;
+    height: 8px;
+    text-decoration: none;
+    top: 0px;
+    /*margin-left: 8px;*/
+    position: relative;
+}
+
+span.sortDown {
+    background-image: url('images/downarrow.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 9px;
+    display: inline-block;
+    height: 8px;
+    text-decoration: none;
+    top: 0px;
+    /*margin-left: 8px;*/
+    position: relative;
+}
+
+span.sortUpAlignedRight {
+    background-image: url('images/uparrow.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 9px;
+    display: inline-block;
+    height: 6px;
+    text-decoration: none;
+    margin-left: 8px;
+    position: absolute;
+    top: 18px;
+    right: 5px;
+    float: right;
+}
+
+span.sortDownAlignedRight {
+    background-image: url('images/downarrow.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 9px;
+    display: inline-block;
+    height: 6px;
+    text-decoration: none;
+    margin-left: 8px;
+    position: absolute;
+    top: 18px;
+    right: 5px;
+    float: right;
+}
+
+a.btnCheck, span.btnCheck {
+    background-image: url('icons/inspect_active.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnCheckGray, span.btnCheckGray {
+    background-image: url('icons/inspect_disabled.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+
+
+a.btnMove, span.btnMove {
+    background-image: url('images/move_16.gif');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnPublish, span.btnPublish {
+    background-image: url('icons/publish_active.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnMoveGray, span.btnMoveGray {
+    background-image: url('images/move_16_Gray.gif');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+a.btnPublishGray, span.btnPublishGray {
+    background-image: url('icons/publish_disabled.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}
+
+
+a.add16 {
+    background-image: url('images/add_16.gif');
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    text-decoration: none;
+}

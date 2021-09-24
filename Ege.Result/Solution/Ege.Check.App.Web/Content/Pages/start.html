@@ -1,0 +1,117 @@
+﻿<!-- @@master = Partials/master.html -->
+<!-- @@block = content-->
+<!--uncache-->
+<link rel="stylesheet" href="/Content/Build/css/start.css">
+
+<!--enduncache-->
+
+<div class="page">
+    <!-- @@include = Partials/header.html -->
+
+    <div class="content" id="content">
+        <h2>Результаты ЕГЭ</h2>
+        <div style="float: right; text-align: center; horiz-align: center; padding-right: 50px; padding-top: 40px">
+            <a style="display: block" href="http://abitur.cbias.ru/" target="_blank">
+                <img width="200" src="/Content/Images/41d64e485eadcd14b1e5.jpg" />
+            </a>
+            <a style="display: block; text-decoration: none; width: 230px; text-align: center;" href="http://abitur.cbias.ru/" target="_blank">
+                <b style="font-family: Calibri, Helvetica, sans-serif; color: black; font-size: 18px; text-decoration: none">Официальное приложение для абитуриентов</b>
+            </a>
+            <a style="display: block; padding-top: 20px" href="https://itunes.apple.com/ru/app/id1229088131" target="_blank">
+                <img width="100" src="/Content/Images/download.png" />
+            </a>
+            <a style="display: block;padding-top: 20px" href="https://play.google.com/store/apps/details?id=ru.cbias.abitur" target="_blank">
+                <img width="100" src="/Content/Images/f497675198d34827f63701c08d013c69.png" />
+            </a>
+        </div>
+        <form class="entry-form" id="entry-form">
+            <div id="notice-container"></div>
+            <div class="entry-form_label">
+                Фамилия
+            </div>
+            <div class="entry-form_input">
+                <input type="text" id="surname" tabindex="1" maxlength="40" autocomplete="on">
+            </div>
+            <div class="entry-form_label">
+                Имя
+            </div>
+            <div class="entry-form_input">
+                <input type="text" id="name" tabindex="2" maxlength="40" autocomplete="on">
+            </div>
+            <div class="entry-form_label">
+                Отчество
+            </div>
+            <div class="entry-form_input">
+                <input type="text" id="patr" tabindex="3" maxlength="40" autocomplete="on">
+            </div>
+            <div class="entry-form_complex-row" style="margin-bottom: 0">
+                <div class="entry-form_complex-row_cell right">
+                    <div class="entry-form_label">
+                        Номер документа (без серии)
+                    </div>
+                    <input type="text" id="passNum" tabindex="5" maxlength="12" autocomplete="on">
+                </div>
+                <div class="entry-form_complex-row_cell left">
+                    <div class="entry-form_label">
+                        Код регистрации
+                    </div>
+                    <div class="input-clone" id="regNumClone"></div>
+                    <input class="input-original" type="text" id="regNum" tabindex="4" autocomplete="on">
+                </div>
+                <div class="entry-form_complex-row_center">или</div>
+            </div>
+            <div class="entry-form_label">
+                Регион
+            </div>
+            <div class="entry-form_input">
+                <select id="region" tabindex="6">
+                    <option value=""></option>
+                </select>
+            </div>
+            
+            <div class="entry-form_complex-row">
+                <div class="left">
+                    <div class="entry-form_label">
+                        <input type="checkbox" id="agreeNum" checked=""> Я согласен на обработку персональных данных
+                    </div>
+                </div>
+            </div>
+
+            <p class="red mb-15">
+                Внимание. Решение о публикации результатов на  официальном портале ЕГЭ принимает орган исполнительной власти субъекта Российской Федерации, осуществляющий государственное управление в сфере образования (ОИВ) каждого региона. Если вашего региона нет в списке, Вам необходимо обратиться в ОИВ Вашего региона или на официальный сайт ОИВ Вашего региона.
+            </p>
+
+            <div class="g-recaptcha" data-sitekey="6LeD9qcUAAAAAD7NAXZ-ARlBHNuQniqC4IMcSOC4"></div>
+
+            <button id="submit-btn" class="btn-submit" tabindex="8" type="submit">
+                <span>Войти</span>
+                <!-- @@include = Partials/loader.html -->
+            </button>
+        </form>
+        <div style="display: none">
+            <iframe id="iframe"></iframe>
+        </div>
+
+        <hr>
+        <blockquote style="text-indent: 1.5em;">
+            В соответствии со статьей 71 Федерального закона от 29.12.2012 N 273-ФЗ «Об образовании в Российской Федерации» право на прием на обучение по программам бакалавриата и программам специалитета за счет бюджетных ассигнований федерального бюджета, бюджетов субъектов Российской Федерации и местных бюджетов в пределах установленной квоты имеют <b>дети-инвалиды, инвалиды I и II групп, инвалиды с детства, инвалиды вследствие военной травмы или заболевания, полученных в период прохождения военной службы.</b>
+        </blockquote>
+        <blockquote style="text-indent: 1.5em;">
+            Квота приема для получения высшего образования по программам бакалавриата и программам специалитета за счет бюджетных ассигнований федерального бюджета, бюджетов субъектов Российской Федерации и местных бюджетов <b>устанавливается ежегодно образовательной организацией в размере не менее чем десять процентов общего объема контрольных цифр приема граждан, обучающихся за счет бюджетных ассигнований федерального бюджета,</b> бюджетов субъектов Российской Федерации и местных бюджетов, выделенных такой образовательной организации на очередной год, по специальностям и (или) направлениям подготовки.
+        </blockquote>
+
+        <blockquote style="text-indent: 1.5em;">
+            Информация о предельном количестве граждан указанной категории, обучение которых возможно за счет бюджетных ассигнований федерального бюджета, бюджетов субъектов Российской Федерации и местных бюджетов, размещается на официальном сайте образовательной организации.
+        </blockquote>
+
+        <!-- @@include = Partials/footer.html -->
+    </div>
+
+    <!--uncache-->
+    <script src="/Content/Build/js/start.js"></script>
+<!--enduncache-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    
+    
+    <!-- @@close-->

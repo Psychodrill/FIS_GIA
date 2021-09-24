@@ -1,0 +1,63 @@
+﻿
+ 
+    <div id="search_table">
+        <select multiple class="form-control" id="SearchInstitution" name="SearchInstitution">
+            @{
+                foreach (var item in ViewBag.Institution)
+                {
+                    if (item.BriefName == null)
+                    {
+                        <option value="@item.InstitutionId">@item.FullName</option>
+
+                    }
+                    else
+                    {
+                        <option value="@item.InstitutionId">@item.BriefName</option>
+                    }             
+                }
+            }
+        </select>
+
+    </div>
+
+
+    <div class="input-group mb-3" id="InputCgName" style="visibility:hidden; padding: 20px ;">
+        <input type="text" size="100" class="form-control input-sm" id="cgName" placeholder="Введите название Конкурсной группы" name="cgName">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="searchBtn" name="searchBtn">Найти</button>
+        </div>
+
+    </div>
+
+
+<div class="col-md-8">
+    <div id="search_result" />
+</div>
+
+<script type="text/javascript">
+
+    $("#SearchInstitution").change(function () {
+
+        $('#InputCgName').css('visibility', 'visible');
+
+        $('#searchBtn').click(function (e) {
+            var Search = {
+                InstitutionId: $("#SearchInstitution option:selected").val(),
+                cgName: $("#cgName").val(),
+            }
+            console.log(Search);
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("CompetitiveGroupList", "CompetitiveGroup")',
+                data: Search,
+                success: function (msg) {
+                    $('#search_result').empty().html(msg);
+                }
+            });
+
+
+        })
+
+    });
+
+</script>

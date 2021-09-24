@@ -1,0 +1,144 @@
+﻿@model WebApplication1.Models.CompetitiveGroup
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "CompetitiveGroup";
+}
+
+<h2>Конкурсные группы</h2>
+
+
+
+@using (Html.BeginForm("CompetitiveGroup", "CompetitiveGroup"))
+    {
+
+
+    <div class="input-group mb-3">
+            @Html.TextBoxFor(i => i.Name, new { @class = "form-control", placeholder = "Поиск по названию.." })
+            <input type="submit" value="Найти" class="btn btn-outline-secondary"/>
+    </div>
+
+
+}
+
+@{ 
+    string hide = "";
+    string message = "";
+
+    if (ViewBag.emptyResult as string == "hide")
+    {
+        hide = "0;";
+    }
+    else if (!Enumerable.Any(ViewBag.compGroups) && !String.IsNullOrEmpty(Request.QueryString["cgName"]))
+
+    {
+        message = "Нет конкурсных групп с таким названием";
+        hide = "0;";
+    }
+
+
+
+<h3>@message</h3>
+    }
+<h4>
+
+    @Html.ActionLink("Назад к поиску", "Results", "Search", new { id = Model.InstitutionID }, new { @style = "background-color: white;" })
+</h4>
+
+
+<table class="table" style="opacity: @hide" >
+
+
+    <tr>
+        <th scope="col">Название КГ</th>
+        <th scope="col">Уровень образования</th>
+        <th scope="col">Форма обучения </th>
+        <th scope="col">Направление подготовки</th>
+        <th scope="col"> </th>
+        <th scope="col"> </th>
+       
+
+    </tr>
+
+
+    @foreach (var item in ViewBag.compGroups)
+    {
+        string color = "#FFFFFF;";
+        string color1 = "#FFFFFF;";
+        string color2 = "#FFFFFF;";
+
+        int id = Model.InstitutionID;
+
+
+        if (item.CompetitiveGroupID == Model.CompetitiveGroupID)
+        {
+            if (Model.EducationLevelID != 0 && item.EducationLevelID == Model.EducationLevelID)
+            {
+                color = "#66CC99;";
+            }
+
+            if (Model.EducationFormId != 0 && item.EducationFormId == Model.EducationFormId)
+            {
+                color1 = "#66CC99;";
+            }
+
+            if (Model.DirectionID != 0 && item.DirectionID == Model.DirectionID)
+            {
+                color2 = "#66CC99;";
+            }
+        }
+
+        <form method="post" action="/CompetitiveGroup/UpdateCompetitiveGroup" >
+            <tr>
+                <td>
+                    @item.Name;
+                    <input type="hidden" value=@item.Name  name="ame">
+                    @Html.HiddenFor(m => m.Name)
+                </td>
+
+                <td style="background-color: @color">
+                    @Html.DropDownList("EducationLevelID", ViewBag.eduLevelName as SelectList, @item.EducationLevelName as string,
+           new { @class = "form-control" })
+                </td>
+                <td style="background-color: @color1">
+                    @Html.DropDownList("EducationFormId", ViewBag.eduFormName as SelectList, @item.EducationFormName as string,
+           new { @class = "form-control", @style = "background-color: @color1" })
+                </td>
+                <td style="background-color: @color2">
+                    @Html.DropDownList("DirectionID", ViewBag.drctnName as SelectList, @item.DirectionName as string,
+           new { @class = "form-control", @style = "background-color: @color2" })
+                </td>
+                <td>
+                    <input type="submit" value="Сохранить изменения" name="save" class="btn btn-outline-primary" id="save">
+                </td>
+                <td>
+                    <input type="hidden" value=@item.CompetitiveGroupID name="CompetitiveGroupID">
+                    <input type="hidden" value=@item.InstitutionID name="id">
+
+                    
+                    @Html.ActionLink("Вступительные испытания", "EntrTestItem", "EntrTestItem",
+                       new { id = id, cgID = @item.CompetitiveGroupID }, new { @style = "background-color: white;" })
+                    
+                    </td>
+                    
+                   
+</tr>
+
+        </form>
+    }
+</table>
+
+@{
+    if (Enumerable.Any(ViewBag.compGroups))
+    {
+    @Html.PagedListPager(ViewBag.compGroups as IPagedList, page => Url.Action("CompetitiveGroup", "CompetitiveGroup",
+        new { page, cgName = Request.QueryString["cgName"], id = Model.InstitutionID }),
+        new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
+}
+}
+  
+
+    
+
+
+

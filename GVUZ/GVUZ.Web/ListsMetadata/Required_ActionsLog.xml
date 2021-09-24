@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Metadata formatVersion="2.0">
+  <EntityGroups>
+    <Group name="Лог действий" id="ActionLogs" order="10" >
+    </Group>
+  </EntityGroups>
+  <Entities>
+    <Entity groupId="ActionLogs" id="ActionsLog" >
+      <FormSettings />
+      <CommonSettings allowCreate="false" allowDelete="false" allowEdit="false" newIdMode="ServerGuid" allowLink="true"/>
+      <DataSettings connectionStringName="Main" baseTableName="ActionsLog">
+        <SortExpression>ActionDateTime DESC</SortExpression>
+      </DataSettings>
+      <ListSettings allowExport="true" headerText="Журнал действий пользователей" pageSize="30"/>
+      <Fields>
+        <!-- ИД, Id"-->
+        <Field>
+          <CommonSettings caption="ИД"/>
+          <DataSettings fieldName="Id" fieldType="Guid" isPrimaryKey="true" filterMode="Equals"/>
+          <FormSettings  addMode="Default" editMode="Default" caption="Код" lineBreakAfterInput="true" input="Text" size="Normal" visible="false"  order="0" />
+          <ListSettings>
+            <Filter caption="Код" input="Text" lineBreakAfterInput="true" order="0" size="Normal" visible="true"/>
+            <View caption="Код" visibility="Never" order="0" />
+          </ListSettings>
+        </Field>
+        <!-- Время события, ActionDateTime"-->
+        <Field>
+          <CommonSettings caption="Время" />
+          <DataSettings fieldName="ActionDateTime" fieldType="DateTime" filterMode="Between"/>
+          <FormSettings addMode="ReadOnlyText" editMode="ReadOnlyText" caption="Дата и время события" formatSchema="DateTimeSecond" input="Date" visible="true" size="Normal" order="1" lineBreakAfterInput="true"/>
+          <ListSettings>
+            <Filter caption="Дата события:" input="DateRange" lineBreakAfterInput="true" order="1" size="Normal" visible="true"/>
+            <View caption="Дата и время|события" visibility="Visible" order="1" formatSchema="DateTimeSecond" isLink="false"/>
+          </ListSettings>
+        </Field>
+
+        <!-- Пользователь, UserName -->
+        <Field>
+          <CommonSettings caption="Пользователь"/>
+          <DataSettings fieldName="UserName" fieldType="String" filterMode="Equals"/>
+          <FormSettings caption="Пользователь:" editMode="ReadOnlyText" input="Text" size="Normal" visible="true" order="2"  lineBreakAfterInput="true"/>
+          <ListSettings>
+            <Filter caption="Пользователь:" input="Text" lineBreakAfterInput="true" order="2" size="Normal" visible="true"/>
+            <View caption="Пользователь" visibility="Visible" order="2" />
+          </ListSettings>
+        </Field>
+
+        <!-- Действие, ActionTypeFK"-->
+        <Field>
+          <CommonSettings caption="Тип операции"/>
+          <DataSettings fieldName="ActionTypeFK" fieldType="Guid" filterMode="Equals"/>
+          <FormSettings caption="Тип операции" editMode="ReadOnlyText" lineBreakAfterInput="true" order="3" input="DropDown" visible="true" size="Normal">
+            <DropDown captionFieldName="Action" keyFieldName="id" tableName="ActionTypes"/>
+          </FormSettings>
+          <ListSettings>
+            <Filter caption="Тип операции:" input="DropDown" lineBreakAfterInput="true" order="3" size="Normal" visible="true">
+              <DropDown captionFieldName="Action" keyFieldName="id" tableName="ActionTypes"/>
+            </Filter>
+            <View caption="Тип операции" visibility="Never" order="3"/>
+          </ListSettings>
+        </Field>
+
+        <!-- ID объекта , ObjectId -->
+        <Field>
+          <CommonSettings caption="Код объекта"/>
+          <DataSettings fieldName="ObjectId" fieldType="String" filterMode="Equals"/>
+          <FormSettings caption="Код объекта:" editMode="ReadOnlyText" input="Text" size="Normal" visible="true" order="4"  lineBreakAfterInput="true"/>
+          <ListSettings>
+            <Filter caption="Код объекта:" input="Text" lineBreakAfterInput="true" order="4" size="Normal" visible="true"/>
+            <View caption="Код объекта" visibility="Visible" order="4" />
+          </ListSettings>
+        </Field>
+
+        <!-- ID записи , RecId -->
+        <Field>
+          <CommonSettings caption="ID записи"/>
+          <DataSettings fieldName="RectId" fieldType="String" filterMode="Equals"/>
+          <FormSettings caption="Код экземпляра:" editMode="ReadOnlyText" input="Text" size="Normal" visible="true" order="5"  lineBreakAfterInput="true"/>
+          <ListSettings>
+            <Filter caption="Код экземпляра:" input="Text" lineBreakAfterInput="true" order="4" size="Normal" visible="true"/>
+            <View caption="Код экземпляра" visibility="Visible" order="5" />
+          </ListSettings>
+        </Field>
+
+        <!--Комментарий, Comment -->
+        <Field>
+          <CommonSettings caption="Комментарий"/>
+          <DataSettings fieldName="Comment" fieldType="String" filterMode="Substring" />
+          <FormSettings caption="Комментарий:" editMode="ReadOnlyText" input="LongText" size="Normal" visible="true" order="6"  lineBreakAfterInput="true"/>
+          <ListSettings>
+            <View caption="Комментарий" visibility="Visible" order="6" />
+          </ListSettings>
+        </Field>
+
+        <Relation baseTableField="ActionTypeFK" relatedTableName="ActionTypes" mustExist="false">
+          <Field>
+            <DataSettings fieldName="id" isPrimaryKey="true" fieldType="Guid"/>
+          </Field>
+          <Field>
+            <CommonSettings caption="Действие" isNameField="true"/>
+            <DataSettings fieldName="Action" fieldType="String" filterMode="Substring"/>
+            <ListSettings>
+              <View caption="Тип операции" visibility="Visible" formatSchema="" order="3" isLink="false" />
+            </ListSettings>
+            <FormSettings />
+          </Field>
+        </Relation>
+      </Fields>
+    </Entity>
+  </Entities>
+</Metadata>

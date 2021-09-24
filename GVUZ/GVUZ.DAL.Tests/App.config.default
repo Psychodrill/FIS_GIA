@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <connectionStrings>
+        <add name="Main" connectionString="Data Source=10.32.200.96;Initial Catalog=gvuz_develop_2016;uid=scholar;pwd=scholar;"
+            providerName="System.Data.SqlClient" />
+        <add name="Master" connectionString="Server=localhost;Database=master;Integrated Security=true"
+            providerName="System.Data.SqlClient" />
+        <add name="GVUZTest" connectionString="Server=localhost;Database=GVUZ_AutoTests;Integrated Security=true"
+            providerName="System.Data.SqlClient" />
+        <add name="ESRPTest" connectionString="Server=localhost;Database=ESRP_AutoTests;Integrated Security=true"
+            providerName="System.Data.SqlClient" />
+        <add name="FBSTest" connectionString="Server=localhost;Database=FBS_AutoTests;Integrated Security=true"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    <appSettings>
+        <add key="GVUZBackupPath" value="P:\Ард\ФИС Приема\SVN\Databases\gvuz_develop_2015_small.bak"/>
+        <add key="GVUZBackupDataFileLogicalName" value="gvuz"/>
+        <add key="GVUZBackupLogFileLogicalName" value="gvuz_log"/>
+        <add key="ESRPBackupPath" value="P:\Ард\ФИС Приема\SVN\Databases\esrp_2015_small.bak"/>
+        <add key="ESRPBackupDataFileLogicalName" value="esrp"/>
+        <add key="ESRPBackupLogFileLogicalName" value="esrp_log"/>
+        <add key="FBSBackupPath" value="P:\Ард\ФИС Приема\SVN\Databases\fbs_2015_small.bak"/>
+        <add key="FBSBackupDataFileLogicalName" value="fbs_db"/>
+        <add key="FBSBackupLogFileLogicalName" value="fbs_db_log"/>
+        <add key="GVUZMigrationsFolderPath" value="P:\Ард\ФИС Приема\SVN\migration scripts\FIS-2016"/>
+        <add key="ESRPMigrationsFolderPath" value="P:\Ард\ФИС Приема\SVN\migration scripts\ESRP-2016"/>
+        <add key="FBSMigrationsFolderPath" value="P:\Ард\ФИС Приема\SVN\migration scripts\FBS-2016"/>
+    </appSettings>
+</configuration>

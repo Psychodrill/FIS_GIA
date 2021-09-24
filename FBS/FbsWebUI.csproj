@@ -1,0 +1,2150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5A46FCC2-EE4B-4913-92A8-94EFBD480CF9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fbs.Web</RootNamespace>
+    <AssemblyName>FbsWebUI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>D:\FIS_PRIEM\src\fisgia\FBS\Backup1\</UpgradeBackupLocation>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=1.0.20229.23622, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\WebControls\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\WINDOWS\assembly\GAC_MSIL\Microsoft.ReportViewer.WebForms\9.0.0.0__b03f5f7f11d50a3a\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WebControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\WebControls\WebControls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Administration\Accounts\Users\AuthenticationHistory.aspx" />
+    <Content Include="Administration\Organizations\CertificateList.aspx" />
+    <Content Include="Administration\Organizations\OrganizationHistory.aspx" />
+    <Content Include="Administration\Organizations\OrganizationHistoryVersion.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\CheckHistory.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\TestBatchCheck.aspx" />
+    <Content Include="Common\Styles\Styles.css" />
+    <Content Include="Controls\CommonNationalCertificates\HistoryCertificate.ascx" />
+    <Content Include="Controls\CommonNationalCertificates\HistoryCheckList.ascx" />
+    <Content Include="Controls\OrganizationView.ascx" />
+    <Content Include="Controls\OrgFilialsList.ascx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Common\Templates\PublicDocuments.Master" />
+    <Content Include="Common\Templates\HashedCertificates.Master" />
+    <Content Include="packages.config" />
+    <None Include="Web.config.default">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyCreate.aspx.cs">
+      <DependentUpon>AccountKeyCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyCreate.aspx.designer.cs">
+      <DependentUpon>AccountKeyCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyCreateSuccess.aspx.cs">
+      <DependentUpon>AccountKeyCreateSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyCreateSuccess.aspx.designer.cs">
+      <DependentUpon>AccountKeyCreateSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyEdit.aspx.cs">
+      <DependentUpon>AccountKeyEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyEdit.aspx.designer.cs">
+      <DependentUpon>AccountKeyEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyEditSuccess.aspx.cs">
+      <DependentUpon>AccountKeyEditSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyEditSuccess.aspx.designer.cs">
+      <DependentUpon>AccountKeyEditSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyList.aspx.cs">
+      <DependentUpon>AccountKeyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\AccountKeyList.aspx.designer.cs">
+      <DependentUpon>AccountKeyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\HistoryVersion.aspx.cs">
+      <DependentUpon>HistoryVersion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\HistoryVersion.aspx.designer.cs">
+      <DependentUpon>HistoryVersion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Administrators\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Auditors\HistoryVersion.aspx.cs">
+      <DependentUpon>HistoryVersion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Auditors\HistoryVersion.aspx.designer.cs">
+      <DependentUpon>HistoryVersion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Auditors\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Auditors\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Auditors\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Auditors\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Departments\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Departments\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\SupportUsers\HistoryVersion.aspx.cs">
+      <DependentUpon>HistoryVersion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\SupportUsers\HistoryVersion.aspx.designer.cs">
+      <DependentUpon>HistoryVersion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\SupportUsers\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\SupportUsers\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyCreate.aspx.cs">
+      <DependentUpon>AccountKeyCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyCreate.aspx.designer.cs">
+      <DependentUpon>AccountKeyCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyCreateSuccess.aspx.cs">
+      <DependentUpon>AccountKeyCreateSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyCreateSuccess.aspx.designer.cs">
+      <DependentUpon>AccountKeyCreateSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyEdit.aspx.cs">
+      <DependentUpon>AccountKeyEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyEdit.aspx.designer.cs">
+      <DependentUpon>AccountKeyEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyEditSuccess.aspx.cs">
+      <DependentUpon>AccountKeyEditSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyEditSuccess.aspx.designer.cs">
+      <DependentUpon>AccountKeyEditSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyList.aspx.cs">
+      <DependentUpon>AccountKeyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AccountKeyList.aspx.designer.cs">
+      <DependentUpon>AccountKeyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AuthenticationHistory.aspx.cs">
+      <DependentUpon>AuthenticationHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\AuthenticationHistory.aspx.designer.cs">
+      <DependentUpon>AuthenticationHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\CreateSuccess.aspx.cs">
+      <DependentUpon>CreateSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\CreateSuccess.aspx.designer.cs">
+      <DependentUpon>CreateSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\EditSuccess.aspx.cs">
+      <DependentUpon>EditSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\EditSuccess.aspx.designer.cs">
+      <DependentUpon>EditSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\HistoryVersion.aspx.cs">
+      <DependentUpon>HistoryVersion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\HistoryVersion.aspx.designer.cs">
+      <DependentUpon>HistoryVersion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\SupportUsers\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\SupportUsers\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateDenyingLoad.aspx.cs">
+      <DependentUpon>CommonNationalCertificateDenyingLoad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateDenyingLoad.aspx.designer.cs">
+      <DependentUpon>CommonNationalCertificateDenyingLoad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateDenyingLoadErrors.aspx.cs">
+      <DependentUpon>CommonNationalCertificateDenyingLoadErrors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateDenyingLoadErrors.aspx.designer.cs">
+      <DependentUpon>CommonNationalCertificateDenyingLoadErrors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateDenyingLoadErrorsExport.aspx.cs">
+      <DependentUpon>CommonNationalCertificateDenyingLoadErrorsExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateDenyingLoadErrorsExport.aspx.designer.cs">
+      <DependentUpon>CommonNationalCertificateDenyingLoadErrorsExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateDenyingLoads.aspx.cs">
+      <DependentUpon>CommonNationalCertificateDenyingLoads.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateDenyingLoads.aspx.designer.cs">
+      <DependentUpon>CommonNationalCertificateDenyingLoads.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateLoad.aspx.cs">
+      <DependentUpon>CommonNationalCertificateLoad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateLoad.aspx.designer.cs">
+      <DependentUpon>CommonNationalCertificateLoad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateLoads.aspx.cs">
+      <DependentUpon>CommonNationalCertificateLoads.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateLoads.aspx.designer.cs">
+      <DependentUpon>CommonNationalCertificateLoads.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateLoadsErrors.aspx.cs">
+      <DependentUpon>CommonNationalCertificateLoadsErrors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateLoadsErrors.aspx.designer.cs">
+      <DependentUpon>CommonNationalCertificateLoadsErrors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateLoadsErrorsExport.aspx.cs">
+      <DependentUpon>CommonNationalCertificateLoadsErrorsExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Certificates\CommonNationalCertificateLoadsErrorsExport.aspx.designer.cs">
+      <DependentUpon>CommonNationalCertificateLoadsErrorsExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Certificates\Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Certificates\Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Deliveries\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Deliveries\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Deliveries\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Deliveries\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Deliveries\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Deliveries\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Dictionaries\ExpireDates\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Dictionaries\ExpireDates\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Dictionaries\MinimalMarks\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Dictionaries\MinimalMarks\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Documents\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Documents\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Documents\Document.aspx.cs">
+      <DependentUpon>Document.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Documents\Document.aspx.designer.cs">
+      <DependentUpon>Document.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Documents\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Documents\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Documents\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Documents\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Documents\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Documents\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\FAQ\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\FAQ\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\FAQ\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\FAQ\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\FAQ\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\FAQ\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\FAQ\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\FAQ\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\IPCheck\IPAddress_My.cs" />
+    <Compile Include="Administration\IPCheck\IPChecker.cs" />
+    <Compile Include="Administration\IPCheck\IPNotValid.aspx.cs">
+      <DependentUpon>IPNotValid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\IPCheck\IPNotValid.aspx.designer.cs">
+      <DependentUpon>IPNotValid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\IPCheck\IPRange.cs" />
+    <Compile Include="Administration\News\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\News\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\News\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\News\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\News\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\News\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\News\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\News\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Organizations\Administrators\MainFunctions.cs" />
+    <Compile Include="Administration\Organizations\Administrators\Organization.cs" />
+    <Compile Include="Administration\Organizations\Administrators\OrgCard_Edit.aspx.cs">
+      <DependentUpon>OrgCard_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Organizations\Administrators\OrgCard_Edit.aspx.designer.cs">
+      <DependentUpon>OrgCard_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Organizations\Administrators\OrgCard_Edit_Success.aspx.cs">
+      <DependentUpon>OrgCard_Edit_Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Organizations\Administrators\OrgCard_Edit_Success.aspx.designer.cs">
+      <DependentUpon>OrgCard_Edit_Success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Organizations\Administrators\OrgList.aspx.cs">
+      <DependentUpon>OrgList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Organizations\Administrators\OrgList.aspx.designer.cs">
+      <DependentUpon>OrgList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Organizations\Administrators\Region.cs" />
+    <Compile Include="Administration\Organizations\CertificateList.aspx.cs">
+      <DependentUpon>CertificateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Organizations\CertificateList.aspx.designer.cs">
+      <DependentUpon>CertificateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Organizations\OrganizationHistory.aspx.cs">
+      <DependentUpon>OrganizationHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Organizations\OrganizationHistory.aspx.designer.cs">
+      <DependentUpon>OrganizationHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Organizations\OrganizationHistoryVersion.aspx.cs">
+      <DependentUpon>OrganizationHistoryVersion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Organizations\OrganizationHistoryVersion.aspx.designer.cs">
+      <DependentUpon>OrganizationHistoryVersion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Organizations\UserDepartments\OrgCardInfo.aspx.cs">
+      <DependentUpon>OrgCardInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Organizations\UserDepartments\OrgCardInfo.aspx.designer.cs">
+      <DependentUpon>OrgCardInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Organizations\UserDepartments\OrgList.aspx.cs">
+      <DependentUpon>OrgList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Organizations\UserDepartments\OrgList.aspx.designer.cs">
+      <DependentUpon>OrgList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Organizations\UserDepartments\StatisticSubordinateOrg.aspx.cs">
+      <DependentUpon>StatisticSubordinateOrg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Organizations\UserDepartments\StatisticSubordinateOrg.aspx.designer.cs">
+      <DependentUpon>StatisticSubordinateOrg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Reports\ExcelTemplates.aspx.cs">
+      <DependentUpon>ExcelTemplates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Reports\ExcelTemplates.aspx.designer.cs">
+      <DependentUpon>ExcelTemplates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Reports\EducationalOrganization.aspx.cs">
+      <DependentUpon>EducationalOrganization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Reports\EducationalOrganization.aspx.designer.cs">
+      <DependentUpon>EducationalOrganization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Reports\OrganizationType.aspx.cs">
+      <DependentUpon>OrganizationType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Reports\OrganizationType.aspx.designer.cs">
+      <DependentUpon>OrganizationType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Reports\RequestReports.aspx.cs">
+      <DependentUpon>RequestReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Reports\RequestReports.aspx.designer.cs">
+      <DependentUpon>RequestReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Reports\UserAccountActivityByRegion.aspx.cs">
+      <DependentUpon>UserAccountActivityByRegion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Reports\UserAccountActivityByRegion.aspx.designer.cs">
+      <DependentUpon>UserAccountActivityByRegion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Reports\UserAccountActivityCommon.aspx.cs">
+      <DependentUpon>UserAccountActivityCommon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Reports\UserAccountActivityCommon.aspx.designer.cs">
+      <DependentUpon>UserAccountActivityCommon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Reports\UserAccountByRegion.aspx.cs">
+      <DependentUpon>UserAccountByRegion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Reports\UserAccountByRegion.aspx.designer.cs">
+      <DependentUpon>UserAccountByRegion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Reports\UserActivation.aspx.cs">
+      <DependentUpon>UserActivation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Reports\UserActivation.aspx.designer.cs">
+      <DependentUpon>UserActivation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\SqlConstructor\Organizations\SqlConstructor_GetOrganizations.cs" />
+    <Compile Include="Administration\SqlConstructor\Organizations\SqlConstructor_GetOrganizations_Admin.cs" />
+    <Compile Include="Administration\SqlConstructor\Organizations\SqlConstructor_GetOrganizations_Department.cs" />
+    <Compile Include="Administration\SqlConstructor\Organizations\SqlConstructor_GetOrganizations_Registration.cs" />
+    <Compile Include="Administration\SqlConstructor\Organizations\SqlConstructor_GetSubordinateOrganizations.cs" />
+    <Compile Include="Administration\SqlConstructor\Organizations\SqlConstructor_GetSubordOrgs.cs" />
+    <Compile Include="Administration\SqlConstructor\SqlConstructor_GetData.cs" />
+    <Compile Include="Administration\SqlConstructor\UserAccounts\SqlConstructor_GetDepartmentsUsers.cs" />
+    <Compile Include="Administration\SqlConstructor\UserAccounts\SqlConstructor_GetUsers.cs" />
+    <Compile Include="AllUsers\BatchCheckFileFormat.aspx.cs">
+      <DependentUpon>BatchCheckFileFormat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckFileFormat.aspx.designer.cs">
+      <DependentUpon>BatchCheckFileFormat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckFileFormatExportCsv.aspx.cs">
+      <DependentUpon>BatchCheckFileFormatExportCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckFileFormatExportCsv.aspx.designer.cs">
+      <DependentUpon>BatchCheckFileFormatExportCsv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckFileFormatResult.aspx.cs">
+      <DependentUpon>BatchCheckFileFormatResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckFileFormatResult.aspx.designer.cs">
+      <DependentUpon>BatchCheckFileFormatResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckPassport.aspx.cs">
+      <DependentUpon>BatchCheckPassport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckPassport.aspx.designer.cs">
+      <DependentUpon>BatchCheckPassport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckPassportExportCsv.aspx.cs">
+      <DependentUpon>BatchCheckPassportExportCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckPassportExportCsv.aspx.designer.cs">
+      <DependentUpon>BatchCheckPassportExportCsv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckPassportResult.aspx.cs">
+      <DependentUpon>BatchCheckPassportResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckPassportResult.aspx.designer.cs">
+      <DependentUpon>BatchCheckPassportResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckTypeNumber.aspx.cs">
+      <DependentUpon>BatchCheckTypeNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckTypeNumber.aspx.designer.cs">
+      <DependentUpon>BatchCheckTypeNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckTypeNumberResult.aspx.cs">
+      <DependentUpon>BatchCheckTypeNumberResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckTypeNumberResult.aspx.designer.cs">
+      <DependentUpon>BatchCheckTypeNumberResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckTypeNumExportCsv.aspx.cs">
+      <DependentUpon>BatchCheckTypeNumExportCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllUsers\BatchCheckTypeNumExportCsv.aspx.designer.cs">
+      <DependentUpon>BatchCheckTypeNumExportCsv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountIpChecker.cs" />
+    <Compile Include="AskedQuestion.aspx.cs">
+      <DependentUpon>AskedQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AskedQuestion.aspx.designer.cs">
+      <DependentUpon>AskedQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AskedQuestions.aspx.cs">
+      <DependentUpon>AskedQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AskedQuestions.aspx.designer.cs">
+      <DependentUpon>AskedQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchCheckResult.aspx.cs">
+      <DependentUpon>BatchCheckResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchCheckResult.aspx.designer.cs">
+      <DependentUpon>BatchCheckResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByTypographicNumber.aspx.cs">
+      <DependentUpon>BatchRequestByTypographicNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByTypographicNumber.aspx.designer.cs">
+      <DependentUpon>BatchRequestByTypographicNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByTypographicNumberResult.aspx.cs">
+      <DependentUpon>BatchRequestByTypographicNumberResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByTypographicNumberResult.aspx.designer.cs">
+      <DependentUpon>BatchRequestByTypographicNumberResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\CheckHistory.aspx.cs">
+      <DependentUpon>CheckHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\CheckHistory.aspx.designer.cs">
+      <DependentUpon>CheckHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\HashedCheck\CheckByNumber.aspx.cs">
+      <DependentUpon>CheckByNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\HashedCheck\CheckByNumber.aspx.designer.cs">
+      <DependentUpon>CheckByNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\HashedCheck\CheckByTypographicNumber.aspx.cs">
+      <DependentUpon>CheckByTypographicNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\HashedCheck\CheckByTypographicNumber.aspx.designer.cs">
+      <DependentUpon>CheckByTypographicNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\HashedCheck\CheckByPassport.aspx.cs">
+      <DependentUpon>CheckByPassport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\HashedCheck\CheckByPassport.aspx.designer.cs">
+      <DependentUpon>CheckByPassport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\HashedCheck\ResultByNumberAndLastName.aspx.cs">
+      <DependentUpon>ResultByNumberAndLastName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\HashedCheck\ResultByNumberAndLastName.aspx.designer.cs">
+      <DependentUpon>ResultByNumberAndLastName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\PrintNote.aspx.cs">
+      <DependentUpon>PrintNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\PrintNote.aspx.designer.cs">
+      <DependentUpon>PrintNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\TestBatchCheck.aspx.cs">
+      <DependentUpon>TestBatchCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\TestBatchCheck.aspx.designer.cs">
+      <DependentUpon>TestBatchCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\WildcardRequest.aspx.cs">
+      <DependentUpon>WildcardRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\WildcardRequest.aspx.designer.cs">
+      <DependentUpon>WildcardRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\WildcardRequestResult.aspx.cs">
+      <DependentUpon>WildcardRequestResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\WildcardRequestResult.aspx.designer.cs">
+      <DependentUpon>WildcardRequestResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByTypographicNumber.aspx.cs">
+      <DependentUpon>RequestByTypographicNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByTypographicNumber.aspx.designer.cs">
+      <DependentUpon>RequestByTypographicNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByTypographicNumberResult.aspx.cs">
+      <DependentUpon>RequestByTypographicNumberResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByTypographicNumberResult.aspx.designer.cs">
+      <DependentUpon>RequestByTypographicNumberResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchCheckResultExportCsv.aspx.cs">
+      <DependentUpon>BatchCheckResultExportCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchCheckResultExportCsv.aspx.designer.cs">
+      <DependentUpon>BatchCheckResultExportCsv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckAuthService\AccountDataUpdater.cs" />
+    <Compile Include="Common\Templates\Certificates.Master.cs">
+      <DependentUpon>Certificates.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Templates\Certificates.Master.designer.cs">
+      <DependentUpon>Certificates.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Templates\HashedCertificates.Master.cs">
+      <DependentUpon>HashedCertificates.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Templates\HashedCertificates.Master.designer.cs">
+      <DependentUpon>HashedCertificates.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Templates\PublicDocuments.Master.cs">
+      <DependentUpon>PublicDocuments.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Templates\PublicDocuments.Master.designer.cs">
+      <DependentUpon>PublicDocuments.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Templates\TestBatchCheck.Master.cs">
+      <DependentUpon>TestBatchCheck.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Templates\TestBatchCheck.Master.designer.cs">
+      <DependentUpon>TestBatchCheck.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommonNationalCertificates\HistoryCertificate.ascx.cs">
+      <DependentUpon>HistoryCertificate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonNationalCertificates\HistoryCertificate.ascx.designer.cs">
+      <DependentUpon>HistoryCertificate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommonNationalCertificates\HistoryCheckList.ascx.cs">
+      <DependentUpon>HistoryCheckList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonNationalCertificates\HistoryCheckList.ascx.designer.cs">
+      <DependentUpon>HistoryCheckList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OperatorPanel.ascx.cs">
+      <DependentUpon>OperatorPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\OperatorPanel.ascx.designer.cs">
+      <DependentUpon>OperatorPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OrganizationView.ascx.cs">
+      <DependentUpon>OrganizationView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\OrganizationView.ascx.designer.cs">
+      <DependentUpon>OrganizationView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OrgFilialsList.ascx.cs">
+      <DependentUpon>OrgFilialsList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\OrgFilialsList.ascx.designer.cs">
+      <DependentUpon>OrgFilialsList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Pager_Simple.cs">
+    </Compile>
+    <Compile Include="Controls\SortRef_Prefix.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CurrentUser.cs" />
+    <Compile Include="For2011.aspx.cs">
+      <DependentUpon>For2011.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="For2011.aspx.designer.cs">
+      <DependentUpon>For2011.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\MemoryLogger.cs" />
+    <Compile Include="informationservice.asmx.cs">
+      <DependentUpon>informationservice.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LoginBlocked.aspx.cs">
+      <DependentUpon>LoginBlocked.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginBlocked.aspx.designer.cs">
+      <DependentUpon>LoginBlocked.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginControl.ascx.cs">
+      <DependentUpon>LoginControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginControl.ascx.designer.cs">
+      <DependentUpon>LoginControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\ConfirmedDocumentHandler.cs" />
+    <Compile Include="Profile\ConfirmedDocumentView.aspx.cs">
+      <DependentUpon>ConfirmedDocumentView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\ConfirmedDocumentView.aspx.designer.cs">
+      <DependentUpon>ConfirmedDocumentView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Registation_AutoCompleteFields.asmx.cs">
+      <DependentUpon>Registation_AutoCompleteFields.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Back.aspx.cs">
+      <DependentUpon>Back.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Back.aspx.designer.cs">
+      <DependentUpon>Back.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchCheck.aspx.cs">
+      <DependentUpon>BatchCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchCheck.aspx.designer.cs">
+      <DependentUpon>BatchCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchCheckResultExport.aspx.cs">
+      <DependentUpon>BatchCheckResultExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchCheckResultExport.aspx.designer.cs">
+      <DependentUpon>BatchCheckResultExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassport.aspx.cs">
+      <DependentUpon>BatchRequestByPassport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassport.aspx.designer.cs">
+      <DependentUpon>BatchRequestByPassport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResult.aspx.cs">
+      <DependentUpon>BatchRequestByPassportResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResult.aspx.designer.cs">
+      <DependentUpon>BatchRequestByPassportResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsvExtended.aspx.cs">
+      <DependentUpon>BatchRequestByPassportResultExportCsvExtended.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsvExtended.aspx.designer.cs">
+      <DependentUpon>BatchRequestByPassportResultExportCsvExtended.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExport.aspx.cs">
+      <DependentUpon>BatchRequestByPassportResultExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExport.aspx.designer.cs">
+      <DependentUpon>BatchRequestByPassportResultExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsv.aspx.cs">
+      <DependentUpon>BatchRequestByPassportResultExportCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsv.aspx.designer.cs">
+      <DependentUpon>BatchRequestByPassportResultExportCsv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsvExtendedByExam.aspx.cs">
+      <DependentUpon>BatchRequestByPassportResultExportCsvExtendedByExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsvExtendedByExam.aspx.designer.cs">
+      <DependentUpon>BatchRequestByPassportResultExportCsvExtendedByExam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsvExtendedSpecial.aspx.cs">
+      <DependentUpon>BatchRequestByPassportResultExportCsvExtendedSpecial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsvExtendedSpecial.aspx.designer.cs">
+      <DependentUpon>BatchRequestByPassportResultExportCsvExtendedSpecial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\Check.aspx.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\Check.aspx.designer.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\CheckResult.aspx.cs">
+      <DependentUpon>CheckResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\CheckResult.aspx.designer.cs">
+      <DependentUpon>CheckResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByMarks.aspx.cs">
+      <DependentUpon>RequestByMarks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByMarks.aspx.designer.cs">
+      <DependentUpon>RequestByMarks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByMarksResult.aspx.cs">
+      <DependentUpon>RequestByMarksResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByMarksResult.aspx.designer.cs">
+      <DependentUpon>RequestByMarksResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByPassport.aspx.cs">
+      <DependentUpon>RequestByPassport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByPassport.aspx.designer.cs">
+      <DependentUpon>RequestByPassport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByPassportResult.aspx.cs">
+      <DependentUpon>RequestByPassportResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CommonNationalCertificates\RequestByPassportResult.aspx.designer.cs">
+      <DependentUpon>RequestByPassportResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\BatchRequest.aspx.cs">
+      <DependentUpon>BatchRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\BatchRequest.aspx.designer.cs">
+      <DependentUpon>BatchRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\BatchRequestExportCsv.aspx.cs">
+      <DependentUpon>BatchRequestExportCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\BatchRequestExportCsv.aspx.designer.cs">
+      <DependentUpon>BatchRequestExportCsv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\BatchRequestResult.aspx.cs">
+      <DependentUpon>BatchRequestResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\BatchRequestResult.aspx.designer.cs">
+      <DependentUpon>BatchRequestResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\BatchRequestSuccess.aspx.cs">
+      <DependentUpon>BatchRequestSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\BatchRequestSuccess.aspx.designer.cs">
+      <DependentUpon>BatchRequestSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\Request.aspx.cs">
+      <DependentUpon>Request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\Request.aspx.designer.cs">
+      <DependentUpon>Request.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\RequestResult.aspx.cs">
+      <DependentUpon>RequestResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\CompetitionCertificates\RequestResult.aspx.designer.cs">
+      <DependentUpon>RequestResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\BatchCheck.aspx.cs">
+      <DependentUpon>BatchCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\BatchCheck.aspx.designer.cs">
+      <DependentUpon>BatchCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\BatchCheckResult.aspx.cs">
+      <DependentUpon>BatchCheckResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\BatchCheckResult.aspx.designer.cs">
+      <DependentUpon>BatchCheckResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\BatchCheckResultExportCsv.aspx.cs">
+      <DependentUpon>BatchCheckResultExportCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\BatchCheckResultExportCsv.aspx.designer.cs">
+      <DependentUpon>BatchCheckResultExportCsv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\BatchCheckSuccess.aspx.cs">
+      <DependentUpon>BatchCheckSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\BatchCheckSuccess.aspx.designer.cs">
+      <DependentUpon>BatchCheckSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\Check.aspx.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\Check.aspx.designer.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\CheckResult.aspx.cs">
+      <DependentUpon>CheckResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\CheckResult.aspx.designer.cs">
+      <DependentUpon>CheckResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\LoadEntrantRenunciations.aspx.cs">
+      <DependentUpon>LoadEntrantRenunciations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\LoadEntrantRenunciations.aspx.designer.cs">
+      <DependentUpon>LoadEntrantRenunciations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\LoadEntrantRenunciationsSuccess.aspx.cs">
+      <DependentUpon>LoadEntrantRenunciationsSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\LoadEntrantRenunciationsSuccess.aspx.designer.cs">
+      <DependentUpon>LoadEntrantRenunciationsSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\LoadEntrants.aspx.cs">
+      <DependentUpon>LoadEntrants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\LoadEntrants.aspx.designer.cs">
+      <DependentUpon>LoadEntrants.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Entrants\LoadEntrantsSuccess.aspx.cs">
+      <DependentUpon>LoadEntrantsSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Entrants\LoadEntrantsSuccess.aspx.designer.cs">
+      <DependentUpon>LoadEntrantsSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Report\CommonNationalCertificateLoading.aspx.cs">
+      <DependentUpon>CommonNationalCertificateLoading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\Report\CommonNationalCertificateLoading.aspx.designer.cs">
+      <DependentUpon>CommonNationalCertificateLoading.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\BatchCheck.aspx.cs">
+      <DependentUpon>BatchCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\BatchCheck.aspx.designer.cs">
+      <DependentUpon>BatchCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\BatchCheckResult.aspx.cs">
+      <DependentUpon>BatchCheckResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\BatchCheckResult.aspx.designer.cs">
+      <DependentUpon>BatchCheckResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\BatchCheckResultExportCsv.aspx.cs">
+      <DependentUpon>BatchCheckResultExportCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\BatchCheckResultExportCsv.aspx.designer.cs">
+      <DependentUpon>BatchCheckResultExportCsv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\BatchCheckSuccess.aspx.cs">
+      <DependentUpon>BatchCheckSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\BatchCheckSuccess.aspx.designer.cs">
+      <DependentUpon>BatchCheckSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\Check.aspx.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\Check.aspx.designer.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\CheckResult.aspx.cs">
+      <DependentUpon>CheckResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificates\SchoolLeavingCertificates\CheckResult.aspx.designer.cs">
+      <DependentUpon>CheckResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Config.cs" />
+    <Compile Include="Controls\FileView.cs" />
+    <Compile Include="Controls\IntrantProfileEdit.ascx.cs">
+      <DependentUpon>IntrantProfileEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\IntrantProfileEdit.ascx.designer.cs">
+      <DependentUpon>IntrantProfileEdit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IntrantProfileView.ascx.cs">
+      <DependentUpon>IntrantProfileView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\IntrantProfileView.ascx.designer.cs">
+      <DependentUpon>IntrantProfileView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LeftMenu.cs" />
+    <Compile Include="Controls\SitePath.cs" />
+    <Compile Include="Controls\TopMenu.cs" />
+    <Compile Include="Controls\UserProfileEdit.ascx.cs">
+      <DependentUpon>UserProfileEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserProfileEdit.ascx.designer.cs">
+      <DependentUpon>UserProfileEdit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Document.aspx.cs">
+      <DependentUpon>Document.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Document.aspx.designer.cs">
+      <DependentUpon>Document.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManualErrorHandler.cs" />
+    <Compile Include="Extentions\AccountExtentions.cs" />
+    <Compile Include="Extentions\IntrantAccountExtentions.cs" />
+    <Compile Include="Extentions\SiteMapNodeExtensions.cs" />
+    <Compile Include="Extentions\UserAccountExtentions.cs" />
+    <Compile Include="Common\Templates\Administration.Master.cs">
+      <DependentUpon>Administration.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Templates\Administration.Master.designer.cs">
+      <DependentUpon>Administration.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserProfileView.ascx.cs">
+      <DependentUpon>UserProfileView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UserProfileView.ascx.designer.cs">
+      <DependentUpon>UserProfileView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsArchive.aspx.cs">
+      <DependentUpon>NewsArchive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewsArchive.aspx.designer.cs">
+      <DependentUpon>NewsArchive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\AccountKeyCreate.aspx.cs">
+      <DependentUpon>AccountKeyCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\AccountKeyCreate.aspx.designer.cs">
+      <DependentUpon>AccountKeyCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\AccountKeyCreateSuccess.aspx.cs">
+      <DependentUpon>AccountKeyCreateSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\AccountKeyCreateSuccess.aspx.designer.cs">
+      <DependentUpon>AccountKeyCreateSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\AccountKeyEdit.aspx.cs">
+      <DependentUpon>AccountKeyEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\AccountKeyEdit.aspx.designer.cs">
+      <DependentUpon>AccountKeyEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\AccountKeyEditSuccess.aspx.cs">
+      <DependentUpon>AccountKeyEditSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\AccountKeyEditSuccess.aspx.designer.cs">
+      <DependentUpon>AccountKeyEditSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\AccountKeyList.aspx.cs">
+      <DependentUpon>AccountKeyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\AccountKeyList.aspx.designer.cs">
+      <DependentUpon>AccountKeyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\UploadState.ashx.cs">
+      <DependentUpon>UploadState.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Accounts\Users\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Templates\Loginless.Master.cs">
+      <DependentUpon>Loginless.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Templates\Loginless.Master.designer.cs">
+      <DependentUpon>Loginless.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Templates\Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Templates\Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Templates\Personal.Master.cs">
+      <DependentUpon>Personal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Templates\Personal.Master.designer.cs">
+      <DependentUpon>Personal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Templates\Regular.Master.cs">
+      <DependentUpon>Regular.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Templates\Regular.Master.designer.cs">
+      <DependentUpon>Regular.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BaseMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Documents.aspx.cs">
+      <DependentUpon>Documents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Documents.aspx.designer.cs">
+      <DependentUpon>Documents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Instructions.aspx.cs">
+      <DependentUpon>Instructions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Instructions.aspx.designer.cs">
+      <DependentUpon>Instructions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RedirectManager.cs" />
+    <Compile Include="SelectOrg.aspx.cs">
+      <DependentUpon>SelectOrg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelectOrg.aspx.designer.cs">
+      <DependentUpon>SelectOrg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceExistenceChecker.cs" />
+    <Compile Include="SetMaxRowCount.aspx.cs">
+      <DependentUpon>SetMaxRowCount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetMaxRowCount.aspx.designer.cs">
+      <DependentUpon>SetMaxRowCount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RCOI\StatisticForRcoi.aspx.cs">
+      <DependentUpon>StatisticForRcoi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RCOI\StatisticForRcoi.aspx.designer.cs">
+      <DependentUpon>StatisticForRcoi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Support.aspx.cs">
+      <DependentUpon>Support.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Support.aspx.designer.cs">
+      <DependentUpon>Support.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Parameters\CurrentUserParameter.cs" />
+    <Compile Include="Profile\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\ConfirmedDocument.aspx.cs">
+      <DependentUpon>ConfirmedDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\ConfirmedDocument.aspx.designer.cs">
+      <DependentUpon>ConfirmedDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\DocumentForConfirmation.aspx.cs">
+      <DependentUpon>DocumentForConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\DocumentForConfirmation.aspx.designer.cs">
+      <DependentUpon>DocumentForConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\DocumentUpload.aspx.cs">
+      <DependentUpon>DocumentUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\DocumentUpload.aspx.designer.cs">
+      <DependentUpon>DocumentUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\RegistrationSuccess.aspx.cs">
+      <DependentUpon>RegistrationSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\RegistrationSuccess.aspx.designer.cs">
+      <DependentUpon>RegistrationSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Providers\FbsMembershipProvider.cs" />
+    <Compile Include="Providers\FbsRoleProvider.cs" />
+    <Compile Include="Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RemindPassword.aspx.cs">
+      <DependentUpon>RemindPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemindPassword.aspx.designer.cs">
+      <DependentUpon>RemindPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RemindPasswordSuccess.aspx.cs">
+      <DependentUpon>RemindPasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemindPasswordSuccess.aspx.designer.cs">
+      <DependentUpon>RemindPasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Map.aspx.cs">
+      <DependentUpon>Map.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Map.aspx.designer.cs">
+      <DependentUpon>Map.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotFound.aspx.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotFound.aspx.designer.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestPage.aspx.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPage.aspx.designer.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+    <Compile Include="ViewBase\CertificateCheckResultBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WSChecks.asmx.cs">
+      <DependentUpon>WSChecks.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\Templates\Main.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\Templates\Regular.Master" />
+    <Content Include="Error.aspx" />
+    <Content Include="ForbiddenIp.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Profile\ChangePassword.aspx" />
+    <Content Include="Profile\Edit.aspx" />
+    <Content Include="Profile\View.aspx" />
+    <Content Include="Registration.aspx" />
+    <Content Include="Map.aspx" />
+    <Content Include="NotFound.aspx" />
+    <Content Include="Login.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Esrp\EsrpClient.csproj">
+      <Project>{B1B9F0EF-BFE6-4DF4-8028-5B7F4C645DD2}</Project>
+      <Name>EsrpClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FbsCore\FbsCore.csproj">
+      <Project>{A88961B0-C7CA-4875-B0BF-75A159495610}</Project>
+      <Name>FbsCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FbsServices\FbsServices.csproj">
+      <Project>{CA29F27F-38C8-4FC1-AC51-95CF13FF4A64}</Project>
+      <Name>FbsServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FbsUploadModule\FbsUploadModule.csproj">
+      <Project>{EF31C436-11B3-4C69-8663-2841C3CD667E}</Project>
+      <Name>FbsUploadModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FbsUtility\FbsUtility.csproj">
+      <Project>{B72D1735-BB10-42C1-AF35-3F5A12DF9607}</Project>
+      <Name>FbsUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Profile\ChangePasswordSuccess.aspx" />
+    <Content Include="Profile\DocumentForConfirmation.aspx" />
+    <Content Include="Profile\DocumentUpload.aspx" />
+    <Content Include="Profile\RegistrationSuccess.aspx" />
+    <Content Include="RemindPassword.aspx" />
+    <Content Include="Templates\ChangePassword.xml" />
+    <Content Include="Templates\Registration.xml" />
+    <Content Include="Templates\RemindPassword.xml" />
+    <Content Include="Web.sitemap">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\Templates\Personal.Master" />
+    <Content Include="Support.aspx" />
+    <Content Include="Profile\ConfirmedDocument.aspx" />
+    <Content Include="RemindPasswordSuccess.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Administration\Accounts\Users\Edit.aspx" />
+    <Content Include="Administration\Accounts\Users\List.aspx" />
+    <Content Include="Administration\Accounts\Users\View.aspx" />
+    <Content Include="Common\Templates\Loginless.Master" />
+    <Content Include="Documents.aspx" />
+    <Content Include="Instructions.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\Scripts\FileUpload.js" />
+    <Content Include="Common\Scripts\JsHttpRequest.js" />
+    <Content Include="Common\Scripts\Prototype.js" />
+    <Content Include="Global.asax" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\UserProfileView.ascx" />
+    <Content Include="Profile\UploadState.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Administration\Accounts\Administrators\HistoryVersion.aspx" />
+    <Content Include="Administration\Accounts\Administrators\List.aspx" />
+    <Content Include="Administration\Accounts\Administrators\View.aspx" />
+    <Content Include="Administration\Accounts\Auditors\HistoryVersion.aspx" />
+    <Content Include="Administration\Accounts\Auditors\List.aspx" />
+    <Content Include="Administration\Accounts\Auditors\View.aspx" />
+    <Content Include="Administration\Accounts\SupportUsers\HistoryVersion.aspx" />
+    <Content Include="Administration\Accounts\SupportUsers\View.aspx" />
+    <Content Include="Administration\Accounts\Users\Create.aspx" />
+    <Content Include="Administration\Accounts\Users\CreateSuccess.aspx" />
+    <Content Include="Administration\Accounts\Users\EditSuccess.aspx" />
+    <Content Include="Administration\Accounts\Users\HistoryVersion.aspx" />
+    <Content Include="Administration\Accounts\SupportUsers\List.aspx" />
+    <Content Include="Administration\Documents\Create.aspx" />
+    <Content Include="Administration\Documents\Document.aspx" />
+    <Content Include="Administration\Documents\Edit.aspx" />
+    <Content Include="Administration\Documents\List.aspx" />
+    <Content Include="Administration\Documents\View.aspx" />
+    <Content Include="Administration\FAQ\Create.aspx" />
+    <Content Include="Administration\FAQ\Edit.aspx" />
+    <Content Include="Administration\FAQ\List.aspx" />
+    <Content Include="Administration\FAQ\View.aspx" />
+    <Content Include="Administration\News\Create.aspx" />
+    <Content Include="Administration\News\Edit.aspx" />
+    <Content Include="Administration\News\List.aspx" />
+    <Content Include="Administration\News\View.aspx" />
+    <Content Include="Administration\Reports\UserActivation.aspx" />
+    <Content Include="Back.aspx" />
+    <Content Include="Common\Scripts\CalendarPopup.js" />
+    <Content Include="Common\Scripts\Confirmation.js" />
+    <Content Include="Common\Scripts\Filter.js" />
+    <Content Include="Common\Scripts\FixPng.js" />
+    <Content Include="Common\Scripts\FAQ.js" />
+    <Content Include="Common\Scripts\SameUserAccounts.js" />
+    <Content Include="Common\Scripts\Utils.js" />
+    <Content Include="Common\Templates\Administration.Master" />
+    <Content Include="Controls\IntrantProfileEdit.ascx" />
+    <Content Include="Controls\IntrantProfileView.ascx" />
+    <Content Include="Controls\UserProfileEdit.ascx" />
+    <Content Include="Document.aspx" />
+    <Content Include="News.aspx" />
+    <Content Include="NewsArchive.aspx" />
+    <Content Include="Templates\Activation.xml" />
+    <Content Include="Templates\Consideration.xml" />
+    <Content Include="Templates\SendToRevision.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Administration\Accounts\Departments\List.aspx" />
+    <Content Include="Administration\Organizations\Administrators\OrgCard_Edit.aspx" />
+    <Content Include="Administration\Organizations\UserDepartments\OrgCardInfo.aspx" />
+    <Content Include="Administration\Organizations\UserDepartments\OrgList.aspx" />
+    <Content Include="Administration\Organizations\UserDepartments\StatisticSubordinateOrg.aspx" />
+    <Content Include="Administration\Reports\ExcelTemplates.aspx" />
+    <Content Include="Administration\Reports\RequestReports.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\HashedCheck\CheckByNumber.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\HashedCheck\CheckByTypographicNumber.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\HashedCheck\CheckByPassport.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\HashedCheck\ResultByNumberAndLastName.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\PrintNote.aspx" />
+    <Content Include="Common\DocumentTemplate.doc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Administration\Accounts\Administrators\AccountKeyCreate.aspx" />
+    <Content Include="Administration\Accounts\Administrators\AccountKeyCreateSuccess.aspx" />
+    <Content Include="Administration\Accounts\Administrators\AccountKeyEdit.aspx" />
+    <Content Include="Administration\Accounts\Administrators\AccountKeyEditSuccess.aspx" />
+    <Content Include="Administration\Accounts\Administrators\AccountKeyList.aspx" />
+    <Content Include="Administration\Accounts\Users\AccountKeyCreate.aspx" />
+    <Content Include="Administration\Accounts\Users\AccountKeyCreateSuccess.aspx" />
+    <Content Include="Administration\Accounts\Users\AccountKeyEdit.aspx" />
+    <Content Include="Administration\Accounts\Users\AccountKeyEditSuccess.aspx" />
+    <Content Include="Administration\Accounts\Users\AccountKeyList.aspx" />
+    <Content Include="Administration\Certificates\CommonNationalCertificateDenyingLoad.aspx" />
+    <Content Include="Administration\Certificates\CommonNationalCertificateDenyingLoadErrors.aspx" />
+    <Content Include="Administration\Certificates\CommonNationalCertificateDenyingLoadErrorsExport.aspx" />
+    <Content Include="Administration\Certificates\CommonNationalCertificateDenyingLoads.aspx" />
+    <Content Include="Administration\Certificates\CommonNationalCertificateLoad.aspx" />
+    <Content Include="Administration\Certificates\CommonNationalCertificateLoads.aspx" />
+    <Content Include="Administration\Certificates\CommonNationalCertificateLoadsErrors.aspx" />
+    <Content Include="Administration\Certificates\CommonNationalCertificateLoadsErrorsExport.aspx" />
+    <Content Include="Administration\Certificates\Report.aspx" />
+    <Content Include="Administration\Deliveries\Create.aspx" />
+    <Content Include="Administration\Deliveries\Edit.aspx" />
+    <Content Include="Administration\Deliveries\List.aspx" />
+    <Content Include="Administration\Dictionaries\ExpireDates\List.aspx" />
+    <Content Include="Administration\Dictionaries\MinimalMarks\List.aspx" />
+    <Content Include="Administration\IPCheck\IPNotValid.aspx" />
+    <Content Include="Administration\Organizations\Administrators\OrgCard_Edit_Success.aspx" />
+    <Content Include="Administration\Organizations\Administrators\OrgList.aspx" />
+    <Content Include="Administration\Reports\EducationalOrganization.aspx" />
+    <Content Include="Administration\Reports\OrganizationType.aspx" />
+    <Content Include="Administration\Reports\UserAccountActivityByRegion.aspx" />
+    <Content Include="Administration\Reports\UserAccountActivityCommon.aspx" />
+    <Content Include="Administration\Reports\UserAccountByRegion.aspx" />
+    <Content Include="AllUsers\BatchCheckFileFormat.aspx" />
+    <Content Include="AllUsers\BatchCheckFileFormatExportCsv.aspx" />
+    <Content Include="AllUsers\BatchCheckFileFormatResult.aspx" />
+    <Content Include="AllUsers\BatchCheckPassport.aspx" />
+    <Content Include="AllUsers\BatchCheckPassportExportCsv.aspx" />
+    <Content Include="AllUsers\BatchCheckPassportResult.aspx" />
+    <Content Include="AllUsers\BatchCheckTypeNumber.aspx" />
+    <Content Include="AllUsers\BatchCheckTypeNumberResult.aspx" />
+    <Content Include="AllUsers\BatchCheckTypeNumExportCsv.aspx" />
+    <Content Include="AskedQuestion.aspx" />
+    <Content Include="AskedQuestions.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchCheckResult.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchRequestByTypographicNumber.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchRequestByTypographicNumberResult.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\WildcardRequest.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\WildcardRequestResult.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\RequestByTypographicNumber.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\RequestByTypographicNumberResult.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchCheckResultExportCsv.aspx" />
+    <Content Include="Common\Images\block-border-br.gif" />
+    <Content Include="Common\Images\block-border-hor.gif" />
+    <Content Include="Common\Images\block-border-tr.gif" />
+    <Content Include="Common\Images\block-border-vert.gif" />
+    <Content Include="Common\Images\csv-icon.gif" />
+    <Content Include="Common\Images\favicon.ico" />
+    <Content Include="Common\Images\filtr-bg-l.gif" />
+    <Content Include="Common\Images\filtr-bg-r.gif" />
+    <Content Include="Common\Images\filtr-bg.gif" />
+    <Content Include="Common\Images\filtr-ico-reset.gif" />
+    <Content Include="Common\Images\filtr2-bl.png" />
+    <Content Include="Common\Images\filtr2-br.png" />
+    <Content Include="Common\Images\filtr2-tl.png" />
+    <Content Include="Common\Images\filtr2-tr.png" />
+    <Content Include="Common\Images\header-corn-lb.gif" />
+    <Content Include="Common\Images\ico-datepicker-fbs.gif" />
+    <Content Include="Common\Images\ico-datepicker.gif" />
+    <Content Include="Common\Images\ico-home.gif" />
+    <Content Include="Common\Images\ico-mail.gif" />
+    <Content Include="Common\Images\ico-map.gif" />
+    <Content Include="Common\Images\ico-marker.gif" />
+    <Content Include="Common\Images\ico-popup.gif" />
+    <Content Include="Common\Images\important.gif" />
+    <Content Include="Common\Images\menuleft-header-bg-r.gif" />
+    <Content Include="Common\Images\menuleft-header-bg.gif" />
+    <Content Include="Common\Images\menuleft-rb.gif" />
+    <Content Include="Common\Images\menuleft-rt.gif" />
+    <Content Include="Common\Images\menuleft-user-bg-r.gif" />
+    <Content Include="Common\Images\menutop-a-p.gif" />
+    <Content Include="Common\Images\menutop-a-right.gif" />
+    <Content Include="Common\Images\menutop-bg.gif" />
+    <Content Include="Common\Images\menutop-left-a.gif" />
+    <Content Include="Common\Images\menutop-left-p.gif" />
+    <Content Include="Common\Images\menutop-p-a.gif" />
+    <Content Include="Common\Images\menutop-p-p.gif" />
+    <Content Include="Common\Images\menutop-p-right.gif" />
+    <Content Include="Common\Images\notice-block-bl.gif" />
+    <Content Include="Common\Images\notice-block-br.gif" />
+    <Content Include="Common\Images\notice-block-hide.gif" />
+    <Content Include="Common\Images\notice-block-left-bl.gif" />
+    <Content Include="Common\Images\notice-block-left-br.gif" />
+    <Content Include="Common\Images\notice-block-left-tl.gif" />
+    <Content Include="Common\Images\notice-block-left-tr.gif" />
+    <Content Include="Common\Images\notice-block-notice.gif" />
+    <Content Include="Common\Images\notice-block-show.gif" />
+    <Content Include="Common\Images\notice-block-tl.gif" />
+    <Content Include="Common\Images\notice-block-tr.gif" />
+    <Content Include="Common\Images\sort_down.gif" />
+    <Content Include="Common\Images\sort_up.gif" />
+    <Content Include="Common\Images\spacer.gif" />
+    <Content Include="Common\Images\spinner.gif" />
+    <Content Include="Common\Images\table-h-l.gif" />
+    <Content Include="Common\Images\table-h-r.gif" />
+    <Content Include="Common\Images\table-h.gif" />
+    <Content Include="Common\Images\tmenu-bg.gif" />
+    <Content Include="Common\Images\tmenu-first.png" />
+    <Content Include="Common\Images\tmenu-last.png" />
+    <Content Include="Common\Images\tmenu-left.png" />
+    <Content Include="Common\Images\tmenu-right.png" />
+    <Content Include="Common\Images\vert-gray.gif" />
+    <Content Include="Common\Images\Warning.png" />
+    <Content Include="Administration\Reports\Resources\CreateExcel.xsl">
+    </Content>
+    <Content Include="Administration\Reports\Resources\EmailTemplate_ReportViews.xml" />
+    <Content Include="Common\Scripts\excanvas.compiled.js" />
+    <Content Include="Common\Scripts\jquery.min.js" />
+    <Content Include="Common\Scripts\sha1.js" />
+    <Content Include="Common\Scripts\tiny_mce\langs\en.js" />
+    <Content Include="Common\Scripts\tiny_mce\license.txt" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advhr\css\advhr.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advhr\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advhr\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advhr\js\rule.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advhr\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advhr\rule.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advimage\css\advimage.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advimage\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advimage\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advimage\image.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advimage\img\sample.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advimage\js\image.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advimage\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advlink\css\advlink.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advlink\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advlink\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advlink\js\advlink.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advlink\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\advlink\link.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\autosave\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\autosave\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\bbcode\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\bbcode\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\compat2x\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\compat2x\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\contextmenu\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\contextmenu\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\directionality\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\directionality\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\emotions.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-cool.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-cry.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-embarassed.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-frown.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-innocent.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-kiss.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-laughing.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-money-mouth.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-sealed.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-smile.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-surprised.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-tongue-out.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-undecided.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-wink.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\img\smiley-yell.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\js\emotions.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\emotions\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\example\dialog.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\example\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\example\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\example\img\example.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\example\js\dialog.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\example\langs\en.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\example\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\fullpage\css\fullpage.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\fullpage\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\fullpage\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\fullpage\fullpage.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\fullpage\js\fullpage.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\fullpage\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\fullscreen\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\fullscreen\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\fullscreen\fullscreen.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\iespell\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\iespell\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\window.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\inlinepopups\template.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\insertdatetime\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\insertdatetime\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\layer\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\layer\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\css\content.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\css\media.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\img\flash.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\img\flv_player.swf" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\img\quicktime.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\img\realmedia.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\img\shockwave.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\img\trans.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\img\windowsmedia.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\js\embed.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\js\media.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\media\media.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\nonbreaking\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\nonbreaking\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\noneditable\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\noneditable\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\pagebreak\css\content.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\pagebreak\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\pagebreak\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\pagebreak\img\pagebreak.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\pagebreak\img\trans.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\blank.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\css\blank.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\css\pasteword.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\js\pastetext.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\js\pasteword.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\pastetext.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\paste\pasteword.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\preview\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\preview\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\preview\example.html" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\preview\jscripts\embed.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\print\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\print\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\safari\blank.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\safari\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\safari\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\save\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\save\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\searchreplace\css\searchreplace.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\searchreplace\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\searchreplace\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\searchreplace\js\searchreplace.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\searchreplace\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\searchreplace\searchreplace.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\spellchecker\css\content.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\spellchecker\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\spellchecker\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\spellchecker\img\wline.gif" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\style\css\props.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\style\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\style\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\style\js\props.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\style\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\style\props.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\cell.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\css\cell.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\css\row.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\css\table.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\js\cell.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\js\merge_cells.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\js\row.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\js\table.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\merge_cells.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\row.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\table\table.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\template\blank.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\template\css\template.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\template\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\template\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\template\js\template.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\template\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\template\template.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\visualchars\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\visualchars\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\abbr.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\acronym.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\attributes.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\cite.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\css\attributes.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\css\popup.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\css\xhtmlxtras.css" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\del.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\editor_plugin.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\editor_plugin_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\ins.htm" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\js\abbr.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\js\acronym.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\js\attributes.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\js\cite.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\js\del.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\js\element_common.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\js\ins.js" />
+    <Content Include="Common\Scripts\tiny_mce\plugins\xhtmlxtras\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\about.htm" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\anchor.htm" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\charmap.htm" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\color_picker.htm" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\editor_template.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\editor_template_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\image.htm" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\img\colorpicker.jpg" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\img\icons.gif" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\js\about.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\js\anchor.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\js\charmap.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\js\color_picker.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\js\image.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\js\link.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\js\source_editor.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\langs\en.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\langs\en_dlg.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\link.htm" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\default\content.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\default\dialog.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\default\img\buttons.png" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\default\img\items.gif" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\default\img\menu_arrow.gif" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\default\img\menu_check.gif" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\default\img\progress.gif" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\default\img\tabs.gif" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\default\ui.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\o2k7\content.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\o2k7\dialog.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg.png" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_black.png" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_silver.png" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\o2k7\ui.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\o2k7\ui_black.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\skins\o2k7\ui_silver.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\advanced\source_editor.htm" />
+    <Content Include="Common\Scripts\tiny_mce\themes\simple\editor_template.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\simple\editor_template_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\simple\img\icons.gif" />
+    <Content Include="Common\Scripts\tiny_mce\themes\simple\langs\en.js" />
+    <Content Include="Common\Scripts\tiny_mce\themes\simple\skins\default\content.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\simple\skins\default\ui.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\simple\skins\o2k7\content.css" />
+    <Content Include="Common\Scripts\tiny_mce\themes\simple\skins\o2k7\img\button_bg.png" />
+    <Content Include="Common\Scripts\tiny_mce\themes\simple\skins\o2k7\ui.css" />
+    <Content Include="Common\Scripts\tiny_mce\tiny_mce.js" />
+    <Content Include="Common\Scripts\tiny_mce\tiny_mce_popup.js" />
+    <Content Include="Common\Scripts\tiny_mce\tiny_mce_src.js" />
+    <Content Include="Common\Scripts\tiny_mce\utils\editable_selects.js" />
+    <Content Include="Common\Scripts\tiny_mce\utils\form_utils.js" />
+    <Content Include="Common\Scripts\tiny_mce\utils\mctabs.js" />
+    <Content Include="Common\Scripts\tiny_mce\utils\validate.js" />
+    <Content Include="Common\Scripts\visualize.jQuery.js" />
+    <Content Include="Common\Styles\AutoCompleate.css" />
+    <Content Include="Common\Styles\visualize.css" />
+    <Content Include="Common\Styles\visualize.jQuery.css" />
+    <Content Include="Controls\OperatorPanel.ascx" />
+    <Content Include="For2011.aspx" />
+    <Content Include="informationservice.asmx" />
+    <Content Include="LoginBlocked.aspx" />
+    <Content Include="Common\Templates\Certificates.Master" />
+    <Content Include="LoginControl.ascx" />
+    <Content Include="Profile\ConfirmedDocumentView.aspx" />
+    <Content Include="Registation_AutoCompleteFields.asmx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchCheck.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchCheckResultExport.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchRequestByPassport.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResult.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsvExtended.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExport.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsv.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsvExtendedByExam.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\BatchRequestByPassportResultExportCsvExtendedSpecial.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\Check.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\CheckResult.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\RequestByMarks.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\RequestByMarksResult.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\RequestByPassport.aspx" />
+    <Content Include="Certificates\CommonNationalCertificates\RequestByPassportResult.aspx" />
+    <Content Include="Certificates\CompetitionCertificates\BatchRequest.aspx" />
+    <Content Include="Certificates\CompetitionCertificates\BatchRequestExportCsv.aspx" />
+    <Content Include="Certificates\CompetitionCertificates\BatchRequestResult.aspx" />
+    <Content Include="Certificates\CompetitionCertificates\BatchRequestSuccess.aspx" />
+    <Content Include="Certificates\CompetitionCertificates\Request.aspx" />
+    <Content Include="Certificates\CompetitionCertificates\RequestResult.aspx" />
+    <Content Include="Certificates\Entrants\BatchCheck.aspx" />
+    <Content Include="Certificates\Entrants\BatchCheckResult.aspx" />
+    <Content Include="Certificates\Entrants\BatchCheckResultExportCsv.aspx" />
+    <Content Include="Certificates\Entrants\BatchCheckSuccess.aspx" />
+    <Content Include="Certificates\Entrants\Check.aspx" />
+    <Content Include="Certificates\Entrants\CheckResult.aspx" />
+    <Content Include="Certificates\Entrants\LoadEntrantRenunciations.aspx" />
+    <Content Include="Certificates\Entrants\LoadEntrantRenunciationsSuccess.aspx" />
+    <Content Include="Certificates\Entrants\LoadEntrants.aspx" />
+    <Content Include="Certificates\Entrants\LoadEntrantsSuccess.aspx" />
+    <Content Include="Certificates\Report\CommonNationalCertificateLoading.aspx" />
+    <Content Include="Certificates\SchoolLeavingCertificates\BatchCheck.aspx" />
+    <Content Include="Certificates\SchoolLeavingCertificates\BatchCheckResult.aspx" />
+    <Content Include="Certificates\SchoolLeavingCertificates\BatchCheckResultExportCsv.aspx" />
+    <Content Include="Certificates\SchoolLeavingCertificates\BatchCheckSuccess.aspx" />
+    <Content Include="Certificates\SchoolLeavingCertificates\Check.aspx" />
+    <Content Include="Certificates\SchoolLeavingCertificates\CheckResult.aspx" />
+    <Content Include="Common\Scripts\Notice.js" />
+    <Content Include="Common\Scripts\SessVars.js" />
+    <Content Include="Profile\AccountKeyCreate.aspx" />
+    <Content Include="Profile\AccountKeyCreateSuccess.aspx" />
+    <Content Include="Profile\AccountKeyEdit.aspx" />
+    <Content Include="Profile\AccountKeyEditSuccess.aspx" />
+    <Content Include="Profile\AccountKeyList.aspx" />
+    <Content Include="SelectOrg.aspx" />
+    <Content Include="Service.svc" />
+    <Content Include="SetMaxRowCount.aspx" />
+    <Content Include="RCOI\StatisticForRcoi.aspx" />
+    <Content Include="Templates\Registration_NewOrg.xml" />
+    <Content Include="Common\Templates\TestBatchCheck.Master" />
+    <Content Include="Shared\BatchBaseFileSample.csv">
+    </Content>
+    <Content Include="Shared\BatchCheckFileSample.csv">
+    </Content>
+    <Content Include="Shared\BatchFilePassportSample.csv">
+    </Content>
+    <Content Include="Shared\BatchFileTypeNumberSample.csv">
+    </Content>
+    <Content Include="Shared\BatchRequestByPassportFileSample.csv">
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.navigation">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WSChecks.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>334</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

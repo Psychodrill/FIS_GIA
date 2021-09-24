@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<patches>
+	<namespace prefix="edmx" uri="http://schemas.microsoft.com/ado/2008/10/edmx" />
+	<namespace prefix="annotation" uri="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+	<namespace prefix="store" uri="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+	
+	<namespace prefix="empty" uri="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" />
+	<delete xpath="edmx:Edmx/edmx:Runtime/edmx:StorageModels/empty:Schema/empty:EntityType[@Name='Attachment']/empty:Property[@Name='Body']"/>
+	<append xpath="edmx:Edmx/edmx:Runtime/edmx:StorageModels/empty:Schema/empty:EntityType[@Name='AdmissionStructure' or @Name='InstitutionStructure']/empty:Property[@Name='Depth' or @Name='Lineage']"
+			name="StoreGeneratedPattern" value="Computed"/>
+	
+	<namespace prefix="empty" uri="http://schemas.microsoft.com/ado/2008/09/edm" />
+	<delete xpath="edmx:Edmx/edmx:Runtime/edmx:ConceptualModels/empty:Schema/empty:EntityType[@Name='Attachment']/empty:Property[@Name='Body']"/>
+	<append xpath="edmx:Edmx/edmx:Runtime/edmx:ConceptualModels/empty:Schema/empty:EntityType[@Name='AdmissionStructure' or @Name='InstitutionStructure']/empty:Property[@Name='Depth' or @Name='Lineage']"
+			name="annotation:StoreGeneratedPattern" value="Computed"/>
+	
+	<namespace prefix="empty" uri="http://schemas.microsoft.com/ado/2008/09/mapping/cs" />
+	<delete xpath="edmx:Edmx/edmx:Runtime/edmx:Mappings/empty:Mapping/empty:EntityContainerMapping/empty:EntitySetMapping[@Name='Attachment']/empty:EntityTypeMapping/empty:MappingFragment/empty:ScalarProperty[@Name='Body']"/>
+	<replace oldValue="\r\n          \r\n    " newValue="\r\n    "/>
+	<replace oldValue="\r\n                \r\n    " newValue="\r\n    "/>
+</patches>

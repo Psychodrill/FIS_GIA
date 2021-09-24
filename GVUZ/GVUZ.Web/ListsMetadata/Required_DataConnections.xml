@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0">
+  <Entities>
+    <Entity id="DataConnections" groupId="Common">
+      <CommonSettings allowEdit="true" allowCreate="true" allowDelete="true" newIdMode="UserInput" />
+      <DataSettings   baseTableName="DataConnections" />
+      <ListSettings   pageSize="20" headerText="Соединения с БД" listUrl="DCList.aspx"/>
+      <FormSettings />
+      <Fields>
+        <Field>
+          <DataSettings fieldName="Name"  isPrimaryKey="true"  fieldType="String" filterMode="Substring"></DataSettings>
+          <ListSettings>
+            <Filter caption="Наименование" order="1" lineBreakAfterInput="true" input="Text" size="Normal" visible="true"></Filter>
+            <View visibility="Visible" formatSchema="Default" order="1" caption="Наименование" ></View>
+          </ListSettings>
+          <FormSettings lineBreakAfterInput="true" caption="Наименование" input="Text" editMode="ReadOnlyText" isRequired="true" size="Normal" order="1" visible="true"></FormSettings>
+        </Field>
+        <Field>
+          <DataSettings fieldName="ProviderName" fieldType="String" filterMode="Substring"> </DataSettings>
+          <ListSettings>
+            <Filter caption="Провайдер БД" order="2" lineBreakAfterInput="true" input="DropDown" size="Normal" visible="true">
+              <DropDown tableName="DataConnectionTypes" keyFieldName="ID" orderFieldName="NAME" captionFieldName="NAME" />
+            </Filter>
+            <View visibility="Visible" formatSchema="" order="2" caption="Провайдер БД" >
+              <Substitution from="System.Data.SqlClient" to="MS SQL"/>
+              <Substitution from="FirebirdSql.Data.FirebirdClient" to="FireBird"/>
+              <Substitution from="MySql.Data.MySqlClient" to="MySQL"/>
+            </View>
+          </ListSettings>
+          <FormSettings lineBreakAfterInput="true" caption="Провайдер БД" input="DropDown" isRequired="true" size="Normal" order="2" visible="true">
+            <DropDown tableName="DataConnectionTypes" keyFieldName="ID" orderFieldName="NAME" captionFieldName="NAME" />
+          </FormSettings>
+        </Field>
+        <Field>
+          <DataSettings fieldName="ConnectionString" fieldType="String" filterMode="Substring"></DataSettings>
+          <ListSettings>
+            <Filter caption="Строка соединения" order="3" lineBreakAfterInput="true" input="Text" size="Long" visible="true"></Filter>
+            <View visibility="Visible" formatSchema="" order="3" caption="Строка соединения"></View>
+          </ListSettings>
+          <FormSettings lineBreakAfterInput="true" caption="Строка соединения" input="Text" isRequired="true" size="Long" order="3" visible="true"></FormSettings>
+        </Field>
+        <Field>
+          <DataSettings fieldName="ServiceUrl" fieldType="String" filterMode="Substring"></DataSettings>
+          <ListSettings>
+            <Filter caption="Веб-сервис" order="3" lineBreakAfterInput="true" input="Text" size="Long" visible="true"></Filter>
+            <View visibility="Visible" formatSchema="" order="3" caption="Веб-сервис"></View>
+          </ListSettings>
+          <FormSettings lineBreakAfterInput="true" caption="Веб-сервис" input="Text" isRequired="false" size="Long" order="3" visible="true"></FormSettings>
+        </Field>
+      </Fields>      
+    </Entity>    
+  </Entities>  
+</Metadata>

@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="NotEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:whiteSpace value="collapse"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NewIdModesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="ServerGuid"/>
+            <xs:enumeration value="Database"/>
+            <xs:enumeration value="UserInput"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VisibilityModesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Never"/>
+            <xs:enumeration value="Visible"/>
+            <xs:enumeration value="VisibleInGroup"/>
+            <xs:enumeration value="VisibleInGroupAndList"/>
+            <xs:enumeration value="Hidden"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GroupContentStatesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Expanded"/>
+            <xs:enumeration value="Collapsed"/>
+            <xs:enumeration value="None"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FormFieldModesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Default"/>
+            <xs:enumeration value="Control"/>
+            <xs:enumeration value="ReadOnlyControl"/>
+            <xs:enumeration value="ReadOnlyText"/>
+            <xs:enumeration value="Link"/>
+            <xs:enumeration value="NotVisible"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FieldDataTypesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Integer"/>
+            <xs:enumeration value="String"/>
+            <xs:enumeration value="DateTime"/>
+            <xs:enumeration value="Boolean"/>
+            <xs:enumeration value="Guid"/>
+            <xs:enumeration value="Binary"/>
+            <xs:enumeration value="Xml"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="RelationTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OneToOne"/>
+            <xs:enumeration value="OneToMany"/>
+            <xs:enumeration value="ManyToMany"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FilterInputTypesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Default"/>
+            <xs:enumeration value="Boolean"/>
+            <xs:enumeration value="StrictBoolean"/>
+            <xs:enumeration value="Date"/>
+            <xs:enumeration value="DateRange"/>
+            <xs:enumeration value="DatesRange"/>
+            <xs:enumeration value="DropDownData"/>
+            <xs:enumeration value="DropDown"/>
+            <xs:enumeration value="LinkedCatalog"/>
+            <xs:enumeration value="RelatedDropDowns"/>
+            <xs:enumeration value="Number"/>
+            <xs:enumeration value="Text"/>
+            <xs:enumeration value="ValuesList"/>
+            <xs:enumeration value="Picker"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FilterModesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Default"/>
+            <xs:enumeration value="Substring"/>
+            <xs:enumeration value="FullText"/>
+            <xs:enumeration value="Between"/>
+            <xs:enumeration value="In"/>
+            <xs:enumeration value="Equals"/>
+            <xs:enumeration value="EqualsIgnoreCase"/>
+            <xs:enumeration value="Custom"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FormInputTypesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Default"/>
+            <xs:enumeration value="Boolean"/>
+            <xs:enumeration value="Date"/>
+            <xs:enumeration value="DropDown"/>
+            <xs:enumeration value="RelatedDropDowns"/>
+            <xs:enumeration value="Text"/>
+            <xs:enumeration value="LongText"/>
+            <xs:enumeration value="File"/>
+            <xs:enumeration value="Picker"/>
+            <xs:enumeration value="SubGrid"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ValidationTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SQL"/>
+            <xs:enumeration value="Server"/>
+            <xs:enumeration value="JScript"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="InitializationTypesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SQL"/>
+            <xs:enumeration value="BuiltInValue"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="InputSizesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Long"/>
+            <xs:enumeration value="NormalLong"/>
+            <xs:enumeration value="Normal"/>
+            <xs:enumeration value="ShortNormal"/>
+            <xs:enumeration value="Short"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="LayoutModesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SingleTable"/>
+            <xs:enumeration value="RowByRow"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FileFieldTypesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FileName"/>
+            <xs:enumeration value="FileContent"/>
+            <xs:enumeration value="FileSize"/>
+            <xs:enumeration value="FileMimeType"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FieldValueComparsionModesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Equals"/>
+            <xs:enumeration value="NotEquals"/>
+            <xs:enumeration value="Less"/>
+            <xs:enumeration value="Greater"/>
+            <xs:enumeration value="Between"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BuiltInValueTypesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DateNow"/>
+            <xs:enumeration value="Null"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FirstLastButtonTextModesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ExplicitText"/>
+            <xs:enumeration value="PageNumber"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PagerModesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Top"/>
+            <xs:enumeration value="Bottom"/>
+            <xs:enumeration value="Both"/>
+            <xs:enumeration value="None"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ButtonsOrdersEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FirstPrevPagesNextLast"/>
+            <xs:enumeration value="PrevFirstPagesLastNext"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ListCacheTypesEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="FilteredData"/>
+            <xs:enumeration value="AllData"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Condition">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="Value" type="Value"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="ToValue" type="Value"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="FromValue" type="Value"></xs:element>
+        </xs:sequence>
+        <xs:attribute name="comparsion" type="FieldValueComparsionModesEnum" use="required" />
+    </xs:complexType>
+    <xs:complexType name="Value">
+        <xs:attribute name="value" type="NotEmptyString" use="optional" />
+        <xs:attribute name="builtInValue" type="BuiltInValueTypesEnum" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="EntityGroup">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded"  name="Group" type="EntityGroup">
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="NotEmptyString" use="required" />
+        <xs:attribute name="name" type="NotEmptyString" use="required" />
+        <xs:attribute name="order" type="xs:unsignedInt" use="required" />
+    </xs:complexType>
+    <xs:complexType name="Relation">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="JoinExpression" type="xs:string"></xs:element>
+            <xs:element maxOccurs="unbounded" name="Field" type="Field"> </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Relation" type="Relation">  </xs:element>
+        </xs:sequence>
+        <xs:attribute name="baseTableField" type="xs:string" use="optional" />
+        <xs:attribute name="relatedTableField" type="xs:string" use="optional" />
+        <xs:attribute name="relatedTableName" type="NotEmptyString" use="required" />
+        <xs:attribute name="relatedTableAlias" type="xs:string" use="optional" />
+        <!--LEFT|INNER JOIN-->
+        <xs:attribute name="mustExist" type="xs:boolean" use="required" />
+        <!-- ��� �����. �� ���������� OneToOne -->
+        <xs:attribute name="type" type="RelationTypeEnum" use="optional" default="OneToOne" />
+    </xs:complexType>
+    <xs:complexType name="Field">
+        <xs:all>
+            <xs:element minOccurs="0"  name="CommonSettings">
+                <xs:complexType>
+                    <xs:attribute name="caption" type="xs:string" use="optional" />
+                    <xs:attribute name="isNameField" type="xs:boolean" use="optional" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DataSettings">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="SqlExpression" type="xs:string" />
+                        <xs:element minOccurs="0" name="SortExpression" type="xs:string" />
+                        <xs:element minOccurs="0" name="WhereExpression" type="xs:string" />
+                    </xs:sequence>
+                    <xs:attribute name="fieldName" type="NotEmptyString" use="required" />
+                    <xs:attribute name="isPrimaryKey" type="xs:boolean" use="optional" />
+                    <xs:attribute name="fieldType" type="FieldDataTypesEnum" use="required" />
+                    <xs:attribute name="filterMode" type="FilterModesEnum" use="optional" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="ListSettings">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Filter">
+                            <xs:complexType mixed="true">
+                                <xs:all>
+                                    <xs:element minOccurs="0" name="ParentDropDown">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" maxOccurs="unbounded" name="SqlExpression" type="xs:string">
+                                                </xs:element>
+                                            </xs:sequence>
+                                            <xs:attribute name="tableName" type="NotEmptyString" use="optional" />
+                                            <xs:attribute name="keyFieldName" type="NotEmptyString" use="optional" />
+                                            <xs:attribute name="captionFieldName" type="NotEmptyString" use="optional" />
+                                            <xs:attribute name="orderFieldName" type="xs:string" use="optional" />
+                                            <xs:attribute name="caption" type="xs:string" use="optional" />
+                                            <xs:attribute name="showRelatedOnly" type="xs:boolean" use="optional" />
+                                            <xs:attribute name="hasEmptyElement" type="xs:boolean" use="optional" />
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="ChildDropDown">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" maxOccurs="unbounded" name="SqlExpression" type="xs:string">
+                                                </xs:element>
+                                            </xs:sequence>
+                                            <xs:attribute name="tableName" type="NotEmptyString" use="optional" />
+                                            <xs:attribute name="keyFieldName" type="NotEmptyString" use="optional" />
+                                            <xs:attribute name="captionFieldName" type="NotEmptyString" use="optional" />
+                                            <xs:attribute name="orderFieldName" type="xs:string" use="optional" />
+                                            <xs:attribute name="parentKeyField" type="NotEmptyString" use="optional" />
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="DropDown">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" maxOccurs="unbounded" name="SqlExpression" type="xs:string">
+                                                </xs:element>
+                                            </xs:sequence>
+                                            <xs:attribute name="tableName" type="NotEmptyString" use="optional" />
+                                            <xs:attribute name="keyFieldName" type="NotEmptyString" use="optional" />
+                                            <xs:attribute name="captionFieldName" type="NotEmptyString" use="optional" />
+                                            <xs:attribute name="orderFieldName" type="xs:string" use="optional" />
+                                            <xs:attribute name="showRelatedOnly" type="xs:boolean" use="optional" />
+                                            <xs:attribute name="hasEmptyElement" type="xs:boolean" use="optional" />
+                                            <xs:attribute name="isMultiple" type="xs:boolean" use="optional" />
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" maxOccurs="1" name="Picker">
+                                        <xs:complexType>
+                                            <xs:attribute name="entityId" type="NotEmptyString" use="required" />
+                                            <xs:attribute name="isMultiple" type="xs:boolean" use="optional" />
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:all>
+                                <xs:attribute name="visible" type="xs:boolean" use="optional" />
+                                <xs:attribute name="visibleIfExplicitlySet" type="xs:boolean" use="optional" />
+                                <xs:attribute name="input" type="FilterInputTypesEnum" use="optional" />
+                                <xs:attribute name="caption" type="xs:string" use="optional" />
+                                <xs:attribute name="lineBreakAfterInput" type="xs:boolean" use="optional" />
+                                <xs:attribute name="order" type="xs:unsignedInt" use="optional" />
+                                <xs:attribute name="groupId" type="xs:string" use="optional" />
+                                <xs:attribute name="size" type="InputSizesEnum" use="optional" />
+                                <xs:attribute name="textRows" type="xs:unsignedInt" use="optional" />
+                                <xs:attribute name="cssPrefix" type="xs:string" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="View">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Substitution">
+                                        <xs:complexType>
+                                            <xs:attribute name="from" type="xs:string" use="required" />
+                                            <xs:attribute name="to" type="xs:string" use="required" />
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" maxOccurs="1" name="HighlightConditions">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element minOccurs="1" maxOccurs="unbounded" name="Condition" type="Condition"></xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" maxOccurs="1" name="File">
+                                        <xs:complexType>
+                                            <xs:attribute name="fieldsGroupId" type="NotEmptyString" use="required" />
+                                            <xs:attribute name="fieldType" type="FileFieldTypesEnum" use="required" />
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="visibility" type="VisibilityModesEnum" use="optional" />
+                                <xs:attribute name="groupState" type="GroupContentStatesEnum" use="optional" />
+                                <xs:attribute name="formatSchema" type="xs:string" use="optional" />
+                                <xs:attribute name="order" type="xs:unsignedInt" use="optional" />
+                                <xs:attribute name="orderInGroup" type="xs:unsignedInt" use="optional" />
+                                <xs:attribute name="caption" type="xs:string" use="optional" />
+                                <xs:attribute name="isLink" type="xs:boolean" use="optional" />
+                                <xs:attribute name="allowHtml" type="xs:boolean" use="optional" />
+                                <xs:attribute name="cssClass" type="xs:string" use="optional" />
+                                <xs:attribute name="urlTemplate" type="xs:string" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="useForCheckboxValue" type="xs:boolean" use="optional" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="FormSettings">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="Substitution">
+                            <xs:complexType>
+                                <xs:attribute name="from" type="xs:string" use="required" />
+                                <xs:attribute name="to" type="xs:string" use="required" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Validations" minOccurs="0" maxOccurs="1"  >
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Validation" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="type" type="ValidationTypeEnum" use="optional" default="Server" />
+                                                    <xs:attribute name="order" type="xs:unsignedInt" use="optional" />
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="1" name="Initialization">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="type" type="InitializationTypesEnum" use="required" />
+                                        <xs:attribute name="builtInValue" type="BuiltInValueTypesEnum" use="optional" />
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="1" name="AddModeSqlExpression" type="NotEmptyString">
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="1" name="EditModeSqlExpression" type="NotEmptyString">
+                        </xs:element> 
+                        <xs:element minOccurs="0" name="ParentDropDown">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" maxOccurs="unbounded" name="SqlExpression" type="xs:string">
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="tableName" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="keyFieldName" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="captionFieldName" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="orderFieldName" type="xs:string" use="optional" />
+                                <xs:attribute name="caption" type="xs:string" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="ChildDropDown">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" maxOccurs="unbounded" name="SqlExpression" type="xs:string">
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="tableName" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="keyFieldName" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="captionFieldName" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="orderFieldName" type="xs:string" use="optional" />
+                                <xs:attribute name="parentKeyField" type="NotEmptyString" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="DropDown">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" maxOccurs="unbounded" name="SqlExpression" type="xs:string">
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="tableName" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="keyFieldName" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="orderFieldName" type="xs:string" use="optional" />
+                                <xs:attribute name="captionFieldName" type="NotEmptyString" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="1" name="File">
+                            <xs:complexType>
+                                <xs:attribute name="fieldsGroupId" type="NotEmptyString" use="required" />
+                                <xs:attribute name="fieldType" type="FileFieldTypesEnum" use="required" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="1" name="Picker">
+                            <xs:complexType>
+                                <xs:attribute name="entityId" type="NotEmptyString" use="required" />
+                                <xs:attribute name="fieldsGroupId" type="xs:string" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="PickerDependency">
+                            <xs:complexType>
+                                <xs:attribute name="fieldsGroupId" type="NotEmptyString" use="required" />
+                                <xs:attribute name="sourceField" type="NotEmptyString" use="required" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="1" name="SubGrid">
+                            <xs:complexType>
+                                <xs:attribute name="entityId" type="NotEmptyString" use="required" />
+                                <xs:attribute name="filterFieldName" type="NotEmptyString" use="required" />
+                                <xs:attribute name="allowUnlink" type="xs:boolean" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="visible" type="xs:boolean" use="optional" />
+                    <xs:attribute name="input" type="FormInputTypesEnum" use="optional" />
+                    <xs:attribute name="caption" type="xs:string" use="optional" />
+                    <xs:attribute name="lineBreakAfterInput" type="xs:boolean" use="optional" />
+                    <xs:attribute name="formatSchema" type="xs:string" use="optional" />
+                    <xs:attribute name="order" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="groupId" type="xs:string" use="optional" />
+                    <xs:attribute name="size" type="InputSizesEnum" use="optional" />
+                    <xs:attribute name="textRows" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="editMode" type="FormFieldModesEnum" use="optional" />
+                    <xs:attribute name="addMode" type="FormFieldModesEnum" use="optional" />
+                    <xs:attribute name="isRequired" type="xs:boolean" use="optional" />
+                    <xs:attribute name="isExternal" type="xs:boolean" use="optional" default="false" />
+                    <xs:attribute name="cssPrefix" type="xs:string" use="optional" />
+                    <xs:attribute name="urlTemplate" type="xs:string" use="optional" />
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="Entity">
+        <xs:all>
+            <xs:element name="CommonSettings">
+                <xs:complexType>
+                    <xs:attribute name="allowEdit" type="xs:boolean" use="optional" />
+                    <xs:attribute name="allowCreate" type="xs:boolean" use="optional" />
+                    <xs:attribute name="allowLink" type="xs:boolean" use="optional" />
+                    <xs:attribute name="allowDelete" type="xs:boolean" use="optional" />
+                    <xs:attribute name="allowDeleteFromForm" type="xs:boolean" use="optional" />
+                    <xs:attribute name="newIdMode" type="NewIdModesEnum" use="optional" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DataSettings">
+                <xs:complexType mixed="true">
+                    <xs:all>
+                        <xs:element minOccurs="0" name="WhereExpression" type="xs:string" />
+                        <xs:element minOccurs="0" name="SortExpression" type="xs:string" />
+                        <xs:element minOccurs="0" name="RequiredSortExpression" type="xs:string" />
+                    </xs:all>
+                    <xs:attribute name="connectionStringName" type="xs:string" use="optional" />
+                    <xs:attribute name="baseTableName" type="NotEmptyString" use="required" />
+                    <xs:attribute name="autoOrderGroups" type="xs:boolean" use="optional" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ListSettings">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element minOccurs="0" name="FilterFieldGroups">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="FieldGroup" >
+                                        <xs:complexType>
+                                            <xs:attribute name="id" type="NotEmptyString" use="required" />
+                                            <xs:attribute name="caption" type="NotEmptyString" use="required" />
+                                            <xs:attribute name="order" type="xs:unsignedInt" use="optional" />
+                                            <xs:attribute name="collapsed" type="xs:boolean" use="optional" />
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <!--��������� ���������� ��������� � �������-->
+                        <xs:element minOccurs="0" name="FilterLayoutSettings">
+                            <xs:complexType>
+                                <xs:attribute name="layoutMode" type="LayoutModesEnum" use="optional" />
+                                <xs:attribute name="cssPrefix" type="xs:string" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="HighlightSettings">
+                            <xs:complexType>
+                                <xs:attribute name="highlightFullRow" type="xs:boolean" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="PagerSettings">
+                            <xs:complexType>
+                                <xs:attribute name="PreviousButtonText" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="NextButtonText" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="FirstButtonText" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="LastButtonText" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="FirstLastButtonTextMode" type="FirstLastButtonTextModesEnum" use="optional" />
+                                <xs:attribute name="Mode" type="PagerModesEnum" use="optional" />
+                                <xs:attribute name="ButtonsOrder" type="ButtonsOrdersEnum" use="optional" />
+                                <xs:attribute name="ShowPrevPreviousAndNextButtons" type="xs:boolean" use="optional" />
+                                <xs:attribute name="ShowInfo" type="xs:boolean" use="optional" />
+                                <xs:attribute name="InfoTextFormat" type="NotEmptyString" use="optional" />
+                                <xs:attribute name="PageButtonsCount" type="xs:unsignedInt" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:all>
+                    <xs:attribute name="pageSize" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="formatSchema" type="xs:string" use="optional" />
+                    <xs:attribute name="headerText" type="xs:string" use="optional" />
+                    <xs:attribute name="allowExport" type="xs:boolean" use="optional" />
+                    <xs:attribute name="cssPrefix" type="xs:string" use="optional" />
+                    <xs:attribute name="listUrl" type="xs:string" use="optional" />
+                    <xs:attribute name="addItemUrl" type="xs:string" use="optional" />
+                    <xs:attribute name="editItemUrl" type="xs:string" use="optional" />
+                    <xs:attribute name="cacheType" type="ListCacheTypesEnum" use="optional" />
+                    <xs:attribute name="cacheDurationInSeconds" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="cacheKey" type="xs:string" use="optional" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="FormSettings">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="FieldGroups"  >
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="FieldGroup" >
+                                        <xs:complexType>
+                                            <xs:attribute name="id" type="NotEmptyString" use="required" />
+                                            <xs:attribute name="caption" type="NotEmptyString" use="required" />
+                                            <xs:attribute name="order" type="xs:unsignedInt" use="optional" />
+                                            <xs:attribute name="collapsed" type="xs:boolean" use="optional" />
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <!--��������� ���������� ��������� �� �����-->
+                        <xs:element minOccurs="0" name="LayoutSettings">
+                            <xs:complexType>
+                                <xs:attribute name="layoutMode" type="LayoutModesEnum" use="optional" />
+                                <xs:attribute name="cssPrefix" type="xs:string" use="optional" />
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Validations" minOccurs="0" maxOccurs="1"  >
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Validation" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="type" type="ValidationTypeEnum" use="optional" default="SQL" />
+                                                    <xs:attribute name="order" type="xs:unsignedInt" use="optional" />
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="btnSave" type="xs:string" use="optional"/>
+                    <xs:attribute name="btnCancel" type="xs:string" use="optional" />
+                    <xs:attribute name="btnBack" type="xs:string" use="optional" />
+                    <xs:attribute name="btnRefresh" type="xs:string" use="optional" />
+                    <xs:attribute name="btnDelete" type="xs:string" use="optional" />
+                    <xs:attribute name="jsLinkMask" type="xs:string" use="optional" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Fields">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="Field" type="Field">
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="Relation" type="Relation">
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+        <xs:attribute name="id" type="NotEmptyString" use="required" />
+        <xs:attribute name="groupId" type="xs:string" use="optional" />
+        <!--��� �����������, ��������, ������������-->
+        <xs:attribute name="macroType" type="xs:string" use="optional" />
+    </xs:complexType>
+    <xs:element name="Metadata">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="EntityGroups">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Group" type="EntityGroup">
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element minOccurs="0" name="Entities">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="1" maxOccurs="unbounded" name="Entity" type="Entity">
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <!--������ ������� ����� ����������-->
+            <xs:attribute name="formatVersion" type="NotEmptyString" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

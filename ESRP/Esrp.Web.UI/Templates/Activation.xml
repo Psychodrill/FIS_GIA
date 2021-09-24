@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template>
+  <subject><![CDATA[ФИС Приема: Активация учетной записи]]></subject>
+  <from><![CDATA[priemou@obrnadzor.gov.ru]]></from>
+  <content-type><![CDATA[html]]></content-type>
+  <encoding><![CDATA[koi8-r]]></encoding>
+  <body>
+    <![CDATA[
+     <p>Здравствуйте, ##FULLNAME##.</p>
+     <p>Процедура регистрации пользователя ФИС ЕГЭ и приема успешно завершена.</p>
+     <table>
+      <tr>
+        <td>Ваш логин:</td> 
+        <td>##LOGIN##</td>
+      </tr>
+      <tr>
+        <td>Текущее состояние:</td>
+        <td>Действующий</td>
+      </tr>
+    </table>
+    <p>С уважением, Администрация ФИС ЕГЭ и приема.</p>
+    <p>Убедительная просьба не отвечать на данное письмо. Письмо отправлено автоматически.</p>
+    ]]>
+  </body>
+</template>

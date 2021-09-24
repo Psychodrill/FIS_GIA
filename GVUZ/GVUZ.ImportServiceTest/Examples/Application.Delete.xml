@@ -1,0 +1,14 @@
+﻿<Root>
+  <DataForDelete>
+    <Applications>
+      <Application>
+        <ApplicationNumber>
+			ApplicationNumber_{0}
+		</ApplicationNumber>
+        <RegistrationDate>
+			2012-09-25T13:57:05.477
+		</RegistrationDate>
+      </Application>
+    </Applications>
+  </DataForDelete>
+</Root>

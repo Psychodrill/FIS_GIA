@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4beb94a67414cb2a7727dab120f3116" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="EntrantsModel.Address" Width="1.5" PointX="4.5" PointY="67.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.AdmissionItemType" Width="1.5" PointX="0.75" PointY="46.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.AdmissionVolume" Width="1.5" PointX="3" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.AllowedDirections" Width="1.5" PointX="6" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.Application" Width="1.5" PointX="9" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ApplicationCompetitiveGroupItem" Width="1.5" PointX="14.25" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ApplicationEntranceTestDocument" Width="1.5" PointX="11.25" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ApplicationEntrantDocument" Width="1.5" PointX="14.25" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ApplicationExtra" Width="1.5" PointX="11.25" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ApplicationExtraDefinition" Width="1.5" PointX="9" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ApplicationStatusType" Width="1.5" PointX="6.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.Attachment" Width="1.5" PointX="1.5" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.Benefit" Width="1.5" PointX="6.75" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.BenefitItemC" Width="1.5" PointX="14.25" PointY="59.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.BenefitItemCOlympicType" Width="1.5" PointX="16.5" PointY="60.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.BenefitItemSubject" Width="1.5" PointX="19.5" PointY="61" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.Campaign" Width="1.5" PointX="0.5" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.CampaignEducationLevel" Width="1.5" PointX="6" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.CampaignOrderDateCatalog" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.CityType" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.CompetitiveGroup" Width="1.5" PointX="6" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.CompetitiveGroupItem" Width="1.5" PointX="8.25" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.CompetitiveGroupProgram" Width="1.5" PointX="8.25" PointY="63.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.CompetitiveGroupTarget" Width="1.5" PointX="6.75" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.CompetitiveGroupTargetItem" Width="1.5" PointX="11.25" PointY="60.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.CountryType" Width="1.5" PointX="1.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.Direction" Width="1.5" PointX="0.75" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.DirectionSubjectLink" Width="1.5" PointX="17.25" PointY="64.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.DirectionSubjectLinkDirection" Width="1.5" PointX="19.5" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.DirectionSubjectLinkSubject" Width="1.5" PointX="19.5" PointY="65.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.DisabilityType" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.DistributedAdmissionVolume" Width="1.5" PointX="11.25" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.DocumentType" Width="1.5" PointX="2.25" PointY="74.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.EntranceTestCreativeDirection" Width="1.5" PointX="3" PointY="80" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.EntranceTestItemC" Width="1.5" PointX="17.25" PointY="53.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.EntranceTestProfileDirection" Width="1.5" PointX="3" PointY="64.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.EntranceTestResultSource" Width="1.5" PointX="9" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.EntranceTestType" Width="1.5" PointX="15" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.Entrant" Width="1.5" PointX="6.75" PointY="69.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.EntrantDocument" Width="1.5" PointX="4.5" PointY="72.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.EntrantLanguage" Width="1.5" PointX="9" PointY="71.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.IndividualAchievementsCategory" Width="1.5" PointX="12.75" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.IndividualAchivement" Width="1.5" PointX="17.25" PointY="47.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.Institution" Width="1.5" PointX="1.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.InstitutionAchievements" Width="1.5" PointX="15" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.InstitutionDocumentType" Width="1.5" PointX="9" PointY="67.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.LevelBudget" Width="1.5" PointX="9" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.NationalityType" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.OlympicDiplomType" Width="1.5" PointX="12" PointY="65.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.OlympicLevel" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.OlympicProfile" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.OlympicSubject" Width="1.5" PointX="17.25" PointY="67.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.OlympicType" Width="1.5" PointX="14.25" PointY="71" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.OrderOfAdmission" Width="1.5" PointX="3" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.OrderOfAdmissionHistory" Width="1.5" PointX="11.25" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ParentDirection" Width="1.5" PointX="1.5" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ParentsLostCategory" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.PersonalDataAccessLog" Width="1.5" PointX="3.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.RecomendedLists" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.RegionType" Width="1.5" PointX="1.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.RequestComments" Width="1.5" PointX="6" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.RequestDirection" Width="1.5" PointX="3.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.Subject" Width="1.5" PointX="15" PointY="65.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.SubjectEgeMinValue" Width="1.5" PointX="17.25" PointY="70.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.Violation" Width="1.5" PointX="3" PointY="53.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ViolationType" Width="1.5" PointX="6.75" PointY="78.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ApplicationSelectedCompetitiveGroup" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ApplicationSelectedCompetitiveGroupItem" Width="1.5" PointX="14.25" PointY="56.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.ApplicationSelectedCompetitiveGroupTarget" Width="1.5" PointX="17.25" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntrantsModel.EntrantDocumentIdentity" Width="1.5" PointX="11.75" PointY="31.875" IsExpanded="true" />
+        <AssociationConnector Association="EntrantsModel.FK_Address_CountryType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Address_RegionType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Entrant_Address_Fact" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Entrant_Address_Registration" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK__Violation__Educa__702996C1" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK__Violation__Educa__711DBAFA" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_AdmissionVolume_AdmissionItemType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_AllowedDirections_AdmissionItemType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_AdmissionItemTypeForm" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_AdmissionItemTypeSource" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CampaignEducationLevel_AdmissionItemType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroup_EducationForm" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroup_EducationLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroup_EducationSource" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_OrderOfAdmission_AdmissionItemTypeForm" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_OrderOfAdmission_AdmissionItemTypeLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_OrderOfAdmission_AdmissionItemTypeSource" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_AdmissionVolume_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_AdmissionVolume_Direction" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_AdmissionVolume_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_DistributedAdmissionVolume_AdmissionVolume" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_AllowedDirections_Direction" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_AllowedDirections_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_ApplicationStatusType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_Benefit" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_CompetitiveGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_CompetitiveGroupTarget" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_Entrant" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_IsDisabledEntrantDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_LevelBudge" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_OrderOfAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Application_ViolationType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationCompetitiveGroupItem_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntranceTestDocument_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntrantDocument_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationExtra_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationSelectedCompetitiveGroupItem_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationSelectedCompetitiveGroupTarget_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_IndividualAchivement_Application1" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_OrderOfAdmissionHistory_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationCompetitiveGroupItem_CompetitiveGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationCompetitiveGroupItem_CompetitiveGroupItem" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationCompetitiveGroupItem_OrderBenefitID" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationCompetitiveGroupItem_OrderIdLevelBudget" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationCompetitiveGroupItem_OrderOfAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationCompetitiveGroupItem_OrderOfException" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntranceTestDocument_Benefit" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntranceTestDocument_CompetitiveGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntranceTestDocument_EntranceTestItemC" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntranceTestDocument_EntranceTestResultSource" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntranceTestDocument_EntranceTestType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntranceTestDocument_EntrantDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntranceTestDocument_InstitutionDocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntranceTestDocument_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationEntrantDocument_EntrantDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationExtra_ApplicationExtraDefinition" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntrantDocument_Attachment" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Institution_Attachment" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_BenefitItemC_Benefit" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_BenefitItem_EntranceTestItemC" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_BenefitItemC_CompetitiveGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_BenefitItemC_OlympicDiplomType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_BenefitItemCOlympicType_BenefitItemC" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_BenefitItemSubject_BenefitItemC1" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_BenefitItemCOlympicType_OlympicType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_BenefitItemSubject_Subject1" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK__Violation__Campa__6D4D2A16" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Campaign_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CampaignEducationLevel_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroup_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_InstitutionAchievements_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_OrderOfAdmission_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroup_Direction" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroup_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroup_LevelBudget" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroup_ParentDirection" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroupItem_CompetitiveGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroupProgram_CompetitiveGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroupTargetItem_CompetitiveGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntranceTestItemC_CompetitiveGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationSelectedCompetitiveGroupItem_CompetitiveGroupItem" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_ApplicationSelectedCompetitiveGroupTarget_CompetitiveGroupTarget" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroupTarget_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_CompetitiveGroupTargetItem_CompetitiveGroupTarget" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK__Violation__Count__6E414E4F" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntrantDocumentIdentity_CountryType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_RegionType_CountryType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Direction_ParentDirection" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_DirectionSubjectLinkDirection_Direction" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntranceTestCreativeDirections_Direction" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntranceTestProfileDirection_DirectionID" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_DirectionSubjectLink_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_DirectionSubjectLinkDirection_DirectionSubjectLink" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_DirectionSubjectLinkSubject_DirectionSubjectLink" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_DirectionSubjectLinkSubject_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_DistributedAdmissionVolume_LevelBudget" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK__Violation__Docum__6F357288" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntrantDocument_DocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntranceTestItemC_EntranceTestItemC" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntranceTestItemC_EntranceTestType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntranceTestItemC_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Entrant_EntrantDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Entrant_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Entrant_KrymEntrantDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Entrant_RegionType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntrantDocument_Entrant" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntrantLanguage_Entrant" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK__Violation__Entra__7211DF33" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_EntrantDocumentIdentity_EntrantDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_IndividualAchivement_EntrantDocument1" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_InstitutionAchievements_IndividualAchievementsCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_IndividualAchivement_InstitutionAchievements" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_Institution_RegionType" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_OrderOfAdmission_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_RequestDirection_Request" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_OlympicSubject_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_OrderOfAdmissionHistory_OrderOfAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_RequestComments_RequestDirection" ManuallyRouted="false" />
+        <AssociationConnector Association="EntrantsModel.FK_SubjectEgeMinValue_Subject" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EntrantsModel.IdentityDocumentType" Width="1.5" PointX="6.375" PointY="9.875" />
+        <AssociationConnector Association="EntrantsModel.FK_EntrantDocumentIdentity_IdentityDocumentType" />
+        <EntityTypeShape EntityType="EntrantsModel.ForeignLanguageType" Width="1.5" PointX="8.375" PointY="9.875" />
+        <AssociationConnector Association="EntrantsModel.FK_EntrantLanguage_ForeignLanguageType" />
+        <EntityTypeShape EntityType="EntrantsModel.vCompetitiveGroup" Width="1.5" PointX="10.375" PointY="9.75" />
+        <EntityTypeShape EntityType="EntrantsModel.RecomendedListsHistory" Width="1.5" PointX="3" PointY="1.625" />
+        <AssociationConnector Association="EntrantsModel.FK_RecomendedListsHistory_RecomendedLists1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

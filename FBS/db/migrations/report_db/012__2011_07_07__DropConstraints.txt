@@ -1,0 +1,45 @@
+-- =========================================================================
+-- Запись информации о текущей миграции в лог
+insert into Migrations(MigrationVersion, MigrationName) values (12, '012__2011_07_07__DropConstraints')
+-- =========================================================================
+GO
+
+
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('ByDayOrgAggregates') and o.name = 'FK_BYDAYORG_REFERENCE_ORGANIZA')
+alter table ByDayOrgAggregates
+   drop constraint FK_BYDAYORG_REFERENCE_ORGANIZA
+go
+
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('ByPeriodOrgAggregates') and o.name = 'FK_BYPERIOD_REFERENCE_ORGANIZA')
+alter table ByPeriodOrgAggregates
+   drop constraint FK_BYPERIOD_REFERENCE_ORGANIZA
+go
+
+
+
+
+
+
+
+
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('ByDayCertAggregates') and o.name = 'FK_BYDAYCER_REFERENCE_CERTIFIC')
+alter table ByDayCertAggregates
+   drop constraint FK_BYDAYCER_REFERENCE_CERTIFIC
+go
+
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('ByPeriodCertAggregates') and o.name = 'FK_BYPERIOD_REFERENCE_CERTIFIC')
+alter table ByPeriodCertAggregates
+   drop constraint FK_BYPERIOD_REFERENCE_CERTIFIC
+go

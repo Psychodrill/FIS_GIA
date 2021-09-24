@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Organization2010]
+    ADD CONSTRAINT [FK__Organizat__TypeI__28C8E036] FOREIGN KEY ([TypeId]) REFERENCES [dbo].[OrganizationType2010] ([Id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

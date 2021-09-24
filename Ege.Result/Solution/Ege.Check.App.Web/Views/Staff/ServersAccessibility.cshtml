@@ -1,0 +1,91 @@
+﻿@section styles {
+    <link rel="stylesheet" href="@Url.Content("~/Content/Build/css/serversaccessibility.css")"/>
+}
+@section scripts {
+    <script src="@Url.Content("~/Content/Build/js/servers-accessibility.js")"> </script>
+}
+@{
+    ViewBag.Title = "Проверка доступности серверов бланков сочинений";
+}
+
+<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+    <symbol id="icon-blocked" viewBox="0 0 1024 1024">
+	    <title>blocked</title>
+	    <path class="path1" d="M874.040 149.96c-96.706-96.702-225.28-149.96-362.040-149.96s-265.334 53.258-362.040 149.96c-96.702 96.706-149.96 225.28-149.96 362.040s53.258 265.334 149.96 362.040c96.706 96.702 225.28 149.96 362.040 149.96s265.334-53.258 362.040-149.96c96.702-96.706 149.96-225.28 149.96-362.040s-53.258-265.334-149.96-362.040zM896 512c0 82.814-26.354 159.588-71.112 222.38l-535.266-535.268c62.792-44.758 139.564-71.112 222.378-71.112 211.738 0 384 172.262 384 384zM128 512c0-82.814 26.354-159.586 71.112-222.378l535.27 535.268c-62.794 44.756-139.568 71.11-222.382 71.11-211.738 0-384-172.262-384-384z"></path>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 1024 1024">
+	    <title>check</title>
+	    <path class="path1" d="M384 689.92l-177.92-177.92-60.373 60.373 238.293 238.293 512-512-60.373-60.373z"></path>
+    </symbol>
+    <symbol id="icon-more-horiz" viewBox="0 0 1024 1024">
+	    <title>more-horiz</title>
+	    <path class="path1" d="M256 426.667c-47.147 0-85.333 38.187-85.333 85.333s38.187 85.333 85.333 85.333 85.333-38.187 85.333-85.333-38.187-85.333-85.333-85.333zM768 426.667c-47.147 0-85.333 38.187-85.333 85.333s38.187 85.333 85.333 85.333 85.333-38.187 85.333-85.333-38.187-85.333-85.333-85.333zM512 426.667c-47.147 0-85.333 38.187-85.333 85.333s38.187 85.333 85.333 85.333 85.333-38.187 85.333-85.333-38.187-85.333-85.333-85.333z"></path>
+    </symbol>
+    </defs>
+</svg>
+
+@Html.Partial("Menu")
+
+<div class="account-block">
+    <a href="#" id="logout">Выход</a>
+</div>
+
+<h2>@ViewBag.Title</h2>
+
+<button class="mb-15" id="check-all">
+    <span>Проверить все</span>
+    @RawHtml("~/Content/Pages/Partials/loader.html")
+</button>
+
+<div id="table-container" class="table-container">
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th class="width-20" rowspan="2"></th>
+                <th class="width-220" rowspan="2">Регион</th>
+                <th class="width-220" rowspan="2">Адрес сервера</th>
+                <th colspan="2">Количество результатов</th>
+                <th rowspan="2">Дата обновления</th>
+                <th class="width-80" rowspan="2"></th>
+            </tr>
+            <tr>
+            	<th>из файла</th>
+            	<th>из БД</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/html" id="check-icon">
+	<div title="Сервер доступен">
+		<svg class="svg-icon svg-icon-check" fill="green"><use xlink:href="#icon-check"></use></svg>	
+	</div>
+</script>
+
+<script type="text/html" id="block-icon">
+	<div title="Сервер недоступен">
+		<svg class="svg-icon svg-icon-block" fill="#c00"><use xlink:href="#icon-blocked"></use></svg>
+	</div>
+</script>
+
+<script type="text/html" id="table-buttons">
+	<button class="btn-small btn-light c-more" title="Детализация">
+		<svg class="svg-icon"><use xlink:href="#icon-more-horiz"></use></svg>
+	</button>
+	<button class="btn-small btn-light c-check" title="Проверить">
+		<img src="@Url.Content("~/Content/Images/check_file.png")" />
+	</button>
+</script>
+
+<script type="text/html" id="dialog-content">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>GUID</th>
+				<th class="width-110">Дата экзамена</th>
+				<th>Причина</th>
+			</tr>
+		</thead>
+	</table>
+</script>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Metadata formatVersion="2.0"> 
+    <Entities>
+        <Entity id="GVUZ_Institutions" groupId="Common">
+            <CommonSettings allowEdit="false" allowCreate="false" allowDelete="false" newIdMode="UserInput"  />
+            <DataSettings baseTableName="Institution" connectionStringName="GVUZ" >
+                <WhereExpression>
+                    Institution.InstitutionID= @instId_auto
+                </WhereExpression>
+            </DataSettings>
+            <ListSettings pageSize="20" headerText="Образовательные организации" />
+            <FormSettings />
+            <Fields>
+                <Field>
+                    <DataSettings fieldName="InstitutionID" isPrimaryKey="true" fieldType="Integer" filterMode="Equals"></DataSettings>
+                    <ListSettings>
+                        <View visibility="Visible" order="1" caption="Идентификатор" >
+                        </View>
+                    </ListSettings> 
+                </Field> 
+                <Field>
+                    <CommonSettings isNameField="true" />
+                    <DataSettings fieldName="FullName" fieldType="String" filterMode="Substring">
+                    </DataSettings>
+                    <ListSettings>
+                        <View visibility="Visible" formatSchema="" order="20" caption="Наименование" >
+                        </View>
+                    </ListSettings> 
+                </Field>
+            </Fields>
+        </Entity>
+    </Entities>
+</Metadata>

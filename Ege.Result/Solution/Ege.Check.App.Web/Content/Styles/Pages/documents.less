@@ -1,0 +1,33 @@
+@import "../Core/core.less";
+@import "../Components/account.less";
+@import "../Components/menu.less";
+@import "../Mixins/spinner.less";
+@import "../Components/message-popup.less";
+@import "../Components/loader.less";
+
+
+.docs-container.loading::before {
+	.spinner;
+	content: '';
+	display: block;
+	margin: 0 auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+
+	td {
+		padding: 0 5px 5px 0;
+	}
+}
+
+input[type="text"] {
+	font-size: 14px;
+	width: 100%;
+	height: 28px;
+}
+
+button {
+	vertical-align: bottom;
+}
